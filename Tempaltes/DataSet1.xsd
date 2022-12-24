@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tb_SPHH" msprop:Generator_RowEvHandlerName="tb_SPHHRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_SPHHRowDeleted" msprop:Generator_RowDeletingName="tb_SPHHRowDeleting" msprop:Generator_RowEvArgName="tb_SPHHRowChangeEvent" msprop:Generator_TablePropName="tb_SPHH" msprop:Generator_RowChangedName="tb_SPHHRowChanged" msprop:Generator_RowChangingName="tb_SPHHRowChanging" msprop:Generator_TableClassName="tb_SPHHDataTable" msprop:Generator_RowClassName="tb_SPHHRow" msprop:Generator_TableVarName="tabletb_SPHH" msprop:Generator_UserTableName="tb_SPHH">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="STT" msprop:Generator_ColumnPropNameInRow="STT" msprop:Generator_ColumnPropNameInTable="STTColumn" msprop:Generator_ColumnVarNameInTable="columnSTT" msprop:Generator_UserColumnName="STT" type="xs:string" minOccurs="0" />
+              <xs:element name="TenLoai" msprop:Generator_ColumnPropNameInRow="TenLoai" msprop:Generator_ColumnPropNameInTable="TenLoaiColumn" msprop:Generator_ColumnVarNameInTable="columnTenLoai" msprop:Generator_UserColumnName="TenLoai" type="xs:string" minOccurs="0" />
+              <xs:element name="TenSP" msprop:Generator_ColumnPropNameInRow="TenSP" msprop:Generator_ColumnPropNameInTable="TenSPColumn" msprop:Generator_ColumnVarNameInTable="columnTenSP" msprop:Generator_UserColumnName="TenSP" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tb_SPTK" msprop:Generator_RowEvHandlerName="tb_SPTKRowChangeEventHandler" msprop:Generator_RowDeletedName="tb_SPTKRowDeleted" msprop:Generator_RowDeletingName="tb_SPTKRowDeleting" msprop:Generator_RowEvArgName="tb_SPTKRowChangeEvent" msprop:Generator_TablePropName="tb_SPTK" msprop:Generator_RowChangedName="tb_SPTKRowChanged" msprop:Generator_RowChangingName="tb_SPTKRowChanging" msprop:Generator_TableClassName="tb_SPTKDataTable" msprop:Generator_RowClassName="tb_SPTKRow" msprop:Generator_TableVarName="tabletb_SPTK" msprop:Generator_UserTableName="tb_SPTK">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="STT" msprop:Generator_ColumnPropNameInRow="STT" msprop:Generator_ColumnPropNameInTable="STTColumn" msprop:Generator_ColumnVarNameInTable="columnSTT" msprop:Generator_UserColumnName="STT" type="xs:string" minOccurs="0" />
+              <xs:element name="TennLoai" msprop:Generator_ColumnPropNameInRow="TennLoai" msprop:Generator_ColumnPropNameInTable="TennLoaiColumn" msprop:Generator_ColumnVarNameInTable="columnTennLoai" msprop:Generator_UserColumnName="TennLoai" type="xs:string" minOccurs="0" />
+              <xs:element name="TenSP" msprop:Generator_ColumnPropNameInRow="TenSP" msprop:Generator_ColumnPropNameInTable="TenSPColumn" msprop:Generator_ColumnVarNameInTable="columnTenSP" msprop:Generator_UserColumnName="TenSP" type="xs:string" minOccurs="0" />
+              <xs:element name="SoLuong" msprop:Generator_ColumnPropNameInRow="SoLuong" msprop:Generator_ColumnPropNameInTable="SoLuongColumn" msprop:Generator_ColumnVarNameInTable="columnSoLuong" msprop:Generator_UserColumnName="SoLuong" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
