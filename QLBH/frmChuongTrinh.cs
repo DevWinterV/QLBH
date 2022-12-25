@@ -19,7 +19,6 @@ namespace QLBH
     {
         public frmChuongTrinh(string phanquyen, string tennv, string manv)
         {
-        // chỉnh sửa của Rạng Đông @@
             InitializeComponent();
             this.phanquyen = phanquyen;
             this.tennv = tennv;
