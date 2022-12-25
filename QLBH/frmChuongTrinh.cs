@@ -19,6 +19,7 @@ namespace QLBH
     {
         public frmChuongTrinh(string phanquyen, string tennv, string manv)
         {
+        // chỉnh sửa của Rạng Đông @@
             InitializeComponent();
             this.phanquyen = phanquyen;
             this.tennv = tennv;
@@ -180,29 +181,33 @@ namespace QLBH
 
         private void btn_Font_Click(object sender, EventArgs e)
         {
+            int y = 0;
+            y = panel_home.Width;
             panel_TD.BringToFront();
             panel_home.BringToFront();
             btn_fontLon.BringToFront();
             panel_menu.SendToBack();
             panel_home.Location = new Point(35, 32);
             lb_tenfrm.Location = new Point(0, 10);
-            if (this.WindowState == FormWindowState.Maximized )
-                panel_home.Size = new Size(1239, 688);
+            if (this.WindowState == FormWindowState.Maximized)
+                panel_home.Width = y+ 134;
             else
-                panel_home.Size = new Size(899, 570);
+                panel_home.Width = y + 134;
             lb_banquyen.Visible = false;
             pic_anhnen.Visible = false;
         }
 
         private void btn_fontLon_Click(object sender, EventArgs e)
         {
+            int y = 0;
+            y = panel_home.Width;
             btn_fontLon.SendToBack();
             panel_home.Location = new Point(170, 32);
             lb_tenfrm.Location = new Point(135, 10);
             if (this.WindowState == FormWindowState.Maximized)
-                panel_home.Size = new Size(1104, 688);
-            else 
-                panel_home.Size = new Size(763, 570);
+                panel_home.Width = y - 134;
+           else
+                panel_home.Width = y - 134;
             lb_banquyen.Visible = true;
             pic_anhnen.Visible = true;
         }
@@ -271,11 +276,17 @@ namespace QLBH
 
         private void panel_TD_DoubleClick(object sender, EventArgs e)
         {
-            
-            if(this.WindowState == FormWindowState.Normal)
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
                 this.WindowState = FormWindowState.Maximized;
+                btnThuNho.BringToFront();
+            }
             else
+            {
                 this.WindowState = FormWindowState.Normal;
+                btnPhongTo.BringToFront();
+            }
         }
 
         private void pictureBox_TK_menu_Click(object sender, EventArgs e)
