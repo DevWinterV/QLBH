@@ -39,13 +39,21 @@ namespace QLBH
 
         public void Load_DSSP()// load dữ liệu bảng sản phẩm
         {
-            DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select  loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from loaispdgd loai, sanphamDGD sp where sp.tinhtrang = N'CÒN BÁN' and sp.maloai = loai.maloai");
+            try {
+                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select  loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from loaispdgd loai, sanphamDGD sp where sp.tinhtrang = N'CÒN BÁN' and sp.maloai = loai.maloai");
+            }
+            catch { }
         }
+
         private void LoadcbbKH()// load dữ liệu của khách hàng vào combobox
         {
-            cbb_tenkhachhang.DataSource = kh.LoadDuLieu("");
-            cbb_tenkhachhang.DisplayMember = "hoten";
-            cbb_tenkhachhang.ValueMember = "makh";
+            try
+            {
+                cbb_tenkhachhang.DataSource = kh.LoadDuLieu("");
+                cbb_tenkhachhang.DisplayMember = "hoten";
+                cbb_tenkhachhang.ValueMember = "makh";
+            }
+            catch {; }
         }
 
         BUS_HoaDon hd = new BUS_HoaDon();
@@ -107,8 +115,8 @@ namespace QLBH
                 btnhuyhd.Enabled = false;
                 btntaomoi.Enabled = true;
                 dgv_CTHD.Rows.Clear();
-                Load_DSSP();
                 Enable_DGVCTHD();
+                Load_DSSP();  
                 Enable_chucnang(false);
                 lb_tongtien.Text = TongTien().ToString("c",new CultureInfo("vi-Vn"));
                 txt_sdt.Clear();
@@ -461,7 +469,6 @@ namespace QLBH
                                 }
                             }
                         }
-                        Enable_DGVCTHD();
                     }
                 }
                 catch(Exception ex)
@@ -507,9 +514,24 @@ namespace QLBH
 
         private void txt_timkiem_Leave(object sender, EventArgs e)
         {
-            txt_timkiem.Text = "Tìm kiếm tên sản phẩm";
-            Load_DSSP();
-            CapNhatSauKhiLoad_DS_SP();
+            try
+            {
+                if (txt_timkiem.Text == "")
+                {
+                    txt_timkiem.Text = "Tìm kiếm tên sản phẩm";
+                    Load_DSSP();
+                    CapNhatSauKhiLoad_DS_SP();
+                }
+                else
+                {
+                    if (txt_timkiem.Text != "Tìm kiếm tên sản phẩm")
+                    {
+                        DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'CÒN BÁN'");
+                        CapNhatSauKhiLoad_DS_SP();
+                    }
+                }
+            }
+            catch {; }
             
         }
         private void dgv_CTHD_Click(object sender, EventArgs e)
@@ -519,9 +541,9 @@ namespace QLBH
                 if(DS_SP_SP.Rows.Count >0)
                 foreach (DataGridViewRow row in DS_SP_SP.Rows)
                 {
-                    if ((string)dgv_CTHD.CurrentRow.Cells[1].Value != null && (string)dgv_CTHD.CurrentRow.Cells[0].Value != null && (string)dgv_CTHD.CurrentRow.Cells[2].Value != null && dgv_CTHD.CurrentRow.Cells[3].Value != null && dgv_CTHD.CurrentRow.Cells[4].Value != null && dgv_CTHD.CurrentRow.Cells[5].Value != null)
+                    if ( (string)dgv_CTHD.CurrentRow.Cells[1].Value != null && (string)dgv_CTHD.CurrentRow.Cells[0].Value != null && (string)dgv_CTHD.CurrentRow.Cells[2].Value != null && dgv_CTHD.CurrentRow.Cells[3].Value != null && dgv_CTHD.CurrentRow.Cells[4].Value != null && dgv_CTHD.CurrentRow.Cells[5].Value != null)
                     {
-                        if ((string)row.Cells[1].Value == (string)dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[1].Value &&  (string)(string)row.Cells[1].Value!= null && (string)dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[1].Value != null)
+                        if ((string)row.Cells[1].Value == (string)dgv_CTHD.CurrentRow.Cells[1].Value &&  (string)row.Cells[1].Value!= null)
                         {
                             row.Selected = true;
                             break;
@@ -635,11 +657,13 @@ namespace QLBH
             {
                 txt_tienkhachtra.Enabled = true;
                 lb_tientholai.Text = "";
+                txt_tienkhachtra.Clear();
             }
             else
             {
                 txt_tienkhachtra.Enabled = false;
                 lb_tientholai.Text = "";
+                txt_tienkhachtra.Clear();
             }
         }
 
@@ -675,16 +699,16 @@ namespace QLBH
             {
                 if (check_tienmat.Checked == true && txt_tienkhachtra.Text != "")
                 {
-                    if(double.Parse(txt_tienkhachtra.Text)>= TongTien())
+                    if (double.Parse(txt_tienkhachtra.Text) >= TongTien())
                         InhoaDon();
                     else
                         MessageBox.Show("Khách chưa trả đủ tiền thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Vui long nhập tiền khách trả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txt_tienkhachtra.Focus();
+                    MessageBox.Show("Vui lòng nhập tiền khách trả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
                 if (check_tienmat.Checked == false)
                 {
                     chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
