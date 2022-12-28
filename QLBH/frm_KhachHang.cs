@@ -22,7 +22,6 @@ namespace frm_BanHang
         }
         BUS_KhachHang kh = new BUS_KhachHang();
         KhachHang khachhang = new KhachHang();
-        KhachHang khachhang1 = new KhachHang();
         bool ThemKH = false;
         public void Load_DSKH()
         {

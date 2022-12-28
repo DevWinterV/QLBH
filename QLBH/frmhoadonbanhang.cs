@@ -328,7 +328,12 @@ namespace QLBH
             {
                 if (cbb_tenkhachhang.Text != "")
                 {
-                    hoadon.NgayGD = Convert.ToDateTime(DT_ngaylap.Value);
+                    if (check_ngayhientai.Checked == true)
+                    {
+                        hoadon.NgayGD = DateTime.Now;
+                    }
+                    else
+                        hoadon.NgayGD = DateTime.Parse(DT_ngaylap.Text);
                     hoadon.Thanhtien1 = SqlMoney.Parse(TongTien().ToString());
                     hoadon.Manv = txt_manv.Text;
                     hoadon.MaKH = cbb_tenkhachhang.SelectedValue.ToString();
@@ -538,18 +543,17 @@ namespace QLBH
         {
             try
             {
-                if(DS_SP_SP.Rows.Count >0)
-                foreach (DataGridViewRow row in DS_SP_SP.Rows)
-                {
-                    if ( (string)dgv_CTHD.CurrentRow.Cells[1].Value != null && (string)dgv_CTHD.CurrentRow.Cells[0].Value != null && (string)dgv_CTHD.CurrentRow.Cells[2].Value != null && dgv_CTHD.CurrentRow.Cells[3].Value != null && dgv_CTHD.CurrentRow.Cells[4].Value != null && dgv_CTHD.CurrentRow.Cells[5].Value != null)
+                if (DS_SP_SP.Rows.Count > 0 && dgv_CTHD.Rows.Count -1 > 0)
+                    foreach (DataGridViewRow row in DS_SP_SP.Rows)
                     {
-                        if ((string)row.Cells[1].Value == (string)dgv_CTHD.CurrentRow.Cells[1].Value &&  (string)row.Cells[1].Value!= null)
+
+                        if ((string)row.Cells[1].Value == (string)dgv_CTHD.CurrentRow.Cells[1].Value )
                         {
                             row.Selected = true;
                             break;
                         }
                     }
-                }
+                
             }
             catch(Exception ex)
             {
@@ -624,7 +628,7 @@ namespace QLBH
         private void InhoaDon()
         {
             chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
-            chitiethd.Ngaylap = Convert.ToDateTime(DT_ngaylap.Value);
+            chitiethd.Ngaylap = Convert.ToDateTime(DT_ngaylap.Value.ToString());
             chitiethd.Tennv = txt_tennv.Text;
             chitiethd.TenKH = cbb_tenkhachhang.Text;
             chitiethd.DiachiKH = txt_diachi.Text;
@@ -691,6 +695,22 @@ namespace QLBH
         {
             Load_DSSP();
             CapNhatSauKhiLoad_DS_SP();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(check_ngayhientai.Checked == true)
+            {
+                DT_ngaylap.Enabled = false;
+            }  
+            else
+                DT_ngaylap.Enabled = true;
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
 
         private void btnINhd_Click(object sender, EventArgs e)
