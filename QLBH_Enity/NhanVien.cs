@@ -15,6 +15,7 @@ namespace QLBH_Enity
         private DateTime _ngaysinh;
         private string diachi;
         private string _phai;
+        private string _tinhtrang;
 
         public NhanVien(string manv, string hoten, string sodt, string email, DateTime ngaysinh, string phai)
         {
@@ -36,5 +37,6 @@ namespace QLBH_Enity
         public DateTime Ngaysinh { get => _ngaysinh; set => _ngaysinh = value; }
         public string Phai { get => _phai; set => _phai = value; }
         public string Diachi { get => diachi; set => diachi = value; }
+        public string Tinhtrang { get => _tinhtrang; set => _tinhtrang = value; }
     }
 }

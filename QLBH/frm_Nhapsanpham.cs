@@ -77,8 +77,15 @@ namespace QLBH
             txt_SoPN.Text = "PN" + phieunhap.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPN_TU_TANG'");
         }
 
+
         private void cb_tenSP_SelectedValueChanged(object sender, EventArgs e)
         {
+
+
+
+
+
+
 
             //txt_DgiaN.Text = sp.GetDulieu("select dongia from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
         }
@@ -158,7 +165,7 @@ namespace QLBH
         private void cb_tenSP_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cb_tenSP.Text != "")
-                txt_DgiaN.Text = sp.GetDulieu("select dongia from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
+                txt_DgiaN.Text = sp.GetDulieu("select dongiaNHAP from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
             else
                 txt_DgiaN.Text = "0";
         }
@@ -217,6 +224,7 @@ namespace QLBH
                     pn.Manv1 = MaNhanvien;
                     pn.Ghichu = txtghichu.Text;
                     pn.TongCong = SqlMoney.Parse(ThanhTien().ToString());
+                    pn.TenNCC = cb_NCC.SelectedValue.ToString();
                     phieunhap.Add(pn);
                     string soPN = "PN" + phieunhap.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPN_TU_TANG'");
                     if (dgv_Nhap.Rows.Count > 0)
@@ -230,7 +238,6 @@ namespace QLBH
                                     pnchitiet.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
                                     pnchitiet.Soluong = int.Parse(dgv_Nhap.Rows[i].Cells[2].Value.ToString());
                                     pnchitiet.Dongia1 = SqlMoney.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString());
-                                    pnchitiet.Mancc = cb_NCC.SelectedValue.ToString() ;
                                     phieunhap_CT.Add(pnchitiet);
                                     sanpham.SLuong = float.Parse(dgv_Nhap.Rows[i].Cells[2].Value.ToString());
                                     sanpham.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
@@ -268,10 +275,12 @@ namespace QLBH
             {
                 dgv_Nhap.Enabled = false;
                 cb_NCC.Enabled = true;
+                btn_Save.Enabled = false;
             }
             else
             {
                 dgv_Nhap.Enabled = true;
+                btn_Save.Enabled = true;
                 cb_NCC.Enabled = false;
             }
         }
@@ -312,6 +321,20 @@ namespace QLBH
             dgv_Nhap.Rows.Clear();
             Enabel_DSPHIEUNHAP();
             groupBox1.Enabled = true;
+        }
+
+        private void cb_tenSP_DropDown(object sender, EventArgs e)
+        {
+            Load_SP();
+            if (cb_tenSP.Text != "")
+                txt_DgiaN.Text = sp.GetDulieu("select dongiaNHAP from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
+            else
+                txt_DgiaN.Text = "0";
+        }
+
+        private void cb_NCC_DropDown(object sender, EventArgs e)
+        {
+            Load_NCC();
         }
     }
 }

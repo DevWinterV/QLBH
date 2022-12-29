@@ -963,6 +963,11 @@ namespace QLBH
         {
             Load_DSSP();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }

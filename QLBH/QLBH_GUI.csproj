@@ -206,6 +206,12 @@
     <Compile Include="frm_Doimatkhau.Designer.cs">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_inphieunhapkho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_inphieunhapkho.Designer.cs">
+      <DependentUpon>frm_inphieunhapkho.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Nhapsanpham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,6 +314,9 @@
     <EmbeddedResource Include="frm_Doimatkhau.resx">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_inphieunhapkho.resx">
+      <DependentUpon>frm_inphieunhapkho.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_Nhapsanpham.resx">
       <DependentUpon>frm_Nhapsanpham.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +362,7 @@
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
     <EmbeddedResource Include="Report_DOANHTHUTHANG.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -367,6 +377,8 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QLBH_Enity.CTHD.datasource" />
+    <None Include="Properties\DataSources\QLBH_Enity.PHIEUNHAP.datasource" />
+    <None Include="Properties\DataSources\QLBH_Enity.PHIEUNHAP_CHITIET.datasource" />
     <None Include="Properties\DataSources\QLBH_Enity.SanPham.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

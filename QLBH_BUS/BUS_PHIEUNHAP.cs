@@ -24,9 +24,9 @@ namespace QLBH_BUS
         {
             dal.Delete(lh);
         }
-        public DataTable LoadDuLieu(string DieuKien)
+        public DataTable LoadDuLieu()
         {
-            return dal.LoadDuLieu(DieuKien);
+            return dal.LoadDuLieu();
         }
         public DataTable GetData(string query)
         {

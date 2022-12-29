@@ -1,17 +1,8 @@
-﻿using DevExpress.XtraBars.Commands;
-using DevExpress.XtraEditors.DXErrorProvider;
-using QLBH_BUS;
+﻿using QLBH_BUS;
 using QLBH_Enity;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QLBH
@@ -62,7 +53,6 @@ namespace QLBH
             btnSuaTK.Enabled = !t;
             btnLuuTK.Enabled = t;
             btnhuyTK.Enabled = t;
-            btnXoaTK.Enabled = t;
             cbb_tennv.Enabled = t;
             txt_matkhau_taikhoan.Enabled = t;
             rad_admin_tk.Enabled = t;
@@ -198,6 +188,7 @@ namespace QLBH
                             nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                             nhanvien.Phai = GioiTinh().ToString();
                             nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
+                            nhanvien.Tinhtrang = "CÒN LÀM";
                             nv.Add(nhanvien);
                             LoadDSNV();
                             LoadTongSoNV();
@@ -212,7 +203,7 @@ namespace QLBH
                 {
                     if (Check_Infor_CapNhat())
                     {
-                        if ((string)dgvDSNV.CurrentRow.Cells[2].Value == txtSDT.Text)
+                        if ((string)dgvDSNV.CurrentRow.Cells[2].Value == txtSDT.Text && (string)dgvDSNV.CurrentRow.Cells[2].Value != null)
                         {
                             if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
@@ -331,19 +322,20 @@ namespace QLBH
 
         private void txttimkiem_TextChanged(object sender, EventArgs e)
         {
-            if (cbbChon.SelectedIndex == 1)
+            if (cbbChon.SelectedIndex == 1 && txttimkiem.Text !="Nhập để tìm kiếm")
             {
-                dgvDSNV.DataSource = nv.LoadDuLieu("where manv like '%" + txttimkiem.Text.Trim() + "%'");
+                dgvDSNV.DataSource = nv.LoadDuLieu("where manv like '%" + txttimkiem.Text.Trim() + "%' and manv not like 'ADMIN' ");
             }
-            else if(cbbChon.SelectedIndex == 0)
+            else if(cbbChon.SelectedIndex == 0 && txttimkiem.Text != "Nhập để tìm kiếm")
             {
-                dgvDSNV.DataSource = nv.LoadDuLieu("where hoten like N'%" + txttimkiem.Text.Trim() + "%'");
+                dgvDSNV.DataSource = nv.LoadDuLieu("where hoten like N'%" + txttimkiem.Text.Trim() + "%'  and manv not like 'ADMIN'");
             }
             else
-                dgvDSNV.DataSource = nv.LoadDuLieu("where sodt like '%" + txttimkiem.Text.Trim() + "%'");
+                if (txttimkiem.Text != "Nhập để tìm kiếm")
+                    dgvDSNV.DataSource = nv.LoadDuLieu("where sodt like '%" + txttimkiem.Text.Trim() + "%'  and manv not like 'ADMIN'");
             if ( txttimkiem.TextLength == 0)
             {
-                dgvDSNV.DataSource = nv.LoadDuLieu("");
+                LoadDSNV();
             }    
         }
 
@@ -479,7 +471,18 @@ namespace QLBH
 
         private void txt_Timkiemtaikhoan_TextChanged(object sender, EventArgs e)
         {
-
+            if (cbb_chonTK.SelectedIndex == 1 && txt_Timkiemtaikhoan.Text != "Nhập để tìm kiếm")
+            {
+                DSTK.DataSource = nd.LoadDuLieu(" and ng.username like '%" + txt_Timkiemtaikhoan.Text.Trim() + "%'");
+            }
+            if (cbb_chonTK.SelectedIndex == 0 && txt_Timkiemtaikhoan.Text != "Nhập để tìm kiếm")
+            {
+                    DSTK.DataSource = nd.LoadDuLieu(" and nv.hoten like N'%" + txt_Timkiemtaikhoan.Text.Trim() + "%'");
+            }
+            if(txt_Timkiemtaikhoan.Text.Length ==0)
+            { 
+                LoadDSTK();
+            }
         }
 
         private void DSTK_Click(object sender, EventArgs e)
@@ -492,8 +495,8 @@ namespace QLBH
                     txt_taikhoan_taikhoan.Text = dr.Cells[1].Value.ToString();
                     cbb_tennv.Text = dr.Cells[0].Value.ToString();
                     txt_matkhau_taikhoan.Text = dr.Cells[2].Value.ToString();
-                    txt_dichi.Text = dr.Cells[4].Value.ToString();
-                    if ((string)dr.Cells[3].Value == rad_admin_tk.Text)
+                    txt_matkhau_taikhoan.Text = dr.Cells[3].Value.ToString();
+                    if (dr.Cells[4].Value.ToString() == rad_admin_tk.Text)
                         rad_admin_tk.Checked = true;
                     else
                         rad_nhanvien_tk.Checked = true;
@@ -512,6 +515,30 @@ namespace QLBH
         private void cbb_tennv_SelectedIndexChanged(object sender, EventArgs e)
         {
             txt_taikhoan_taikhoan.Text = nv.Getvalue("select manv from nhanvien where hoten = N'" + cbb_tennv.Text.Trim() + "'");
+        }
+
+        private void txttimkiem_Click(object sender, EventArgs e)
+        {
+            txttimkiem.Clear();
+        }
+
+        private void txttimkiem_Leave(object sender, EventArgs e)
+        {
+            if (txttimkiem.Text == "")
+                txttimkiem.Text = "Nhập để tìm kiếm";
+        }
+
+        private void txt_Timkiemtaikhoan_Click(object sender, EventArgs e)
+        {
+            txt_Timkiemtaikhoan.Clear();
+        }
+
+        private void txt_Timkiemtaikhoan_Leave(object sender, EventArgs e)
+        {
+            if(txt_Timkiemtaikhoan.Text == "")
+            {
+                txt_Timkiemtaikhoan.Text = "Nhập để tìm kiếm";
+            }    
         }
     }
 }

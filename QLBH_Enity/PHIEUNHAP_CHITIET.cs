@@ -12,25 +12,34 @@ namespace QLBH_Enity
     {
         private string _soPN;
         private string _masp;
+        private string _tenloai;
+        private string _tensanpham;
         private int soluong;
         private SqlMoney Dongia;
-        private string _mancc;
+        private double _thanhtien;
+
         public PHIEUNHAP_CHITIET()
         {
 
         }
-        public PHIEUNHAP_CHITIET(string soPN, string masp, int soluong, SqlMoney dongia)
+
+        public PHIEUNHAP_CHITIET(string soPN, string masp, string tenloai, string tensanpham, int soluong, SqlMoney dongia, double thanhtien)
         {
-            SoPN = soPN;
-            Masp = masp;
-            this.Soluong = soluong;
-            Dongia1 = dongia;
+            _soPN = soPN;
+            _masp = masp;
+            _tenloai = tenloai;
+            _tensanpham = tensanpham;
+            this.soluong = soluong;
+            Dongia = dongia;
+            _thanhtien = thanhtien;
         }
 
         public string SoPN { get => _soPN; set => _soPN = value; }
         public string Masp { get => _masp; set => _masp = value; }
         public int Soluong { get => soluong; set => soluong = value; }
+        public string Tenloai { get => _tenloai; set => _tenloai = value; }
+        public string Tensanpham { get => _tensanpham; set => _tensanpham = value; }
         public SqlMoney Dongia1 { get => Dongia; set => Dongia = value; }
-        public string Mancc { get => _mancc; set => _mancc = value; }
+        public double Thanhtien { get => _thanhtien; set => _thanhtien = value; }
     }
 }

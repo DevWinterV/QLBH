@@ -142,7 +142,7 @@ namespace QLBH
         {
             try
             {
-                if (txtTaikhoan.Text.ToUpper() !="ADMIN1")
+                if (txtTaikhoan.Text.ToUpper() !="ADMIN")
                 {
                     if (txtTaikhoan.Text != "" && txtpass.Text != "")
                     {
@@ -166,7 +166,7 @@ namespace QLBH
                         MessageBox.Show("Tên đăng nhập và mật khẩu không được trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                if (txtTaikhoan.Text.ToUpper() == "ADMIN1" )
+                if (txtTaikhoan.Text.ToUpper() == "ADMIN" )
                 {
                     if (txtTaikhoan.Text != "" && txtpass.Text != "")
                     {

@@ -44,9 +44,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.check_ngayhientai = new System.Windows.Forms.CheckBox();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.cbb_tenkhachhang = new System.Windows.Forms.ComboBox();
-            this.DT_ngaylap = new System.Windows.Forms.DateTimePicker();
             this.txt_sdt = new System.Windows.Forms.TextBox();
             this.txt_diachi = new System.Windows.Forms.TextBox();
             this.txt_tennv = new System.Windows.Forms.TextBox();
@@ -69,17 +69,9 @@
             this.col_soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.group_cthd = new System.Windows.Forms.GroupBox();
             this.dgv_CTHD = new System.Windows.Forms.DataGridView();
-            this.colTenloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btntaomoi = new DevExpress.XtraEditors.SimpleButton();
             this.btndong = new DevExpress.XtraEditors.SimpleButton();
-            this.btnINhd = new DevExpress.XtraEditors.SimpleButton();
             this.btnthanhtoan = new DevExpress.XtraEditors.SimpleButton();
             this.btnhuyhd = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -95,7 +87,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.check_ngayhientai = new System.Windows.Forms.CheckBox();
+            this.DT_ngaylap = new System.Windows.Forms.DateTimePicker();
+            this.colTenloai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenSp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             this.group_DSSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS_SP_SP)).BeginInit();
@@ -112,10 +111,10 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.groupBox1.Controls.Add(this.DT_ngaylap);
             this.groupBox1.Controls.Add(this.check_ngayhientai);
             this.groupBox1.Controls.Add(this.simpleButton1);
             this.groupBox1.Controls.Add(this.cbb_tenkhachhang);
-            this.groupBox1.Controls.Add(this.DT_ngaylap);
             this.groupBox1.Controls.Add(this.txt_sdt);
             this.groupBox1.Controls.Add(this.txt_diachi);
             this.groupBox1.Controls.Add(this.txt_tennv);
@@ -132,11 +131,25 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(536, 87);
+            this.groupBox1.Size = new System.Drawing.Size(545, 87);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin chung";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // check_ngayhientai
+            // 
+            this.check_ngayhientai.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.check_ngayhientai.AutoSize = true;
+            this.check_ngayhientai.Checked = true;
+            this.check_ngayhientai.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.check_ngayhientai.Location = new System.Drawing.Point(172, 63);
+            this.check_ngayhientai.Name = "check_ngayhientai";
+            this.check_ngayhientai.Size = new System.Drawing.Size(62, 17);
+            this.check_ngayhientai.TabIndex = 5;
+            this.check_ngayhientai.Text = "Hiện tại";
+            this.check_ngayhientai.UseVisualStyleBackColor = true;
+            this.check_ngayhientai.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.check_ngayhientai.Click += new System.EventHandler(this.check_ngayhientai_Click);
             // 
             // simpleButton1
             // 
@@ -147,7 +160,7 @@
             this.simpleButton1.Appearance.Options.UseForeColor = true;
             this.simpleButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(400, 16);
+            this.simpleButton1.Location = new System.Drawing.Point(404, 16);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(93, 39);
@@ -158,12 +171,13 @@
             // cbb_tenkhachhang
             // 
             this.cbb_tenkhachhang.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbb_tenkhachhang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cbb_tenkhachhang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbb_tenkhachhang.BackColor = System.Drawing.Color.White;
             this.cbb_tenkhachhang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbb_tenkhachhang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_tenkhachhang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbb_tenkhachhang.FormattingEnabled = true;
-            this.cbb_tenkhachhang.Location = new System.Drawing.Point(269, 17);
+            this.cbb_tenkhachhang.Location = new System.Drawing.Point(273, 16);
             this.cbb_tenkhachhang.Margin = new System.Windows.Forms.Padding(2);
             this.cbb_tenkhachhang.Name = "cbb_tenkhachhang";
             this.cbb_tenkhachhang.Size = new System.Drawing.Size(123, 21);
@@ -171,25 +185,12 @@
             this.cbb_tenkhachhang.DropDown += new System.EventHandler(this.cbb_tenkhachhang_DropDown);
             this.cbb_tenkhachhang.SelectedValueChanged += new System.EventHandler(this.cbb_tenkhachhang_SelectedValueChanged);
             // 
-            // DT_ngaylap
-            // 
-            this.DT_ngaylap.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.DT_ngaylap.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DT_ngaylap.CustomFormat = "MM/dd/yyyy hh:mm tt";
-            this.DT_ngaylap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DT_ngaylap.Location = new System.Drawing.Point(83, 60);
-            this.DT_ngaylap.Margin = new System.Windows.Forms.Padding(2);
-            this.DT_ngaylap.Name = "DT_ngaylap";
-            this.DT_ngaylap.Size = new System.Drawing.Size(81, 20);
-            this.DT_ngaylap.TabIndex = 2;
-            this.DT_ngaylap.Value = new System.DateTime(2022, 12, 26, 15, 37, 6, 0);
-            // 
             // txt_sdt
             // 
             this.txt_sdt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_sdt.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_sdt.Enabled = false;
-            this.txt_sdt.Location = new System.Drawing.Point(269, 59);
+            this.txt_sdt.Location = new System.Drawing.Point(273, 60);
             this.txt_sdt.Margin = new System.Windows.Forms.Padding(2);
             this.txt_sdt.Name = "txt_sdt";
             this.txt_sdt.Size = new System.Drawing.Size(123, 20);
@@ -201,7 +202,7 @@
             this.txt_diachi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_diachi.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_diachi.Enabled = false;
-            this.txt_diachi.Location = new System.Drawing.Point(269, 38);
+            this.txt_diachi.Location = new System.Drawing.Point(273, 39);
             this.txt_diachi.Margin = new System.Windows.Forms.Padding(2);
             this.txt_diachi.Name = "txt_diachi";
             this.txt_diachi.Size = new System.Drawing.Size(123, 20);
@@ -212,7 +213,7 @@
             this.txt_tennv.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txt_tennv.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_tennv.Enabled = false;
-            this.txt_tennv.Location = new System.Drawing.Point(83, 39);
+            this.txt_tennv.Location = new System.Drawing.Point(87, 39);
             this.txt_tennv.Margin = new System.Windows.Forms.Padding(2);
             this.txt_tennv.Name = "txt_tennv";
             this.txt_tennv.Size = new System.Drawing.Size(130, 20);
@@ -224,7 +225,7 @@
             this.txt_manv.BackColor = System.Drawing.Color.White;
             this.txt_manv.Cursor = System.Windows.Forms.Cursors.No;
             this.txt_manv.Enabled = false;
-            this.txt_manv.Location = new System.Drawing.Point(83, 18);
+            this.txt_manv.Location = new System.Drawing.Point(87, 17);
             this.txt_manv.Margin = new System.Windows.Forms.Padding(2);
             this.txt_manv.Name = "txt_manv";
             this.txt_manv.Size = new System.Drawing.Size(130, 20);
@@ -234,7 +235,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 63);
+            this.label3.Location = new System.Drawing.Point(35, 63);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
@@ -245,7 +246,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 43);
+            this.label2.Location = new System.Drawing.Point(34, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
@@ -256,7 +257,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(232, 63);
+            this.label6.Location = new System.Drawing.Point(236, 63);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 13);
@@ -267,7 +268,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 42);
+            this.label5.Location = new System.Drawing.Point(226, 42);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
@@ -278,7 +279,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(219, 23);
+            this.label4.Location = new System.Drawing.Point(223, 23);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
@@ -289,7 +290,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 23);
+            this.label1.Location = new System.Drawing.Point(37, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
@@ -333,7 +334,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_timkiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txt_timkiem.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_timkiem.Location = new System.Drawing.Point(79, 18);
+            this.txt_timkiem.Location = new System.Drawing.Point(79, 14);
             this.txt_timkiem.Margin = new System.Windows.Forms.Padding(2);
             this.txt_timkiem.Name = "txt_timkiem";
             this.txt_timkiem.Size = new System.Drawing.Size(265, 20);
@@ -486,7 +487,7 @@
             this.group_cthd.Margin = new System.Windows.Forms.Padding(2);
             this.group_cthd.Name = "group_cthd";
             this.group_cthd.Padding = new System.Windows.Forms.Padding(2);
-            this.group_cthd.Size = new System.Drawing.Size(349, 294);
+            this.group_cthd.Size = new System.Drawing.Size(358, 294);
             this.group_cthd.TabIndex = 6;
             this.group_cthd.TabStop = false;
             this.group_cthd.Text = "Chi tiết hóa đơn";
@@ -555,77 +556,13 @@
             this.dgv_CTHD.RowsDefaultCellStyle = dataGridViewCellStyle39;
             this.dgv_CTHD.RowTemplate.Height = 28;
             this.dgv_CTHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_CTHD.Size = new System.Drawing.Size(345, 277);
+            this.dgv_CTHD.Size = new System.Drawing.Size(354, 277);
             this.dgv_CTHD.TabIndex = 8;
             this.dgv_CTHD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CTHD_CellContentClick);
             this.dgv_CTHD.Click += new System.EventHandler(this.dgv_CTHD_Click);
             this.dgv_CTHD.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgv_CTHD_DragDrop);
             this.dgv_CTHD.DragOver += new System.Windows.Forms.DragEventHandler(this.dgv_CTHD_DragOver);
             this.dgv_CTHD.DoubleClick += new System.EventHandler(this.dgv_CTHD_DoubleClick);
-            // 
-            // colTenloai
-            // 
-            this.colTenloai.HeaderText = "Tên loại";
-            this.colTenloai.MinimumWidth = 8;
-            this.colTenloai.Name = "colTenloai";
-            this.colTenloai.ReadOnly = true;
-            this.colTenloai.Width = 120;
-            // 
-            // colMaSp
-            // 
-            this.colMaSp.HeaderText = "Mã SP";
-            this.colMaSp.MinimumWidth = 8;
-            this.colMaSp.Name = "colMaSp";
-            this.colMaSp.ReadOnly = true;
-            this.colMaSp.Width = 60;
-            // 
-            // colTenSp
-            // 
-            this.colTenSp.HeaderText = "Tên SP";
-            this.colTenSp.MinimumWidth = 8;
-            this.colTenSp.Name = "colTenSp";
-            this.colTenSp.ReadOnly = true;
-            this.colTenSp.Width = 120;
-            // 
-            // colDongia
-            // 
-            dataGridViewCellStyle35.Format = "N1";
-            dataGridViewCellStyle35.NullValue = null;
-            this.colDongia.DefaultCellStyle = dataGridViewCellStyle35;
-            this.colDongia.HeaderText = "Đơn giá";
-            this.colDongia.MinimumWidth = 8;
-            this.colDongia.Name = "colDongia";
-            this.colDongia.ReadOnly = true;
-            this.colDongia.Width = 80;
-            // 
-            // colSoluong
-            // 
-            this.colSoluong.HeaderText = "Số lượng";
-            this.colSoluong.MinimumWidth = 8;
-            this.colSoluong.Name = "colSoluong";
-            this.colSoluong.ReadOnly = true;
-            this.colSoluong.Width = 40;
-            // 
-            // colThanhTien
-            // 
-            dataGridViewCellStyle36.Format = "N0";
-            dataGridViewCellStyle36.NullValue = null;
-            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle36;
-            this.colThanhTien.HeaderText = "Thành tiền";
-            this.colThanhTien.MinimumWidth = 8;
-            this.colThanhTien.Name = "colThanhTien";
-            this.colThanhTien.ReadOnly = true;
-            this.colThanhTien.Width = 150;
-            // 
-            // colDelete
-            // 
-            this.colDelete.HeaderText = "Xóa";
-            this.colDelete.Image = global::QLBH.Properties.Resources.Exit1;
-            this.colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.colDelete.MinimumWidth = 8;
-            this.colDelete.Name = "colDelete";
-            this.colDelete.ReadOnly = true;
-            this.colDelete.Width = 40;
             // 
             // groupBox4
             // 
@@ -634,7 +571,6 @@
             this.groupBox4.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.groupBox4.Controls.Add(this.btntaomoi);
             this.groupBox4.Controls.Add(this.btndong);
-            this.groupBox4.Controls.Add(this.btnINhd);
             this.groupBox4.Controls.Add(this.btnthanhtoan);
             this.groupBox4.Controls.Add(this.btnhuyhd);
             this.groupBox4.ForeColor = System.Drawing.Color.Blue;
@@ -642,7 +578,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(785, 50);
+            this.groupBox4.Size = new System.Drawing.Size(794, 50);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Chức năng";
@@ -656,7 +592,7 @@
             this.btntaomoi.Appearance.Options.UseForeColor = true;
             this.btntaomoi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btntaomoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btntaomoi.ImageOptions.Image")));
-            this.btntaomoi.Location = new System.Drawing.Point(82, 14);
+            this.btntaomoi.Location = new System.Drawing.Point(159, 13);
             this.btntaomoi.Margin = new System.Windows.Forms.Padding(2);
             this.btntaomoi.Name = "btntaomoi";
             this.btntaomoi.Size = new System.Drawing.Size(99, 29);
@@ -673,31 +609,13 @@
             this.btndong.Appearance.Options.UseForeColor = true;
             this.btndong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btndong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btndong.ImageOptions.Image")));
-            this.btndong.Location = new System.Drawing.Point(603, 14);
+            this.btndong.Location = new System.Drawing.Point(551, 13);
             this.btndong.Margin = new System.Windows.Forms.Padding(2);
             this.btndong.Name = "btndong";
             this.btndong.Size = new System.Drawing.Size(101, 29);
             this.btndong.TabIndex = 5;
             this.btndong.Text = "Đóng";
             this.btndong.Click += new System.EventHandler(this.btndong_Click);
-            // 
-            // btnINhd
-            // 
-            this.btnINhd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnINhd.Appearance.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnINhd.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnINhd.Appearance.Options.UseFont = true;
-            this.btnINhd.Appearance.Options.UseForeColor = true;
-            this.btnINhd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnINhd.Enabled = false;
-            this.btnINhd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnINhd.ImageOptions.Image")));
-            this.btnINhd.Location = new System.Drawing.Point(470, 14);
-            this.btnINhd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnINhd.Name = "btnINhd";
-            this.btnINhd.Size = new System.Drawing.Size(100, 29);
-            this.btnINhd.TabIndex = 4;
-            this.btnINhd.Text = "In hóa đơn";
-            this.btnINhd.Click += new System.EventHandler(this.btnINhd_Click);
             // 
             // btnthanhtoan
             // 
@@ -709,7 +627,7 @@
             this.btnthanhtoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnthanhtoan.Enabled = false;
             this.btnthanhtoan.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnthanhtoan.ImageOptions.Image")));
-            this.btnthanhtoan.Location = new System.Drawing.Point(339, 14);
+            this.btnthanhtoan.Location = new System.Drawing.Point(419, 13);
             this.btnthanhtoan.Margin = new System.Windows.Forms.Padding(2);
             this.btnthanhtoan.Name = "btnthanhtoan";
             this.btnthanhtoan.Size = new System.Drawing.Size(101, 29);
@@ -727,7 +645,7 @@
             this.btnhuyhd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnhuyhd.Enabled = false;
             this.btnhuyhd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnhuyhd.ImageOptions.Image")));
-            this.btnhuyhd.Location = new System.Drawing.Point(211, 14);
+            this.btnhuyhd.Location = new System.Drawing.Point(289, 13);
             this.btnhuyhd.Margin = new System.Windows.Forms.Padding(2);
             this.btnhuyhd.Name = "btnhuyhd";
             this.btnhuyhd.Size = new System.Drawing.Size(99, 29);
@@ -741,7 +659,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.lb_tongtien);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(549, 8);
+            this.panel2.Location = new System.Drawing.Point(558, 8);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(246, 26);
@@ -752,7 +670,7 @@
             this.lb_tongtien.AutoSize = true;
             this.lb_tongtien.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_tongtien.ForeColor = System.Drawing.Color.Red;
-            this.lb_tongtien.Location = new System.Drawing.Point(113, 4);
+            this.lb_tongtien.Location = new System.Drawing.Point(113, 3);
             this.lb_tongtien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_tongtien.Name = "lb_tongtien";
             this.lb_tongtien.Size = new System.Drawing.Size(17, 19);
@@ -764,7 +682,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(11, 5);
+            this.label9.Location = new System.Drawing.Point(11, 4);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 17);
@@ -803,10 +721,10 @@
             this.panel1.Controls.Add(this.txt_tienkhachtra);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(549, 36);
+            this.panel1.Location = new System.Drawing.Point(558, 36);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(246, 60);
+            this.panel1.Size = new System.Drawing.Size(246, 59);
             this.panel1.TabIndex = 8;
             // 
             // check_tienmat
@@ -839,6 +757,7 @@
             // txt_tienkhachtra
             // 
             this.txt_tienkhachtra.BackColor = System.Drawing.Color.White;
+            this.txt_tienkhachtra.Enabled = false;
             this.txt_tienkhachtra.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_tienkhachtra.ForeColor = System.Drawing.Color.Red;
             this.txt_tienkhachtra.Location = new System.Drawing.Point(117, 6);
@@ -873,24 +792,95 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "TIỀN KHÁCH TRẢ:";
             // 
-            // check_ngayhientai
+            // DT_ngaylap
             // 
-            this.check_ngayhientai.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.check_ngayhientai.AutoSize = true;
-            this.check_ngayhientai.Location = new System.Drawing.Point(168, 64);
-            this.check_ngayhientai.Name = "check_ngayhientai";
-            this.check_ngayhientai.Size = new System.Drawing.Size(62, 17);
-            this.check_ngayhientai.TabIndex = 5;
-            this.check_ngayhientai.Text = "Hiện tại";
-            this.check_ngayhientai.UseVisualStyleBackColor = true;
-            this.check_ngayhientai.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.DT_ngaylap.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DT_ngaylap.Enabled = false;
+            this.DT_ngaylap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DT_ngaylap.Location = new System.Drawing.Point(88, 60);
+            this.DT_ngaylap.Name = "DT_ngaylap";
+            this.DT_ngaylap.Size = new System.Drawing.Size(78, 20);
+            this.DT_ngaylap.TabIndex = 6;
+            this.DT_ngaylap.Value = new System.DateTime(2022, 12, 29, 9, 15, 42, 0);
+            // 
+            // colTenloai
+            // 
+            this.colTenloai.Frozen = true;
+            this.colTenloai.HeaderText = "Tên loại";
+            this.colTenloai.MinimumWidth = 8;
+            this.colTenloai.Name = "colTenloai";
+            this.colTenloai.ReadOnly = true;
+            this.colTenloai.Width = 120;
+            // 
+            // colMaSp
+            // 
+            this.colMaSp.Frozen = true;
+            this.colMaSp.HeaderText = "Mã SP";
+            this.colMaSp.MinimumWidth = 8;
+            this.colMaSp.Name = "colMaSp";
+            this.colMaSp.ReadOnly = true;
+            this.colMaSp.Width = 60;
+            // 
+            // colTenSp
+            // 
+            this.colTenSp.Frozen = true;
+            this.colTenSp.HeaderText = "Tên SP";
+            this.colTenSp.MinimumWidth = 8;
+            this.colTenSp.Name = "colTenSp";
+            this.colTenSp.ReadOnly = true;
+            this.colTenSp.Width = 120;
+            // 
+            // colDongia
+            // 
+            dataGridViewCellStyle35.Format = "N1";
+            dataGridViewCellStyle35.NullValue = null;
+            this.colDongia.DefaultCellStyle = dataGridViewCellStyle35;
+            this.colDongia.Frozen = true;
+            this.colDongia.HeaderText = "Đơn giá";
+            this.colDongia.MinimumWidth = 8;
+            this.colDongia.Name = "colDongia";
+            this.colDongia.ReadOnly = true;
+            this.colDongia.Width = 80;
+            // 
+            // colSoluong
+            // 
+            this.colSoluong.Frozen = true;
+            this.colSoluong.HeaderText = "Số lượng";
+            this.colSoluong.MinimumWidth = 8;
+            this.colSoluong.Name = "colSoluong";
+            this.colSoluong.ReadOnly = true;
+            this.colSoluong.Width = 40;
+            // 
+            // colThanhTien
+            // 
+            dataGridViewCellStyle36.Format = "N0";
+            dataGridViewCellStyle36.NullValue = null;
+            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle36;
+            this.colThanhTien.Frozen = true;
+            this.colThanhTien.HeaderText = "Thành tiền";
+            this.colThanhTien.MinimumWidth = 8;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.ReadOnly = true;
+            this.colThanhTien.Width = 150;
+            // 
+            // colDelete
+            // 
+            this.colDelete.Frozen = true;
+            this.colDelete.HeaderText = "Xóa";
+            this.colDelete.Image = global::QLBH.Properties.Resources.Exit1;
+            this.colDelete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.colDelete.MinimumWidth = 8;
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.ToolTipText = "Xóa sản phẩm khỏi danh sách mua hàng";
+            this.colDelete.Width = 40;
             // 
             // frm_hoadonbanhang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(801, 451);
+            this.ClientSize = new System.Drawing.Size(810, 451);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.group_cthd);
@@ -922,7 +912,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker DT_ngaylap;
         private System.Windows.Forms.TextBox txt_tennv;
         private System.Windows.Forms.TextBox txt_manv;
         private System.Windows.Forms.Label label3;
@@ -942,7 +931,6 @@
         private System.Windows.Forms.DataGridView DS_SP_SP;
         private System.Windows.Forms.GroupBox groupBox4;
         private DevExpress.XtraEditors.SimpleButton btndong;
-        private DevExpress.XtraEditors.SimpleButton btnINhd;
         private DevExpress.XtraEditors.SimpleButton btnthanhtoan;
         private DevExpress.XtraEditors.SimpleButton btnhuyhd;
         private System.Windows.Forms.Panel panel2;
@@ -965,6 +953,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colten_Sp;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_dongia;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_soluong;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox check_ngayhientai;
+        private System.Windows.Forms.DateTimePicker DT_ngaylap;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenloai;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaSp;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTenSp;
@@ -972,7 +963,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoluong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colThanhTien;
         private System.Windows.Forms.DataGridViewImageColumn colDelete;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.CheckBox check_ngayhientai;
     }
 }

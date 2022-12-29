@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraEditors.DXErrorProvider;
+﻿using DevExpress.CodeParser;
+using DevExpress.Pdf.Native.BouncyCastle.Asn1.Cms;
+using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraRichEdit.Layout;
 using frm_BanHang;
 using QLBH_BUS;
@@ -111,7 +113,6 @@ namespace QLBH
             if (MessageBox.Show("Bạn có thực sự muốn hủy hóa đơn ?", "Thông báo hủy", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 btnthanhtoan.Enabled = false;
-                btnINhd.Enabled = false;
                 btnhuyhd.Enabled = false;
                 btntaomoi.Enabled = true;
                 dgv_CTHD.Rows.Clear();
@@ -193,14 +194,14 @@ namespace QLBH
             if (dgv_CTHD.Rows.Count -1 ==0)
             {
                 btnthanhtoan.Enabled = false;
-                btnINhd.Enabled = false;
                 dgv_CTHD.Enabled = false;
+                txt_tienkhachtra.Enabled = false;
             }
             if (dgv_CTHD.Rows.Count -1 > 0)
             {
                 btnthanhtoan.Enabled = true;
-                btnINhd.Enabled = true;
                 dgv_CTHD.Enabled = true;
+                txt_tienkhachtra.Enabled = true;
             }
         }
 
@@ -321,48 +322,136 @@ namespace QLBH
         {
             return soluong * dongia;
         }
+        private void ThanhToanHD()
+        {
+            if (cbb_tenkhachhang.Text != "")
+            {
+                if (check_ngayhientai.Checked == true)
+                {
+                    hoadon.NgayGD = DateTime.Now;
+                }
+                else
+                {
+                    hoadon.NgayGD = DateTime.Parse(DT_ngaylap.Text);
+                } 
+                hoadon.Thanhtien1 = SqlMoney.Parse(TongTien().ToString());
+                hoadon.Manv = txt_manv.Text;
+                hoadon.MaKH = cbb_tenkhachhang.SelectedValue.ToString();
+                hd.Add(hoadon);
+                btntaomoi.Enabled = true;
+                string mahd = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");// truy vấn mã hóa đơn
+                if (dgv_CTHD.Rows.Count > 0)
+                {
+                    try
+                    {
+                        for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
+                        {
+                            {
+                                chitiethd.MaHD = mahd;
+                                chitiethd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
+                                chitiethd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
+                                sanPham.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
+                                chitiethd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                                sanPham.SLuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                                cthd.Add(chitiethd);
+                                sp.Update_SaukhiMua(sanPham);// Cập nhật lại số lượng sản phẩm sau khi mua hàng thành công
+                           
+                            }
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi không lưu thành công !" + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui long chọn tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbb_tenkhachhang.Focus();
+            }
+        }
+        private void Clear()
+        {
+            Enable_DGVCTHD();
+            lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));
+            txt_tienkhachtra.Clear();
+            lb_tientholai.Text = "";
+            btnhuyhd.Enabled = false;
+            txt_tienkhachtra.Enabled = false;
+        }
+        private void InHD()
+        {
+                if (check_tienmat.Checked == false)
+                {
+                    chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
+                    chitiethd.Ngaylap = Convert.ToDateTime(DT_ngaylap.Value);
+                    chitiethd.Tennv = txt_tennv.Text;
+                    chitiethd.TenKH = cbb_tenkhachhang.Text;
+                    chitiethd.DiachiKH = txt_diachi.Text;
+                    chitiethd.SdtKH = txt_sdt.Text;
+                    chitiethd.Tenloai = "";
+                    BUS_SanPham sp = new BUS_SanPham();
+                    List<CTHD> cthd1 = new List<CTHD> { };
+                    for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
+                    {
+                        {
+                            CTHD hd = new CTHD();
+                            hd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
+                            hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
+                            hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                            hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
+                            hd.Thanhtien1 = float.Parse(dgv_CTHD.Rows[i].Cells[5].Value.ToString());
+                            cthd1.Add(hd);
+                        }
+                    }
+                    using (frm_InHoaDon IHD = new frm_InHoaDon(Convert.ToDouble(TongTien().ToString())))
+                    {
+                        IHD.InHoaDon(chitiethd, cthd1);
+                        IHD.ShowDialog();
+                    }
+                } 
+        }
         private void btnthanhtoan_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn thanh toán hóa đơn không ?", "Xác nhận thanh toán", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            DialogResult drl = MessageBox.Show("Bạn có muốn thanh toán hóa đơn và In hóa đơn không?", "Xác nhận thanh toán", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (drl == DialogResult.Yes)
             {
                 if (cbb_tenkhachhang.Text != "")
                 {
-                    if (check_ngayhientai.Checked == true)
+                    if (check_tienmat.Checked == true)
                     {
-                        hoadon.NgayGD = DateTime.Now;
-                    }
-                    else
-                        hoadon.NgayGD = DateTime.Parse(DT_ngaylap.Text);
-                    hoadon.Thanhtien1 = SqlMoney.Parse(TongTien().ToString());
-                    hoadon.Manv = txt_manv.Text;
-                    hoadon.MaKH = cbb_tenkhachhang.SelectedValue.ToString();
-                    hd.Add(hoadon);
-                    btntaomoi.Enabled = true;
-                    string mahd = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");// truy vấn mã hóa đơn
-                    if (dgv_CTHD.Rows.Count > 0)
-                    {
-                        try
+
+                        if (txt_tienkhachtra.Text != "")
                         {
-                            for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
+                            if (double.Parse(txt_tienkhachtra.Text) >= TongTien())
                             {
-                                {
-                                    chitiethd.MaHD = mahd;
-                                    chitiethd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
-                                    chitiethd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
-                                    sanPham.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
-                                    chitiethd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
-                                    sanPham.SLuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
-                                    cthd.Add(chitiethd);
-                                    sp.Update_SaukhiMua(sanPham);// Cập nhật lại số lượng sản phẩm sau khi mua hàng thành công
-                                }
+                                ThanhToanHD();
+                                InhoaDon();
+                                dgv_CTHD.Rows.Clear();
+                                Load_DSSP();
+                                Clear();
                             }
-                            MessageBox.Show("Lưu hóa đơn thành công! Bạn có thể xem lại hóa đơn trong Danh mục hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                            {
+                                MessageBox.Show("Khách chưa trả đủ tiền thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txt_tienkhachtra.Focus();
+                            }
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            MessageBox.Show("Lỗi không lưu thành công !" + ex.Message);
+                            MessageBox.Show("Vui lòng nhập tiền khách trả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cbb_tenkhachhang.Focus();
                         }
+                    }
+                    else if (check_tienmat.Checked == false && txt_tienkhachtra.Text == "")
+                    {
+                        ThanhToanHD();
+                        InHD();
+                        dgv_CTHD.Rows.Clear();
+                        Load_DSSP();
+                        Clear();
                     }
                 }
                 else
@@ -371,6 +460,13 @@ namespace QLBH
                     cbb_tenkhachhang.Focus();
                 }
             }
+            if (drl == DialogResult.No)
+            {
+                ThanhToanHD();
+                dgv_CTHD.Rows.Clear();
+                Load_DSSP();
+                MessageBox.Show("Lưu hóa đơn thành công! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
         }
         private double TongTien()// tính tổng tiền tự động của hóa đơn
         {
@@ -466,7 +562,9 @@ namespace QLBH
                                     if (dgv_CTHD.Rows.Count - 1 == 0)
                                     {
                                         btnthanhtoan.Enabled = false;
-                                        btnINhd.Enabled = false;
+                                        txt_tienkhachtra.Clear();
+                                        lb_tientholai.Text = "";
+                                        txt_tienkhachtra.Enabled = false;
                                     }
                                     row.Cells[4].Value = soluongsaukhixoa.ToString().Trim();
                                     lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));
@@ -624,7 +722,7 @@ namespace QLBH
         {
 
         }
-
+      
         private void InhoaDon()
         {
             chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
@@ -697,6 +795,15 @@ namespace QLBH
             CapNhatSauKhiLoad_DS_SP();
         }
 
+        private void check_ngayhientai_Click(object sender, EventArgs e)
+        {
+            if(tennv !="ADMIN")
+            {
+                check_ngayhientai.Checked = true;
+                MessageBox.Show("Bạn không được phép!", "Thông báo");
+            }    
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if(check_ngayhientai.Checked == true)
@@ -707,64 +814,6 @@ namespace QLBH
                 DT_ngaylap.Enabled = true;
 
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnINhd_Click(object sender, EventArgs e)
-        {
-            if (cbb_tenkhachhang.Text != "")
-            {
-                if (check_tienmat.Checked == true && txt_tienkhachtra.Text != "")
-                {
-                    if (double.Parse(txt_tienkhachtra.Text) >= TongTien())
-                        InhoaDon();
-                    else
-                        MessageBox.Show("Khách chưa trả đủ tiền thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Vui lòng nhập tiền khách trả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                if (check_tienmat.Checked == false)
-                {
-                    chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
-                    chitiethd.Ngaylap = Convert.ToDateTime(DT_ngaylap.Value);
-                    chitiethd.Tennv = txt_tennv.Text;
-                    chitiethd.TenKH = cbb_tenkhachhang.Text;
-                    chitiethd.DiachiKH = txt_diachi.Text;
-                    chitiethd.SdtKH = txt_sdt.Text;
-                    chitiethd.Tenloai = "";
-                    BUS_SanPham sp = new BUS_SanPham();
-                    List<CTHD> cthd1 = new List<CTHD> { };
-                    for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
-                    {
-                        {
-                            CTHD hd = new CTHD();
-                            hd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
-                            hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
-                            hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
-                            hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
-                            hd.Thanhtien1 = float.Parse(dgv_CTHD.Rows[i].Cells[5].Value.ToString());
-                            cthd1.Add(hd);
-                        }
-                    }
-                    using (frm_InHoaDon IHD = new frm_InHoaDon(Convert.ToDouble(TongTien().ToString())))
-                    {
-                        IHD.InHoaDon(chitiethd, cthd1);
-                        IHD.ShowDialog();
-                    }
-                }
-               
-            }
-            else
-            {
-                MessageBox.Show("Vui long chọn tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                cbb_tenkhachhang.Focus();
-            }    
-        }
+       
     }
 }

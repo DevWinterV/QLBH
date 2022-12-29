@@ -28,6 +28,8 @@ namespace QLBH_BUS
         {
             return dal.LoadDuLieu(DieuKien);
         }
+
+
         public DataTable GetData(string query)
         {
             return dal.GetData(query);
@@ -36,5 +38,10 @@ namespace QLBH_BUS
         {
             return dal.GetDulieu(DieuKien);
         }
+        public DataTable LoadData_From_IDPN(string ID)
+        {
+            return dal.LoadData_From_IDPN(ID);
+        }
+
     }
 }

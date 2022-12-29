@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,10 @@ namespace QLBH
         }
         BUS_HoaDon hd = new BUS_HoaDon();
         BUS_CTHD cthd = new BUS_CTHD();
+        BUS_PHIEUNHAP phieunhap = new BUS_PHIEUNHAP();
+        BUS_PHIEUNHAPCHITIET pnct = new BUS_PHIEUNHAPCHITIET();
         CTHD chitiethd = new CTHD();
+        PHIEUNHAP_CHITIET phieunhan_ct = new PHIEUNHAP_CHITIET();
         private int dem = 0;
         private void label1_Click(object sender, EventArgs e)
         {
@@ -32,6 +36,7 @@ namespace QLBH
             dgv_ChiTietHD.DataSource = null;
             dgv_DSHD.DataSource = hd.LoadDuLieu();
             txt_nhap.Clear();
+            Enable_DSHD();
         }
         private int Check_ID(string id)
         {
@@ -69,9 +74,9 @@ namespace QLBH
         {
             dgv_DSHD.DataSource = hd.LoadDuLieu();
         }
-        private void Load_DSCTHD()
+        private void LOad_DSPN()
         {
-            dgv_ChiTietHD.DataSource = cthd.LoadDuLieu();
+            dgv_DSPN.DataSource = phieunhap.LoadDuLieu();
         }
 
         private void btntimkiemngay_Click(object sender, EventArgs e)
@@ -137,12 +142,24 @@ namespace QLBH
                 dgv_DSHD.Enabled = true; ;
 
         }
+        private void Enable_DSPN()
+        {
+            if (dgv_DSPN.Rows.Count - 1 == 0)
+            {
+                dgv_DSPN.Enabled = false;
+            }
+            else
+                dgv_DSPN.Enabled = true; ;
+
+        }
+
         private void frmHOADON_Load(object sender, EventArgs e)
         {
             LOad_DSHD();
+            LOad_DSPN();
             cbb_chontimkiem.SelectedIndex = 0;
             Enable_DSHD();
-            
+            Enable_DSPN();
         }
 
         private void dgv_DSHD_Click(object sender, EventArgs e)
@@ -184,7 +201,7 @@ namespace QLBH
         private void btnthemmoi_Click(object sender, EventArgs e)
         {
             frm_hoadonbanhang hdbh = new frm_hoadonbanhang();
-            hdbh.ShowDialog();
+            hdbh.Show();
         }
 
         private void btninhoadon_Click(object sender, EventArgs e)
@@ -234,6 +251,87 @@ namespace QLBH
 
         private void groupControl1_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            frm_Nhapsanpham nsp = new frm_Nhapsanpham();
+            nsp.Show();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            btn_inpn.Enabled = false;
+            btnhuypn.Enabled = false;
+            btn_themmoiPN.Enabled = true;
+            dgv_CTPN.Enabled = false;
+            dgv_CTPN.DataSource = null; 
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            dgv_ChiTietHD.DataSource = null;
+            dgv_DSPN.DataSource = phieunhap.LoadDuLieu();
+            txt_nhap.Clear();
+            Enable_DSPN();
+            dgv_CTPN.DataSource = null;
+            LOad_DSPN();
+        }
+
+        private void dgv_DSPN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btn_inpn.Enabled = true;
+                btnhuypn.Enabled = true;
+                btn_themmoiPN.Enabled = false;
+                dgv_ChiTietHD.Enabled = true;
+                DataGridViewRow row = dgv_DSPN.CurrentRow;
+                if ((string)row.Cells[0].Value != null)
+                {
+                    dgv_CTPN.DataSource = pnct.LoadData_From_IDPN (row.Cells[0].Value.ToString());
+                }
+            }
+            catch
+            {; }
+        }
+
+        private void dgv_CTPN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btntimkiemPN_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_inpn_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgv_DSPN.CurrentRow;
+
+            List<PHIEUNHAP_CHITIET> PNCT1 = new List<PHIEUNHAP_CHITIET> { };
+            for (int i = 0; i < dgv_CTPN.RowCount - 1; i++)
+            {
+                {
+                    PHIEUNHAP_CHITIET pnctt = new PHIEUNHAP_CHITIET();
+                    pnctt.Tenloai = dgv_CTPN.Rows[i].Cells[1].Value.ToString();
+                    pnctt.Masp = dgv_CTPN.Rows[i].Cells[2].Value.ToString();
+                    pnctt.Tensanpham = dgv_CTPN.Rows[i].Cells[3].Value.ToString();
+                    pnctt.Dongia1 = SqlMoney.Parse( dgv_CTPN.Rows[i].Cells[5].Value.ToString());
+                    pnctt.Soluong = int.Parse( dgv_CTPN.Rows[i].Cells[4].Value.ToString());
+                    pnctt.Thanhtien = double.Parse(dgv_CTPN.Rows[i].Cells[6].Value.ToString());
+                    PNCT1.Add(pnctt);
+                }
+            }
+            frm_inphieunhapkho inphieunhap = new frm_inphieunhapkho(row.Cells[2].Value.ToString(), row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString() , row.Cells[3].Value.ToString(), row.Cells[5].Value.ToString(),PNCT1);
+            inphieunhap.ShowDialog();
 
         }
     }

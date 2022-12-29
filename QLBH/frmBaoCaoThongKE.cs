@@ -326,13 +326,16 @@ namespace QLBH
             {
                 dgv_Nhap.Enabled = false;
                 cb_NCC.Enabled = true;
+                btn_inphieu.Enabled = false;
             }
             else
             {
                 dgv_Nhap.Enabled = true;
                 cb_NCC.Enabled = false;
+                btn_inphieu.Enabled = true;
+
             }
-            }
+        }
             private void button1_Click(object sender, EventArgs e)
         {
             try

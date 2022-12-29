@@ -14,11 +14,11 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(PHIEUNHAP_CHITIET sp)
         {
-            db.ExecuteNonQuery("insert into Nhapkho_CT values( '"+sp.SoPN+"','" + sp.Masp + "','" + sp.Soluong + "','" + sp.Dongia1 + "', '" + sp.Mancc + "')");
+            db.ExecuteNonQuery("insert into Nhapkho_CT values( '"+sp.SoPN+"','" + sp.Masp + "','" + sp.Soluong + "','" + sp.Dongia1 + "')");
         }
         public void Update(PHIEUNHAP_CHITIET sp)
         {
-            db.ExecuteNonQuery("update Nhapkho_CT set mancc = '"+sp.Mancc+"', sophieuN = '" + sp.SoPN + "',masp ='" + sp.Masp + "',soluongnhap = '" + sp.Soluong + "',Dgianhap = '" + sp.Dongia1 + "'  where sophieuN = '" + sp.SoPN + "'");
+            db.ExecuteNonQuery("update Nhapkho_CT set  sophieuN = '" + sp.SoPN + "',masp ='" + sp.Masp + "',soluongnhap = '" + sp.Soluong + "',Dgianhap = '" + sp.Dongia1 + "'  where sophieuN = '" + sp.SoPN + "'");
         }
         public void Delete(PHIEUNHAP_CHITIET sp)
         {
@@ -35,6 +35,10 @@ namespace QLBH_DAL
         public DataTable GetData(string query)
         {
             return db.GetDataTable(query);
+        }
+        public DataTable LoadData_From_IDPN(string ID)
+        {
+            return db.GetDataTable("select ctpn.sophieuN,loai.tenloai,ctpn.masp ,sp.tensp, ctpn.SoluongNhap, sp.dongia , sp.dongia *ctpn.soluongNHAP as thanhtien from nhapkho_CT ctpn , LoaiSPDGD loai , sanphamDGD sp where ctpn.masp = sp.masp and loai.maloai = sp.maloai and ctpn.sophieuN = '"+ID+"'");
         }
     }
 }
