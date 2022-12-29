@@ -22,6 +22,7 @@ namespace QLBH_BUS
         }
         public void Delete(HoaDon lh)
         {
+//...
             dal.Delete(lh);
         }
         public DataTable LoadDuLieu()
