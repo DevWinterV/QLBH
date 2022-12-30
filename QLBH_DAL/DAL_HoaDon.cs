@@ -47,9 +47,9 @@ namespace QLBH_DAL
         {
             return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.manv like  '%" + ID + "%'");
         }
-        public DataTable FindDataFromDate(DateTime t1 , DateTime t2)
+        public DataTable FindDataFromDate(string t1 , string t2)
         {
-            return db.GetDataTable("select hd.mahd, hd.ngayGD,nv.hoten , kh.hoten ,kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.ngayGD between '" +t1+ "' and '"+t2+"'");
+            return db.GetDataTable("select hd.mahd, hd.ngayGD,nv.hoten , kh.hoten ,kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.ngayGD BETWEEN '" + t1 + " 00:00:00' AND '" + t2 + " 23:59:59'");
         }
     }
 }

@@ -36,5 +36,21 @@ namespace QLBH_DAL
         {
             return db.GetDataTable(query);
         }
+        public DataTable FindDataFromDate(string t1, string t2)
+        {
+            return db.GetDataTable("select nk.sophieuN, nk.ngaynhap, nc.tenncc, nv.hoten, nk.tongcong, nk.ghichu from nhapkho nk, nhanvien nv, NCC nc where nv.manv = nk.manv and nc.mancc = nk.mancc and  nk.ngaynhap BETWEEN '"+t1+" 00:00:00' AND '"+t2+" 23:59:59'");
+        }
+        public DataTable FindDataFromIDPN(string ID)
+        {
+            return db.GetDataTable("select nk.sophieuN, nk.ngaynhap, nc.tenncc, nv.hoten, nk.tongcong, nk.ghichu from nhapkho nk, nhanvien nv, NCC nc where nv.manv = nk.manv and nc.mancc = nk.mancc and nk.sophieuN like '%"+ID.ToUpper()+"%'");
+        }
+        public DataTable FindDataFromIDNV(string ID)
+        {
+            return db.GetDataTable("select nk.sophieuN, nk.ngaynhap, nc.tenncc, nv.hoten, nk.tongcong, nk.ghichu from nhapkho nk, nhanvien nv, NCC nc where nv.manv like '%"+ID.ToUpper()+"%' and nc.mancc = nk.mancc ");
+        }
+        public DataTable FindDataFromIDNCC(string ID)
+        {
+            return db.GetDataTable("select nk.sophieuN, nk.ngaynhap, nc.tenncc, nv.hoten, nk.tongcong, nk.ghichu from nhapkho nk, nhanvien nv, NCC nc where nv.manv = nk.manv and nk.mancc like '%"+ID.ToUpper() +"%'");
+        }
     }
 }

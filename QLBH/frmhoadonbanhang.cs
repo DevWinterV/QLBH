@@ -63,7 +63,6 @@ namespace QLBH
         BUS_LoaiHang lh = new BUS_LoaiHang();
         BUS_SanPham sp = new BUS_SanPham();
         BUS_KhachHang kh = new BUS_KhachHang();
-
         HoaDon hoadon = new HoaDon();
         CTHD chitiethd = new CTHD();
         SanPham sanPham = new SanPham();
@@ -398,7 +397,7 @@ namespace QLBH
                     {
                         {
                             CTHD hd = new CTHD();
-                            hd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
+                            hd.Masp = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
                             hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
                             hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
                             hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
@@ -738,7 +737,7 @@ namespace QLBH
             {
                 {
                     CTHD hd = new CTHD();
-                    hd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
+                    hd.Masp = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
                     hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
                     hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
                     hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());

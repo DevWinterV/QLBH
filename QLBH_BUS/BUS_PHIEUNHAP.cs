@@ -36,5 +36,21 @@ namespace QLBH_BUS
         {
             return dal.GetDulieu(DieuKien);
         }
+        public DataTable FinDataFromDate(string t1, string t2)
+        {
+            return dal.FindDataFromDate(t1, t2);
+        }
+        public DataTable FindDataFromIDPN(string ID)
+        {
+            return dal.FindDataFromIDPN(ID);
+        }
+        public DataTable FindDataFromIDNV(string ID)
+        {
+            return dal.FindDataFromIDNV(ID);
+        }
+        public DataTable FindDataFromIDNCC(string ID)
+        {
+            return dal.FindDataFromIDNCC(ID);
+        }
     }
 }

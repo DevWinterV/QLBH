@@ -323,8 +323,6 @@ namespace QLBH
         {
             btn_NhapHang_Click(sender, e);
         }
-
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             frmThongTinNhanVien ttnv = new frmThongTinNhanVien(manv,tennv,phanquyen);

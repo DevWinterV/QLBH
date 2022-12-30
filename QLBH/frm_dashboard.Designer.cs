@@ -105,9 +105,9 @@
             this.lb_ngaygiohientai.Location = new System.Drawing.Point(531, 10);
             this.lb_ngaygiohientai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_ngaygiohientai.Name = "lb_ngaygiohientai";
-            this.lb_ngaygiohientai.Size = new System.Drawing.Size(72, 21);
+            this.lb_ngaygiohientai.Size = new System.Drawing.Size(69, 21);
             this.lb_ngaygiohientai.TabIndex = 1;
-            this.lb_ngaygiohientai.Text = "Ngày giờ";
+            this.lb_ngaygiohientai.Text = "00:00:00";
             // 
             // label1
             // 
@@ -161,7 +161,7 @@
             this.chart_topsanphambanchay.Location = new System.Drawing.Point(0, 27);
             this.chart_topsanphambanchay.Margin = new System.Windows.Forms.Padding(2);
             this.chart_topsanphambanchay.Name = "chart_topsanphambanchay";
-            this.chart_topsanphambanchay.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            this.chart_topsanphambanchay.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series1.IsValueShownAsLabel = true;
@@ -236,7 +236,7 @@
             this.chart_doanhthu.Location = new System.Drawing.Point(0, 27);
             this.chart_doanhthu.Margin = new System.Windows.Forms.Padding(2);
             this.chart_doanhthu.Name = "chart_doanhthu";
-            this.chart_doanhthu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            this.chart_doanhthu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "TONGDOANHTHU";
@@ -270,7 +270,8 @@
             "Hôm nay",
             "Tuần này",
             "Tháng này",
-            "Năm này"});
+            "Năm này",
+            "Tất cả"});
             this.cbb_chonxem.Location = new System.Drawing.Point(173, 1);
             this.cbb_chonxem.Margin = new System.Windows.Forms.Padding(2);
             this.cbb_chonxem.Name = "cbb_chonxem";
@@ -280,7 +281,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));

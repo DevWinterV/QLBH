@@ -18,6 +18,14 @@ namespace QLBH
         public frmHOADON()
         {
             InitializeComponent();
+
+        }
+        private string tennhanvien, manv;
+        public frmHOADON(string tennv, string manv)
+        {
+            InitializeComponent();
+            this.tennhanvien = tennv;
+            this.manv = manv;
         }
         BUS_HoaDon hd = new BUS_HoaDon();
         BUS_CTHD cthd = new BUS_CTHD();
@@ -26,6 +34,8 @@ namespace QLBH
         CTHD chitiethd = new CTHD();
         PHIEUNHAP_CHITIET phieunhan_ct = new PHIEUNHAP_CHITIET();
         private int dem = 0;
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -58,6 +68,25 @@ namespace QLBH
             catch { return 0; }
 
         }
+        private int Check_ID_FindPhieuNhap(string id)
+        {
+            try
+            {
+                int so;
+                if (id.Substring(0, 2) == "PN" || id.Substring(0, 2) == "pn")
+                {
+                    so = 1;
+                }
+                else if (id.Substring(0, 2) == "NV" || id.Substring(0, 2) == "nv")
+                {
+                    so = 2;
+                }
+                else
+                    so = 3;
+                return so;
+            }
+            catch { return 0; }
+        }    
         private bool Check_Date1(DateTime t1, DateTime t2)
         {
 
@@ -87,7 +116,7 @@ namespace QLBH
                 {
 
                     if (Check_Date1(Convert.ToDateTime(datetime_tungay.Text), Convert.ToDateTime(datetime_den.Text)))
-                        dgv_DSHD.DataSource = hd.FindDataFromDate(Convert.ToDateTime(datetime_tungay.Text), Convert.ToDateTime(datetime_den.Text));
+                        dgv_DSHD.DataSource = hd.FindDataFromDate(datetime_tungay.Text, datetime_den.Text);
                     else
                     {
                         errorProvider1.SetError(datetime_tungay, "Ngày không được lớn hơn!");
@@ -171,9 +200,12 @@ namespace QLBH
                 btnthemmoi.Enabled = false;
                 dgv_ChiTietHD.Enabled=true;
                 DataGridViewRow row = dgv_DSHD.CurrentRow;
-                if ((string)row.Cells[0].Value != null)
+                if (row != null)
                 {
-                    dgv_ChiTietHD.DataSource = cthd.LoadDataFromIDSanPham(row.Cells[0].Value.ToString());
+                    if ((string)row.Cells[0].Value != null)
+                    {
+                        dgv_ChiTietHD.DataSource = cthd.LoadDataFromIDSanPham(row.Cells[0].Value.ToString());
+                    }
                 }
             }
             catch
@@ -277,8 +309,7 @@ namespace QLBH
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             dgv_ChiTietHD.DataSource = null;
-            dgv_DSPN.DataSource = phieunhap.LoadDuLieu();
-            txt_nhap.Clear();
+            txt_tiemkiem.Clear();
             Enable_DSPN();
             dgv_CTPN.DataSource = null;
             LOad_DSPN();
@@ -293,9 +324,12 @@ namespace QLBH
                 btn_themmoiPN.Enabled = false;
                 dgv_ChiTietHD.Enabled = true;
                 DataGridViewRow row = dgv_DSPN.CurrentRow;
-                if ((string)row.Cells[0].Value != null)
+                if (dgv_DSPN.Rows.Count -1 > 0)
                 {
-                    dgv_CTPN.DataSource = pnct.LoadData_From_IDPN (row.Cells[0].Value.ToString());
+                    if ((string)row.Cells[0].Value != null)
+                    {
+                        dgv_CTPN.DataSource = pnct.LoadData_From_IDPN(row.Cells[0].Value.ToString());
+                    }
                 }
             }
             catch
@@ -308,6 +342,79 @@ namespace QLBH
         }
 
         private void btntimkiemPN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbb_chontimkiem_PN.SelectedIndex == 1)
+                {
+
+                    if (Check_Date1(Convert.ToDateTime(datetime_tungya.Text), Convert.ToDateTime(datetime_denngay.Text)))
+                    {
+                        dgv_DSPN.DataSource = phieunhap.FinDataFromDate(datetime_tungya.Text,datetime_denngay.Text);
+                    }
+                    else
+                    {
+                        errorProvider1.SetError(datetime_tungya, "Ngày không được lớn hơn!");
+                        datetime_tungya.Focus();
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                errorProvider1.SetError(datetime_den, ex.Message);
+                txt_nhap.Focus();
+            }
+        }
+
+        private void cbb_chontimkiem_PN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbb_chontimkiem_PN.SelectedIndex == 0)
+            {
+                txt_tiemkiem.Enabled = true;
+                txt_tiemkiem.Focus();
+                datetime_denngay.Enabled = false;
+                datetime_tungya.Enabled = false;
+                btntimkiemPN.Enabled = false;
+            }
+            else if (cbb_chontimkiem_PN.SelectedIndex == 1)
+            {
+
+                txt_tiemkiem.Enabled = false;
+                datetime_tungya.Enabled = true;
+                datetime_denngay.Enabled = true;
+                btntimkiemPN.Enabled = true;
+            }
+            else
+            {
+                txt_nhap.Enabled = true;
+                datetime_tungay.Enabled = true;
+                datetime_den.Enabled = true;
+                btntimkiemngay.Enabled = false;
+            }
+        }
+
+        private void txt_tiemkiem_TextChanged(object sender, EventArgs e)
+        {
+            if (cbb_chontimkiem_PN.SelectedIndex == 0)
+            {
+                if (Check_ID_FindPhieuNhap(txt_tiemkiem.Text.ToUpper()) == 1)
+                    dgv_DSPN.DataSource = phieunhap.FindDataFromIDPN(txt_tiemkiem.Text);
+                else if (Check_ID(txt_nhap.Text) == 2)
+                    dgv_DSPN.DataSource = phieunhap.FindDataFromIDNV(txt_tiemkiem.Text);
+                else
+                    dgv_DSPN.DataSource = phieunhap.FindDataFromIDNCC(txt_tiemkiem.Text);
+            }
+            if(txt_tiemkiem.Text.Length == 0)
+            {
+                LOad_DSPN();
+            }    
+        }
+
+        private void datetime_denngay_ValueChanged(object sender, EventArgs e)
         {
 
         }

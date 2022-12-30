@@ -49,7 +49,7 @@ namespace QLBH_BUS
         {
             return dal.FindDataFromIDNV(ID);
         }
-        public DataTable FindDataFromDate(DateTime t1, DateTime t2)
+        public DataTable FindDataFromDate(string t1, string t2)
         {
             return dal.FindDataFromDate(t1,t2);
         }
