@@ -57,38 +57,41 @@ namespace QLBH
         }
         private void Load_NCC()
         {
-            cb_NCC.DataSource = ncc.LoadDuLieu("where tinhtrang =1");
-            cb_NCC.DisplayMember = "tenncc";
-            cb_NCC.ValueMember = "mancc";
+            try
+            {
+                cb_NCC.DataSource = ncc.LoadDuLieu("where tinhtrang =1");
+                cb_NCC.DisplayMember = "tenncc";
+                cb_NCC.ValueMember = "mancc";
+            }
+            catch {; }
         }
         private void Load_SP()
         {
-            cb_tenSP.DataSource = sp.GetData("select * from sanphamdgd where mancc ='" + cb_NCC.SelectedValue.ToString() + "'");
-            cb_tenSP.DisplayMember = "tensp";
-            cb_tenSP.ValueMember = "masp";
+            try
+            {
+                if (cb_NCC.Items.Count > 0)
+                {
+                    cb_tenSP.DataSource = sp.GetData("select * from sanphamdgd where mancc ='" + cb_NCC.SelectedValue.ToString() + "'");
+                    cb_tenSP.DisplayMember = "tensp";
+                    cb_tenSP.ValueMember = "masp";
+                }
+            }
+            catch {; }
         }
         private void frm_Nhapsanpham_Load(object sender, EventArgs e)
         {
-            Enabel_DSPHIEUNHAP();
-            Load_NCC();
-            Load_SP();
-            lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
-            txt_tennhanvien.Text = TenNhanvien;
-            txt_SoPN.Text = "PN" + phieunhap.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPN_TU_TANG'");
-        }
+            try {
+                Enabel_DSPHIEUNHAP();
+                Load_NCC();
+                Load_SP();
+                lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
+                txt_tennhanvien.Text = TenNhanvien;
+                txt_SoPN.Text = "PN" + phieunhap.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPN_TU_TANG'");
+            }
+            catch {; }
+         }
 
 
-        private void cb_tenSP_SelectedValueChanged(object sender, EventArgs e)
-        {
-
-
-
-
-
-
-
-            //txt_DgiaN.Text = sp.GetDulieu("select dongia from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
-        }
         private double TongTien(double sl, double dongia)
         {
             return dongia * sl;
@@ -119,36 +122,42 @@ namespace QLBH
         }
         private bool Check_maSP(string ID)
         {
-            foreach (DataGridViewRow row in dgv_Nhap.Rows)
+            if (dgv_Nhap.Rows.Count - 1 > 0)
             {
-                if (ID == (string)row.Cells[0].Value)
-                    return false;
+                foreach (DataGridViewRow row in dgv_Nhap.Rows)
+                {
+                    if (ID == (string)row.Cells[0].Value)
+                        return false;
 
+                }
             }
             return true;
+
         }
         private void btn_ThemSP_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Check_maSP(cb_tenSP.SelectedValue.ToString()))
+                if (cb_tenSP.Items.Count > 0)
                 {
-                    if (CheckThongTin())
+                    if (Check_maSP(cb_tenSP.SelectedValue.ToString()))
                     {
-                        if (txt_SL.Value > 0)       //$exception	{"Object reference not set to an instance of an object."}	System.NullReferenceException
-
+                        if (CheckThongTin())
                         {
-                            dgv_Nhap.Rows.Add(cb_tenSP.SelectedValue.ToString(), cb_tenSP.Text, txt_SL.Value.ToString(), double.Parse(txt_DgiaN.Text), TongTien(double.Parse(txt_SL.Value.ToString()), double.Parse(txt_DgiaN.Text)));
-                            lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
-                            Enabel_DSPHIEUNHAP();
-                        }
-                        else
-                            MessageBox.Show("Sô lượng không được nhỏ hơn hoặc bằng 0", "Chú ý");
-                    }
-                }
-                else
-                    MessageBox.Show("Sản phẩm đã có trong danh sách nhập hàng!", "Chú ý");
+                            if (txt_SL.Value > 0)       //$exception	{"Object reference not set to an instance of an object."}	System.NullReferenceException
 
+                            {
+                                dgv_Nhap.Rows.Add(cb_tenSP.SelectedValue.ToString(), cb_tenSP.Text, txt_SL.Value.ToString(), double.Parse(txt_DgiaN.Text), TongTien(double.Parse(txt_SL.Value.ToString()), double.Parse(txt_DgiaN.Text)));
+                                lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
+                                Enabel_DSPHIEUNHAP();
+                            }
+                            else
+                                MessageBox.Show("Sô lượng không được nhỏ hơn hoặc bằng 0", "Chú ý");
+                        }
+                    }
+                    else
+                        MessageBox.Show("Sản phẩm đã có trong danh sách nhập hàng!", "Chú ý");
+                }
             }
             catch (Exception ex)
             {
@@ -164,16 +173,13 @@ namespace QLBH
 
         private void cb_tenSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_tenSP.Text != "")
+            if (cb_tenSP.Text != "" && cb_tenSP.Items.Count >0)
                 txt_DgiaN.Text = sp.GetDulieu("select dongiaNHAP from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
             else
                 txt_DgiaN.Text = "0";
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void dgv_Nhap_DoubleClick(object sender, EventArgs e)
         {
@@ -288,8 +294,10 @@ namespace QLBH
         {
             if (MessageBox.Show("Bạn có muốn hủy danh sách nhập hàng không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                cb_NCC.SelectedIndex = 0;
-                cb_tenSP.SelectedIndex = 0;
+                if(cb_NCC.Items.Count> 0)
+                    cb_NCC.SelectedIndex = 0;
+                if(cb_tenSP.Items.Count> 0)
+                    cb_tenSP.SelectedIndex = 0;
                 txt_SL.Value = 1;
                 txtghichu.Clear();
                 dgv_Nhap.Rows.Clear();
@@ -314,8 +322,14 @@ namespace QLBH
             btn_Huybo.Enabled = true;
             btn_taoMoi.Enabled = false;
             lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
-            cb_NCC.SelectedIndex = 0;
-            cb_tenSP.SelectedIndex = 0;
+            if (cb_NCC.Items.Count > 0)
+            {
+                cb_NCC.SelectedIndex = 0;
+            }
+            if (cb_tenSP.Items.Count > 0)
+            {
+                cb_tenSP.SelectedIndex = 0;
+            }
             txt_SL.Value = 1;
             txtghichu.Clear();
             dgv_Nhap.Rows.Clear();
@@ -326,7 +340,7 @@ namespace QLBH
         private void cb_tenSP_DropDown(object sender, EventArgs e)
         {
             Load_SP();
-            if (cb_tenSP.Text != "")
+            if (cb_tenSP.Text != "" && cb_tenSP.Items.Count >0)
                 txt_DgiaN.Text = sp.GetDulieu("select dongiaNHAP from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
             else
                 txt_DgiaN.Text = "0";

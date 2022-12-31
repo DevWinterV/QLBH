@@ -509,26 +509,29 @@ namespace QLBH
         {
             try
             {
-                DataGridViewRow rowToMove = dgv_CTHD.CurrentRow;               
-                if (rowToMove.Cells[0].Value != null && rowToMove.Cells[1].Value != null && rowToMove.Cells[2].Value != null && rowToMove.Cells[3].Value !=  null && rowToMove.Cells[4].Value != null )
+                if (dgv_CTHD.Rows.Count - 1 > 0)
                 {
-                    foreach(DataGridViewRow row in DS_SP_SP.Rows)
+                    DataGridViewRow rowToMove = dgv_CTHD.CurrentRow;
+                    if (rowToMove.Cells[0].Value != null && rowToMove.Cells[1].Value != null && rowToMove.Cells[2].Value != null && rowToMove.Cells[3].Value != null && rowToMove.Cells[4].Value != null)
                     {
-                        if((string)row.Cells[1].Value == (string)rowToMove.Cells[1].Value)
+                        foreach (DataGridViewRow row in DS_SP_SP.Rows)
                         {
-                            frm_NHapSoLuongCapNhat nslcn = new frm_NHapSoLuongCapNhat(rowToMove.Cells[3].Value.ToString(), rowToMove.Cells[0].Value.ToString(), rowToMove.Cells[2].Value.ToString(), int.Parse(rowToMove.Cells[4].Value.ToString()), int.Parse(row.Cells[4].Value.ToString()));
-                            nslcn.ShowDialog();
-                            if (nslcn.Chapnhan == 1)// nếu đồng ý sửa
+                            if ((string)row.Cells[1].Value == (string)rowToMove.Cells[1].Value)
                             {
-                                vitri = rowToMove.Index; // lấy vị trí của dòng cần cập nhật
-                                Soluong = nslcn.SoluongcapNHat;
-                                Update_Data(Soluong.ToString());// cập nhật lại số lượng danh sách mua
-                                row.Cells[4].Value = (int.Parse(row.Cells[4].Value.ToString()) - nslcn.Soluongtru).ToString();// cập nhật số lượng dnah sách sản phẩm
-                                Enable_DGVCTHD();
-                                lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));
+                                frm_NHapSoLuongCapNhat nslcn = new frm_NHapSoLuongCapNhat(rowToMove.Cells[3].Value.ToString(), rowToMove.Cells[0].Value.ToString(), rowToMove.Cells[2].Value.ToString(), int.Parse(rowToMove.Cells[4].Value.ToString()), int.Parse(row.Cells[4].Value.ToString()));
+                                nslcn.ShowDialog();
+                                if (nslcn.Chapnhan == 1)// nếu đồng ý sửa
+                                {
+                                    vitri = rowToMove.Index; // lấy vị trí của dòng cần cập nhật
+                                    Soluong = nslcn.SoluongcapNHat;
+                                    Update_Data(Soluong.ToString());// cập nhật lại số lượng danh sách mua
+                                    row.Cells[4].Value = (int.Parse(row.Cells[4].Value.ToString()) - nslcn.Soluongtru).ToString();// cập nhật số lượng dnah sách sản phẩm
+                                    Enable_DGVCTHD();
+                                    lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));
+                                }
                             }
-                        }    
-                    }    
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -545,29 +548,32 @@ namespace QLBH
                 {
                 try
                 {
-                    if (MessageBox.Show("Bạn có muốn xóa chọn sản phẩm không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    if (dgv_CTHD.Rows.Count - 1 > 0)
                     {
-                        DataGridViewRow rowToMove = dgv_CTHD.CurrentRow;
-                        if (rowToMove.Cells[0].Value != null && rowToMove.Cells[1].Value != null && rowToMove.Cells[2].Value != null && rowToMove.Cells[3].Value != null && rowToMove.Cells[4].Value != null)
+                        if (MessageBox.Show("Bạn có muốn xóa chọn sản phẩm không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                         {
-                            int soluongsaukhixoa;
-                            foreach (DataGridViewRow row in DS_SP_SP.Rows)
+                            DataGridViewRow rowToMove = dgv_CTHD.CurrentRow;
+                            if (rowToMove.Cells[0].Value != null && rowToMove.Cells[1].Value != null && rowToMove.Cells[2].Value != null && rowToMove.Cells[3].Value != null && rowToMove.Cells[4].Value != null)
                             {
-                                soluongsaukhixoa = 0;
-                                if ((string)row.Cells[1].Value == (string)dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[1].Value)
+                                int soluongsaukhixoa;
+                                foreach (DataGridViewRow row in DS_SP_SP.Rows)
                                 {
-                                    soluongsaukhixoa = int.Parse(row.Cells[4].Value.ToString()) + int.Parse(dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[4].Value.ToString());
-                                    dgv_CTHD.Rows.Remove(dgv_CTHD.CurrentRow);
-                                    if (dgv_CTHD.Rows.Count - 1 == 0)
+                                    soluongsaukhixoa = 0;
+                                    if ((string)row.Cells[1].Value == (string)dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[1].Value)
                                     {
-                                        btnthanhtoan.Enabled = false;
-                                        txt_tienkhachtra.Clear();
-                                        lb_tientholai.Text = "";
-                                        txt_tienkhachtra.Enabled = false;
+                                        soluongsaukhixoa = int.Parse(row.Cells[4].Value.ToString()) + int.Parse(dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[4].Value.ToString());
+                                        dgv_CTHD.Rows.Remove(dgv_CTHD.CurrentRow);
+                                        if (dgv_CTHD.Rows.Count - 1 == 0)
+                                        {
+                                            btnthanhtoan.Enabled = false;
+                                            txt_tienkhachtra.Clear();
+                                            lb_tientholai.Text = "";
+                                            txt_tienkhachtra.Enabled = false;
+                                        }
+                                        row.Cells[4].Value = soluongsaukhixoa.ToString().Trim();
+                                        lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));
+                                        break;
                                     }
-                                    row.Cells[4].Value = soluongsaukhixoa.ToString().Trim();
-                                    lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));
-                                    break;
                                 }
                             }
                         }

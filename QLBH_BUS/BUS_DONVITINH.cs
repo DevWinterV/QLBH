@@ -32,5 +32,9 @@ namespace QLBH_BUS
         {
             return dal.LoadDuLieuTimKiem(query);
         }
+        public string GetValue(string ID)
+        {
+            return dal.GetDuLieu(ID);
+        }
     }
 }

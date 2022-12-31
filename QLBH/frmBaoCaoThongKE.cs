@@ -407,7 +407,7 @@ namespace QLBH
                 lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
                 btn_capnhat.Enabled = false;
                 btnhuy.Enabled = false;
-
+                button1.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -463,10 +463,18 @@ namespace QLBH
             if (MessageBox.Show("Bạn có muốn hủy danh sách?", "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 dgv_Nhap.Rows.Clear();
-                cb_NCC.SelectedIndex = 0;
-                cb_tenSP.SelectedIndex = 0;
+                if (cb_NCC.Items.Count > 0)
+                {
+                    cb_NCC.SelectedIndex = 0;
+                }
+                if (cb_tenSP.Items.Count > 0)
+                {
+                    cb_tenSP.SelectedIndex = 0;
+                }
                 lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
                 Enabel_DSPHIEUNHAP();
+                groupBox11.Enabled = false;
+                button1.Enabled = true;
             }
         }
 
@@ -514,8 +522,13 @@ namespace QLBH
 
         private void btntaomoi_Click(object sender, EventArgs e)
         {
+            groupBox11.Enabled = true;
+            btntaomoi.Enabled = false;
+            btn_huy.Enabled = true;
             dgv_Nhap.Rows.Clear();
+            if(cb_NCC.Items.Count>0)
             cb_NCC.SelectedIndex = 0;
+            if(cb_tenSP.Items.Count>0)
             cb_tenSP.SelectedIndex = 0;
             txt_SL.Value = 1;
             lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));

@@ -158,7 +158,6 @@
             this.cb_tenSP.TabIndex = 3;
             this.cb_tenSP.DropDown += new System.EventHandler(this.cb_tenSP_DropDown);
             this.cb_tenSP.SelectedIndexChanged += new System.EventHandler(this.cb_tenSP_SelectedIndexChanged);
-            this.cb_tenSP.SelectedValueChanged += new System.EventHandler(this.cb_tenSP_SelectedValueChanged);
             // 
             // cb_NCC
             // 
@@ -266,7 +265,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(251, 71);
             this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btn_taoMoi
             // 

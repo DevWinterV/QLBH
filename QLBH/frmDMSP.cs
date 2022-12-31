@@ -14,6 +14,7 @@ using DevExpress.Utils.Svg;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.Text.RegularExpressions;
+using DevExpress.XtraRichEdit.Layout;
 
 namespace QLBH
 {
@@ -217,46 +218,52 @@ namespace QLBH
             {
                 if (Check_Info_LoaiSP())
                 {
-                    if (ThemLSP == true)
+                    if (CheckTenLoai(Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text)))
                     {
-                        if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (ThemLSP == true)
                         {
-                            loaiHang.Tenhang = Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text);
-                            if (rad_TT_LSP.Checked == true)
-                                loaiHang.Tinhtrang = "CÒN BÁN";
-                            else
-                                loaiHang.Tinhtrang = "DỪNG BÁN";
-                            lh.Add(loaiHang);
-                            Load_DSLSP();
-                            lb_tongSLSP.Text = Load_Tong_SoLSP().ToString();
-                            LoadCbb_loaihang();
-                            Enable_LoaiSanpham(false);
-                            ClearTextLSP();
-                            ThemLSP = false;
-                            dataGridView1.Enabled = true;
-                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                loaiHang.Tenhang = Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text);
+                                if (rad_TT_LSP.Checked == true)
+                                    loaiHang.Tinhtrang = "CÒN BÁN";
+                                else
+                                    loaiHang.Tinhtrang = "DỪNG BÁN";
+                                lh.Add(loaiHang);
+                                Load_DSLSP();
+                                lb_tongSLSP.Text = Load_Tong_SoLSP().ToString();
+                                LoadCbb_loaihang();
+                                Enable_LoaiSanpham(false);
+                                ClearTextLSP();
+                                ThemLSP = false;
+                                dataGridView1.Enabled = true;
+                                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            {
+                                loaiHang.Maloai = txt_maloai_Loaisp.Text;
+                                loaiHang.Tenhang = Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text);
+                                if (rad_TT_LSP.Checked == true)
+                                    loaiHang.Tinhtrang = "CÒN BÁN";
+                                else
+                                    loaiHang.Tinhtrang = "DỪNG BÁN";
+                                lh.Update(loaiHang);
+                                Load_DSLSP();
+                                lb_tongSLSP.Text = Load_Tong_SoLSP().ToString();
+                                LoadCbb_loaihang();
+                                Enable_LoaiSanpham(false);
+                                ClearTextLSP();
+                                ClearText();
+                                MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                     }
                     else
-                    {
-                        if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            loaiHang.Maloai = txt_maloai_Loaisp.Text;
-                            loaiHang.Tenhang = Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text);
-                            if (rad_TT_LSP.Checked == true)
-                                loaiHang.Tinhtrang = "CÒN BÁN";
-                            else
-                                loaiHang.Tinhtrang = "DỪNG BÁN";
-                            lh.Update(loaiHang);
-                            Load_DSLSP();
-                            lb_tongSLSP.Text = Load_Tong_SoLSP().ToString();
-                            LoadCbb_loaihang();
-                            Enable_LoaiSanpham(false);
-                            ClearTextLSP();
-                            ClearText();
-                            MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
+                        MessageBox.Show("Loại sản phẩm đã có trên hệ thống, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
             }
             catch(Exception ex)
@@ -420,15 +427,51 @@ namespace QLBH
             {
                 if (Check_Info_SP())
                 {
-                    if (Them == true)
+                    if (CheckTenSP(Replace_whitepace_UPPER(txt_TenSP_SP.Text)))
                     {
-                        try
+                        if (Them == true)
                         {
-                            if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            try
+                            {
+                                if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    sanPham.Maloai = cbb_maloai_sp.SelectedValue.ToString();
+                                    sanPham.Tensp = Replace_whitepace_UPPER(txt_TenSP_SP.Text);
+                                    sanPham.Dongia1 = SqlMoney.Parse(txt_Dongia_SP.Text.Trim());
+                                    sanPham.Stringdonvitinh = cbb_Dvt_SP.SelectedValue.ToString();
+                                    sanPham.Mancc = cbb_ncc.SelectedValue.ToString().ToUpper();
+                                    sanPham.DongiaNhap = SqlMoney.Parse(txtdongianhap.Text.Trim());
+                                    sanPham.NgayUpdate1 = DateTime.Now;
+                                    if (rad_conban.Checked == true)
+                                    {
+                                        sanPham.Tinhtrang = "CÒN BÁN";
+                                    }
+                                    else
+                                        sanPham.Tinhtrang = "DỪNG BÁN";
+                                    sp.Add(sanPham);
+                                    Load_DSSP();
+                                    lb_tongSLSP.Text = Load_Tong_SoSP().ToString();
+                                    Enable_Sanpham(false);
+                                    ClearText();
+                                    Them = false;
+                                    DS_SP_SP.Enabled = true;
+                                    MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 sanPham.Maloai = cbb_maloai_sp.SelectedValue.ToString();
+                                sanPham.Masp = txt_MaSP_SP.Text;
                                 sanPham.Tensp = Replace_whitepace_UPPER(txt_TenSP_SP.Text);
                                 sanPham.Dongia1 = SqlMoney.Parse(txt_Dongia_SP.Text.Trim());
+                                sanPham.SLuong = int.Parse(txt_SL_SP.Text);
                                 sanPham.Stringdonvitinh = cbb_Dvt_SP.SelectedValue.ToString();
                                 sanPham.Mancc = cbb_ncc.SelectedValue.ToString().ToUpper();
                                 sanPham.DongiaNhap = SqlMoney.Parse(txtdongianhap.Text.Trim());
@@ -439,49 +482,19 @@ namespace QLBH
                                 }
                                 else
                                     sanPham.Tinhtrang = "DỪNG BÁN";
-                                sp.Add(sanPham);
+
+                                sp.Update(sanPham);
                                 Load_DSSP();
                                 lb_tongSLSP.Text = Load_Tong_SoSP().ToString();
                                 Enable_Sanpham(false);
                                 ClearText();
-                                Them = false;
-                                DS_SP_SP.Enabled = true;
-                                MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
                         }
                     }
                     else
-                    {
-                        if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            sanPham.Maloai = cbb_maloai_sp.SelectedValue.ToString();
-                            sanPham.Masp = txt_MaSP_SP.Text;
-                            sanPham.Tensp = Replace_whitepace_UPPER(txt_TenSP_SP.Text);
-                            sanPham.Dongia1 = SqlMoney.Parse(txt_Dongia_SP.Text.Trim());
-                            sanPham.SLuong = int.Parse(txt_SL_SP.Text);
-                            sanPham.Stringdonvitinh = cbb_Dvt_SP.SelectedValue.ToString();
-                            sanPham.Mancc = cbb_ncc.SelectedValue.ToString().ToUpper();
-                            sanPham.DongiaNhap = SqlMoney.Parse(txtdongianhap.Text.Trim());
-                            sanPham.NgayUpdate1 = DateTime.Now;
-                            if (rad_conban.Checked == true)
-                            {
-                                sanPham.Tinhtrang = "CÒN BÁN";
-                            }
-                            else
-                                sanPham.Tinhtrang = "DỪNG BÁN";
+                        MessageBox.Show("Sản phẩm " + Replace_whitepace_UPPER(txt_TenSP_SP.Text) + " thuộc loại hàng " + cbb_maloai_sp.Text + " của nhà cung cấp "+cbb_ncc.Text+" đã tồn tại trên hệ thống, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) ;
 
-                            sp.Update(sanPham);
-                            Load_DSSP();
-                            lb_tongSLSP.Text = Load_Tong_SoSP().ToString();
-                            Enable_Sanpham(false);
-                            ClearText();
-                            MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
                 }
             } catch(Exception ex)
             {
@@ -603,8 +616,31 @@ namespace QLBH
         private bool Check_Ifor_DVT()
         {
             if (txt_tendvt.Text == "") { MessageBox.Show("Tên đơn vị tính không được trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); txt_tendvt.Focus(); return false; }
-            return true;
+                 return true;
         }
+        private bool CheckTenNCC(string NAme)
+        {
+            if (ncc.GetValue("select count(tenncc) from ncc where tenncc = N'"+NAme+"'") == "0")
+                return true;
+            else
+                return false;
+        }
+        private bool CheckTenLoai(string NAme)
+        {
+            if (lh.GetValue("select count(tenloai) from loaispdgd where tenloai = N'" + NAme + "'") == "0")
+                return true;
+            else
+                return false;
+        }
+        private bool CheckTenSP(string NAme)
+        {
+            if (sp.GetDulieu("select count(sp.tensp) from sanphamdgd sp, NCC nc, loaispdgd loai where sp.tensp = N'" + NAme + "' and sp.maloai = loai.maloai and sp.mancc = nc.mancc") != "0")
+                return false;
+            else
+                return true;
+        }
+
+
         private void btnluu_Click(object sender, EventArgs e)
         {
             try
@@ -613,30 +649,38 @@ namespace QLBH
                 {
                     if (Check_Ifor_NCC())
                     {
-                        nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
-                        nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
-                        nhacungcap.Sdt = txtsdtncc.Text.Trim();
-                        nhacungcap.Diachi = txtdiachincc.Text.Trim();
-                        if (rad_con.Checked == true)
+                        if (CheckTenNCC(Replace_whitepace_UPPER(txttencc.Text.Trim()))== true)
                         {
-                            nhacungcap.Tinhtrang = "1";
+                            nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
+                            nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
+                            nhacungcap.Sdt = txtsdtncc.Text.Trim();
+                            nhacungcap.Diachi = txtdiachincc.Text.Trim();
+                            if (rad_con.Checked == true)
+                            {
+                                nhacungcap.Tinhtrang = "1";
+                            }
+                            else
+                                nhacungcap.Tinhtrang = "0";
+                            ncc.Add(nhacungcap);
+                            Load_DSNCC();
+                            clear_text();
+                            lb_tongSLNCC.Text = Load_Tong_SoNCC().ToString();
+                            dgv_DS_NCC.Enabled = true;
+                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
-                            nhacungcap.Tinhtrang = "0";
-                        ncc.Add(nhacungcap);
-                        Load_DSNCC();
-                        clear_text();
-                        lb_tongSLNCC.Text = Load_Tong_SoNCC().ToString();
-                        dgv_DS_NCC.Enabled = true;
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Nhà cung cấp này đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                 }
                 else
                 {
                     if (Check_Ifor_NCC_CAPNHAT())
                     {
-                        if (txtsdtncc.Text == (string)dgv_DS_NCC.CurrentRow.Cells[2].Value)
+                        if ((string)dgv_DS_NCC.CurrentRow.Cells[1].Value == txttencc.Text)
                         {
+                            if (txtsdtncc.Text == (string)dgv_DS_NCC.CurrentRow.Cells[2].Value)
+                            {
                                 nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
                                 nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
                                 nhacungcap.Sdt = txtsdtncc.Text.Trim();
@@ -655,39 +699,102 @@ namespace QLBH
                                 Enable_LUUHUY_NCC(false);
                                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                            }
+
+                            else
+                            {
+                                if (Check_NumberPhone() == 0)
+                                {
+                                    nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
+                                    nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
+                                    nhacungcap.Sdt = txtsdtncc.Text.Trim();
+                                    nhacungcap.Diachi = txtdiachincc.Text.Trim();
+                                    if (rad_con.Checked == true)
+                                    {
+                                        nhacungcap.Tinhtrang = "1";
+                                    }
+                                    else
+                                        nhacungcap.Tinhtrang = "0";
+                                    ncc.Update(nhacungcap);
+                                    Load_DSNCC();
+                                    clear_text();
+                                    lb_tongSLNCC.Text = Load_Tong_SoNCC().ToString();
+                                    dgv_DS_NCC.Enabled = true;
+                                    Enable_LUUHUY_NCC(false);
+                                    MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Số điện thoại đã tồn tại trên hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    txtsdtncc.Focus();
+
+                                }
+                            }
                         }
                         else
                         {
-                            if (Check_NumberPhone() == 0)
+                            string ten = Replace_whitepace_UPPER(txttencc.Text.Trim());
+                            if (CheckTenNCC(ten) == true)
                             {
-                                nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
-                                nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
-                                nhacungcap.Sdt = txtsdtncc.Text.Trim();
-                                nhacungcap.Diachi = txtdiachincc.Text.Trim();
-                                if (rad_con.Checked == true)
+                                if (txtsdtncc.Text == (string)dgv_DS_NCC.CurrentRow.Cells[2].Value)
                                 {
-                                    nhacungcap.Tinhtrang = "1";
+                                    nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
+                                    nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
+                                    nhacungcap.Sdt = txtsdtncc.Text.Trim();
+                                    nhacungcap.Diachi = txtdiachincc.Text.Trim();
+                                    if (rad_con.Checked == true)
+                                    {
+                                        nhacungcap.Tinhtrang = "1";
+                                    }
+                                    else
+                                        nhacungcap.Tinhtrang = "0";
+                                    ncc.Update(nhacungcap);
+                                    Load_DSNCC();
+                                    clear_text();
+                                    lb_tongSLNCC.Text = Load_Tong_SoNCC().ToString();
+                                    dgv_DS_NCC.Enabled = true;
+                                    Enable_LUUHUY_NCC(false);
+                                    MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                                 }
                                 else
-                                    nhacungcap.Tinhtrang = "0";
-                                ncc.Update(nhacungcap);
-                                Load_DSNCC();
-                                clear_text();
-                                lb_tongSLNCC.Text = Load_Tong_SoNCC().ToString();
-                                dgv_DS_NCC.Enabled = true;
-                                Enable_LUUHUY_NCC(false);
-                                MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                {
+                                    if (Check_NumberPhone() == 0)
+                                    {
+                                        nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
+                                        nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
+                                        nhacungcap.Sdt = txtsdtncc.Text.Trim();
+                                        nhacungcap.Diachi = txtdiachincc.Text.Trim();
+                                        if (rad_con.Checked == true)
+                                        {
+                                            nhacungcap.Tinhtrang = "1";
+                                        }
+                                        else
+                                            nhacungcap.Tinhtrang = "0";
+                                        ncc.Update(nhacungcap);
+                                        Load_DSNCC();
+                                        clear_text();
+                                        lb_tongSLNCC.Text = Load_Tong_SoNCC().ToString();
+                                        dgv_DS_NCC.Enabled = true;
+                                        Enable_LUUHUY_NCC(false);
+                                        MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Số điện thoại đã tồn tại trên hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        txtsdtncc.Focus();
+
+                                    }
+                                }
                             }
                             else
-                            {
-                                MessageBox.Show("Số điện thoại đã tồn tại trên hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                txtsdtncc.Focus();
-
-                            }
+                                MessageBox.Show("Nhà cung cấp "+txttencc.Text+" đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
+                  
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -807,37 +914,71 @@ namespace QLBH
             btn_sua.Enabled = true;
             themDVT = false;
         }
-
+        private bool CheckTenDVT(string NAme)
+        {
+            if (DONVITINH.GetValue("select count(tendvt) from DVT where tendvt = N'" + NAme + "'") == "0")
+                return true;
+            return false;  
+        }
         private void btn_luu_Click(object sender, EventArgs e)
         {
             try
             {
                 if (Check_Ifor_DVT())
                 {
+
                     if (themDVT == true)
                     {
-                        dvt.Madvt = txt_madvt.Text.Trim().ToUpper();
-                        dvt.Tendvt = Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper());
-                        DONVITINH.Add(dvt);
-                        Load_DSDVT();
-                        clear_text_DVT();
-                        dgv_DSDVT.Enabled = true;
-                        Enable_LUUHUY_DVT(false);
-                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (CheckTenDVT(Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper())))
+                        {
+                            dvt.Madvt = txt_madvt.Text.Trim().ToUpper();
+                            dvt.Tendvt = Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper());
+                            DONVITINH.Add(dvt);
+                            Load_DSDVT();
+                            clear_text_DVT();
+                            dgv_DSDVT.Enabled = true;
+                            Enable_LUUHUY_DVT(false);
+                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Đơn vị tính này đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        dvt.Madvt = txt_madvt.Text.Trim().ToUpper();
-                        dvt.Tendvt = Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper());
-                        DONVITINH.Update(dvt);
-                        Load_DSDVT();
-                        clear_text_DVT();
-                        dgv_DSDVT.Enabled = true;
-                        Enable_LUUHUY_DVT(false);
+                        if ((string)dgv_DSDVT.CurrentRow.Cells[1].Value == txt_tendvt.Text)
+                        {
+                            dvt.Madvt = txt_madvt.Text.Trim().ToUpper();
+                            dvt.Tendvt = Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper());
+                            DONVITINH.Update(dvt);
+                            Load_DSDVT();
+                            clear_text_DVT();
+                            dgv_DSDVT.Enabled = true;
+                            Enable_LUUHUY_DVT(false);
 
-                        MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            if (CheckTenDVT(Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper())))
+                            {
+                                dvt.Madvt = txt_madvt.Text.Trim().ToUpper();
+                                dvt.Tendvt = Replace_whitepace_UPPER(txt_tendvt.Text.ToUpper());
+                                DONVITINH.Update(dvt);
+                                Load_DSDVT();
+                                clear_text_DVT();
+                                dgv_DSDVT.Enabled = true;
+                                Enable_LUUHUY_DVT(false);
+
+                                MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            }
+                            else
+                                MessageBox.Show("Đơn vị tính này đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
                     }
-                }
+                    }
+                                   
             }
             catch(Exception ex)
             {

@@ -29,76 +29,80 @@ namespace QLBH
 
         private void cbb_chonxem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbb_chonxem.SelectedIndex == 0)//NGÀY
+            try
             {
-                chart_doanhthu.DataSource = hd.GetData("Select DAY(ngayGD) as 'NGAY', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)");
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "NGAY";
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)") != "")
-                    lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)")).ToString("c", new CultureInfo("vi-VN"));
-                if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)") != "")
-                    lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)");
+                if (cbb_chonxem.SelectedIndex == 0)//NGÀY
+                {
+                    chart_doanhthu.DataSource = hd.GetData("Select DAY(ngayGD) as 'NGAY', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)");
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "NGAY";
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)") != null)
+                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)")).ToString("c", new CultureInfo("vi-VN"));
+                    if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)") != "")
+                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)");
+                }
+                else if (cbb_chonxem.SelectedIndex == 1)//TUẦN
+                {
+                    var first = DateTime.Now.FirstDayOfWeek();
+                    var last = DateTime.Now.LastDayOfWeek();
+                    chart_doanhthu.DataSource = hd.GetData("Select DAY(ngayGD) as 'NGAY', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "' Group by DAY(ngayGD)");
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "NGAY";
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    if (hd.GetValue("Select Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'") != "")
+                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'")).ToString("c", new CultureInfo("vi-VN"));
+                    if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'") != "")
+                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'");
+                }
+                else if (cbb_chonxem.SelectedIndex == 2)//THÁNG
+                {
+                    DateTime month = DateTime.Now;
+                    int thang = month.Month;
+                    chart_doanhthu.DataSource = hd.GetData("Select DAY(ngayGD) as 'THANG', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE MONTH(ngayGD) = " + thang + " Group by DAY(ngayGD)");
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "THANG";
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON  WHERE MONTH(ngayGD) = " + thang + "") != "")
+                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON  WHERE MONTH(ngayGD) = " + thang + " ")).ToString("c", new CultureInfo("vi-VN"));
+                    if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE MONTH(ngayGD) = " + thang + " ") != "")
+                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE MONTH(ngayGD) = " + thang + "");
+                }
+                else if (cbb_chonxem.SelectedIndex == 3)//NĂM
+                {
+                    int namhientai = KHOANGCACHNGAY.CurrentYear();
+                    chart_doanhthu.DataSource = hd.GetData("Select MONTH(ngayGD) as 'THANG', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59' Group by MONTH(ngayGD)");
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "THANG";
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'") != "")
+                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'")).ToString("c", new CultureInfo("vi-VN"));
+                    if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'") != "")
+                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'");
+                }
+                else
+                {
+                    chart_doanhthu.DataSource = hd.GetData("Select YEAR(ngayGD) as 'NAM', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON group by YEAR(ngayGD)");
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "NAM";
+                    chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
+                    chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+                    if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON") != "")
+                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON")).ToString("c", new CultureInfo("vi-VN"));
+                    if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON") != "")
+                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON");
+                }
             }
-            else if (cbb_chonxem.SelectedIndex == 1)//TUẦN
-            {
-                var first = DateTime.Now.FirstDayOfWeek();
-                var last = DateTime.Now.LastDayOfWeek();
-                chart_doanhthu.DataSource = hd.GetData("Select DAY(ngayGD) as 'NGAY', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "' Group by DAY(ngayGD)");
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "NGAY";
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                if (hd.GetValue("Select Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'") != "")
-                    lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'")).ToString("c", new CultureInfo("vi-VN"));
-                if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'")!= "")
-                    lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'");
-            }
-            else if (cbb_chonxem.SelectedIndex == 2)//THÁNG
-            {
-                DateTime month = DateTime.Now;
-                int thang = month.Month;
-                chart_doanhthu.DataSource = hd.GetData("Select DAY(ngayGD) as 'THANG', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE MONTH(ngayGD) = " + thang + " Group by DAY(ngayGD)");
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "THANG";
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON  WHERE MONTH(ngayGD) = " + thang + "") != "")
-                    lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON  WHERE MONTH(ngayGD) = " + thang + " ")).ToString("c", new CultureInfo("vi-VN"));
-                if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE MONTH(ngayGD) = " + thang + " ") != "")
-                    lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE MONTH(ngayGD) = " + thang + "");
-            }
-            else if(cbb_chonxem.SelectedIndex == 3)//NĂM
-            {
-                int namhientai = KHOANGCACHNGAY.CurrentYear();
-                chart_doanhthu.DataSource = hd.GetData("Select MONTH(ngayGD) as 'THANG', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59' Group by MONTH(ngayGD)");
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "THANG";
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'") != "")
-                    lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'")).ToString("c", new CultureInfo("vi-VN"));
-                if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'") != "")
-                    lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'");
-            }
-            else
-            {
-                chart_doanhthu.DataSource = hd.GetData("Select YEAR(ngayGD) as 'NAM', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON group by YEAR(ngayGD)");
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueMember = "NAM";
-                chart_doanhthu.Series["TONGDOANHTHU"].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
-                chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
-                if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON") != "")
-                    lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON")).ToString("c", new CultureInfo("vi-VN"));
-                if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON") != "")
-                    lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON");
-            }    
+            catch {; }
 
         }
         private void frm_dashboard_Load(object sender, EventArgs e)
         {
-                cbb_chonxem.SelectedIndex = 4;
+                cbb_chonxem.SelectedIndex = 0;
                 timer1.Interval = 1000;
                 timer1.Start();
                 timer1.Enabled = true;
