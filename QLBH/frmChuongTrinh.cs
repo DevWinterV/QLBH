@@ -116,7 +116,7 @@ namespace QLBH
 
         private void btn_HD_Click(object sender, EventArgs e)
         {
-            Openformchild(new frmHOADON());
+            Openformchild(new frmHOADON(tennv,manv));
         }
 
         private void pictureBox_HOME_Click(object sender, EventArgs e)

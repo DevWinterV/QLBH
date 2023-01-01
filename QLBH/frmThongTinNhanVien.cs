@@ -37,7 +37,7 @@ namespace QLBH
 
         private void btn_thaydoi_Click(object sender, EventArgs e)
         {
-            if (phanquyen != "ADMIN")
+            if (hoten != "ADMIN")
             {
                 frm_Doimatkhau f1 = new frm_Doimatkhau();
                 f1.ShowDialog();

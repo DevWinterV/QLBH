@@ -212,6 +212,12 @@
     <Compile Include="frm_Doimatkhau.Designer.cs">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_inHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_inHD.Designer.cs">
+      <DependentUpon>frm_inHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_inphieunhapkho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +329,9 @@
     <EmbeddedResource Include="frm_Doimatkhau.resx">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_inHD.resx">
+      <DependentUpon>frm_inHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_inphieunhapkho.resx">
       <DependentUpon>frm_inphieunhapkho.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +362,7 @@
     <EmbeddedResource Include="frm_PhieuYeuCauNHapKho.resx">
       <DependentUpon>frm_PhieuYeuCauNHapKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HoaDon.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

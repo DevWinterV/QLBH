@@ -405,12 +405,9 @@ namespace QLBH
                             cthd1.Add(hd);
                         }
                     }
-                    using (frm_InHoaDon IHD = new frm_InHoaDon(Convert.ToDouble(TongTien().ToString())))
-                    {
-                        IHD.InHoaDon(chitiethd, cthd1);
-                        IHD.ShowDialog();
-                    }
-                } 
+                frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", "0", "0", chitiethd.Ngaylap, cthd1);
+                inHD.ShowDialog();
+            } 
         }
         private void btnthanhtoan_Click(object sender, EventArgs e)
         {
@@ -751,11 +748,8 @@ namespace QLBH
                     cthd1.Add(hd);
                 }
             }
-            using (frm_InHoaDon IHD = new frm_InHoaDon(Convert.ToDouble(TongTien().ToString()), Convert.ToDouble(txt_tienkhachtra.Text), double.Parse(lb_tientholai.Text)))
-            {
-                IHD.InHoaDon(chitiethd, cthd1);
-                IHD.ShowDialog();
-            }
+            frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", txt_tienkhachtra.Text,lb_tientholai.Text, chitiethd.Ngaylap, cthd1);
+            inHD.ShowDialog();
         }
 
         private void check_tienmat_CheckedChanged(object sender, EventArgs e)

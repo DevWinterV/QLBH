@@ -232,7 +232,7 @@ namespace QLBH
 
         private void btnthemmoi_Click(object sender, EventArgs e)
         {
-            frm_hoadonbanhang hdbh = new frm_hoadonbanhang();
+            frm_hoadonbanhang hdbh = new frm_hoadonbanhang(tennhanvien,manv);
             hdbh.Show();
         }
 
@@ -245,6 +245,7 @@ namespace QLBH
             chitiethd.TenKH = row.Cells[3].Value.ToString();
             chitiethd.DiachiKH = row.Cells[4].Value.ToString();
             chitiethd.SdtKH = row.Cells[5].Value.ToString();
+            chitiethd.Thanhtien1 = float.Parse(row.Cells[6].Value.ToString());
             BUS_SanPham sp = new BUS_SanPham();
             List<CTHD> cthd1 = new List<CTHD> { };
             for (int i = 0; i < dgv_ChiTietHD.RowCount - 1; i++)
@@ -260,12 +261,8 @@ namespace QLBH
                     cthd1.Add(hd);
                 }
             }
-            using (frm_InHoaDon IHD = new frm_InHoaDon(Convert.ToDouble(row.Cells[6].Value.ToString())))
-            {
-                IHD.InHoaDon(chitiethd, cthd1);
-                dem = 0;
-                IHD.ShowDialog();
-            }
+            frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(chitiethd.Thanhtien1) + " )", "0", "0", chitiethd.Ngaylap, cthd1);
+            inHD.ShowDialog();
         }
 
         private void btnhuy_Click(object sender, EventArgs e)
@@ -281,14 +278,9 @@ namespace QLBH
             this.Close();
         }
 
-        private void groupControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            frm_Nhapsanpham nsp = new frm_Nhapsanpham();
+            frm_Nhapsanpham nsp = new frm_Nhapsanpham(tennhanvien,manv);
             nsp.Show();
         }
 
@@ -334,11 +326,6 @@ namespace QLBH
             }
             catch
             {; }
-        }
-
-        private void dgv_CTPN_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btntimkiemPN_Click(object sender, EventArgs e)
@@ -414,10 +401,6 @@ namespace QLBH
             }    
         }
 
-        private void datetime_denngay_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_inpn_Click(object sender, EventArgs e)
         {
@@ -439,7 +422,6 @@ namespace QLBH
             }
             frm_inphieunhapkho inphieunhap = new frm_inphieunhapkho(row.Cells[2].Value.ToString(), row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString() , row.Cells[3].Value.ToString(), row.Cells[5].Value.ToString(),PNCT1);
             inphieunhap.ShowDialog();
-
         }
     }
 }
