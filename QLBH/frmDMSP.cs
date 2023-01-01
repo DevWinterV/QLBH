@@ -218,9 +218,9 @@ namespace QLBH
             {
                 if (Check_Info_LoaiSP())
                 {
-                    if (CheckTenLoai(Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text)))
+                    if (ThemLSP == true)
                     {
-                        if (ThemLSP == true)
+                        if (CheckTenLoai(Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text)))
                         {
                             if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
@@ -238,9 +238,18 @@ namespace QLBH
                                 ThemLSP = false;
                                 dataGridView1.Enabled = true;
                                 MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                             }
                         }
                         else
+                        {
+                            MessageBox.Show("Loại sản phẩm " + Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text) + " đã tồn tại trên hệ thống. Vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txt_tenloaisp_loaisp.Focus();
+                        }
+                    }
+                    else
+                    {
+                        if (Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text) == (string)dataGridView1.CurrentRow.Cells[1].Value)
                         {
                             if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
@@ -260,13 +269,38 @@ namespace QLBH
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
+                        else
+                        {
+                            if (CheckTenLoai(Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text)))
+                            {
+                                if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    loaiHang.Maloai = txt_maloai_Loaisp.Text;
+                                    loaiHang.Tenhang = Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text);
+                                    if (rad_TT_LSP.Checked == true)
+                                        loaiHang.Tinhtrang = "CÒN BÁN";
+                                    else
+                                        loaiHang.Tinhtrang = "DỪNG BÁN";
+                                    lh.Update(loaiHang);
+                                    Load_DSLSP();
+                                    lb_tongSLSP.Text = Load_Tong_SoLSP().ToString();
+                                    LoadCbb_loaihang();
+                                    Enable_LoaiSanpham(false);
+                                    ClearTextLSP();
+                                    ClearText();
+                                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Loại sản phẩm " + Replace_whitepace_UPPER(txt_tenloaisp_loaisp.Text) + " đã tồn tại trên hệ thống. Vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txt_tenloaisp_loaisp.Focus();
+                            }
+                        }
                     }
-                    else
-                        MessageBox.Show("Loại sản phẩm đã có trên hệ thống, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -427,9 +461,10 @@ namespace QLBH
             {
                 if (Check_Info_SP())
                 {
-                    if (CheckTenSP(Replace_whitepace_UPPER(txt_TenSP_SP.Text)))
+
+                    if (Them == true)
                     {
-                        if (Them == true)
+                        if (CheckTenSP(Replace_whitepace_UPPER(txt_TenSP_SP.Text)))
                         {
                             try
                             {
@@ -465,6 +500,14 @@ namespace QLBH
                         }
                         else
                         {
+                            MessageBox.Show("Sản phẩm " + Replace_whitepace_UPPER(txt_TenSP_SP.Text) + " thuộc loại hàng " + cbb_maloai_sp.Text + " của nhà cung cấp " + cbb_ncc.Text + " đã tồn tại trên hệ thống, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txt_TenSP_SP.Focus();
+                        }
+                    }
+                    else
+                    {
+                        if (Replace_whitepace_UPPER(txt_TenSP_SP.Text) == (string)DS_SP_SP.CurrentRow.Cells[3].Value)
+                        {
                             if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 sanPham.Maloai = cbb_maloai_sp.SelectedValue.ToString();
@@ -491,12 +534,46 @@ namespace QLBH
                                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
+                        else
+                        {
+                            if (CheckTenSP(Replace_whitepace_UPPER(txt_TenSP_SP.Text)))
+                            {
+                                if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    sanPham.Maloai = cbb_maloai_sp.SelectedValue.ToString();
+                                    sanPham.Masp = txt_MaSP_SP.Text;
+                                    sanPham.Tensp = Replace_whitepace_UPPER(txt_TenSP_SP.Text);
+                                    sanPham.Dongia1 = SqlMoney.Parse(txt_Dongia_SP.Text.Trim());
+                                    sanPham.SLuong = int.Parse(txt_SL_SP.Text);
+                                    sanPham.Stringdonvitinh = cbb_Dvt_SP.SelectedValue.ToString();
+                                    sanPham.Mancc = cbb_ncc.SelectedValue.ToString().ToUpper();
+                                    sanPham.DongiaNhap = SqlMoney.Parse(txtdongianhap.Text.Trim());
+                                    sanPham.NgayUpdate1 = DateTime.Now;
+                                    if (rad_conban.Checked == true)
+                                    {
+                                        sanPham.Tinhtrang = "CÒN BÁN";
+                                    }
+                                    else
+                                        sanPham.Tinhtrang = "DỪNG BÁN";
+
+                                    sp.Update(sanPham);
+                                    Load_DSSP();
+                                    lb_tongSLSP.Text = Load_Tong_SoSP().ToString();
+                                    Enable_Sanpham(false);
+                                    ClearText();
+                                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Sản phẩm " + Replace_whitepace_UPPER(txt_TenSP_SP.Text) + " thuộc loại hàng " + cbb_maloai_sp.Text + " của nhà cung cấp " + cbb_ncc.Text + " đã tồn tại trên hệ thống, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
                     }
-                    else
-                        MessageBox.Show("Sản phẩm " + Replace_whitepace_UPPER(txt_TenSP_SP.Text) + " thuộc loại hàng " + cbb_maloai_sp.Text + " của nhà cung cấp "+cbb_ncc.Text+" đã tồn tại trên hệ thống, vui lòng kiểm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information) ;
 
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -634,7 +711,7 @@ namespace QLBH
         }
         private bool CheckTenSP(string NAme)
         {
-            if (sp.GetDulieu("select count(sp.tensp) from sanphamdgd sp, NCC nc, loaispdgd loai where sp.tensp = N'" + NAme + "' and sp.maloai = loai.maloai and sp.mancc = nc.mancc") != "0")
+            if (sp.GetDulieu("select count(sp.tensp) from sanphamdgd sp, NCC nc, loaispdgd loai where sp.tensp = N'" + NAme + "' and sp.maloai = '"+cbb_maloai_sp.SelectedValue.ToString()+"' and sp.mancc = '"+cbb_ncc.SelectedValue.ToString()+"' ") != "0")
                 return false;
             else
                 return true;
@@ -649,7 +726,7 @@ namespace QLBH
                 {
                     if (Check_Ifor_NCC())
                     {
-                        if (CheckTenNCC(Replace_whitepace_UPPER(txttencc.Text.Trim()))== true)
+                        if (CheckTenNCC(Replace_whitepace_UPPER(txttencc.Text.Trim())) == true)
                         {
                             nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
                             nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
@@ -669,15 +746,17 @@ namespace QLBH
                             MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
-                            MessageBox.Show("Nhà cung cấp này đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        {
+                            MessageBox.Show("Nhà cung cấp " + Replace_whitepace_UPPER(txttencc.Text.Trim()) + " đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            txttencc.Focus();
+                        }
                     }
                 }
                 else
                 {
                     if (Check_Ifor_NCC_CAPNHAT())
                     {
-                        if ((string)dgv_DS_NCC.CurrentRow.Cells[1].Value == txttencc.Text)
+                        if ((string)dgv_DS_NCC.CurrentRow.Cells[1].Value == Replace_whitepace_UPPER(txttencc.Text.Trim()))
                         {
                             if (txtsdtncc.Text == (string)dgv_DS_NCC.CurrentRow.Cells[2].Value)
                             {
@@ -788,7 +867,10 @@ namespace QLBH
                                 }
                             }
                             else
-                                MessageBox.Show("Nhà cung cấp "+txttencc.Text+" đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            {
+                                MessageBox.Show("Nhà cung cấp " + Replace_whitepace_UPPER(txttencc.Text.Trim()) + " đã có trên hệ thống, vui lòng kiếm tra lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txttencc.Focus();
+                            }
                         }
                     }
                   

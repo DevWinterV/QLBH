@@ -38,7 +38,7 @@ namespace QLBH_DAL
         }
         public DataTable LoadData_From_IDPN(string ID)
         {
-            return db.GetDataTable("select ctpn.sophieuN,loai.tenloai,ctpn.masp ,sp.tensp, ctpn.SoluongNhap, sp.dongia , sp.dongia *ctpn.soluongNHAP as thanhtien from nhapkho_CT ctpn , LoaiSPDGD loai , sanphamDGD sp where ctpn.masp = sp.masp and loai.maloai = sp.maloai and ctpn.sophieuN = '"+ID+"'");
+            return db.GetDataTable("select ctpn.sophieuN,loai.tenloai,ctpn.masp ,sp.tensp, ctpn.SoluongNhap, ctpn.dgianhap ,ctpn.dgianhap *ctpn.soluongNHAP as thanhtien from nhapkho_CT ctpn , LoaiSPDGD loai , sanphamDGD sp where ctpn.masp = sp.masp and loai.maloai = sp.maloai and ctpn.sophieuN = '"+ID+"'");
         }
     }
 }

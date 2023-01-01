@@ -200,6 +200,12 @@
     <Compile Include="frm_dashboard.Designer.cs">
       <DependentUpon>frm_dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_DoimatkhaiAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_DoimatkhaiAdmin.Designer.cs">
+      <DependentUpon>frm_DoimatkhaiAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Doimatkhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_dashboard.resx">
       <DependentUpon>frm_dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_DoimatkhaiAdmin.resx">
+      <DependentUpon>frm_DoimatkhaiAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Doimatkhau.resx">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>

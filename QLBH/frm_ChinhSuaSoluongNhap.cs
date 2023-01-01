@@ -75,6 +75,14 @@ namespace QLBH
                 }
         }
 
+        private void txt_soluong_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btn_capnhat_Click(sender, e);
+            }    
+        }
+
         public int Trangthai { get => _trangthai; set => _trangthai = value; }
     }
 }

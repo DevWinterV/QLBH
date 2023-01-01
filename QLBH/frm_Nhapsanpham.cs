@@ -34,6 +34,7 @@ namespace QLBH
         BUS_NHACUNGCAP ncc = new BUS_NHACUNGCAP();
         NHACUNGCAP nhacungcap = new NHACUNGCAP();
         SanPham sanpham = new SanPham();
+        SanPham sanppham1 = new SanPham();
         PHIEUNHAP pn = new PHIEUNHAP();
         PHIEUNHAP_CHITIET pnchitiet = new PHIEUNHAP_CHITIET();
         BUS_PHIEUNHAPCHITIET phieunhap_CT = new BUS_PHIEUNHAPCHITIET();
@@ -221,7 +222,6 @@ namespace QLBH
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
             if (MessageBox.Show("Bạn có muốn lưu phiếu nhập kho không ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 try
@@ -248,6 +248,9 @@ namespace QLBH
                                     sanpham.SLuong = float.Parse(dgv_Nhap.Rows[i].Cells[2].Value.ToString());
                                     sanpham.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
                                     sp.Update_SaukhiNhapKho(sanpham);// Cập nhật lại số lượng sản phẩm sau khi nhập kho thành công
+                                    sanppham1.DongiaNhap = SqlMoney.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString());
+                                    sanppham1.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
+                                    sp.Update_DonGiaNhap(sanppham1);
                                     btn_taoMoi.Enabled = true;
                                     groupBox1.Enabled = false;
                                 }
@@ -307,6 +310,7 @@ namespace QLBH
                 btn_Save.Enabled = false;
                 lb_thongtien.Text = "0";
                 groupBox1.Enabled = false;
+                checkBox1.Checked = false;
             }
         }
 
@@ -349,6 +353,81 @@ namespace QLBH
         private void cb_NCC_DropDown(object sender, EventArgs e)
         {
             Load_NCC();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                txt_DgiaN.Enabled = true;
+                txt_DgiaN.Clear();
+                txt_DgiaN.Focus();
+                label12.Visible = true;
+                txt_dongiaban.Visible = true;
+                btncapnhatdgb.Visible = true;
+                txt_dongiaban.Enabled = false;
+            }
+            else
+            {
+                if (cb_tenSP.Text != "" && cb_tenSP.Items.Count > 0)
+                    txt_DgiaN.Text = sp.GetDulieu("select dongiaNHAP from sanphamDGD where masp = '" + cb_tenSP.SelectedValue.ToString() + "'");
+                txt_DgiaN.Enabled = false;
+                label12.Visible = false;
+                txt_dongiaban.Clear();
+                txt_dongiaban.Visible = false;
+                btncapnhatdgb.Visible = false;
+            }
+
+        }
+
+        private void btncapnhatdgb_Click(object sender, EventArgs e)
+        {
+            if(txt_DgiaN.Text!="")
+            {
+                if(txt_dongiaban.Text !="")
+                {
+                    if (double.Parse(txt_DgiaN.Text) < double.Parse(txt_dongiaban.Text))
+                    {
+                        sanpham.Dongia1 = SqlMoney.Parse(txt_dongiaban.Text);
+                        sanpham.Masp = cb_tenSP.SelectedValue.ToString();
+                        sp.Update_DonGiaBan(sanpham);
+                        MessageBox.Show("Cập nhật lại đơn giá bán thành công!", "Thông báo");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Đơn giá bán phải lớn hơn đơn giá nhập!", "Chú ý");
+                        txt_dongiaban.Focus();
+                    }
+
+                }
+            }    
+        }
+
+        private void cb_NCC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_dongiaban_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_DgiaN.Text != "" && txt_dongiaban.Text != "")
+            {
+                if (double.Parse(txt_DgiaN.Text) < double.Parse(txt_dongiaban.Text))
+                {
+                    btncapnhatdgb.Enabled = true;
+                }
+                else
+                    btncapnhatdgb.Enabled = false;
+            }
+        }
+
+        private void txt_DgiaN_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_DgiaN.Text.Length > 2)
+                txt_dongiaban.Enabled = true;
+            else if(txt_DgiaN.Text.Length < 2)
+                txt_dongiaban.Enabled = false;
+
         }
     }
 }

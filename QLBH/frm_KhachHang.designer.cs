@@ -113,7 +113,7 @@
             this.txt_diachi.Location = new System.Drawing.Point(395, 64);
             this.txt_diachi.Name = "txt_diachi";
             this.txt_diachi.Size = new System.Drawing.Size(201, 20);
-            this.txt_diachi.TabIndex = 5;
+            this.txt_diachi.TabIndex = 3;
             // 
             // txt_sdt
             // 
@@ -122,7 +122,7 @@
             this.txt_sdt.Location = new System.Drawing.Point(421, 34);
             this.txt_sdt.Name = "txt_sdt";
             this.txt_sdt.Size = new System.Drawing.Size(175, 20);
-            this.txt_sdt.TabIndex = 5;
+            this.txt_sdt.TabIndex = 2;
             // 
             // txthoten
             // 
@@ -131,7 +131,7 @@
             this.txthoten.Location = new System.Drawing.Point(146, 64);
             this.txthoten.Name = "txthoten";
             this.txthoten.Size = new System.Drawing.Size(183, 20);
-            this.txthoten.TabIndex = 5;
+            this.txthoten.TabIndex = 1;
             // 
             // label4
             // 
@@ -189,10 +189,10 @@
             "ID ",
             "Số điện thoại"});
             this.cbbChon.Location = new System.Drawing.Point(373, 25);
-            this.cbbChon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbbChon.Margin = new System.Windows.Forms.Padding(2);
             this.cbbChon.Name = "cbbChon";
             this.cbbChon.Size = new System.Drawing.Size(108, 21);
-            this.cbbChon.TabIndex = 24;
+            this.cbbChon.TabIndex = 9;
             this.cbbChon.SelectedIndexChanged += new System.EventHandler(this.cbbChon_SelectedIndexChanged);
             // 
             // txttimkiem
@@ -201,10 +201,10 @@
             this.txttimkiem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txttimkiem.Enabled = false;
             this.txttimkiem.Location = new System.Drawing.Point(484, 25);
-            this.txttimkiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txttimkiem.Margin = new System.Windows.Forms.Padding(2);
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.Size = new System.Drawing.Size(188, 21);
-            this.txttimkiem.TabIndex = 23;
+            this.txttimkiem.TabIndex = 10;
             this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
             // 
             // label7
@@ -321,7 +321,7 @@
             this.groupControl1.Controls.Add(this.btnsua);
             this.groupControl1.Controls.Add(this.btnthem);
             this.groupControl1.Location = new System.Drawing.Point(13, 130);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(675, 62);
             this.groupControl1.TabIndex = 9;
@@ -334,7 +334,7 @@
             this.btnthoat.Location = new System.Drawing.Point(515, 29);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(75, 25);
-            this.btnthoat.TabIndex = 12;
+            this.btnthoat.TabIndex = 8;
             this.btnthoat.Text = "Đóng";
             this.btnthoat.Click += new System.EventHandler(this.btnthoat_Click_1);
             // 
@@ -346,7 +346,7 @@
             this.btnhuy.Location = new System.Drawing.Point(415, 29);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(75, 25);
-            this.btnhuy.TabIndex = 13;
+            this.btnhuy.TabIndex = 7;
             this.btnhuy.Text = "Hủy";
             this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click_1);
             // 
@@ -358,7 +358,7 @@
             this.btnluu.Location = new System.Drawing.Point(316, 29);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(75, 25);
-            this.btnluu.TabIndex = 14;
+            this.btnluu.TabIndex = 6;
             this.btnluu.Text = "Lưu";
             this.btnluu.Click += new System.EventHandler(this.btnluu_Click_1);
             // 
@@ -369,7 +369,7 @@
             this.btnsua.Location = new System.Drawing.Point(214, 29);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(75, 25);
-            this.btnsua.TabIndex = 15;
+            this.btnsua.TabIndex = 5;
             this.btnsua.Text = "Sửa";
             this.btnsua.Click += new System.EventHandler(this.btnsua_Click_1);
             // 
@@ -380,7 +380,7 @@
             this.btnthem.Location = new System.Drawing.Point(112, 29);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(75, 25);
-            this.btnthem.TabIndex = 17;
+            this.btnthem.TabIndex = 4;
             this.btnthem.Text = "Thêm";
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click_1);
             // 

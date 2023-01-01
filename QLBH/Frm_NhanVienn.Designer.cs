@@ -47,6 +47,13 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.cbbChon = new System.Windows.Forms.ComboBox();
             this.dgvDSNV = new System.Windows.Forms.DataGridView();
+            this.colmanv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colsdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colngaysinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coltinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lb_tongnhanvien = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txttimkiem = new System.Windows.Forms.TextBox();
@@ -90,13 +97,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.colmanv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoten = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colsdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colngaysinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colemail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coltinhtrang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -154,7 +154,7 @@
             this.rad_nu.Margin = new System.Windows.Forms.Padding(2);
             this.rad_nu.Name = "rad_nu";
             this.rad_nu.Size = new System.Drawing.Size(39, 17);
-            this.rad_nu.TabIndex = 3;
+            this.rad_nu.TabIndex = 5;
             this.rad_nu.TabStop = true;
             this.rad_nu.Text = "Nữ";
             this.rad_nu.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             this.rad_nam.Margin = new System.Windows.Forms.Padding(2);
             this.rad_nam.Name = "rad_nam";
             this.rad_nam.Size = new System.Drawing.Size(46, 17);
-            this.rad_nam.TabIndex = 3;
+            this.rad_nam.TabIndex = 4;
             this.rad_nam.TabStop = true;
             this.rad_nam.Text = "Nam";
             this.rad_nam.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             this.datetime_NS.Margin = new System.Windows.Forms.Padding(2);
             this.datetime_NS.Name = "datetime_NS";
             this.datetime_NS.Size = new System.Drawing.Size(95, 21);
-            this.datetime_NS.TabIndex = 2;
+            this.datetime_NS.TabIndex = 3;
             // 
             // txtmanv
             // 
@@ -202,7 +202,7 @@
             this.txtSDT.Margin = new System.Windows.Forms.Padding(2);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(85, 21);
-            this.txtSDT.TabIndex = 1;
+            this.txtSDT.TabIndex = 2;
             this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
             // 
             // txt_dichi
@@ -213,7 +213,7 @@
             this.txt_dichi.Margin = new System.Windows.Forms.Padding(2);
             this.txt_dichi.Name = "txt_dichi";
             this.txt_dichi.Size = new System.Drawing.Size(259, 21);
-            this.txt_dichi.TabIndex = 1;
+            this.txt_dichi.TabIndex = 6;
             this.txt_dichi.TextChanged += new System.EventHandler(this.txt_dichi_TextChanged);
             // 
             // txtHotenNV
@@ -325,7 +325,7 @@
             this.cbbChon.Margin = new System.Windows.Forms.Padding(2);
             this.cbbChon.Name = "cbbChon";
             this.cbbChon.Size = new System.Drawing.Size(108, 21);
-            this.cbbChon.TabIndex = 21;
+            this.cbbChon.TabIndex = 12;
             this.cbbChon.SelectedIndexChanged += new System.EventHandler(this.cbbChon_SelectedIndexChanged);
             // 
             // dgvDSNV
@@ -351,9 +351,64 @@
             this.dgvDSNV.RowHeadersWidth = 62;
             this.dgvDSNV.RowTemplate.Height = 28;
             this.dgvDSNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDSNV.Size = new System.Drawing.Size(689, 136);
+            this.dgvDSNV.Size = new System.Drawing.Size(689, 151);
             this.dgvDSNV.TabIndex = 20;
             this.dgvDSNV.Click += new System.EventHandler(this.dgvDSNV_Click);
+            // 
+            // colmanv
+            // 
+            this.colmanv.DataPropertyName = "manv";
+            this.colmanv.HeaderText = "ID";
+            this.colmanv.MinimumWidth = 8;
+            this.colmanv.Name = "colmanv";
+            this.colmanv.ReadOnly = true;
+            // 
+            // colHoten
+            // 
+            this.colHoten.DataPropertyName = "hoten";
+            this.colHoten.HeaderText = "Họ tên";
+            this.colHoten.MinimumWidth = 8;
+            this.colHoten.Name = "colHoten";
+            this.colHoten.ReadOnly = true;
+            // 
+            // colsdt
+            // 
+            this.colsdt.DataPropertyName = "sodt";
+            this.colsdt.HeaderText = "SĐT";
+            this.colsdt.MinimumWidth = 8;
+            this.colsdt.Name = "colsdt";
+            this.colsdt.ReadOnly = true;
+            // 
+            // colngaysinh
+            // 
+            this.colngaysinh.DataPropertyName = "ngaysinh";
+            this.colngaysinh.HeaderText = "Ngày sinh";
+            this.colngaysinh.MinimumWidth = 8;
+            this.colngaysinh.Name = "colngaysinh";
+            this.colngaysinh.ReadOnly = true;
+            // 
+            // colemail
+            // 
+            this.colemail.DataPropertyName = "dchi";
+            this.colemail.HeaderText = "Địa chỉ";
+            this.colemail.MinimumWidth = 8;
+            this.colemail.Name = "colemail";
+            this.colemail.ReadOnly = true;
+            // 
+            // colGioitinh
+            // 
+            this.colGioitinh.DataPropertyName = "Gioitinh";
+            this.colGioitinh.HeaderText = "Giới tính";
+            this.colGioitinh.MinimumWidth = 8;
+            this.colGioitinh.Name = "colGioitinh";
+            this.colGioitinh.ReadOnly = true;
+            // 
+            // coltinhtrang
+            // 
+            this.coltinhtrang.DataPropertyName = "tinhtrang";
+            this.coltinhtrang.HeaderText = "Tình trạng";
+            this.coltinhtrang.Name = "coltinhtrang";
+            this.coltinhtrang.ReadOnly = true;
             // 
             // lb_tongnhanvien
             // 
@@ -361,7 +416,7 @@
             this.lb_tongnhanvien.AutoSize = true;
             this.lb_tongnhanvien.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_tongnhanvien.ForeColor = System.Drawing.Color.Blue;
-            this.lb_tongnhanvien.Location = new System.Drawing.Point(98, 187);
+            this.lb_tongnhanvien.Location = new System.Drawing.Point(98, 26);
             this.lb_tongnhanvien.Name = "lb_tongnhanvien";
             this.lb_tongnhanvien.Size = new System.Drawing.Size(13, 15);
             this.lb_tongnhanvien.TabIndex = 0;
@@ -373,7 +428,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Blue;
-            this.label15.Location = new System.Drawing.Point(5, 187);
+            this.label15.Location = new System.Drawing.Point(5, 26);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(96, 15);
             this.label15.TabIndex = 0;
@@ -386,7 +441,7 @@
             this.txttimkiem.Margin = new System.Windows.Forms.Padding(2);
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.Size = new System.Drawing.Size(189, 21);
-            this.txttimkiem.TabIndex = 1;
+            this.txttimkiem.TabIndex = 13;
             this.txttimkiem.Text = "Nhập để tìm kiếm";
             this.txttimkiem.Click += new System.EventHandler(this.txttimkiem_Click);
             this.txttimkiem.TextChanged += new System.EventHandler(this.txttimkiem_TextChanged);
@@ -441,7 +496,7 @@
             this.btndong.Margin = new System.Windows.Forms.Padding(2);
             this.btndong.Name = "btndong";
             this.btndong.Size = new System.Drawing.Size(75, 29);
-            this.btndong.TabIndex = 20;
+            this.btndong.TabIndex = 11;
             this.btndong.Text = "Đóng";
             this.btndong.Click += new System.EventHandler(this.btndong_Click_1);
             // 
@@ -454,7 +509,7 @@
             this.btnhuy.Margin = new System.Windows.Forms.Padding(2);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(75, 29);
-            this.btnhuy.TabIndex = 21;
+            this.btnhuy.TabIndex = 10;
             this.btnhuy.Text = "Hủy";
             this.btnhuy.Click += new System.EventHandler(this.btnhuy_Click_1);
             // 
@@ -467,7 +522,7 @@
             this.btnluu.Margin = new System.Windows.Forms.Padding(2);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(75, 29);
-            this.btnluu.TabIndex = 22;
+            this.btnluu.TabIndex = 9;
             this.btnluu.Text = "Lưu";
             this.btnluu.Click += new System.EventHandler(this.btnluu_Click_1);
             // 
@@ -479,7 +534,7 @@
             this.btnsua.Margin = new System.Windows.Forms.Padding(2);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(75, 29);
-            this.btnsua.TabIndex = 23;
+            this.btnsua.TabIndex = 8;
             this.btnsua.Text = "Sửa";
             this.btnsua.Click += new System.EventHandler(this.btnsua_Click_1);
             // 
@@ -491,7 +546,7 @@
             this.btnthem.Margin = new System.Windows.Forms.Padding(2);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(75, 29);
-            this.btnthem.TabIndex = 25;
+            this.btnthem.TabIndex = 7;
             this.btnthem.Text = "Thêm";
             this.btnthem.Click += new System.EventHandler(this.btnthem_Click_1);
             // 
@@ -894,61 +949,6 @@
             this.label17.Size = new System.Drawing.Size(72, 13);
             this.label17.TabIndex = 0;
             this.label17.Text = "Tên tài khoản";
-            // 
-            // colmanv
-            // 
-            this.colmanv.DataPropertyName = "manv";
-            this.colmanv.HeaderText = "ID";
-            this.colmanv.MinimumWidth = 8;
-            this.colmanv.Name = "colmanv";
-            this.colmanv.ReadOnly = true;
-            // 
-            // colHoten
-            // 
-            this.colHoten.DataPropertyName = "hoten";
-            this.colHoten.HeaderText = "Họ tên";
-            this.colHoten.MinimumWidth = 8;
-            this.colHoten.Name = "colHoten";
-            this.colHoten.ReadOnly = true;
-            // 
-            // colsdt
-            // 
-            this.colsdt.DataPropertyName = "sodt";
-            this.colsdt.HeaderText = "SĐT";
-            this.colsdt.MinimumWidth = 8;
-            this.colsdt.Name = "colsdt";
-            this.colsdt.ReadOnly = true;
-            // 
-            // colngaysinh
-            // 
-            this.colngaysinh.DataPropertyName = "ngaysinh";
-            this.colngaysinh.HeaderText = "Ngày sinh";
-            this.colngaysinh.MinimumWidth = 8;
-            this.colngaysinh.Name = "colngaysinh";
-            this.colngaysinh.ReadOnly = true;
-            // 
-            // colemail
-            // 
-            this.colemail.DataPropertyName = "dchi";
-            this.colemail.HeaderText = "Địa chỉ";
-            this.colemail.MinimumWidth = 8;
-            this.colemail.Name = "colemail";
-            this.colemail.ReadOnly = true;
-            // 
-            // colGioitinh
-            // 
-            this.colGioitinh.DataPropertyName = "Gioitinh";
-            this.colGioitinh.HeaderText = "Giới tính";
-            this.colGioitinh.MinimumWidth = 8;
-            this.colGioitinh.Name = "colGioitinh";
-            this.colGioitinh.ReadOnly = true;
-            // 
-            // coltinhtrang
-            // 
-            this.coltinhtrang.DataPropertyName = "tinhtrang";
-            this.coltinhtrang.HeaderText = "Tình trạng";
-            this.coltinhtrang.Name = "coltinhtrang";
-            this.coltinhtrang.ReadOnly = true;
             // 
             // Frm_NhanVienn
             // 

@@ -1,4 +1,5 @@
 ﻿using QLBH_BUS;
+using QLBH_Enity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,24 +9,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using QLBH_BUS;
-using QLBH_Enity;
 
 namespace QLBH
 {
-    public partial class frm_Doimatkhau : Form
+    public partial class frm_DoimatkhaiAdmin : Form
     {
-        public frm_Doimatkhau()
+        public frm_DoimatkhaiAdmin()
         {
             InitializeComponent();
         }
-        BUS_NguoiDung nv = new BUS_NguoiDung();
-        NguoiDung nguoiDung = new NguoiDung();
-        string phanquyen, manv;
+        BUS_ADMIN admin = new BUS_ADMIN();
+        Admin am = new Admin();
+        private void frm_DoimatkhaiAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void check_mk_CheckedChanged(object sender, EventArgs e)
         {
-            if(check_mk.Checked==true)
+            if (check_mk.Checked == true)
             {
                 txt_pass_HT.PasswordChar = '\0';
                 txt_pass_moi.PasswordChar = '\0';
@@ -42,34 +44,24 @@ namespace QLBH
             this.Close();
         }
 
-        private void frm_Doimatkhau_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_luu_Click(object sender, EventArgs e)
         {
             try
             {
                 if (txt_tentk.Text != "" && txt_pass_HT.Text != "")
                 {
-                    if (nv.Check_LogIn(txt_tentk.Text, txt_pass_HT.Text) == 1)
-                    { 
-                      if(txt_pass_moi.Text != "")
+                    if (admin.Check_logIn(txt_tentk.Text, txt_pass_HT.Text) == 1)
+                    {
+                        if (txt_pass_moi.Text != "")
                         {
-                            phanquyen = nv.GetValue("select phanquyen from nguoidung where username ='"+ txt_tentk.Text + "' and pass = '" + txt_pass_HT.Text + "'");
-                            manv = nv.GetValue("select manv from NguoiDung where pass = '" + txt_pass_HT.Text.Trim() + "' and username = '" + txt_tentk.Text.Trim() + "'");
-                            nguoiDung.Phanquyen = phanquyen;
-                            nguoiDung.Manv = manv;
-                            nguoiDung.Username = txt_tentk.Text;
-                            nguoiDung.Pass = txt_pass_moi.Text;
-                            nv.Update(nguoiDung);
-                            DialogResult = MessageBox.Show("Thay đổi mật khẩu thành công !", "Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
-                            if(DialogResult == DialogResult.OK)
+                            am.User = txt_tentk.Text;
+                            am.Password = txt_pass_moi.Text;
+                            admin.Update(am);
+                            DialogResult = MessageBox.Show("Thay đổi mật khẩu thành công !", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                            if (DialogResult == DialogResult.OK)
                             {
                                 this.Close();
-                            }    
-
+                            }
                         }
                         else
                         {

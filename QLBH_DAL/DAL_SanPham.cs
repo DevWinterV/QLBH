@@ -29,6 +29,15 @@ namespace QLBH_DAL
         {
             db.ExecuteNonQuery("update sanphamDGD set  ngay_update = '"+DateTime.Now+"', Sluong = Sluong + " + sp.SLuong + "  where masp = '" + sp.Masp.Trim().ToUpper() + "'");
         }
+        public void Update_DongiaNhap(SanPham sp)
+        {
+            db.ExecuteNonQuery("update sanphamDGD set  ngay_update = '" + DateTime.Now + "', dongianhap = " + sp.DongiaNhap + "  where masp = '" + sp.Masp.Trim().ToUpper() + "'");
+        }
+        public void Update_DongiaBan(SanPham sp)
+        {
+            db.ExecuteNonQuery("update sanphamDGD set  ngay_update = '" + DateTime.Now + "', dongia = " + sp.Dongia1 + "  where masp = '" + sp.Masp.Trim().ToUpper() + "'");
+        }
+
         public void Delete(SanPham sp)
         {
             db.ExecuteNonQuery("delete chitietHD where masp = '" + sp.Masp  + "'  delete sanphamDGD where masp = '" + sp.Masp  + "'");

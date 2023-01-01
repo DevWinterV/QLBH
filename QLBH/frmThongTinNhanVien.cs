@@ -37,8 +37,16 @@ namespace QLBH
 
         private void btn_thaydoi_Click(object sender, EventArgs e)
         {
-            frm_Doimatkhau f1 = new frm_Doimatkhau();
-            f1.ShowDialog();
+            if (phanquyen != "ADMIN")
+            {
+                frm_Doimatkhau f1 = new frm_Doimatkhau();
+                f1.ShowDialog();
+            }
+            else
+            {
+                frm_DoimatkhaiAdmin f2 = new frm_DoimatkhaiAdmin();
+                f2.ShowDialog();
+            }    
         }
 
         private void frmThongTinNhanVien_Load(object sender, EventArgs e)

@@ -28,7 +28,14 @@ namespace QLBH_BUS
         {
             dal.Update_SauKhiNhapHang(lh);
         }
-
+        public void Update_DonGiaNhap(SanPham lh)
+        {
+            dal.Update_DongiaNhap(lh);
+        }
+        public void Update_DonGiaBan(SanPham lh)
+        {
+            dal.Update_DongiaBan(lh);
+        }
         public void Delete(SanPham lh)
         {
             dal.Delete(lh);
