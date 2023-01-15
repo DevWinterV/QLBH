@@ -194,6 +194,12 @@
     <Compile Include="frm_ChinhSuaSoluongNhap.Designer.cs">
       <DependentUpon>frm_ChinhSuaSoluongNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_CongNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_CongNo.Designer.cs">
+      <DependentUpon>frm_CongNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,12 +260,6 @@
     <Compile Include="frm_HoaDonBanHang.designer.cs">
       <DependentUpon>frm_HoaDonBanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_InHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_InHoaDon.Designer.cs">
-      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_KhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +277,24 @@
     </Compile>
     <Compile Include="frm_PhieuYeuCauNHapKho.Designer.cs">
       <DependentUpon>frm_PhieuYeuCauNHapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_thanhtoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_thanhtoan.Designer.cs">
+      <DependentUpon>frm_thanhtoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_TraNoKhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_TraNoKhachhang.Designer.cs">
+      <DependentUpon>frm_TraNoKhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_XacNhanGhiNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_XacNhanGhiNo.Designer.cs">
+      <DependentUpon>frm_XacNhanGhiNo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -320,6 +338,9 @@
     <EmbeddedResource Include="frm_ChinhSuaSoluongNhap.resx">
       <DependentUpon>frm_ChinhSuaSoluongNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_CongNo.resx">
+      <DependentUpon>frm_CongNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_dashboard.resx">
       <DependentUpon>frm_dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -347,9 +368,6 @@
     <EmbeddedResource Include="frm_HoaDonBanHang.resx">
       <DependentUpon>frm_HoaDonBanHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_InHoaDon.resx">
-      <DependentUpon>frm_InHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frm_KhachHang.resx">
       <DependentUpon>frm_KhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,6 +379,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_PhieuYeuCauNHapKho.resx">
       <DependentUpon>frm_PhieuYeuCauNHapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_thanhtoan.resx">
+      <DependentUpon>frm_thanhtoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_TraNoKhachhang.resx">
+      <DependentUpon>frm_TraNoKhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_XacNhanGhiNo.resx">
+      <DependentUpon>frm_XacNhanGhiNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -548,6 +575,9 @@
     <None Include="Resources\systemacount.jpg" />
     <None Include="Resources\Exit2.jpg" />
     <None Include="Resources\nhập kho.jpg" />
+    <None Include="Resources\low-price.png" />
+    <None Include="Resources\congno.png" />
+    <None Include="Resources\profits.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

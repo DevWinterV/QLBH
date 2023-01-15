@@ -239,7 +239,7 @@
             this.dgv_DSKH.RowHeadersWidth = 62;
             this.dgv_DSKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_DSKH.Size = new System.Drawing.Size(665, 156);
-            this.dgv_DSKH.TabIndex = 10;
+            this.dgv_DSKH.TabIndex = 11;
             this.dgv_DSKH.Click += new System.EventHandler(this.dgv_DSKH_Click);
             // 
             // colmakh

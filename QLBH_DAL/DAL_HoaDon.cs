@@ -13,7 +13,7 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(HoaDon sp)
         {
-            db.ExecuteNonQuery("insert into HoaDon values('" + sp.NgayGD + "','HD' + cast (next value for MAHD_TU_TANG as varchar(5)),'" + sp.MaKH + "','" + sp.Manv + "','" + sp.Thanhtien1 + "')");
+            db.ExecuteNonQuery("insert into HoaDon values('" + sp.NgayGD + "','HD' + cast (next value for MAHD_TU_TANG as varchar(8)),'" + sp.MaKH + "','" + sp.Manv + "','" + sp.Thanhtien1 + "')");
         }
         public void Update(HoaDon sp)
         {

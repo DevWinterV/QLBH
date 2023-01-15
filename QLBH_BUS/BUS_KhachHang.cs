@@ -29,6 +29,11 @@ namespace QLBH_BUS
         {
             return dal.LoadDuLieu(DieuKien);
         }
+        public DataTable Load_DSKHNO()
+        {
+            return dal.Load_DSKHNO();
+        }
+
         public string GetValue(string DieuKien)
         {
             return dal.GetValue(DieuKien);

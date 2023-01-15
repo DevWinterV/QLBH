@@ -29,7 +29,7 @@ namespace QLBH
         private void bt_load_Click(object sender, EventArgs e)
         {
             ds.Clear();
-            SqlConnection cn = new SqlConnection(@"Data Source=192.168.1.25,1433;Initial Catalog=QLBH;User ID=dong; Password=09032002");
+            SqlConnection cn = new SqlConnection(@"Data Source=192.168.1.25;Initial Catalog=QLBH;Integrated Security=True");
             string query = "Select MONTH(ngayGD) as 'THANG', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE YEAR(ngayGD) = "+dateTimePicker2.Text+" Group by MONTH(ngayGD)";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(ds);
@@ -45,7 +45,7 @@ namespace QLBH
                 ReportDataSource rpdts = new ReportDataSource();
                 rpdts.Name = "DataSet1";
                 rpdts.Value = ds.Tables[0];
-                reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\Report3.rdlc";
+                reportViewer1.LocalReport.ReportPath = "Report3.rdlc";
                 reportViewer1.LocalReport.DataSources.Clear();
                 this.reportViewer1.LocalReport.SetParameters(reports);
                 reportViewer1.LocalReport.DataSources.Add(rpdts);

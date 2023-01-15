@@ -111,6 +111,10 @@ namespace QLBH
                         rad_nam.Checked = true;
                     else
                         rad_nu.Checked = true;
+                    if ((string)dr.Cells[6].Value == check_tinhtrang.Text)
+                        check_tinhtrang.Checked = true;
+                    else
+                        check_tinhtrang.Checked = false;
                 }
             }
             catch (Exception ex)
@@ -188,7 +192,12 @@ namespace QLBH
                             nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                             nhanvien.Phai = GioiTinh().ToString();
                             nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
-                            nhanvien.Tinhtrang = "CÒN LÀM";
+                            if (check_tinhtrang.Checked == true)
+                            {
+                                nhanvien.Tinhtrang = "CÒN LÀM";
+                            }
+                            else
+                                nhanvien.Tinhtrang = "NGHỈ LÀM";
                             nv.Add(nhanvien);
                             LoadDSNV();
                             LoadTongSoNV();
@@ -213,6 +222,12 @@ namespace QLBH
                                 nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                                 nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
                                 nhanvien.Phai = Gioitinh().ToString();
+                                if (check_tinhtrang.Checked == true)
+                                {
+                                    nhanvien.Tinhtrang = "CÒN LÀM";
+                                }
+                                else
+                                    nhanvien.Tinhtrang = "NGHỈ LÀM";
                                 nv.Update(nhanvien);
                                 LoadDSNV();
                                 LoadDSNV();
@@ -233,7 +248,13 @@ namespace QLBH
                                 nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                                 nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
                                 nhanvien.Phai = Gioitinh().ToString();
-                                nv.Update(nhanvien);
+                                    if (check_tinhtrang.Checked == true)
+                                    {
+                                        nhanvien.Tinhtrang = "CÒN LÀM";
+                                    }
+                                    else
+                                        nhanvien.Tinhtrang = "NGHỈ LÀM";
+                                    nv.Update(nhanvien);
                                 LoadDSNV();
                                 LoadDSNV();
                                 Enable_Nhanvien(false);

@@ -261,7 +261,7 @@ namespace QLBH
                     cthd1.Add(hd);
                 }
             }
-            frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(chitiethd.Thanhtien1) + " )", "0", "0", chitiethd.Ngaylap, cthd1);
+            frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(chitiethd.Thanhtien1) + " )", "0", "0", chitiethd.Ngaylap, "0", "0", cthd1);
             inHD.ShowDialog();
         }
 

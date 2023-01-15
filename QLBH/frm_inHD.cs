@@ -19,7 +19,7 @@ namespace QLBH
             InitializeComponent();
         }
 
-        public frm_inHD(string mahd, string tennv, string tenkh, string sdtkh, string tienchu, string tienkhachtra, string tienthoilai, DateTime ngaylap, List<CTHD> dS_cthd)
+        public frm_inHD(string mahd, string tennv, string tenkh, string sdtkh, string tienchu, string tienkhachtra, string tienthoilai, DateTime ngaylap, string chietkhau, string tongtien ,List<CTHD> dS_cthd)
         {
             InitializeComponent();
             _mahd = mahd;
@@ -31,9 +31,13 @@ namespace QLBH
             _tienthoilai = tienthoilai;
             _ngaylap = ngaylap;
             DS_cthd = dS_cthd;
+            Chietkhau = chietkhau;
+            Tongtien = tongtien;
         }
 
         private string _mahd, _tennv, _tenkh, _sdtkh, _tienchu, _tienkhachtra, _tienthoilai;
+        private string _chietkhau;
+        private string _tongtien;
         private DateTime _ngaylap;
         List<CTHD> DS_cthd = new List<CTHD>();
 
@@ -46,6 +50,8 @@ namespace QLBH
         public string Tienkhachtra { get => _tienkhachtra; set => _tienkhachtra = value; }
         public string Tienthoilai { get => _tienthoilai; set => _tienthoilai = value; }
         public DateTime Ngaylap { get => _ngaylap; set => _ngaylap = value; }
+        public string Chietkhau { get => _chietkhau; set => _chietkhau = value; }
+        public string Tongtien { get => _tongtien; set => _tongtien = value; }
 
         private void frm_inHD_Load(object sender, EventArgs e)
         {
@@ -62,12 +68,14 @@ namespace QLBH
                 new ReportParameter("p_tienkhachtra", Tienkhachtra),
                 new ReportParameter("p_tienthoilai", Tienthoilai),
                 new ReportParameter("p_mahd", Mahd),
+               // new ReportParameter("p_chietkhau", Chietkhau),
+                new ReportParameter("p_phaithanhtoan", Tongtien),
             };
             ReportDataSource rpdts = new ReportDataSource();
             rpdts.Name = "DataSet1";
             rpdts.Value = DS_cthd1;
             reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\HoaDon.rdlc";
+            reportViewer1.LocalReport.ReportPath = "HoaDon.rdlc";
             this.reportViewer1.LocalReport.SetParameters(reports);
             reportViewer1.LocalReport.DataSources.Add(rpdts);
             this.reportViewer1.RefreshReport();

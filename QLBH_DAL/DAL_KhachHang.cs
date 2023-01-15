@@ -28,6 +28,11 @@ where kh.maKH = '"+kh.MaKH+"' and ct.maHD = hd.maHD delete HOADON where maKH = '
         {
             return db.GetDataTable("select * from khachhang " + DieuKien);
         }
+        public DataTable Load_DSKHNO()
+        {
+            return db.GetDataTable("select * from KHACHHANG kh where maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+        }
+
         public string GetValue(string DieuKien)
         {
             return db.GetValue(DieuKien);

@@ -31,7 +31,7 @@ namespace QLBH
             if (DateTime.Parse(date_ngaychon.Text) < DateTime.Now)
             {
                 ds.Clear();
-                SqlConnection cn = new SqlConnection(@"Data Source=192.168.1.25,1433;Initial Catalog=QLBH;User ID=dong; Password=09032002");
+                SqlConnection cn = new SqlConnection(@"Data Source=192.168.1.25;Initial Catalog=QLBH;Persist Security Info=True;User ID=dong;Password=09032002");
                 string query = "select cthd.maHD, hd.ngaygd, sum(soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv =hd.manv and hd.maKH =kh.maKH and  HD.ngayGD BETWEEN '"+date_ngaychon.Text+" 00:00:00' AND '"+date_ngaychon.Text+" 23:59:59' group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien\r\n";
                 SqlDataAdapter da = new SqlDataAdapter(query, cn);
                 da.Fill(ds);
@@ -47,7 +47,7 @@ namespace QLBH
                     ReportDataSource rpdts = new ReportDataSource();
                     rpdts.Name = "DataSet1";
                     rpdts.Value = ds.Tables[0];
-                    reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\Report2.rdlc";
+                    reportViewer1.LocalReport.ReportPath = "Report2.rdlc";
                     reportViewer1.LocalReport.DataSources.Clear();
                     this.reportViewer1.LocalReport.SetParameters(reports);
                     reportViewer1.LocalReport.DataSources.Add(rpdts);

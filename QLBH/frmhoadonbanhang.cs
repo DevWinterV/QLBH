@@ -30,6 +30,7 @@ namespace QLBH
         private int soluong;
         string chapnhan;
         private int vitri;
+
         public frm_hoadonbanhang(string tennv, string manv)
         {
             this.tennv = tennv;
@@ -66,6 +67,10 @@ namespace QLBH
         HoaDon hoadon = new HoaDon();
         CTHD chitiethd = new CTHD();
         SanPham sanPham = new SanPham();
+        BUS_PHIEUNO pn = new BUS_PHIEUNO();
+        PHIEUNO phieuno = new PHIEUNO();
+        PHIEUNO_CT phieunoct = new PHIEUNO_CT();
+        BUS_PHIEUNO_CT pnct = new BUS_PHIEUNO_CT();
 
         public int Soluong { get => soluong; set => soluong = value; }
 
@@ -192,13 +197,15 @@ namespace QLBH
         {
             if (dgv_CTHD.Rows.Count -1 ==0)
             {
-                btnthanhtoan.Enabled = false;
+               // btnthanhtoan.Enabled = false;
                 dgv_CTHD.Enabled = false;
+               // txt_chietkhau.Enabled = false; 
                 txt_tienkhachtra.Enabled = false;
             }
             if (dgv_CTHD.Rows.Count -1 > 0)
             {
-                btnthanhtoan.Enabled = true;
+                //btnthanhtoan.Enabled = true;
+               // txt_chietkhau.Enabled = true;
                 dgv_CTHD.Enabled = true;
                 txt_tienkhachtra.Enabled = true;
             }
@@ -379,6 +386,8 @@ namespace QLBH
             lb_tientholai.Text = "";
             btnhuyhd.Enabled = false;
             txt_tienkhachtra.Enabled = false;
+            txt_chietkhau.Clear();
+            txt_chietkhau.Enabled = false;
         }
         private void InHD()
         {
@@ -405,14 +414,48 @@ namespace QLBH
                             cthd1.Add(hd);
                         }
                     }
-                frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", "0", "0", chitiethd.Ngaylap, cthd1);
+                frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", "0", "0", chitiethd.Ngaylap, "0", "0", cthd1);
                 inHD.ShowDialog();
             } 
         }
         private void btnthanhtoan_Click(object sender, EventArgs e)
         {
-            DialogResult drl = MessageBox.Show("Bạn có muốn thanh toán hóa đơn và In hóa đơn không?", "Xác nhận thanh toán", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            if (drl == DialogResult.Yes)
+            frm_thanhtoan frmtt = new frm_thanhtoan();
+            frmtt.ShowDialog();
+            if(frmtt.Trangthai ==1)
+            {
+                /*
+                ThanhToanHD();
+                dgv_CTHD.Rows.Clear();
+                Load_DSSP();
+                Clear();
+                MessageBox.Show("Lưu hóa đơn thành công! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnthanhtoan.Enabled = false;*/
+                if (txt_tienkhachtra.Text != "")
+                {
+                    if (double.Parse(txt_tienkhachtra.Text) >= TongTien())
+                    {
+                        ThanhToanHD();
+                        InhoaDon();
+                        dgv_CTHD.Rows.Clear();
+                        Load_DSSP();
+                        Clear();
+                        MessageBox.Show("Lưu hóa đơn thành công! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnthanhtoan.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Khách chưa trả đủ tiền thanh toán", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_tienkhachtra.Focus();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập tiền khách trả.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    cbb_tenkhachhang.Focus();
+                }
+            }    
+            if(frmtt.Trangthai ==2)
             {
                 if (cbb_tenkhachhang.Text != "")
                 {
@@ -421,13 +464,14 @@ namespace QLBH
 
                         if (txt_tienkhachtra.Text != "")
                         {
-                            if (double.Parse(txt_tienkhachtra.Text) >= TongTien())
+                            if (double.Parse(txt_tienkhachtra.Text) >= TongTien()  )
                             {
                                 ThanhToanHD();
                                 InhoaDon();
                                 dgv_CTHD.Rows.Clear();
                                 Load_DSSP();
                                 Clear();
+                                btnthanhtoan.Enabled = false;
                             }
                             else
                             {
@@ -448,25 +492,20 @@ namespace QLBH
                         dgv_CTHD.Rows.Clear();
                         Load_DSSP();
                         Clear();
+                        btnthanhtoan.Enabled = false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Vui long chọn tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Vui lòng chọn tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cbb_tenkhachhang.Focus();
                 }
-            }
-            if (drl == DialogResult.No)
-            {
-                ThanhToanHD();
-                dgv_CTHD.Rows.Clear();
-                Load_DSSP();
-                MessageBox.Show("Lưu hóa đơn thành công! ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
         }
         private double TongTien()// tính tổng tiền tự động của hóa đơn
         {
             double tongtien = 0;
+            double chietkhau = 0;
             if (dgv_CTHD.Rows.Count > 0)
             {
                 try
@@ -477,6 +516,15 @@ namespace QLBH
                             tongtien += Convert.ToDouble(dgv_CTHD.Rows[i].Cells[5].Value);
                         }
                     }
+                    if (txt_chietkhau.Text.Length > 0)
+                    {
+                        chietkhau = tongtien * (double.Parse(txt_chietkhau.Text) / 100);
+                        tongtien -= chietkhau;
+                    }
+                    else
+                    {
+                        return tongtien;
+                    }    
                 }
                 catch (Exception ex)
                 {
@@ -748,8 +796,16 @@ namespace QLBH
                     cthd1.Add(hd);
                 }
             }
-            frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", txt_tienkhachtra.Text,lb_tientholai.Text, chitiethd.Ngaylap, cthd1);
-            inHD.ShowDialog();
+            if (txt_chietkhau.Text == "")
+            {
+                frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", txt_tienkhachtra.Text, lb_tientholai.Text, chitiethd.Ngaylap, "0", lb_tongtien.Text, cthd1);
+                inHD.ShowDialog();
+            }
+            else
+            {
+                frm_inHD inHD = new frm_inHD(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", txt_tienkhachtra.Text, lb_tientholai.Text, chitiethd.Ngaylap, txt_chietkhau.Text, lb_tongtien.Text, cthd1);
+                inHD.ShowDialog();
+            }    
         }
 
         private void check_tienmat_CheckedChanged(object sender, EventArgs e)
@@ -772,14 +828,30 @@ namespace QLBH
         {
             try
             {
-
+                if (txt_tienkhachtra.Text.Length == 0)
+                {
+                    lb_tientholai.Text = "";
+                }    
                 if (double.Parse(txt_tienkhachtra.Text) >= TongTien() && txt_tienkhachtra.Text.Length > 0)
+                {
                     lb_tientholai.Text = (double.Parse(txt_tienkhachtra.Text) - TongTien()).ToString();
+                    btnthanhtoan.Enabled = true;
+                    btnghino.Enabled = false;
+
+                }
                 else if (double.Parse(txt_tienkhachtra.Text) < TongTien())
-                    lb_tientholai.Text = "Chưa đủ";
+                {
+                    lb_tientholai.Text ="Nợ " + (double.Parse(txt_tienkhachtra.Text) - TongTien()).ToString(); ;
+                    btnthanhtoan.Enabled = false;
+                    btnghino.Enabled = true;
+                }
                 else
+                {
+                    btnthanhtoan.Enabled = false;
                     lb_tientholai.Text = "0";
-               
+                    btnghino.Enabled = true;
+
+                }
 
             }
             catch(Exception ex)
@@ -801,6 +873,67 @@ namespace QLBH
                 check_ngayhientai.Checked = true;
                 MessageBox.Show("Bạn không được phép!", "Thông báo");
             }    
+        }
+
+        private void btnghino_Click(object sender, EventArgs e)
+        {
+            if (txt_tienkhachtra.Text != "")
+            {
+                if (cbb_tenkhachhang.Items.Count > 0)
+                {
+                    if (MessageBox.Show("Bạn có muốn áp dụng ghi nợ cho khách hàng không ?", "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        frm_XacNhanGhiNo frm_XacNhanGhiNo = new frm_XacNhanGhiNo(cbb_tenkhachhang.SelectedValue.ToString(), cbb_tenkhachhang.Text, txt_sdt.Text, txt_diachi.Text, TongTien(), double.Parse(txt_tienkhachtra.Text));
+                        frm_XacNhanGhiNo.ShowDialog();
+                        if (frm_XacNhanGhiNo.TrangThai == 1)
+                        {
+                            ThanhToanHD();
+                            phieuno.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
+                            phieuno.Ngayno = DateTime.Now;
+                            phieuno.Manv = txt_manv.Text;
+                            phieuno.Ghichu = frm_XacNhanGhiNo.Ghichu;
+                            double Tienno = TongTien() - double.Parse(txt_tienkhachtra.Text);
+                            phieuno.TienNo1 = (SqlMoney)Tienno;
+                            pn.Add(phieuno);
+                            phieunoct.MaPN = "PNO" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPHIEUNO_TU_TANG'"); ;
+                            phieunoct.Ngaytra = DateTime.Now;
+                            phieunoct.TienTra = SqlMoney.Parse(txt_tienkhachtra.Text);
+                            pnct.Add(phieunoct);// cập nhật lại số tiền trả nợ]
+                            dgv_CTHD.Rows.Clear();
+                            Load_DSSP();
+                            Clear();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập số tiền khách trả trước!(Có thể là 0)", "Thông báo");
+                txt_tienkhachtra.Focus();
+            }    
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                lb_tongtien.Text = TongTien().ToString("c", new CultureInfo("vi-VN"));// tính tổng tiền hóa đơn
+                Control control = (Control)sender;
+                if (!Char.IsDigit(control.Text[control.Text.Length - 1]))
+                {
+                    this.errorProvider1.SetError(control, "This is not a valid number");
+                    txt_chietkhau.Clear();
+                }
+                else
+                {
+                    this.errorProvider1.Clear();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                this.errorProvider1.Clear();
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

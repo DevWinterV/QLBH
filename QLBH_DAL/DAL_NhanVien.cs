@@ -17,7 +17,7 @@ namespace QLBH_DAL
         }
         public void Update(NhanVien sp)
         {
-            db.ExecuteNonQuery("update nhanvien set  manv = '" + sp.Manv + "',hoten =N'" + sp.Hoten + "',Sodt = '" + sp.Sodt + "', dchi  =N'"+sp.Diachi+ "',gioitinh = N'"+sp.Phai+"' where manv = '" + sp.Manv + "'");
+            db.ExecuteNonQuery("update nhanvien set  manv = '" + sp.Manv + "',hoten =N'" + sp.Hoten + "',Sodt = '" + sp.Sodt + "', dchi  =N'"+sp.Diachi+ "',gioitinh = N'"+sp.Phai+"',TINHTRANG =N'"+sp.Tinhtrang+"' where manv = '" + sp.Manv + "'");
         }
         public void Delete(NhanVien sp)
         {

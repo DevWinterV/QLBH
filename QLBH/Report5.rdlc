@@ -64,10 +64,10 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>CỬA HÀNG ELECTRIC APPLIANCES</Value>
+                    <Value>CỬA HÀNG ĐIỆN NƯỚC  BA TA (BÍCH NHUNG)</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
-                      <FontFamily>Times New Roman</FontFamily>
+                      <FontFamily>times New Roman</FontFamily>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -79,7 +79,7 @@
             <Top>0.02431in</Top>
             <Left>0.14584in</Left>
             <Height>0.25in</Height>
-            <Width>2.68056in</Width>
+            <Width>3.08681in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -97,10 +97,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Địa chỉ: 180, Tân Trung, Phú Tân, An Giang.</Value>
+                    <Value>Địa chỉ: Ấp Tân Thạnh, Tân Trung, Phú Tân, An Giang.</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -109,10 +110,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Số điện thoại: 0888686868</Value>
+                    <Value>Điện thoại: 0384611104</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -122,8 +124,8 @@
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>0.27431in</Top>
             <Left>0.14583in</Left>
-            <Height>0.34375in</Height>
-            <Width>2.68056in</Width>
+            <Height>0.37153in</Height>
+            <Width>3.44098in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -142,10 +144,18 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>PHIẾU NHẬP HÀNG</Value>
+                    <Value>PH</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>IẾU NHẬP HÀNG</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>14pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -154,10 +164,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0.67362in</Top>
+            <Top>0.71528in</Top>
             <Left>2.45139in</Left>
-            <Height>0.25in</Height>
-            <Width>1.68056in</Width>
+            <Height>0.26389in</Height>
+            <Width>2.02777in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -286,7 +296,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.92362in</Top>
+            <Top>1.00695in</Top>
             <Left>2.58555in</Left>
             <Height>0.25in</Height>
             <Width>0.49084in</Width>
@@ -318,7 +328,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
-            <Top>0.92362in</Top>
+            <Top>1.00695in</Top>
             <Left>3.07639in</Left>
             <Height>0.25in</Height>
             <Width>1.625in</Width>
@@ -641,7 +651,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>STT</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -661,6 +673,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -673,7 +686,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>MÃ SP</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -693,6 +708,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -705,7 +721,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>TÊN SP</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -725,6 +743,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -737,7 +756,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>TÊN LOẠI SP</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -757,6 +778,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -769,7 +791,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>S.L</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -789,6 +813,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -801,7 +826,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>ĐƠN GIÁ</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -821,6 +848,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -833,7 +861,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>THÀNH TIỀN</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -853,6 +883,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>

@@ -157,7 +157,7 @@ namespace QLBH
         }
         private void frmChuongTrinh_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("XIN CHÀO " + phanquyen + " " + tennv.Trim().ToUpper() + ". CHÚC BẠN MỘT NGÀY TỐT LÀNH!", "ĐĂNG NHẬP THÀNH CÔNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
+           // MessageBox.Show("XIN CHÀO " + phanquyen + " " + tennv.Trim().ToUpper() + ". CHÚC BẠN MỘT NGÀY TỐT LÀNH!", "ĐĂNG NHẬP THÀNH CÔNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Openformchild_DASHBOARD(new frm_dashboard());
             btnThuNho_Click_1(sender, e);
             btnPhongTo_Click_1(sender, e);
@@ -323,6 +323,17 @@ namespace QLBH
         {
             btn_NhapHang_Click(sender, e);
         }
+
+        private void btn_congno_Click(object sender, EventArgs e)
+        {
+            Openformchild(new frm_CongNo());
+        }
+
+        private void pictureBox_conno_Click(object sender, EventArgs e)
+        {
+            btn_congno_Click(sender, e);
+        }
+
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             frmThongTinNhanVien ttnv = new frmThongTinNhanVien(manv,tennv,phanquyen);

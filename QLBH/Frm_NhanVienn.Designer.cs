@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_NhanVienn));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.check_tinhtrang = new System.Windows.Forms.CheckBox();
             this.rad_nu = new System.Windows.Forms.RadioButton();
             this.rad_nam = new System.Windows.Forms.RadioButton();
             this.datetime_NS = new System.Windows.Forms.DateTimePicker();
@@ -125,6 +126,7 @@
             this.groupControl1.Appearance.BackColor2 = System.Drawing.Color.White;
             this.groupControl1.Appearance.Options.UseBackColor = true;
             this.groupControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.groupControl1.Controls.Add(this.check_tinhtrang);
             this.groupControl1.Controls.Add(this.rad_nu);
             this.groupControl1.Controls.Add(this.rad_nam);
             this.groupControl1.Controls.Add(this.datetime_NS);
@@ -144,6 +146,20 @@
             this.groupControl1.Size = new System.Drawing.Size(695, 77);
             this.groupControl1.TabIndex = 21;
             this.groupControl1.Text = "THÔNG TIN NHÂN VIÊN";
+            // 
+            // check_tinhtrang
+            // 
+            this.check_tinhtrang.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.check_tinhtrang.AutoSize = true;
+            this.check_tinhtrang.Checked = true;
+            this.check_tinhtrang.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.check_tinhtrang.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.check_tinhtrang.Location = new System.Drawing.Point(596, 28);
+            this.check_tinhtrang.Name = "check_tinhtrang";
+            this.check_tinhtrang.Size = new System.Drawing.Size(81, 17);
+            this.check_tinhtrang.TabIndex = 7;
+            this.check_tinhtrang.Text = "CÒN LÀM";
+            this.check_tinhtrang.UseVisualStyleBackColor = true;
             // 
             // rad_nu
             // 
@@ -191,7 +207,7 @@
             this.txtmanv.Location = new System.Drawing.Point(449, 26);
             this.txtmanv.Margin = new System.Windows.Forms.Padding(2);
             this.txtmanv.Name = "txtmanv";
-            this.txtmanv.Size = new System.Drawing.Size(103, 21);
+            this.txtmanv.Size = new System.Drawing.Size(127, 21);
             this.txtmanv.TabIndex = 1;
             // 
             // txtSDT
@@ -352,7 +368,7 @@
             this.dgvDSNV.RowTemplate.Height = 28;
             this.dgvDSNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDSNV.Size = new System.Drawing.Size(689, 151);
-            this.dgvDSNV.TabIndex = 20;
+            this.dgvDSNV.TabIndex = 14;
             this.dgvDSNV.Click += new System.EventHandler(this.dgvDSNV_Click);
             // 
             // colmanv
@@ -636,7 +652,7 @@
             this.cbb_chonTK.Margin = new System.Windows.Forms.Padding(2);
             this.cbb_chonTK.Name = "cbb_chonTK";
             this.cbb_chonTK.Size = new System.Drawing.Size(108, 21);
-            this.cbb_chonTK.TabIndex = 21;
+            this.cbb_chonTK.TabIndex = 10;
             // 
             // DSTK
             // 
@@ -660,7 +676,7 @@
             this.DSTK.RowTemplate.Height = 28;
             this.DSTK.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DSTK.Size = new System.Drawing.Size(689, 164);
-            this.DSTK.TabIndex = 20;
+            this.DSTK.TabIndex = 12;
             this.DSTK.Click += new System.EventHandler(this.DSTK_Click);
             // 
             // dataGridViewTextBoxColumn1
@@ -710,7 +726,7 @@
             this.txt_Timkiemtaikhoan.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Timkiemtaikhoan.Name = "txt_Timkiemtaikhoan";
             this.txt_Timkiemtaikhoan.Size = new System.Drawing.Size(189, 21);
-            this.txt_Timkiemtaikhoan.TabIndex = 1;
+            this.txt_Timkiemtaikhoan.TabIndex = 11;
             this.txt_Timkiemtaikhoan.Text = "Nhập để tìm kiếm";
             this.txt_Timkiemtaikhoan.Click += new System.EventHandler(this.txt_Timkiemtaikhoan_Click);
             this.txt_Timkiemtaikhoan.TextChanged += new System.EventHandler(this.txt_Timkiemtaikhoan_TextChanged);
@@ -753,7 +769,7 @@
             this.btnThemTK.Margin = new System.Windows.Forms.Padding(2);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(75, 25);
-            this.btnThemTK.TabIndex = 26;
+            this.btnThemTK.TabIndex = 5;
             this.btnThemTK.Text = "Thêm";
             this.btnThemTK.Click += new System.EventHandler(this.btnThemTK_Click);
             // 
@@ -765,7 +781,7 @@
             this.btndongTK.Margin = new System.Windows.Forms.Padding(2);
             this.btndongTK.Name = "btndongTK";
             this.btndongTK.Size = new System.Drawing.Size(75, 25);
-            this.btndongTK.TabIndex = 20;
+            this.btndongTK.TabIndex = 13;
             this.btndongTK.Text = "Đóng";
             this.btndongTK.Click += new System.EventHandler(this.btndongTK_Click);
             // 
@@ -778,7 +794,7 @@
             this.btnhuyTK.Margin = new System.Windows.Forms.Padding(2);
             this.btnhuyTK.Name = "btnhuyTK";
             this.btnhuyTK.Size = new System.Drawing.Size(75, 25);
-            this.btnhuyTK.TabIndex = 21;
+            this.btnhuyTK.TabIndex = 9;
             this.btnhuyTK.Text = "Hủy";
             this.btnhuyTK.Click += new System.EventHandler(this.btnhuyTK_Click);
             // 
@@ -791,7 +807,7 @@
             this.btnLuuTK.Margin = new System.Windows.Forms.Padding(2);
             this.btnLuuTK.Name = "btnLuuTK";
             this.btnLuuTK.Size = new System.Drawing.Size(75, 25);
-            this.btnLuuTK.TabIndex = 22;
+            this.btnLuuTK.TabIndex = 8;
             this.btnLuuTK.Text = "Lưu";
             this.btnLuuTK.Click += new System.EventHandler(this.btnLuuTK_Click);
             // 
@@ -803,7 +819,7 @@
             this.btnSuaTK.Margin = new System.Windows.Forms.Padding(2);
             this.btnSuaTK.Name = "btnSuaTK";
             this.btnSuaTK.Size = new System.Drawing.Size(75, 25);
-            this.btnSuaTK.TabIndex = 23;
+            this.btnSuaTK.TabIndex = 7;
             this.btnSuaTK.Text = "Sửa";
             this.btnSuaTK.Click += new System.EventHandler(this.btnSuaTK_Click);
             // 
@@ -815,7 +831,7 @@
             this.btnXoaTK.Margin = new System.Windows.Forms.Padding(2);
             this.btnXoaTK.Name = "btnXoaTK";
             this.btnXoaTK.Size = new System.Drawing.Size(75, 25);
-            this.btnXoaTK.TabIndex = 24;
+            this.btnXoaTK.TabIndex = 6;
             this.btnXoaTK.Text = "Xóa";
             this.btnXoaTK.Click += new System.EventHandler(this.btnXoaTK_Click);
             // 
@@ -852,7 +868,7 @@
             this.cbb_tennv.Margin = new System.Windows.Forms.Padding(2);
             this.cbb_tennv.Name = "cbb_tennv";
             this.cbb_tennv.Size = new System.Drawing.Size(127, 21);
-            this.cbb_tennv.TabIndex = 4;
+            this.cbb_tennv.TabIndex = 1;
             this.cbb_tennv.DropDown += new System.EventHandler(this.cbb_tennv_DropDown);
             this.cbb_tennv.SelectedIndexChanged += new System.EventHandler(this.cbb_tennv_SelectedIndexChanged);
             // 
@@ -865,7 +881,7 @@
             this.rad_nhanvien_tk.Margin = new System.Windows.Forms.Padding(2);
             this.rad_nhanvien_tk.Name = "rad_nhanvien_tk";
             this.rad_nhanvien_tk.Size = new System.Drawing.Size(79, 17);
-            this.rad_nhanvien_tk.TabIndex = 3;
+            this.rad_nhanvien_tk.TabIndex = 4;
             this.rad_nhanvien_tk.TabStop = true;
             this.rad_nhanvien_tk.Text = "NHÂN VIÊN";
             this.rad_nhanvien_tk.UseVisualStyleBackColor = true;
@@ -892,7 +908,7 @@
             this.txt_matkhau_taikhoan.Margin = new System.Windows.Forms.Padding(2);
             this.txt_matkhau_taikhoan.Name = "txt_matkhau_taikhoan";
             this.txt_matkhau_taikhoan.Size = new System.Drawing.Size(125, 21);
-            this.txt_matkhau_taikhoan.TabIndex = 1;
+            this.txt_matkhau_taikhoan.TabIndex = 2;
             // 
             // txt_taikhoan_taikhoan
             // 
@@ -1058,5 +1074,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colemail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGioitinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn coltinhtrang;
+        private System.Windows.Forms.CheckBox check_tinhtrang;
     }
 }

@@ -730,8 +730,8 @@ namespace QLBH
                         {
                             nhacungcap.Mancc = txt_mancc.Text.Trim().ToUpper();
                             nhacungcap.Tenncc = Replace_whitepace_UPPER(txttencc.Text.Trim());
-                            nhacungcap.Sdt = txtsdtncc.Text.Trim();
-                            nhacungcap.Diachi = txtdiachincc.Text.Trim();
+                            nhacungcap.Sdt = Replace_whitepace_UPPER(txtsdtncc.Text.Trim());
+                            nhacungcap.Diachi = Replace_whitepace_UPPER(txtdiachincc.Text.Trim());
                             if (rad_con.Checked == true)
                             {
                                 nhacungcap.Tinhtrang = "1";

@@ -34,7 +34,7 @@ namespace QLBH
 
         private void Load_DSSPHET()
         {
-            DSSPhet.DataSource = sp.GetData("select loai.tenloai, sp.tensp, sp.dongia  from sanphamdgd sp, loaispdgd loai where  sp.tinhtrang = N'CÒN BÁN' AND loai.maloai = sp.maloai and sp.sluong =0");
+            DSSPhet.DataSource = sp.GetData("select loai.tenloai, sp.tensp, sp.dongia  from sanphamdgd sp, loaispdgd loai where  sp.tinhtrang = N'CÒN BÁN' AND loai.maloai = sp.maloai and sp.sluong <=5");
         }
         private void Load_DSTONKHO()
         {

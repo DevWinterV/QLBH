@@ -196,7 +196,7 @@
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(35, 23);
-            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // label7
@@ -465,9 +465,9 @@
             this.label5.Location = new System.Drawing.Point(2, 3);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 17);
+            this.label5.Size = new System.Drawing.Size(72, 17);
             this.label5.TabIndex = 0;
-            this.label5.Text = "NHÂN VIÊN";
+            this.label5.Text = "CÔNG NỢ";
             // 
             // timer1
             // 

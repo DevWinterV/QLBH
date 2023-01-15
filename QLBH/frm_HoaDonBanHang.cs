@@ -550,12 +550,7 @@ namespace frm_BanHang
                     cthd1.Add(hd);
                 }
             }
-            using (frm_InHoaDon IHD = new frm_InHoaDon(Convert.ToDouble(txt_tongtien.Text)))
-            {
-                IHD.InHoaDon(chitiethd, cthd1);
-                dem = 0;
-                IHD.ShowDialog();
-            }    
+    
         }
 
         private void btnexxit_Click(object sender, EventArgs e)

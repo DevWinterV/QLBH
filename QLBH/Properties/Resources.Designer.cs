@@ -113,6 +113,16 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap congno {
+            get {
+                object obj = ResourceManager.GetObject("congno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cute {
             get {
                 object obj = ResourceManager.GetObject("cute", resourceCulture);
@@ -223,6 +233,16 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap low_price {
+            get {
+                object obj = ResourceManager.GetObject("low-price", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Mắt_mở {
             get {
                 object obj = ResourceManager.GetObject("Mắt mở", resourceCulture);
@@ -316,6 +336,16 @@ namespace QLBH.Properties {
         internal static System.Drawing.Bitmap phóng_to {
             get {
                 object obj = ResourceManager.GetObject("phóng to", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap profits {
+            get {
+                object obj = ResourceManager.GetObject("profits", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

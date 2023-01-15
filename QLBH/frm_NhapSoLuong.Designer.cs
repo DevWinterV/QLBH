@@ -57,7 +57,7 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(116, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 23);
+            this.label1.Size = new System.Drawing.Size(158, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "THÔNG TIN SẢN PHẨM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -68,7 +68,7 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(39, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 19);
+            this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên loại:";
             // 
@@ -78,7 +78,7 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(39, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 19);
+            this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tên sản phẩm:";
             // 
@@ -88,7 +88,7 @@
             this.label4.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(39, 147);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 19);
+            this.label4.Size = new System.Drawing.Size(51, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Đơn giá:";
             // 
@@ -98,7 +98,7 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(39, 218);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 19);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Số lượng:";
             // 
@@ -108,7 +108,7 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(39, 265);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 19);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Thành tiền:";
             // 
@@ -116,7 +116,7 @@
             // 
             this.txtsoluong.Location = new System.Drawing.Point(153, 215);
             this.txtsoluong.Name = "txtsoluong";
-            this.txtsoluong.Size = new System.Drawing.Size(86, 26);
+            this.txtsoluong.Size = new System.Drawing.Size(86, 20);
             this.txtsoluong.TabIndex = 0;
             this.txtsoluong.TextChanged += new System.EventHandler(this.txtsoluong_TextChanged);
             this.txtsoluong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtsoluong_KeyDown);
@@ -127,7 +127,7 @@
             this.txtthanhtien.ForeColor = System.Drawing.Color.Red;
             this.txtthanhtien.Location = new System.Drawing.Point(153, 262);
             this.txtthanhtien.Name = "txtthanhtien";
-            this.txtthanhtien.Size = new System.Drawing.Size(142, 26);
+            this.txtthanhtien.Size = new System.Drawing.Size(142, 20);
             this.txtthanhtien.TabIndex = 1;
             // 
             // lb_tenloai
@@ -135,7 +135,7 @@
             this.lb_tenloai.AutoSize = true;
             this.lb_tenloai.Location = new System.Drawing.Point(169, 69);
             this.lb_tenloai.Name = "lb_tenloai";
-            this.lb_tenloai.Size = new System.Drawing.Size(60, 19);
+            this.lb_tenloai.Size = new System.Drawing.Size(49, 14);
             this.lb_tenloai.TabIndex = 0;
             this.lb_tenloai.Text = "Tên loại:";
             // 
@@ -144,7 +144,7 @@
             this.lb_tensp.AutoSize = true;
             this.lb_tensp.Location = new System.Drawing.Point(166, 109);
             this.lb_tensp.Name = "lb_tensp";
-            this.lb_tensp.Size = new System.Drawing.Size(96, 19);
+            this.lb_tensp.Size = new System.Drawing.Size(76, 14);
             this.lb_tensp.TabIndex = 0;
             this.lb_tensp.Text = "Tên sản phẩm:";
             // 
@@ -153,7 +153,7 @@
             this.lb_dongia.AutoSize = true;
             this.lb_dongia.Location = new System.Drawing.Point(166, 147);
             this.lb_dongia.Name = "lb_dongia";
-            this.lb_dongia.Size = new System.Drawing.Size(96, 19);
+            this.lb_dongia.Size = new System.Drawing.Size(76, 14);
             this.lb_dongia.TabIndex = 0;
             this.lb_dongia.Text = "Tên sản phẩm:";
             // 
@@ -166,7 +166,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(294, 266);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 19);
+            this.label7.Size = new System.Drawing.Size(38, 14);
             this.label7.TabIndex = 0;
             this.label7.Text = "(VNĐ)";
             // 
@@ -177,7 +177,7 @@
             this.btndong.Margin = new System.Windows.Forms.Padding(4);
             this.btndong.Name = "btndong";
             this.btndong.Size = new System.Drawing.Size(107, 38);
-            this.btndong.TabIndex = 2;
+            this.btndong.TabIndex = 3;
             this.btndong.Text = "Cancel";
             this.btndong.Click += new System.EventHandler(this.btndong_Click);
             // 
@@ -198,7 +198,7 @@
             this.label8.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(39, 183);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 19);
+            this.label8.Size = new System.Drawing.Size(78, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Số lượng còn:";
             // 
@@ -208,13 +208,13 @@
             this.lbsoluong.ForeColor = System.Drawing.Color.Red;
             this.lbsoluong.Location = new System.Drawing.Point(168, 182);
             this.lbsoluong.Name = "lbsoluong";
-            this.lbsoluong.Size = new System.Drawing.Size(61, 19);
+            this.lbsoluong.Size = new System.Drawing.Size(46, 14);
             this.lbsoluong.TabIndex = 0;
             this.lbsoluong.Text = "số lượng";
             // 
             // frm_NhapSoLuong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(384, 391);

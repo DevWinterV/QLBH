@@ -26,7 +26,7 @@ namespace QLBH
         BUS_HoaDon hd = new BUS_HoaDon();
         BUS_KhachHang kh = new BUS_KhachHang();
         BUS_NhanVien nv = new BUS_NhanVien();
-
+        BUS_PHIEUNO pn = new BUS_PHIEUNO();
         private void cbb_chonxem_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -39,9 +39,11 @@ namespace QLBH
                     chart_doanhthu.Series["TONGDOANHTHU"].YValueMembers = "TONGDOANHTHU";
                     chart_doanhthu.Series["TONGDOANHTHU"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
                     if (hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)") != null)
-                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)")).ToString("c", new CultureInfo("vi-VN"));
+                        lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  ")).ToString("c", new CultureInfo("vi-VN"));
                     if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)") != "")
-                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  Group by DAY(ngayGD)");
+                        lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  where ngayGD  BETWEEN '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  ");
+                    if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd, KHAChHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd and pn.ngayno between  '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59' ") != "")
+                        lb_tongnhanvien.Text = double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = 'kh.makh' and hd.maHD = pn.mahd and pn.ngayno between  '" + DateTime.Now.ToString("yyyy-MM-dd") + " 00:00:00' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + " 23:59:59'  ")).ToString("c", new CultureInfo("vi-VN"));
                 }
                 else if (cbb_chonxem.SelectedIndex == 1)//TUẦN
                 {
@@ -56,6 +58,8 @@ namespace QLBH
                         lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'")).ToString("c", new CultureInfo("vi-VN"));
                     if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'") != "")
                         lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE ngayGD BETWEEN '" + first + "'  AND '" + last + "'");
+                    if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd, KHAChHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd and pn.ngayno BETWEEN '" + first + "'  AND '" + last + "' ") != "")
+                        lb_tongnhanvien.Text = double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = 'kh.makh' and hd.maHD = pn.mahd and pn.ngayno BETWEEN '" + first + "'  AND '" + last + "' ")).ToString("c", new CultureInfo("vi-VN"));
                 }
                 else if (cbb_chonxem.SelectedIndex == 2)//THÁNG
                 {
@@ -70,6 +74,8 @@ namespace QLBH
                         lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON  WHERE MONTH(ngayGD) = " + thang + " ")).ToString("c", new CultureInfo("vi-VN"));
                     if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE MONTH(ngayGD) = " + thang + " ") != "")
                         lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON  WHERE MONTH(ngayGD) = " + thang + "");
+                    if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd, KHAChHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd and MONTH(pn.ngayno) = " + thang + "") != "")
+                        lb_tongnhanvien.Text = double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = 'kh.makh' and hd.maHD = pn.mahd and MONTH(pn.ngayno) = " + thang + "")).ToString("c", new CultureInfo("vi-VN"));
                 }
                 else if (cbb_chonxem.SelectedIndex == 3)//NĂM
                 {
@@ -83,6 +89,9 @@ namespace QLBH
                         lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'")).ToString("c", new CultureInfo("vi-VN"));
                     if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'") != "")
                         lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON WHERE ngayGD BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'");
+                    if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd, KHAChHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd and pn.ngayno  BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'") != "")
+                        lb_tongnhanvien.Text = double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = 'kh.makh' and hd.maHD = pn.mahd and pn.ngayno  BETWEEN '" + namhientai + "-01-01 00:00:00' AND '" + namhientai + "-12-31  23:59:59'")).ToString("c", new CultureInfo("vi-VN"));
+
                 }
                 else
                 {
@@ -95,6 +104,9 @@ namespace QLBH
                         lb_tongdoanhthu.Text = double.Parse(hd.GetValue("Select  Sum(thanhtien) as 'THANHTIEN' From HOADON")).ToString("c", new CultureInfo("vi-VN"));
                     if (hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON") != "")
                         lb_tonghoadon.Text = hd.GetValue("Select  count(maHD) as 'TONGSOHOADON' From HOADON");
+                    if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd , KHAChHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd") != "")
+                        lb_tongnhanvien.Text = double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = 'kh.makh' and hd.maHD = pn.mahd")).ToString("c", new CultureInfo("vi-VN"));
+
                 }
             }
             catch {; }
@@ -113,9 +125,11 @@ namespace QLBH
                 chart_topsanphambanchay.Series["TONGSOLUONG"].YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
                 if (kh.GetValue("Select  count(maKH) as 'TONGSOKHACHHANG' From KHACHHANG") != "")
                     lb_tongkhachhang.Text = kh.GetValue("Select  count(maKH) as 'TONGSOKHACHHANG' From KHACHHANG");
-                if (nv.Getvalue("Select  count(manv) as 'TONGSONHANVIEN' From nhanvien  WHERE MANV NOT LIKE 'ADMIN'") != "")
-                    lb_tongnhanvien.Text = nv.Getvalue("Select  count(manv) as 'TONGSONHANVIEN' From nhanvien  WHERE MANV NOT LIKE 'ADMIN'");
-            
+                if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd, KHAChHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd") != "")
+                   lb_tongnhanvien.Text = double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd, KHACHHANG kh WHERE hd.maKH = kh.makh and hd.maHD = pn.mahd")).ToString("c", new CultureInfo("vi-VN"));
+
+            // lb_tongnhanvien.Text = nv.Getvalue("Select  count(manv) as 'TONGSONHANVIEN' From nhanvien  WHERE MANV NOT LIKE 'ADMIN'");
+
 
         }
 

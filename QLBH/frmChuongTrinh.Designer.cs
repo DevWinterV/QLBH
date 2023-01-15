@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChuongTrinh));
             this.panel_menu = new System.Windows.Forms.Panel();
+            this.pictureBox_conno = new System.Windows.Forms.PictureBox();
+            this.btn_congno = new System.Windows.Forms.Button();
             this.pictureBox_NhapHang = new System.Windows.Forms.PictureBox();
             this.btn_NhapHang = new System.Windows.Forms.Button();
             this.lb_banquyen = new System.Windows.Forms.Label();
@@ -63,6 +65,7 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.panel_menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_conno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_NhapHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhnen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TK_menu)).BeginInit();
@@ -80,6 +83,8 @@
             this.panel_menu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel_menu.BackColor = System.Drawing.Color.Teal;
+            this.panel_menu.Controls.Add(this.pictureBox_conno);
+            this.panel_menu.Controls.Add(this.btn_congno);
             this.panel_menu.Controls.Add(this.pictureBox_NhapHang);
             this.panel_menu.Controls.Add(this.btn_NhapHang);
             this.panel_menu.Controls.Add(this.lb_banquyen);
@@ -107,15 +112,38 @@
             this.panel_menu.Location = new System.Drawing.Point(0, 0);
             this.panel_menu.Margin = new System.Windows.Forms.Padding(2);
             this.panel_menu.Name = "panel_menu";
-            this.panel_menu.Size = new System.Drawing.Size(169, 557);
+            this.panel_menu.Size = new System.Drawing.Size(169, 613);
             this.panel_menu.TabIndex = 0;
+            // 
+            // pictureBox_conno
+            // 
+            this.pictureBox_conno.BackColor = System.Drawing.Color.White;
+            this.pictureBox_conno.BackgroundImage = global::QLBH.Properties.Resources.profits;
+            this.pictureBox_conno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_conno.Location = new System.Drawing.Point(3, 422);
+            this.pictureBox_conno.Name = "pictureBox_conno";
+            this.pictureBox_conno.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox_conno.TabIndex = 55;
+            this.pictureBox_conno.TabStop = false;
+            this.pictureBox_conno.Click += new System.EventHandler(this.pictureBox_conno_Click);
+            // 
+            // btn_congno
+            // 
+            this.btn_congno.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_congno.Location = new System.Drawing.Point(-1, 420);
+            this.btn_congno.Name = "btn_congno";
+            this.btn_congno.Size = new System.Drawing.Size(167, 37);
+            this.btn_congno.TabIndex = 8;
+            this.btn_congno.Text = "CÔNG NỢ";
+            this.btn_congno.UseVisualStyleBackColor = true;
+            this.btn_congno.Click += new System.EventHandler(this.btn_congno_Click);
             // 
             // pictureBox_NhapHang
             // 
             this.pictureBox_NhapHang.BackColor = System.Drawing.Color.White;
             this.pictureBox_NhapHang.BackgroundImage = global::QLBH.Properties.Resources.nhập_kho;
             this.pictureBox_NhapHang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_NhapHang.Location = new System.Drawing.Point(2, 472);
+            this.pictureBox_NhapHang.Location = new System.Drawing.Point(2, 522);
             this.pictureBox_NhapHang.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_NhapHang.Name = "pictureBox_NhapHang";
             this.pictureBox_NhapHang.Size = new System.Drawing.Size(35, 31);
@@ -125,12 +153,12 @@
             // 
             // btn_NhapHang
             // 
-            this.btn_NhapHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NhapHang.Location = new System.Drawing.Point(-1, 469);
+            this.btn_NhapHang.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NhapHang.Location = new System.Drawing.Point(-1, 519);
             this.btn_NhapHang.Margin = new System.Windows.Forms.Padding(2);
             this.btn_NhapHang.Name = "btn_NhapHang";
             this.btn_NhapHang.Size = new System.Drawing.Size(167, 37);
-            this.btn_NhapHang.TabIndex = 52;
+            this.btn_NhapHang.TabIndex = 10;
             this.btn_NhapHang.Text = "NHẬP HÀNG";
             this.btn_NhapHang.UseVisualStyleBackColor = true;
             this.btn_NhapHang.Click += new System.EventHandler(this.btn_NhapHang_Click);
@@ -140,7 +168,7 @@
             this.lb_banquyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lb_banquyen.AutoSize = true;
             this.lb_banquyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_banquyen.Location = new System.Drawing.Point(18, 535);
+            this.lb_banquyen.Location = new System.Drawing.Point(18, 591);
             this.lb_banquyen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_banquyen.Name = "lb_banquyen";
             this.lb_banquyen.Size = new System.Drawing.Size(132, 9);
@@ -163,6 +191,7 @@
             // 
             this.lb_quyen.AutoSize = true;
             this.lb_quyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_quyen.ForeColor = System.Drawing.Color.White;
             this.lb_quyen.Location = new System.Drawing.Point(66, 69);
             this.lb_quyen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_quyen.Name = "lb_quyen";
@@ -174,6 +203,7 @@
             // 
             this.lb_name_nv.AutoSize = true;
             this.lb_name_nv.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name_nv.ForeColor = System.Drawing.Color.White;
             this.lb_name_nv.Location = new System.Drawing.Point(65, 53);
             this.lb_name_nv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_name_nv.Name = "lb_name_nv";
@@ -188,7 +218,7 @@
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 18);
-            this.button1.TabIndex = 45;
+            this.button1.TabIndex = 1;
             this.button1.Text = "ĐĂNG XUẤT";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -198,7 +228,7 @@
             this.pictureBox_TK_menu.BackColor = System.Drawing.Color.White;
             this.pictureBox_TK_menu.BackgroundImage = global::QLBH.Properties.Resources.Thống_Kê_4_;
             this.pictureBox_TK_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_TK_menu.Location = new System.Drawing.Point(4, 373);
+            this.pictureBox_TK_menu.Location = new System.Drawing.Point(3, 373);
             this.pictureBox_TK_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_TK_menu.Name = "pictureBox_TK_menu";
             this.pictureBox_TK_menu.Size = new System.Drawing.Size(35, 32);
@@ -208,12 +238,12 @@
             // 
             // btn_TK
             // 
-            this.btn_TK.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_TK.Location = new System.Drawing.Point(0, 370);
+            this.btn_TK.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TK.Location = new System.Drawing.Point(-1, 370);
             this.btn_TK.Margin = new System.Windows.Forms.Padding(2);
             this.btn_TK.Name = "btn_TK";
             this.btn_TK.Size = new System.Drawing.Size(167, 37);
-            this.btn_TK.TabIndex = 42;
+            this.btn_TK.TabIndex = 7;
             this.btn_TK.Text = "THỐNG KÊ";
             this.btn_TK.UseVisualStyleBackColor = true;
             this.btn_TK.Click += new System.EventHandler(this.btn_TK_Click);
@@ -233,12 +263,12 @@
             // 
             // btn_HD
             // 
-            this.btn_HD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_HD.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_HD.Location = new System.Drawing.Point(-1, 320);
             this.btn_HD.Margin = new System.Windows.Forms.Padding(2);
             this.btn_HD.Name = "btn_HD";
             this.btn_HD.Size = new System.Drawing.Size(167, 37);
-            this.btn_HD.TabIndex = 40;
+            this.btn_HD.TabIndex = 6;
             this.btn_HD.Text = "GIAO DỊCH";
             this.btn_HD.UseVisualStyleBackColor = true;
             this.btn_HD.Click += new System.EventHandler(this.btn_HD_Click);
@@ -248,7 +278,7 @@
             this.pictureBox_NHANVIEN_menu.BackColor = System.Drawing.Color.White;
             this.pictureBox_NHANVIEN_menu.BackgroundImage = global::QLBH.Properties.Resources.nhân_viên;
             this.pictureBox_NHANVIEN_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_NHANVIEN_menu.Location = new System.Drawing.Point(4, 423);
+            this.pictureBox_NHANVIEN_menu.Location = new System.Drawing.Point(3, 473);
             this.pictureBox_NHANVIEN_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_NHANVIEN_menu.Name = "pictureBox_NHANVIEN_menu";
             this.pictureBox_NHANVIEN_menu.Size = new System.Drawing.Size(35, 31);
@@ -271,24 +301,24 @@
             // 
             // btn_NV
             // 
-            this.btn_NV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_NV.Location = new System.Drawing.Point(0, 420);
+            this.btn_NV.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NV.Location = new System.Drawing.Point(-1, 470);
             this.btn_NV.Margin = new System.Windows.Forms.Padding(2);
             this.btn_NV.Name = "btn_NV";
             this.btn_NV.Size = new System.Drawing.Size(167, 37);
-            this.btn_NV.TabIndex = 37;
+            this.btn_NV.TabIndex = 9;
             this.btn_NV.Text = "NHÂN VIÊN";
             this.btn_NV.UseVisualStyleBackColor = true;
             this.btn_NV.Click += new System.EventHandler(this.btn_NV_Click);
             // 
             // btn_DMSP
             // 
-            this.btn_DMSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DMSP.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DMSP.Location = new System.Drawing.Point(-1, 270);
             this.btn_DMSP.Margin = new System.Windows.Forms.Padding(2);
             this.btn_DMSP.Name = "btn_DMSP";
             this.btn_DMSP.Size = new System.Drawing.Size(167, 37);
-            this.btn_DMSP.TabIndex = 37;
+            this.btn_DMSP.TabIndex = 5;
             this.btn_DMSP.Text = "DANH MỤC ";
             this.btn_DMSP.UseVisualStyleBackColor = true;
             this.btn_DMSP.Click += new System.EventHandler(this.btn_DMSP_Click);
@@ -308,12 +338,12 @@
             // 
             // btn_BHang
             // 
-            this.btn_BHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BHang.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_BHang.Location = new System.Drawing.Point(-1, 220);
             this.btn_BHang.Margin = new System.Windows.Forms.Padding(2);
             this.btn_BHang.Name = "btn_BHang";
             this.btn_BHang.Size = new System.Drawing.Size(167, 37);
-            this.btn_BHang.TabIndex = 34;
+            this.btn_BHang.TabIndex = 4;
             this.btn_BHang.Text = "BÁN HÀNG";
             this.btn_BHang.UseVisualStyleBackColor = true;
             this.btn_BHang.Click += new System.EventHandler(this.btn_BHang_Click);
@@ -333,12 +363,12 @@
             // 
             // btn_KHang
             // 
-            this.btn_KHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_KHang.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_KHang.Location = new System.Drawing.Point(-1, 169);
             this.btn_KHang.Margin = new System.Windows.Forms.Padding(2);
             this.btn_KHang.Name = "btn_KHang";
             this.btn_KHang.Size = new System.Drawing.Size(167, 37);
-            this.btn_KHang.TabIndex = 32;
+            this.btn_KHang.TabIndex = 3;
             this.btn_KHang.Text = "KHÁCH HÀNG";
             this.btn_KHang.UseVisualStyleBackColor = true;
             this.btn_KHang.Click += new System.EventHandler(this.btn_KHang_Click);
@@ -360,7 +390,7 @@
             this.pictureBox_HOME.BackColor = System.Drawing.Color.White;
             this.pictureBox_HOME.BackgroundImage = global::QLBH.Properties.Resources.ngôi_nhà;
             this.pictureBox_HOME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_HOME.Location = new System.Drawing.Point(3, 122);
+            this.pictureBox_HOME.Location = new System.Drawing.Point(2, 122);
             this.pictureBox_HOME.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_HOME.Name = "pictureBox_HOME";
             this.pictureBox_HOME.Size = new System.Drawing.Size(37, 31);
@@ -370,12 +400,12 @@
             // 
             // btn_Home
             // 
-            this.btn_Home.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Home.Location = new System.Drawing.Point(1, 120);
+            this.btn_Home.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Home.Location = new System.Drawing.Point(0, 120);
             this.btn_Home.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Home.Name = "btn_Home";
             this.btn_Home.Size = new System.Drawing.Size(167, 37);
-            this.btn_Home.TabIndex = 30;
+            this.btn_Home.TabIndex = 2;
             this.btn_Home.Text = "HOME";
             this.btn_Home.UseVisualStyleBackColor = true;
             this.btn_Home.Click += new System.EventHandler(this.btn_Home_Click);
@@ -402,7 +432,7 @@
             this.panel_home.Location = new System.Drawing.Point(169, 32);
             this.panel_home.Margin = new System.Windows.Forms.Padding(2);
             this.panel_home.Name = "panel_home";
-            this.panel_home.Size = new System.Drawing.Size(754, 525);
+            this.panel_home.Size = new System.Drawing.Size(754, 583);
             this.panel_home.TabIndex = 2;
             this.panel_home.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panel_home_ControlRemoved);
             // 
@@ -412,12 +442,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MintCream;
-            this.label1.Location = new System.Drawing.Point(355, 5);
+            this.label1.Location = new System.Drawing.Point(295, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(263, 25);
+            this.label1.Size = new System.Drawing.Size(363, 25);
             this.label1.TabIndex = 2;
-            this.label1.Text = "ELECTRIC APPLIANCES";
+            this.label1.Text = "PHẦN MỀM QUẢN LÝ BÁN HÀNG \r\n";
             // 
             // panel_TD
             // 
@@ -460,7 +490,7 @@
             this.btnAn.Margin = new System.Windows.Forms.Padding(2);
             this.btnAn.Name = "btnAn";
             this.btnAn.Size = new System.Drawing.Size(24, 21);
-            this.btnAn.TabIndex = 2;
+            this.btnAn.TabIndex = 12;
             this.btnAn.UseVisualStyleBackColor = true;
             this.btnAn.Click += new System.EventHandler(this.btnAn_Click_1);
             // 
@@ -473,7 +503,7 @@
             this.btnPhongTo.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhongTo.Name = "btnPhongTo";
             this.btnPhongTo.Size = new System.Drawing.Size(24, 21);
-            this.btnPhongTo.TabIndex = 3;
+            this.btnPhongTo.TabIndex = 11;
             this.btnPhongTo.UseVisualStyleBackColor = true;
             this.btnPhongTo.Click += new System.EventHandler(this.btnPhongTo_Click_1);
             // 
@@ -500,7 +530,7 @@
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(26, 21);
-            this.btnThoat.TabIndex = 0;
+            this.btnThoat.TabIndex = 13;
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click_1);
             // 
@@ -516,7 +546,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(924, 553);
+            this.ClientSize = new System.Drawing.Size(924, 611);
             this.Controls.Add(this.panel_home);
             this.Controls.Add(this.panel_TD);
             this.Controls.Add(this.panel_menu);
@@ -529,6 +559,7 @@
             this.Load += new System.EventHandler(this.frmChuongTrinh_Load);
             this.panel_menu.ResumeLayout(false);
             this.panel_menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_conno)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_NhapHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_anhnen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_TK_menu)).EndInit();
@@ -578,5 +609,7 @@
         private System.Windows.Forms.Label lb_quyen;
         private System.Windows.Forms.PictureBox pictureBox_NhapHang;
         private System.Windows.Forms.Button btn_NhapHang;
+        private System.Windows.Forms.PictureBox pictureBox_conno;
+        private System.Windows.Forms.Button btn_congno;
     }
 }

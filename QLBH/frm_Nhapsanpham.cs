@@ -253,6 +253,9 @@ namespace QLBH
                                     sp.Update_DonGiaNhap(sanppham1);
                                     btn_taoMoi.Enabled = true;
                                     groupBox1.Enabled = false;
+                                    dgv_Nhap.Rows.Clear();
+                                    Enabel_DSPHIEUNHAP();
+
                                 }
                             }
                             MessageBox.Show("Lưu phiếu nhập thành công! Bạn có thể xem lại phiếu nhập trong Danh mục phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

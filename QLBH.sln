@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLBH_BUS", "QLBH_BUS\QLBH_B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTL", "XTL\XTL.csproj", "{6FC04DA4-98B6-478B-8DD0-C64652C38890}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CÀI ĐẶT QLBH", "C:\Users\HP\Desktop\CÀI ĐẶT QLBH\CÀI ĐẶT QLBH.vdproj", "{8050A5A3-D193-42E1-9BB8-F107DA042D01}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Cài Đặt Phần Mềm", "C:\Users\HP\Desktop\Cài Đặt Phần Mềm\Cài Đặt Phần Mềm.vdproj", "{BA042469-2AFB-4FFB-99A9-1995E77B1231}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,8 +41,8 @@ Global
 		{6FC04DA4-98B6-478B-8DD0-C64652C38890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC04DA4-98B6-478B-8DD0-C64652C38890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC04DA4-98B6-478B-8DD0-C64652C38890}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8050A5A3-D193-42E1-9BB8-F107DA042D01}.Debug|Any CPU.ActiveCfg = Debug
-		{8050A5A3-D193-42E1-9BB8-F107DA042D01}.Release|Any CPU.ActiveCfg = Release
+		{BA042469-2AFB-4FFB-99A9-1995E77B1231}.Debug|Any CPU.ActiveCfg = Debug
+		{BA042469-2AFB-4FFB-99A9-1995E77B1231}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

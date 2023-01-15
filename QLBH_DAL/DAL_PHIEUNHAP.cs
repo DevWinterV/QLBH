@@ -14,7 +14,7 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(PHIEUNHAP sp)
         {
-            db.ExecuteNonQuery("insert into Nhapkho values('PN' + cast (next value for MAPN_TU_TANG as varchar(6)), '"+sp.TenNCC+"','" + sp.NgayNhap+ "','" + sp.Manv1 + "','" + sp.TongCong + "', N'" + sp.Ghichu + "')");
+            db.ExecuteNonQuery("insert into Nhapkho values('PN' + cast (next value for MAPN_TU_TANG as varchar(8)), '"+sp.TenNCC+"','" + sp.NgayNhap+ "','" + sp.Manv1 + "','" + sp.TongCong + "', N'" + sp.Ghichu + "')");
         }
         public void Update(PHIEUNHAP sp)
         {

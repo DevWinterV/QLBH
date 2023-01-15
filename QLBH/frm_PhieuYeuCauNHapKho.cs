@@ -49,7 +49,7 @@ namespace QLBH
             rpdts.Name = "DataSet1";
             rpdts.Value = DS_SP;
             reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\Report4.rdlc";
+            reportViewer1.LocalReport.ReportPath = "Report4.rdlc";
             this.reportViewer1.LocalReport.SetParameters(reports);
             reportViewer1.LocalReport.DataSources.Add(rpdts);
             reportViewer1.RefreshReport();
