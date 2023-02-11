@@ -180,17 +180,17 @@ namespace QLBH
         {
             if (cbbChon.SelectedIndex == 0)
             {
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("where makh like '%" + txttiemkiemkh.Text.Trim() + "%' maKH NOT in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("where makh like '%" + txttiemkiemkh.Text.Trim() + "%' and maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
             }
             else if (cbbChon.SelectedIndex == 1)
             {
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("where hoten like N'%" + txttiemkiemkh.Text.Trim() + "%' maKH NOT in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("where hoten like N'%" + txttiemkiemkh.Text.Trim() + "%' and maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
             }
             else
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("where sodt like '%" + txttiemkiemkh.Text.Trim() + "%' maKH NOT in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("where sodt like '%" + txttiemkiemkh.Text.Trim() + "%' and maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
             if (txttiemkiemkh.TextLength == 0)
             {
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("WHERE maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("WHERE maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh )");
             }
           
                 
