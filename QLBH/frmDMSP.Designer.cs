@@ -270,7 +270,7 @@
             // 
             this.btnlammoi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnlammoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnlammoi.ImageOptions.Image")));
-            this.btnlammoi.Location = new System.Drawing.Point(469, 9);
+            this.btnlammoi.Location = new System.Drawing.Point(469, 12);
             this.btnlammoi.Name = "btnlammoi";
             this.btnlammoi.Size = new System.Drawing.Size(96, 27);
             this.btnlammoi.TabIndex = 12;
@@ -644,7 +644,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.LightGray;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(232, 0);
+            this.label1.Location = new System.Drawing.Point(230, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 22);
