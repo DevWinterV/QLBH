@@ -205,5 +205,6 @@ namespace QLBH
         {
             this.Close();       
         }
+
     }
 }
