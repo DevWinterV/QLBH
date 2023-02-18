@@ -128,6 +128,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frm_baocaokhachhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_baocaokhachhang.Designer.cs">
+      <DependentUpon>frm_baocaokhachhang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_baocaonhanvien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_baocaonhanvien.Designer.cs">
+      <DependentUpon>frm_baocaonhanvien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_bieudodoanhthu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +310,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLBHDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -305,6 +322,12 @@
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="frm_baocaokhachhang.resx">
+      <DependentUpon>frm_baocaokhachhang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_baocaonhanvien.resx">
+      <DependentUpon>frm_baocaonhanvien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_bieudodoanhthu.resx">
       <DependentUpon>frm_bieudodoanhthu.cs</DependentUpon>
     </EmbeddedResource>
@@ -409,6 +432,8 @@
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="Report5.rdlc" />
+    <EmbeddedResource Include="Report6.rdlc" />
+    <EmbeddedResource Include="Report7.rdlc" />
     <EmbeddedResource Include="Report_DOANHTHUTHANG.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -423,6 +448,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QLBH_Enity.CTHD.datasource" />
+    <None Include="Properties\DataSources\QLBH_Enity.NhanVien.datasource" />
     <None Include="Properties\DataSources\QLBH_Enity.PHIEUNHAP.datasource" />
     <None Include="Properties\DataSources\QLBH_Enity.PHIEUNHAP_CHITIET.datasource" />
     <None Include="Properties\DataSources\QLBH_Enity.SanPham.datasource" />
@@ -440,6 +466,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="QLBHDataSet.xsc">
+      <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBHDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBHDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBHDataSet.xss">
+      <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\Exit.jpg" />
   </ItemGroup>
   <ItemGroup>

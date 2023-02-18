@@ -82,6 +82,7 @@ namespace QLBH
             group_DSSP.Enabled = t;
             DS_SP_SP.Enabled = t;
             dgv_CTHD.Enabled = t;
+            check_tienmat.Enabled = t;
         }
         private void btnthemhd_Click(object sender, EventArgs e)
         {
@@ -812,13 +813,19 @@ namespace QLBH
         {
             if (check_tienmat.Checked == true)
             {
-                txt_tienkhachtra.Enabled = true;
+                if(TongTien()>0)
+                    txt_tienkhachtra.Enabled = true;
+                else
+                    txt_tienkhachtra.Enabled = false;
                 lb_tientholai.Text = "";
                 txt_tienkhachtra.Clear();
             }
             else
             {
-                txt_tienkhachtra.Enabled = false;
+                if (TongTien() > 0)
+                    txt_tienkhachtra.Enabled = true;
+                else
+                    txt_tienkhachtra.Enabled = false;
                 lb_tientholai.Text = "";
                 txt_tienkhachtra.Clear();
             }

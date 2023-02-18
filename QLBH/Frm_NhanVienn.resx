@@ -138,6 +138,17 @@
   <metadata name="coltinhtrang.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="simpleButton1.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAAFnRFWHRUaXRsZQBUZXh0O1Bh
+        Z2U7UmVwb3J0dmFhAAAAALtJREFUWEftkkEKgzAURD2f0EuVbHOE3KOXyUroIdpF+gcMaBxKTWUs5Q88
+        JKNJHh+HUsqp0FIJLZXQUgktQQih7GQyRgN7N7A7AC2BbbLH58H3McZnSmm0ZXvWar2ElqBHIOdMJWQC
+        CJOQCiCthFwAmSUekDhFAKkS9m7zY1ZoCXoE3nC3T+g9tATYeFTms+g9tAQ/J3C53naxjE/AJ+AT8An8
+        xwS+iQt0CxxJe36FlkpoqYSWSmipowwv31jFbxjUc3kAAAAASUVORK5CYII=
+</value>
+  </data>
   <assembly alias="DevExpress.Data.v21.2" name="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
   <data name="btndong.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v21.2" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -175,7 +186,6 @@
         c3ZnPgs=
 </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnluu.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAt0RVh0VGl0

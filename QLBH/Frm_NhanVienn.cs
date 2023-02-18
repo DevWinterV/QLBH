@@ -561,5 +561,11 @@ namespace QLBH
                 txt_Timkiemtaikhoan.Text = "Nhập để tìm kiếm";
             }    
         }
+
+        private void btn_xuatfile_Click(object sender, EventArgs e)
+        {
+            frm_baocaonhanvien bcnv = new frm_baocaonhanvien();
+            bcnv.ShowDialog();
+        }
     }
 }

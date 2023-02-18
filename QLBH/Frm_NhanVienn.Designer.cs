@@ -98,6 +98,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.btn_xuatfile = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -492,6 +493,7 @@
             // 
             this.groupControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl3.Controls.Add(this.btn_xuatfile);
             this.groupControl3.Controls.Add(this.btndong);
             this.groupControl3.Controls.Add(this.btnhuy);
             this.groupControl3.Controls.Add(this.btnluu);
@@ -508,7 +510,7 @@
             // 
             this.btndong.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btndong.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btndong.ImageOptions.SvgImage")));
-            this.btndong.Location = new System.Drawing.Point(501, 29);
+            this.btndong.Location = new System.Drawing.Point(542, 29);
             this.btndong.Margin = new System.Windows.Forms.Padding(2);
             this.btndong.Name = "btndong";
             this.btndong.Size = new System.Drawing.Size(75, 29);
@@ -521,7 +523,7 @@
             this.btnhuy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnhuy.Enabled = false;
             this.btnhuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhuy.ImageOptions.SvgImage")));
-            this.btnhuy.Location = new System.Drawing.Point(409, 29);
+            this.btnhuy.Location = new System.Drawing.Point(351, 29);
             this.btnhuy.Margin = new System.Windows.Forms.Padding(2);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(75, 29);
@@ -534,7 +536,7 @@
             this.btnluu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnluu.Enabled = false;
             this.btnluu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnluu.ImageOptions.Image")));
-            this.btnluu.Location = new System.Drawing.Point(318, 29);
+            this.btnluu.Location = new System.Drawing.Point(260, 29);
             this.btnluu.Margin = new System.Windows.Forms.Padding(2);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(75, 29);
@@ -546,7 +548,7 @@
             // 
             this.btnsua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnsua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnsua.ImageOptions.Image")));
-            this.btnsua.Location = new System.Drawing.Point(224, 29);
+            this.btnsua.Location = new System.Drawing.Point(166, 29);
             this.btnsua.Margin = new System.Windows.Forms.Padding(2);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(75, 29);
@@ -558,7 +560,7 @@
             // 
             this.btnthem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnthem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnthem.ImageOptions.Image")));
-            this.btnthem.Location = new System.Drawing.Point(127, 29);
+            this.btnthem.Location = new System.Drawing.Point(69, 29);
             this.btnthem.Margin = new System.Windows.Forms.Padding(2);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(75, 29);
@@ -966,6 +968,17 @@
             this.label17.TabIndex = 0;
             this.label17.Text = "Tên tài khoản";
             // 
+            // btn_xuatfile
+            // 
+            this.btn_xuatfile.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_xuatfile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btn_xuatfile.Location = new System.Drawing.Point(444, 29);
+            this.btn_xuatfile.Name = "btn_xuatfile";
+            this.btn_xuatfile.Size = new System.Drawing.Size(82, 29);
+            this.btn_xuatfile.TabIndex = 12;
+            this.btn_xuatfile.Text = "Xuất File";
+            this.btn_xuatfile.Click += new System.EventHandler(this.btn_xuatfile_Click);
+            // 
             // Frm_NhanVienn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1075,5 +1088,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colGioitinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn coltinhtrang;
         private System.Windows.Forms.CheckBox check_tinhtrang;
+        private DevExpress.XtraEditors.SimpleButton btn_xuatfile;
     }
 }

@@ -51,6 +51,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btn_xuatfile = new DevExpress.XtraEditors.SimpleButton();
             this.btnthoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnhuy = new DevExpress.XtraEditors.SimpleButton();
             this.btnluu = new DevExpress.XtraEditors.SimpleButton();
@@ -315,6 +316,7 @@
             // 
             this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.btn_xuatfile);
             this.groupControl1.Controls.Add(this.btnthoat);
             this.groupControl1.Controls.Add(this.btnhuy);
             this.groupControl1.Controls.Add(this.btnluu);
@@ -327,11 +329,22 @@
             this.groupControl1.TabIndex = 9;
             this.groupControl1.Text = "Chức năng";
             // 
+            // btn_xuatfile
+            // 
+            this.btn_xuatfile.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_xuatfile.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_xuatfile.ImageOptions.Image")));
+            this.btn_xuatfile.Location = new System.Drawing.Point(438, 29);
+            this.btn_xuatfile.Name = "btn_xuatfile";
+            this.btn_xuatfile.Size = new System.Drawing.Size(86, 25);
+            this.btn_xuatfile.TabIndex = 9;
+            this.btn_xuatfile.Text = "Xuất file";
+            this.btn_xuatfile.Click += new System.EventHandler(this.btn_xuatfile_Click);
+            // 
             // btnthoat
             // 
             this.btnthoat.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnthoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnthoat.ImageOptions.Image")));
-            this.btnthoat.Location = new System.Drawing.Point(515, 29);
+            this.btnthoat.Location = new System.Drawing.Point(543, 29);
             this.btnthoat.Name = "btnthoat";
             this.btnthoat.Size = new System.Drawing.Size(75, 25);
             this.btnthoat.TabIndex = 8;
@@ -343,7 +356,7 @@
             this.btnhuy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnhuy.Enabled = false;
             this.btnhuy.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnhuy.ImageOptions.SvgImage")));
-            this.btnhuy.Location = new System.Drawing.Point(415, 29);
+            this.btnhuy.Location = new System.Drawing.Point(345, 29);
             this.btnhuy.Name = "btnhuy";
             this.btnhuy.Size = new System.Drawing.Size(75, 25);
             this.btnhuy.TabIndex = 7;
@@ -355,7 +368,7 @@
             this.btnluu.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnluu.Enabled = false;
             this.btnluu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnluu.ImageOptions.Image")));
-            this.btnluu.Location = new System.Drawing.Point(316, 29);
+            this.btnluu.Location = new System.Drawing.Point(252, 29);
             this.btnluu.Name = "btnluu";
             this.btnluu.Size = new System.Drawing.Size(75, 25);
             this.btnluu.TabIndex = 6;
@@ -366,7 +379,7 @@
             // 
             this.btnsua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnsua.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnsua.ImageOptions.SvgImage")));
-            this.btnsua.Location = new System.Drawing.Point(214, 29);
+            this.btnsua.Location = new System.Drawing.Point(158, 29);
             this.btnsua.Name = "btnsua";
             this.btnsua.Size = new System.Drawing.Size(75, 25);
             this.btnsua.TabIndex = 5;
@@ -377,7 +390,7 @@
             // 
             this.btnthem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnthem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnthem.ImageOptions.SvgImage")));
-            this.btnthem.Location = new System.Drawing.Point(112, 29);
+            this.btnthem.Location = new System.Drawing.Point(65, 29);
             this.btnthem.Name = "btnthem";
             this.btnthem.Size = new System.Drawing.Size(75, 25);
             this.btnthem.TabIndex = 4;
@@ -443,5 +456,6 @@
         private System.Windows.Forms.ComboBox cbbChon;
         private System.Windows.Forms.TextBox txttimkiem;
         private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.SimpleButton btn_xuatfile;
     }
 }

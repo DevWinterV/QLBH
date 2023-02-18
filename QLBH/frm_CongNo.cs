@@ -195,5 +195,15 @@ namespace QLBH
           
                 
         }
+
+        private void btn_lammoi_Click(object sender, EventArgs e)
+        {
+            frm_CongNo_Load(sender, e);
+        }
+
+        private void btndong_Click(object sender, EventArgs e)
+        {
+            this.Close();       
+        }
     }
 }

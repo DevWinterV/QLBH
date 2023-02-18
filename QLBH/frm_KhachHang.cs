@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using frm_BanHang;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using QLBH;
 
 namespace frm_BanHang
 {
@@ -243,6 +244,12 @@ namespace frm_BanHang
         {
             txttimkiem.Enabled = true;
             txttimkiem.Focus();
+        }
+
+        private void btn_xuatfile_Click(object sender, EventArgs e)
+        {
+            frm_baocaokhachhang bckh = new frm_baocaokhachhang();
+            bckh.ShowDialog();
         }
     }
 }

@@ -819,6 +819,7 @@
             this.check_tienmat.AutoSize = true;
             this.check_tienmat.Checked = true;
             this.check_tienmat.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.check_tienmat.Enabled = false;
             this.check_tienmat.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.check_tienmat.ForeColor = System.Drawing.Color.Black;
             this.check_tienmat.Location = new System.Drawing.Point(169, 88);

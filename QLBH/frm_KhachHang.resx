@@ -130,6 +130,16 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_xuatfile.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAWdEVYdFRpdGxlAFRleHQ7UGFnZTtSZXBvcnR2YWEA
+        AAAAu0lEQVRYR+2SQQqDMBREPZ/QS5Vsc4Tco5fJSugh2kX6BwxoHEpNZSzlDzwko0keH4dSyqnQUgkt
+        ldBSCS1BCKHsZDJGA3s3sDsALYFtssfnwfcxxmdKabRle9ZqvYSWoEcg50wlZAIIk5AKIK2EXACZJR6Q
+        OEUAqRL2bvNjVmgJegTecLdP6D20BNh4VOaz6D20BD8ncLnedrGMT8An4BPwCfzHBL6JC3QLHEl7foWW
+        SmiphJZKaKmjDC/fWMVvGNRzeQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="btnthoat.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACN0RVh0VGl0
