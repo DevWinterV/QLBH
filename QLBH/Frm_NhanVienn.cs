@@ -304,8 +304,13 @@ namespace QLBH
 
         private void btnsua_Click_1(object sender, EventArgs e)
         {
-            Enable_Nhanvien(true);
-            ClearText();
+            if (dgvDSNV.Rows.Count > 1)
+            {
+                Enable_Nhanvien(true);
+                ClearText();
+            }
+            else
+                MessageBox.Show("Danh sách nhân viên rỗng!", "Thông báo");
         }
 
         private void btnhuy_Click_1(object sender, EventArgs e)

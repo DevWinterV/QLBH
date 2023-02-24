@@ -102,7 +102,10 @@ namespace frm_BanHang
 
         private void btnsua_Click_1(object sender, EventArgs e)
         {
-            Enable_Khachhang(true);
+            if (dgv_DSKH.Rows.Count > 1)
+                Enable_Khachhang(true);
+            else
+                MessageBox.Show("Danh sách khách hàng rỗng!", "Thông báo");
         }
         private string Replace_whitepace_FirstWord(string chuoi)
         {

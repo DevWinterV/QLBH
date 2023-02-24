@@ -57,7 +57,7 @@ namespace QLBH
                 {
                     so = 1;
                 }
-                else if (id.Substring(0, 2) == "NV" || id.Substring(0, 2) == "nv")
+                else if (id.Substring(0, 2) == "NV" || id.Substring(0, 2) == "nv"|| id.Substring(0, 2) == "ad" || id.Substring(0, 2) == "AD")
                 {
                     so = 2;
                 }

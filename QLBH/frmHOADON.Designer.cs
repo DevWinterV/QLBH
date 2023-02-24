@@ -186,6 +186,7 @@
             // 
             // cbb_chontimkiem
             // 
+            this.cbb_chontimkiem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_chontimkiem.FormattingEnabled = true;
             this.cbb_chontimkiem.Items.AddRange(new object[] {
             "Mã (HD, NV, KH)",
@@ -828,6 +829,7 @@
             // 
             // cbb_chontimkiem_PN
             // 
+            this.cbb_chontimkiem_PN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_chontimkiem_PN.FormattingEnabled = true;
             this.cbb_chontimkiem_PN.Items.AddRange(new object[] {
             "Mã (PN, NV)",

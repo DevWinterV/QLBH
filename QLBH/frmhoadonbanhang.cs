@@ -867,7 +867,7 @@ namespace QLBH
             }
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
+        public void simpleButton2_Click(object sender, EventArgs e)
         {
             Load_DSSP();
             CapNhatSauKhiLoad_DS_SP();
