@@ -59,6 +59,7 @@
     <Compile Include="DAL_PHIEUNHAPCHITIET.cs" />
     <Compile Include="DAL_PHIEUNO.cs" />
     <Compile Include="DAL_PHIEUNO_CT.cs" />
+    <Compile Include="DAL_QUYEN.cs" />
     <Compile Include="DAL_SanPham.cs" />
     <Compile Include="KetNoi.cs" />
     <Compile Include="Main.cs" />

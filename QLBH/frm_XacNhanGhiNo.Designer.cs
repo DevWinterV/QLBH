@@ -224,6 +224,7 @@
             // 
             // txt_ghichu
             // 
+            this.txt_ghichu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txt_ghichu.Location = new System.Drawing.Point(38, 196);
             this.txt_ghichu.Multiline = true;
             this.txt_ghichu.Name = "txt_ghichu";
@@ -244,6 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(322, 326);
             this.Controls.Add(this.txt_ghichu);
             this.Controls.Add(this.lb_tongno);

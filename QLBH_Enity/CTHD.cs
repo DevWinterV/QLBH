@@ -20,13 +20,14 @@ namespace QLBH_Enity
         private string _TenKH;
         private string _diachiKH;
         private string _sdtKH;
-        private float _dongia;
+        private SqlMoney _dongia;
+        private float dongia_hd;
 
 
         public CTHD() { }
 
 
-        public CTHD(string maHD, string masp, int soluuong, string tenloai, string dvt, float thanhtien, DateTime ngaylap, string tennv, string tenKH, string diachiKH, string sdtKH, float dongia)
+        public CTHD(string maHD, string masp, int soluuong, string tenloai, string dvt, float thanhtien, DateTime ngaylap, string tennv, string tenKH, string diachiKH, string sdtKH, SqlMoney dongia)
         {
             _maHD = maHD;
             _masp = masp;
@@ -53,6 +54,7 @@ namespace QLBH_Enity
         public string DiachiKH { get => _diachiKH; set => _diachiKH = value; }
         public string SdtKH { get => _sdtKH; set => _sdtKH = value; }
         public float Thanhtien1 { get => _thanhtien; set => _thanhtien = value; }
-        public float Dongia { get => _dongia; set => _dongia = value; }
+        public SqlMoney Dongia { get => _dongia; set => _dongia = value; }
+        public float Dongia_hd { get => dongia_hd; set => dongia_hd = value; }
     }
 }

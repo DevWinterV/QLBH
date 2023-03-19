@@ -1,4 +1,5 @@
-﻿using QLBH_BUS;
+﻿using DevExpress.XtraRichEdit.Layout;
+using QLBH_BUS;
 using QLBH_Enity;
 using System;
 using System.Globalization;
@@ -21,7 +22,11 @@ namespace QLBH
         bool ThemTK = false;
         private void LoadDSNV()
         {
-            dgvDSNV.DataSource = nv.LoadDuLieu(" WHERE manv not like 'ADMIN'");
+            try
+            {
+                dgvDSNV.DataSource = nv.LoadDuLieu(" WHERE manv not like 'ADMIN'");
+            }
+            catch {; }
         }
         private void LoadDSTK()
         {
@@ -29,9 +34,13 @@ namespace QLBH
         }
         private void Load_cbbtennv()
         {
-            cbb_tennv.DataSource = nv.LoadDuLieu(" WHERE manv not like 'ADMIN'");
-            cbb_tennv.DisplayMember = "hoten";
-            cbb_tennv.ValueMember = "manv";
+            try
+            {
+                cbb_tennv.DataSource = nv.LoadDuLieu(" WHERE manv not like 'ADMIN'");
+                cbb_tennv.DisplayMember = "hoten";
+                cbb_tennv.ValueMember = "manv";
+            }
+            catch {; };
         }
         private void Enable_Nhanvien(bool t)
         {
@@ -55,9 +64,7 @@ namespace QLBH
             btnhuyTK.Enabled = t;
             cbb_tennv.Enabled = t;
             txt_matkhau_taikhoan.Enabled = t;
-            rad_admin_tk.Enabled = t;
-            rad_nhanvien_tk.Enabled = t;
-
+            cbb_quyennhanvien.Enabled = t;
         }
         
         private void ClearText_tk()
@@ -65,7 +72,7 @@ namespace QLBH
             cbb_tennv.Text = "";
             txt_taikhoan_taikhoan.Text = "";
             txt_matkhau_taikhoan.Text = "";
-            rad_nhanvien_tk.Checked = true;
+            cbb_quyennhanvien.SelectedIndex = 0;
             cbb_chonTK.SelectedIndex = 0;
         }
         private void ClearText()
@@ -78,7 +85,11 @@ namespace QLBH
         }
         private void LoadTongSoNV()
         {
-            lb_tongnhanvien.Text = nv.Getvalue("select count(manv) from nhanvien ");
+            try
+            {
+                lb_tongnhanvien.Text = nv.Getvalue("select count(manv) from nhanvien where manv  not like 'ADMIN'");
+            }
+            catch {; }
         }
         private void Frm_NhanVienn_Load(object sender, EventArgs e)
         {
@@ -86,7 +97,20 @@ namespace QLBH
             Load_cbbtennv();
             LoadDSNV();
             LoadTongSoNV();
+            Load_cbbQuyenNhanvien();
             cbbChon.SelectedIndex = 0;
+            cbb_quyennhanvien.SelectedIndex = 0;
+        }
+        BUS_QUYEN bUS_QUYEN = new BUS_QUYEN();
+        private void Load_cbbQuyenNhanvien()
+        {
+            try
+            {
+                cbb_quyennhanvien.DataSource = bUS_QUYEN.LoadDuLieu("");
+                cbb_quyennhanvien.DisplayMember = "tenquyen";
+                cbb_quyennhanvien.ValueMember = "ma_quyen";
+            }
+            catch {; }
         }
 
         private void btndong_Click(object sender, EventArgs e)
@@ -115,6 +139,7 @@ namespace QLBH
                         check_tinhtrang.Checked = true;
                     else
                         check_tinhtrang.Checked = false;
+                    txt_luong.Value = decimal.Parse(dr.Cells[7].Value.ToString());
                 }
             }
             catch (Exception ex)
@@ -146,7 +171,7 @@ namespace QLBH
             if (txt_taikhoan_taikhoan.Text == "") { MessageBox.Show("Nhập tên tài khoản", "Thông báo"); txt_taikhoan_taikhoan.Focus(); return false; }
             if (txt_matkhau_taikhoan.Text == "") { MessageBox.Show("Nhập mật khẩu", "Thông báo"); txt_matkhau_taikhoan.Focus(); return false; }
             if(cbb_tennv.Text ==""){ MessageBox.Show("Chọn nhân viên", "Thông báo"); cbb_tennv.Focus(); return false; }
-            if (rad_nhanvien_tk.Checked==false && rad_admin_tk.Checked == false) { MessageBox.Show("Bạn chưa chọn phân quyền", "Thông báo"); return false; }
+            if (cbb_quyennhanvien.Text == "") { MessageBox.Show("Bạn chưa chọn quyền người dùng", "Thông báo");cbb_quyennhanvien.Focus(); return false; }
             return true;
         }
         private bool Check_Infor()
@@ -156,6 +181,7 @@ namespace QLBH
             if (DateTime.Parse(datetime_NS.Value.ToShortDateString()) == DateTime.Now) { MessageBox.Show("Ngày sinh không được lớn hơn ngày hiện tại", "Thông báo"); datetime_NS.Focus(); return false; }
             if (txtSDT.Text.Length > 10 || txtSDT.Text.Length < 10) { MessageBox.Show("Độ dài số điện thoại phải là 10", "Thông báo"); txtSDT.Focus(); return false; }
             if (Check_NumberPhone() == 1) { MessageBox.Show("Số điện thoại đã tồn tại trên hệ thống. Vui lòng kiểm tra lại số điện thoại", "Thông báo"); txtSDT.Focus(); return false; }
+            if (txt_luong.Text == "") { MessageBox.Show("Nhập lương của nhân viên!", "Thông báo"); txt_luong.Focus(); return false; }           
             return true;
         }
         private bool Check_Infor_CapNhat()
@@ -186,12 +212,12 @@ namespace QLBH
                     {
                         if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            nhanvien.Manv = txtmanv.Text.Trim();
                             nhanvien.Hoten = Replace_whitepace_FirstWord(txtHotenNV.Text);
                             nhanvien.Sodt = txtSDT.Text;
                             nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                             nhanvien.Phai = GioiTinh().ToString();
                             nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
+                            nhanvien.Luong = float.Parse(txt_luong.Value.ToString());
                             if (check_tinhtrang.Checked == true)
                             {
                                 nhanvien.Tinhtrang = "CÒN LÀM";
@@ -222,6 +248,7 @@ namespace QLBH
                                 nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                                 nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
                                 nhanvien.Phai = Gioitinh().ToString();
+                                nhanvien.Luong = float.Parse(txt_luong.Value.ToString());
                                 if (check_tinhtrang.Checked == true)
                                 {
                                     nhanvien.Tinhtrang = "CÒN LÀM";
@@ -247,7 +274,8 @@ namespace QLBH
                                 nhanvien.Sodt = txtSDT.Text;
                                 nhanvien.Diachi = Replace_whitepace_FirstWord(txt_dichi.Text);
                                 nhanvien.Ngaysinh = Convert.ToDateTime(datetime_NS.Text);
-                                nhanvien.Phai = Gioitinh().ToString();
+                                    nhanvien.Luong = float.Parse(txt_luong.Value.ToString());
+                                    nhanvien.Phai = Gioitinh().ToString();
                                     if (check_tinhtrang.Checked == true)
                                     {
                                         nhanvien.Tinhtrang = "CÒN LÀM";
@@ -255,7 +283,6 @@ namespace QLBH
                                     else
                                         nhanvien.Tinhtrang = "NGHỈ LÀM";
                                     nv.Update(nhanvien);
-                                LoadDSNV();
                                 LoadDSNV();
                                 Enable_Nhanvien(false);
                                 ClearText(); dgvDSNV.Enabled = true;
@@ -422,12 +449,7 @@ namespace QLBH
                                 nguoidung.Manv = cbb_tennv.SelectedValue.ToString().Trim();
                                 nguoidung.Username = txt_taikhoan_taikhoan.Text.Trim();
                                 nguoidung.Pass = txt_matkhau_taikhoan.Text.Trim();
-                                if (rad_admin_tk.Checked == true)
-                                {
-                                    nguoidung.Phanquyen = rad_admin_tk.Text;
-                                }
-                                else
-                                    nguoidung.Phanquyen = rad_nhanvien_tk.Text;
+                                nguoidung.Phanquyen = cbb_quyennhanvien.SelectedValue.ToString().Trim();
                                 nd.Add(nguoidung);
                                 LoadDSTK();
                                 Enable_TK(false);
@@ -454,12 +476,7 @@ namespace QLBH
                             nguoidung.Manv = cbb_tennv.SelectedValue.ToString().Trim();
                             nguoidung.Username = txt_taikhoan_taikhoan.Text.Trim();
                             nguoidung.Pass = txt_matkhau_taikhoan.Text.Trim();
-                            if (rad_admin_tk.Checked == true)
-                            {
-                                nguoidung.Phanquyen = rad_admin_tk.Text;
-                            }
-                            else
-                                nguoidung.Phanquyen = rad_nhanvien_tk.Text;
+                            nguoidung.Phanquyen = cbb_quyennhanvien.SelectedValue.ToString().Trim();
                             nd.Update(nguoidung);
                             LoadDSTK();
                             Enable_TK(false);
@@ -521,11 +538,7 @@ namespace QLBH
                     txt_taikhoan_taikhoan.Text = dr.Cells[1].Value.ToString();
                     cbb_tennv.Text = dr.Cells[0].Value.ToString();
                     txt_matkhau_taikhoan.Text = dr.Cells[2].Value.ToString();
-                    txt_matkhau_taikhoan.Text = dr.Cells[3].Value.ToString();
-                    if (dr.Cells[4].Value.ToString() == rad_admin_tk.Text)
-                        rad_admin_tk.Checked = true;
-                    else
-                        rad_nhanvien_tk.Checked = true;
+                    cbb_quyennhanvien.Text = dr.Cells[3].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -571,6 +584,25 @@ namespace QLBH
         {
             frm_baocaonhanvien bcnv = new frm_baocaonhanvien();
             bcnv.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if(txt_luong.Text.Length == 0)
+            {
+
+            }    
+        }
+
+        private void btn_themquyen_Click(object sender, EventArgs e)
+        {
+            from_quyen frmquyen = new from_quyen(); 
+            frmquyen.ShowDialog();
+        }
+
+        private void cbb_quyennhanvien_DropDown(object sender, EventArgs e)
+        {
+            Load_cbbQuyenNhanvien();
         }
     }
 }

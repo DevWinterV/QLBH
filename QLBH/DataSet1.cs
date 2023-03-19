@@ -4,6 +4,14 @@
 
     partial class DataSet1
     {
+        partial class TB_DTTHANGDataTable
+        {
+        }
+
+        partial class TB_DTNGAYDataTable
+        {
+        }
+
         partial class tb_phieunhapDataTable
         {
         }

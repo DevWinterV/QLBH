@@ -63,6 +63,7 @@
             this.dchi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sdt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgv_ChiTietHD = new System.Windows.Forms.DataGridView();
             this.colMaHD_CTHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -349,7 +350,8 @@
             this.tenKH,
             this.dchi,
             this.sdt,
-            this.thanhtien});
+            this.thanhtien,
+            this.colGhichu});
             this.dgv_DSHD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_DSHD.Location = new System.Drawing.Point(2, 15);
             this.dgv_DSHD.Name = "dgv_DSHD";
@@ -418,6 +420,13 @@
             this.thanhtien.MinimumWidth = 8;
             this.thanhtien.Name = "thanhtien";
             this.thanhtien.ReadOnly = true;
+            // 
+            // colGhichu
+            // 
+            this.colGhichu.DataPropertyName = "TRANGTHAI";
+            this.colGhichu.HeaderText = "Ghi chú";
+            this.colGhichu.Name = "colGhichu";
+            this.colGhichu.ReadOnly = true;
             // 
             // errorProvider1
             // 
@@ -763,7 +772,7 @@
             dataGridViewCellStyle6.Format = "N2";
             dataGridViewCellStyle6.NullValue = null;
             this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Đơn giá";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Đơn giá nhập";
             this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -1022,13 +1031,6 @@
         private DevExpress.XtraEditors.SimpleButton btninhoadon;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgv_DSHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mahd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nggd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tennv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tenKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dchi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.SimpleButton btnthemmoi;
         private DevExpress.XtraEditors.SimpleButton btnthoat;
@@ -1080,5 +1082,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mahd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nggd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tennv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dchi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sdt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGhichu;
     }
 }

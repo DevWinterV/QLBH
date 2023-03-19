@@ -13,11 +13,11 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(HoaDon sp)
         {
-            db.ExecuteNonQuery("insert into HoaDon values('" + sp.NgayGD + "','HD' + cast (next value for MAHD_TU_TANG as varchar(8)),'" + sp.MaKH + "','" + sp.Manv + "','" + sp.Thanhtien1 + "')");
+            db.ExecuteNonQuery("insert into HoaDon values('" + sp.NgayGD + "','HD' + cast (next value for MAHD_TU_TANG as varchar(8)),'" + sp.MaKH + "','" + sp.Manv + "','" + sp.Thanhtien1 + "','',N'ĐÃ THANH TOÁN')");
         }
         public void Update(HoaDon sp)
         {
-            db.ExecuteNonQuery("update HoaDon set  ngaygd = '" + sp.NgayGD + "',mahd ='" + sp.MaHD + "',makh = '" + sp.MaKH + "',manv = '" + sp.Manv + "',thanhtien ='" + sp.Thanhtien1 + "' where mahd = '" +sp.MaHD+"'");
+            db.ExecuteNonQuery("update HoaDon set  trangthai =N'"+sp.Trangthai+"' where mahd = '" +sp.MaHD+"'");
         }
         public void Delete(HoaDon sp)
         {
@@ -25,7 +25,7 @@ namespace QLBH_DAL
         }
         public DataTable LoadDuLieu()
         {
-            return db.GetDataTable("select hd.mahd, hd.ngayGD,nv.hoten, kh.hoten ,kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv");
+            return db.GetDataTable("select hd.mahd, hd.ngayGD,nv.hoten, kh.hoten ,kh.dchi, kh.sodt, hd.thanhtien, hd.trangthai from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv");
         }
         public string GetDulieu(string dieukien)
         {
@@ -37,19 +37,19 @@ namespace QLBH_DAL
         }
         public DataTable FindDataFromIDKH(string ID)
         {
-            return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.makh like  '%" + ID + "%'");
+            return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien, hd.trangthai  from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.makh like  '%" + ID + "%'");
         }
         public DataTable FindDataFromIDHD(string ID)
         {
-            return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.mahd like  '%" + ID + "%'");
+            return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien, hd.trangthai  from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.mahd like  '%" + ID + "%'");
         }
         public DataTable FindDataFromIDNV(string ID)
         {
-            return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.manv like  '%" + ID + "%'");
+            return db.GetDataTable("select hd.mahd, hd.ngayGD, nv.hoten, kh.hoten, kh.dchi, kh.sodt, hd.thanhtien, hd.trangthai  from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.manv like  '%" + ID + "%'");
         }
         public DataTable FindDataFromDate(string t1 , string t2)
         {
-            return db.GetDataTable("select hd.mahd, hd.ngayGD,nv.hoten , kh.hoten ,kh.dchi, kh.sodt, hd.thanhtien from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.ngayGD BETWEEN '" + t1 + " 00:00:00' AND '" + t2 + " 23:59:59'");
+            return db.GetDataTable("select hd.mahd, hd.ngayGD,nv.hoten , kh.hoten ,kh.dchi, kh.sodt, hd.thanhtien, hd.trangthai  from HOADON hd, nhanvien nv, khachhang kh where hd.makh = kh.maKH and nv.manv = hd.manv  and hd.ngayGD BETWEEN '" + t1 + " 00:00:00' AND '" + t2 + " 23:59:59'");
         }
     }
 }

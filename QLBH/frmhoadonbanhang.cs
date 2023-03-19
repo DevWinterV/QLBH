@@ -43,7 +43,7 @@ namespace QLBH
         public void Load_DSSP()// load dữ liệu bảng sản phẩm
         {
             try {
-                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select  loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from loaispdgd loai, sanphamDGD sp where sp.tinhtrang = N'CÒN BÁN' and sp.maloai = loai.maloai");
+                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select  loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong, ncc.tenncc from loaispdgd loai, sanphamDGD sp,NCC ncc where sp.tinhtrang = N'CÒN BÁN' and sp.maloai = loai.maloai and sp.mancc = ncc.mancc");
             }
             catch { }
         }
@@ -154,6 +154,12 @@ namespace QLBH
             toolTip1.IsBalloon = true;
             toolTip1.ToolTipIcon = ToolTipIcon.Info;
             toolTip1.SetToolTip(btn_lammoi, "Cập nhật lại danh sách hàng hóa sau khi nhập kho.");
+            toolTip1.SetToolTip(DS_SP_SP, "Kéo thả sản phẩm vào CHI TIẾT HÓA ĐƠN để thêm SP vào hóa đơn.");
+            toolTip1.SetToolTip(btnghino, "Khách hàng có thể ghi nợ và có thể trả trước số tiền");
+            toolTip1.SetToolTip(simpleButton1, "Thêm mới khách hàng vào hệ thống");
+            toolTip1.SetToolTip(btntaomoi, "Tạo mới hóa đơn.");
+            toolTip1.SetToolTip(btnhuyhd, "Hủy danh sách các sản phẩm đang được lập hóa đơn.");
+
         }
         private bool check_masp(string id)
         {
@@ -357,12 +363,12 @@ namespace QLBH
                                 chitiethd.MaHD = mahd;
                                 chitiethd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
                                 chitiethd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
-                                sanPham.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
                                 chitiethd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                                chitiethd.Dongia = SqlMoney.Parse( dgv_CTHD.Rows[i].Cells[5].Value.ToString());                               
+                                sanPham.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
                                 sanPham.SLuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
                                 cthd.Add(chitiethd);
-                                sp.Update_SaukhiMua(sanPham);// Cập nhật lại số lượng sản phẩm sau khi mua hàng thành công
-                           
+                                sp.Update_SaukhiMua(sanPham);// Cập nhật lại số lượng sản phẩm sau khi mua hàng thành công                          
                             }
                         }
 
@@ -375,7 +381,7 @@ namespace QLBH
             }
             else
             {
-                MessageBox.Show("Vui long chọn tên khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui long chọn khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 cbb_tenkhachhang.Focus();
             }
         }
@@ -410,7 +416,7 @@ namespace QLBH
                             hd.Masp = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
                             hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
                             hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
-                            hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
+                            hd.Dongia_hd = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
                             hd.Thanhtien1 = float.Parse(dgv_CTHD.Rows[i].Cells[5].Value.ToString());
                             cthd1.Add(hd);
                         }
@@ -647,7 +653,7 @@ namespace QLBH
         {
             if (txt_timkiem.Text != "Tìm kiếm tên sản phẩm")
             {
-                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'CÒN BÁN'");
+                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong, ncc.tenncc from NCC ncc, sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.mancc= ncc.mancc and sp.tinhtrang =N'CÒN BÁN'");
                 CapNhatSauKhiLoad_DS_SP();
             }
             
@@ -680,7 +686,7 @@ namespace QLBH
                 {
                     if (txt_timkiem.Text != "Tìm kiếm tên sản phẩm")
                     {
-                        DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'CÒN BÁN'");
+                        DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong, ncc.tenncc from NCC ncc, sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and sp.mancc = ncc.mancc and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'CÒN BÁN'");
                         CapNhatSauKhiLoad_DS_SP();
                     }
                 }
@@ -773,7 +779,42 @@ namespace QLBH
         {
 
         }
-      
+        private void InhoaDon_GhiNo(string TongNo)
+        {
+            chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
+            chitiethd.Ngaylap = Convert.ToDateTime(DT_ngaylap.Value.ToString());
+            chitiethd.Tennv = txt_tennv.Text;
+            chitiethd.TenKH = cbb_tenkhachhang.Text;
+            chitiethd.DiachiKH = txt_diachi.Text;
+            chitiethd.SdtKH = txt_sdt.Text;
+            chitiethd.Tenloai = "";
+            BUS_SanPham sp = new BUS_SanPham();
+            List<CTHD> cthd1 = new List<CTHD> { };
+            for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
+            {
+                {
+                    CTHD hd = new CTHD();
+                    hd.Masp = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
+                    hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
+                    hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                    hd.Dongia_hd = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
+                    hd.Thanhtien1 = float.Parse(dgv_CTHD.Rows[i].Cells[5].Value.ToString());
+                    cthd1.Add(hd);
+                }
+            }
+            if (txt_chietkhau.Text == "")
+            {
+                double Tienno = TongTien() - double.Parse(txt_tienkhachtra.Text);
+                frm_inHoaDonghiNo inHD = new frm_inHoaDonghiNo(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", txt_tienkhachtra.Text, Tienno.ToString(), chitiethd.Ngaylap, "0", lb_tongtien.Text,TongNo, cthd1);
+                inHD.ShowDialog();
+            }
+            else
+            {
+                frm_inHoaDonghiNo inHD = new frm_inHoaDonghiNo(chitiethd.MaHD, chitiethd.Tennv, chitiethd.TenKH, chitiethd.SdtKH, "( " + XTL.Utils.NumberToText(TongTien()) + " )", txt_tienkhachtra.Text, TongNo.ToString(), chitiethd.Ngaylap, txt_chietkhau.Text, lb_tongtien.Text, TongNo,cthd1);
+                inHD.ShowDialog();
+            }
+        }
+
         private void InhoaDon()
         {
             chitiethd.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
@@ -792,7 +833,7 @@ namespace QLBH
                     hd.Masp = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
                     hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
                     hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
-                    hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
+                    hd.Dongia_hd = float.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
                     hd.Thanhtien1 = float.Parse(dgv_CTHD.Rows[i].Cells[5].Value.ToString());
                     cthd1.Add(hd);
                 }
@@ -905,7 +946,12 @@ namespace QLBH
                             phieunoct.MaPN = "PNO" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPHIEUNO_TU_TANG'"); ;
                             phieunoct.Ngaytra = DateTime.Now;
                             phieunoct.TienTra = SqlMoney.Parse(txt_tienkhachtra.Text);
-                            pnct.Add(phieunoct);// cập nhật lại số tiền trả nợ]
+                            pnct.Add(phieunoct);// cập nhật lại số tiền trả nợ
+                            // CẬP NHẬT TRẠNG THÁI HÓA ĐƠN LÀ CÒN NỢ + 'SỐ TIỀN NỢ'
+                            hoadon.MaHD = "HD" + hd.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAHD_TU_TANG'");
+                            hoadon.Trangthai = frm_XacNhanGhiNo.Ghichu;
+                            hd.Update(hoadon);
+                            InhoaDon_GhiNo(frm_XacNhanGhiNo.TongNo);
                             dgv_CTHD.Rows.Clear();
                             Load_DSSP();
                             Clear();

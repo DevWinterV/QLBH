@@ -544,7 +544,7 @@ namespace frm_BanHang
                     hd.Masp = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
                     hd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
                     hd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString());
-                    hd.Dongia = float.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                    hd.Dongia_hd = float.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
                     hd.Thanhtien1 = float.Parse(dgv_CTHD.Rows[i].Cells[5].Value.ToString());
                     dem++;
                     cthd1.Add(hd);

@@ -11,6 +11,7 @@ namespace QLBH_BUS
 {
     public class BUS_ADMIN
     {
+
         ADMIN admin = new ADMIN();
         public void Add(Admin sp)
         {
@@ -26,7 +27,7 @@ namespace QLBH_BUS
         }
         public DataTable LoadDuLieu(string DieuKien)
         {
-            return admin.LoadDuLieu("select * from ADMINN " + DieuKien);
+            return admin.LoadDuLieu(DieuKien);
         }
         public int Check_logIn(string user, string pass)
         {

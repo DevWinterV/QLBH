@@ -952,6 +952,7 @@ namespace QLBH
 
         private void txttimkiem_Leave(object sender, EventArgs e)
         {
+            if(txttimkiem.Text ==" ")
             txttimkiem.Text = "Nhập để tìm kiếm";
         }
 
@@ -978,6 +979,7 @@ namespace QLBH
 
         private void txttiemkiem_loáip_Leave(object sender, EventArgs e)
         {
+            if(txttiemkiem_loáip.Text =="")
             txttiemkiem_loáip.Text = "Nhập để tìm kiếm";
         }
 
@@ -988,6 +990,7 @@ namespace QLBH
 
         private void txttimkiem_ncc_Leave(object sender, EventArgs e)
         {
+            if(txttimkiem_ncc.Text =="")
             txttimkiem_ncc.Text = "Nhập để tìm kiếm";
         }
 
@@ -1129,7 +1132,8 @@ namespace QLBH
 
         private void txttimkiemDVT_Leave(object sender, EventArgs e)
         {
-            txttimkiemDVT.Text = "Nhập để tìm kiếm";
+            if (txttimkiemDVT.Text == "")
+                txttimkiemDVT.Text = "Nhập để tìm kiếm";
         }
 
         private void dgv_DSDVT_Click(object sender, EventArgs e)
@@ -1220,10 +1224,6 @@ namespace QLBH
             Load_DSSP();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 
 }

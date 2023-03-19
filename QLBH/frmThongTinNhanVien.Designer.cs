@@ -65,7 +65,7 @@
             // simpleButton1
             // 
             this.simpleButton1.Location = new System.Drawing.Point(130, 1746);
-            this.simpleButton1.Margin = new System.Windows.Forms.Padding(21, 21, 21, 21);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(21);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(850, 250);
             this.simpleButton1.TabIndex = 3;
@@ -98,9 +98,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
             this.groupBox1.Location = new System.Drawing.Point(1, 27);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(499, 98);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -255,7 +255,7 @@
             this.simpleButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
             this.simpleButton4.Location = new System.Drawing.Point(271, 140);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(21, 21, 21, 21);
+            this.simpleButton4.Margin = new System.Windows.Forms.Padding(21);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(79, 29);
             this.simpleButton4.TabIndex = 2;
@@ -266,10 +266,10 @@
             // 
             this.btn_thaydoi.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_thaydoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_thaydoi.ImageOptions.Image")));
-            this.btn_thaydoi.Location = new System.Drawing.Point(133, 140);
-            this.btn_thaydoi.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.btn_thaydoi.Location = new System.Drawing.Point(116, 140);
+            this.btn_thaydoi.Margin = new System.Windows.Forms.Padding(14);
             this.btn_thaydoi.Name = "btn_thaydoi";
-            this.btn_thaydoi.Size = new System.Drawing.Size(123, 29);
+            this.btn_thaydoi.Size = new System.Drawing.Size(140, 29);
             this.btn_thaydoi.TabIndex = 1;
             this.btn_thaydoi.Text = "Thay đổi mật khẩu";
             this.btn_thaydoi.Click += new System.EventHandler(this.btn_thaydoi_Click);
@@ -278,7 +278,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 198);
+            this.ClientSize = new System.Drawing.Size(508, 179);
             this.Controls.Add(this.simpleButton4);
             this.Controls.Add(this.btn_thaydoi);
             this.Controls.Add(this.groupBox1);
@@ -286,7 +286,7 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmThongTinNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "THÔNG TIN NHÂN VIÊN";

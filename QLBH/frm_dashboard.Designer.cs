@@ -101,7 +101,7 @@
             this.lb_ngaygiohientai.BackColor = System.Drawing.Color.White;
             this.lb_ngaygiohientai.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_ngaygiohientai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ngaygiohientai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lb_ngaygiohientai.ForeColor = System.Drawing.Color.DarkViolet;
             this.lb_ngaygiohientai.Location = new System.Drawing.Point(531, 10);
             this.lb_ngaygiohientai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_ngaygiohientai.Name = "lb_ngaygiohientai";
@@ -113,19 +113,19 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(273, 8);
+            this.label1.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label1.Location = new System.Drawing.Point(260, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 28);
+            this.label1.Size = new System.Drawing.Size(164, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "DASHBOARD";
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
@@ -145,14 +145,15 @@
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.chart_topsanphambanchay);
             this.panel8.Controls.Add(this.panel10);
-            this.panel8.Location = new System.Drawing.Point(322, 77);
+            this.panel8.Location = new System.Drawing.Point(318, 77);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(331, 256);
+            this.panel8.Size = new System.Drawing.Size(331, 252);
             this.panel8.TabIndex = 2;
             // 
             // chart_topsanphambanchay
             // 
+            this.chart_topsanphambanchay.BorderlineColor = System.Drawing.Color.Snow;
             chartArea1.Name = "ChartArea1";
             this.chart_topsanphambanchay.ChartAreas.Add(chartArea1);
             this.chart_topsanphambanchay.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -161,14 +162,14 @@
             this.chart_topsanphambanchay.Location = new System.Drawing.Point(0, 27);
             this.chart_topsanphambanchay.Margin = new System.Windows.Forms.Padding(2);
             this.chart_topsanphambanchay.Name = "chart_topsanphambanchay";
-            this.chart_topsanphambanchay.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.chart_topsanphambanchay.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
             series1.Name = "TONGSOLUONG";
             this.chart_topsanphambanchay.Series.Add(series1);
-            this.chart_topsanphambanchay.Size = new System.Drawing.Size(331, 229);
+            this.chart_topsanphambanchay.Size = new System.Drawing.Size(331, 225);
             this.chart_topsanphambanchay.TabIndex = 1;
             this.chart_topsanphambanchay.Text = "chart1";
             title1.Name = "Title1";
@@ -177,7 +178,7 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel10.BackColor = System.Drawing.Color.DarkOrchid;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel10.Controls.Add(this.simpleButton1);
             this.panel10.Controls.Add(this.label7);
@@ -192,10 +193,10 @@
             // 
             this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Right;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(292, 0);
+            this.simpleButton1.Location = new System.Drawing.Point(291, 0);
             this.simpleButton1.Margin = new System.Windows.Forms.Padding(2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(35, 23);
+            this.simpleButton1.Size = new System.Drawing.Size(36, 23);
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
@@ -204,7 +205,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(3, 8);
+            this.label7.Location = new System.Drawing.Point(3, 6);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(179, 15);
@@ -222,11 +223,12 @@
             this.panel7.Location = new System.Drawing.Point(8, 77);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(310, 256);
+            this.panel7.Size = new System.Drawing.Size(306, 252);
             this.panel7.TabIndex = 2;
             // 
             // chart_doanhthu
             // 
+            this.chart_doanhthu.BorderlineColor = System.Drawing.Color.MistyRose;
             this.chart_doanhthu.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
             chartArea2.Name = "ChartArea1";
             this.chart_doanhthu.ChartAreas.Add(chartArea2);
@@ -241,7 +243,7 @@
             series2.Legend = "Legend1";
             series2.Name = "TONGDOANHTHU";
             this.chart_doanhthu.Series.Add(series2);
-            this.chart_doanhthu.Size = new System.Drawing.Size(310, 229);
+            this.chart_doanhthu.Size = new System.Drawing.Size(306, 225);
             this.chart_doanhthu.TabIndex = 1;
             this.chart_doanhthu.Text = "chart1";
             title2.Name = "BIỂU ĐỒ TỔNG DOANH THU";
@@ -250,7 +252,7 @@
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel9.BackColor = System.Drawing.Color.DarkOrchid;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel9.Controls.Add(this.cbb_chonxem);
             this.panel9.Controls.Add(this.label6);
@@ -258,7 +260,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(310, 27);
+            this.panel9.Size = new System.Drawing.Size(306, 27);
             this.panel9.TabIndex = 0;
             // 
             // cbb_chonxem
@@ -272,10 +274,10 @@
             "Tháng này",
             "Năm này",
             "Tất cả"});
-            this.cbb_chonxem.Location = new System.Drawing.Point(173, 1);
+            this.cbb_chonxem.Location = new System.Drawing.Point(177, 1);
             this.cbb_chonxem.Margin = new System.Windows.Forms.Padding(2);
             this.cbb_chonxem.Name = "cbb_chonxem";
-            this.cbb_chonxem.Size = new System.Drawing.Size(135, 25);
+            this.cbb_chonxem.Size = new System.Drawing.Size(127, 25);
             this.cbb_chonxem.TabIndex = 1;
             this.cbb_chonxem.SelectedIndexChanged += new System.EventHandler(this.cbb_chonxem_SelectedIndexChanged);
             // 
@@ -284,7 +286,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(2, 8);
+            this.label6.Location = new System.Drawing.Point(2, 6);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(171, 15);
@@ -310,7 +312,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 68);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(639, 68);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel3
@@ -325,7 +327,7 @@
             this.panel3.Location = new System.Drawing.Point(2, 2);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(156, 64);
+            this.panel3.Size = new System.Drawing.Size(155, 64);
             this.panel3.TabIndex = 0;
             // 
             // lb_tongdoanhthu
@@ -361,10 +363,10 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.lb_tonghoadon);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(162, 2);
+            this.panel4.Location = new System.Drawing.Point(161, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(156, 64);
+            this.panel4.Size = new System.Drawing.Size(155, 64);
             this.panel4.TabIndex = 0;
             // 
             // lb_tonghoadon
@@ -396,14 +398,14 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.panel5.BackColor = System.Drawing.Color.DarkTurquoise;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.lb_tongkhachhang);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(322, 2);
+            this.panel5.Location = new System.Drawing.Point(320, 2);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(156, 64);
+            this.panel5.Size = new System.Drawing.Size(155, 64);
             this.panel5.TabIndex = 0;
             // 
             // lb_tongkhachhang
@@ -439,10 +441,10 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.lb_tongnhanvien);
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(482, 2);
+            this.panel6.Location = new System.Drawing.Point(479, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(159, 64);
+            this.panel6.Size = new System.Drawing.Size(158, 64);
             this.panel6.TabIndex = 0;
             // 
             // lb_tongnhanvien

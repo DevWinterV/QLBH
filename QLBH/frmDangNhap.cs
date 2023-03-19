@@ -149,7 +149,7 @@ namespace QLBH
                         if (nv.Check_LogIn(txtTaikhoan.Text, txtpass.Text) == 1)
                         {
                             tennv = nv.GetValue("select nv.hoten from nhanvien nv, NguoiDung ng where ng.pass = '" + txtpass.Text.Trim() + "' and ng.username = '" + txtTaikhoan.Text.Trim() + "' and nv.manv = ng.manv");
-                            phanquyen = nv.GetValue("select phanquyen from nguoidung where username ='" + txtTaikhoan.Text + "' and pass = '" + txtpass.Text + "'");
+                            phanquyen = nv.GetValue("select MA_QUYEN from nguoidung where username ='" + txtTaikhoan.Text + "' and pass = '" + txtpass.Text + "'");
                             manv = nv.GetValue("select manv from NguoiDung where pass = '" + txtpass.Text.Trim() + "' and username = '" + txtTaikhoan.Text.Trim() + "'");
                             frmChuongTrinh bh = new frmChuongTrinh(phanquyen, tennv, manv);
                             this.Hide();
@@ -196,6 +196,17 @@ namespace QLBH
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnExit_Click_1(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace QLBH_Enity
         private string _maKH;
         private string _manv;
         private SqlMoney _thanhtien;
+        private string _trangthai;
 
         public HoaDon(DateTime ngayGD, string maHD, string maKH, string manv, SqlMoney thanhtien)
         {
@@ -29,5 +31,6 @@ namespace QLBH_Enity
         public string MaKH { get => _maKH; set => _maKH = value; }
         public string Manv { get => _manv; set => _manv = value; }
         public SqlMoney Thanhtien1 { get => _thanhtien; set => _thanhtien = value; }
+        public string Trangthai { get => _trangthai; set => _trangthai = value; }
     }
 }

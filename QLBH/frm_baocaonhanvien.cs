@@ -35,8 +35,8 @@ namespace QLBH
                 ReportDataSource rpdts = new ReportDataSource();
                 rpdts.Name = "DataSet1";
                 rpdts.Value = ds.Tables[0];
-                // reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\Report_DOANHTHUTHANG.rdlc";
-                reportViewer1.LocalReport.ReportPath = "Report6.rdlc";
+                 reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\Report6.rdlc";
+                //reportViewer1.LocalReport.ReportPath = "Report6.rdlc";
                 reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(rpdts);
                 reportViewer1.RefreshReport();

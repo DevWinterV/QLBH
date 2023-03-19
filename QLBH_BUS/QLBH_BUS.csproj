@@ -59,6 +59,7 @@
     <Compile Include="BUS_PHIEUNHAPCHITIET.cs" />
     <Compile Include="BUS_PHIEUNO.cs" />
     <Compile Include="BUS_PHIEUNO_CT.cs" />
+    <Compile Include="BUS_QUYEN.cs" />
     <Compile Include="BUS_SanPham.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

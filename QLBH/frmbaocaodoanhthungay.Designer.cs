@@ -57,7 +57,7 @@
             this.date_ngaychon.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.date_ngaychon.CustomFormat = "dd/MM/yyyy";
             this.date_ngaychon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_ngaychon.Location = new System.Drawing.Point(310, 15);
+            this.date_ngaychon.Location = new System.Drawing.Point(338, 15);
             this.date_ngaychon.Margin = new System.Windows.Forms.Padding(2);
             this.date_ngaychon.Name = "date_ngaychon";
             this.date_ngaychon.Size = new System.Drawing.Size(135, 20);
@@ -67,10 +67,10 @@
             // 
             this.bt_load.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bt_load.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_load.ImageOptions.Image")));
-            this.bt_load.Location = new System.Drawing.Point(454, 8);
+            this.bt_load.Location = new System.Drawing.Point(482, 8);
             this.bt_load.Margin = new System.Windows.Forms.Padding(2);
             this.bt_load.Name = "bt_load";
-            this.bt_load.Size = new System.Drawing.Size(135, 31);
+            this.bt_load.Size = new System.Drawing.Size(103, 31);
             this.bt_load.TabIndex = 2;
             this.bt_load.Text = "LOAD";
             this.bt_load.Click += new System.EventHandler(this.bt_load_Click);
@@ -81,7 +81,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(122, 16);
+            this.label1.Location = new System.Drawing.Point(150, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(201, 17);
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(765, 385);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.panel1);

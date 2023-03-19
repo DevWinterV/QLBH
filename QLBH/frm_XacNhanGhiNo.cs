@@ -37,6 +37,7 @@ namespace QLBH
         private int trangThai;
         private string ghichu;
         private string makh;
+        private string tongNo;
 
         public string Hoten { get => hoten; set => hoten = value; }
         public string Sodt { get => sodt; set => sodt = value; }
@@ -47,6 +48,7 @@ namespace QLBH
         public string Ghichu { get => ghichu; set => ghichu = value; }
         public string Makh { get => makh; set => makh = value; }
         public double Tratruoc { get => tratruoc; set => tratruoc = value; }
+        public string TongNo { get => tongNo; set => tongNo = value; }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -85,9 +87,15 @@ namespace QLBH
                     lb_nocu.Text = "0";
                 double nocon = Tongtienhoadon - tratruoc;
                 if (pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = '" + makh + "' and hd.maHD = pn.mahd") != "")
+                {
                     lb_tongno.Text = (double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = '" + makh + "' and hd.maHD = pn.mahd")) + nocon).ToString("c", new CultureInfo("vi-VN"));
+                    TongNo = (double.Parse(pn.GetValue("select SUM(pn.TIENNO) from PHIEUNO pn, HOADON hd WHERE hd.maKH = '" + makh + "' and hd.maHD = pn.mahd")) + nocon).ToString();
+                }
                 else
+                {
+                    TongNo = nocon.ToString();
                     lb_tongno.Text = (nocon).ToString("c", new CultureInfo("vi-VN"));
+                }
             }
             catch
             {

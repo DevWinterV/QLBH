@@ -64,7 +64,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>CỬA HÀNG ĐIỆN NƯỚC  BA TA (BÍCH NHUNG)</Value>
+                    <Value>CỬA HÀNG ĐIỆN NƯỚC </Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -110,7 +110,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Điện thoại: 0384611104</Value>
+                    <Value>Điện thoại: 0766837068</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -385,7 +385,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=Sum(Fields!Thanhtien.Value)</Value>
+                    <Value>=FormatNumber(Sum(Fields!Thanhtien.Value),1)</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <Color>Red</Color>
@@ -673,7 +673,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -708,7 +707,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -743,7 +741,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -778,7 +775,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -813,7 +809,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -848,7 +843,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -883,7 +877,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1092,7 +1085,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Thanhtien.Value</Value>
+                                  <Value>=FormatNumber(Fields!Thanhtien.Value,1)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>

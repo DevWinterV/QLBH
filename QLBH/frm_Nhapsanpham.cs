@@ -251,13 +251,14 @@ namespace QLBH
                                     sanppham1.DongiaNhap = SqlMoney.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString());
                                     sanppham1.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
                                     sp.Update_DonGiaNhap(sanppham1);
-                                    btn_taoMoi.Enabled = true;
-                                    groupBox1.Enabled = false;
-                                    dgv_Nhap.Rows.Clear();
-                                    Enabel_DSPHIEUNHAP();
+                                    
 
                                 }
                             }
+                            btn_taoMoi.Enabled = true;
+                            groupBox1.Enabled = false;
+                            dgv_Nhap.Rows.Clear();
+                            Enabel_DSPHIEUNHAP();
                             MessageBox.Show("Lưu phiếu nhập thành công! Bạn có thể xem lại phiếu nhập trong Danh mục phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)

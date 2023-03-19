@@ -25,6 +25,8 @@ namespace QLBH
         BUS_PHIEUNO_CT pnct = new BUS_PHIEUNO_CT();
         PHIEUNO phieuno = new PHIEUNO();
         PHIEUNO_CT phieunoct = new PHIEUNO_CT();
+        BUS_HoaDon hd = new BUS_HoaDon();
+        HoaDon hoadon = new HoaDon();
         public  double Tienkhachtra;
         public void Load_DSKHNO()
         {
@@ -140,9 +142,12 @@ namespace QLBH
                                     phieunoct.MaPN = (string)rowToMove.Cells[1].Value;
                                     phieunoct.Ngaytra = DateTime.Now;
                                     phieunoct.TienTra = SqlMoney.Parse(trano.Tienkhachtra);
-                                    pnct.Add(phieunoct);// cập nhật lại số tiền trả nợ]
+                                    pnct.Add(phieunoct);// cập nhật lại số tiền trả nợ
                                     phieuno.MaPN = (string)rowToMove.Cells[1].Value;
                                     pn.Update_SauKhiTraNo(phieuno, SqlMoney.Parse(trano.Tienkhachtra), trano.Ghichu);
+                                    hoadon.MaHD = phieunoct.MaPN = (string)rowToMove.Cells[2].Value;
+                                    hoadon.Trangthai = trano.Ghichu;
+                                    hd.Update(hoadon);
                                     if (cbb_tenkh.Items.Count > 0)
                                     {
                                         Load_DSHDNO(cbb_tenkh.SelectedValue.ToString());

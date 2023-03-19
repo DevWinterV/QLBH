@@ -177,7 +177,7 @@
             this.groupControl2.Controls.Add(this.label15);
             this.groupControl2.Location = new System.Drawing.Point(13, 196);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(675, 227);
+            this.groupControl2.Size = new System.Drawing.Size(675, 230);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "Danh sách khách hàng: ";
             // 
@@ -234,12 +234,12 @@
             this.colTenKH,
             this.colDiachi,
             this.colsdt});
-            this.dgv_DSKH.Location = new System.Drawing.Point(5, 48);
+            this.dgv_DSKH.Location = new System.Drawing.Point(5, 51);
             this.dgv_DSKH.Name = "dgv_DSKH";
             this.dgv_DSKH.ReadOnly = true;
             this.dgv_DSKH.RowHeadersWidth = 62;
             this.dgv_DSKH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_DSKH.Size = new System.Drawing.Size(665, 156);
+            this.dgv_DSKH.Size = new System.Drawing.Size(665, 174);
             this.dgv_DSKH.TabIndex = 11;
             this.dgv_DSKH.Click += new System.EventHandler(this.dgv_DSKH_Click);
             // 
@@ -277,11 +277,10 @@
             // 
             // lbtongkh
             // 
-            this.lbtongkh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lbtongkh.AutoSize = true;
             this.lbtongkh.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtongkh.ForeColor = System.Drawing.Color.Blue;
-            this.lbtongkh.Location = new System.Drawing.Point(109, 209);
+            this.lbtongkh.Location = new System.Drawing.Point(110, 32);
             this.lbtongkh.Name = "lbtongkh";
             this.lbtongkh.Size = new System.Drawing.Size(14, 13);
             this.lbtongkh.TabIndex = 0;
@@ -289,11 +288,10 @@
             // 
             // label15
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Blue;
-            this.label15.Location = new System.Drawing.Point(4, 209);
+            this.label15.Location = new System.Drawing.Point(5, 32);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(112, 13);
             this.label15.TabIndex = 0;

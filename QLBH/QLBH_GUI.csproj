@@ -236,6 +236,12 @@
     <Compile Include="frm_inHD.Designer.cs">
       <DependentUpon>frm_inHD.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_inHoaDonghiNo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_inHoaDonghiNo.Designer.cs">
+      <DependentUpon>frm_inHoaDonghiNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_inphieunhapkho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,12 +314,23 @@
     <Compile Include="frm_XacNhanGhiNo.Designer.cs">
       <DependentUpon>frm_XacNhanGhiNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="from_quyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="from_quyen.Designer.cs">
+      <DependentUpon>from_quyen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLBHDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLBHDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBHDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report.cs">
       <SubType>Component</SubType>
@@ -376,6 +393,9 @@
     <EmbeddedResource Include="frm_inHD.resx">
       <DependentUpon>frm_inHD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_inHoaDonghiNo.resx">
+      <DependentUpon>frm_inHoaDonghiNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_inphieunhapkho.resx">
       <DependentUpon>frm_inphieunhapkho.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +432,9 @@
     <EmbeddedResource Include="frm_XacNhanGhiNo.resx">
       <DependentUpon>frm_XacNhanGhiNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="from_quyen.resx">
+      <DependentUpon>from_quyen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -434,6 +457,7 @@
     <EmbeddedResource Include="Report5.rdlc" />
     <EmbeddedResource Include="Report6.rdlc" />
     <EmbeddedResource Include="Report7.rdlc" />
+    <EmbeddedResource Include="Report8.rdlc" />
     <EmbeddedResource Include="Report_DOANHTHUTHANG.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -476,6 +500,17 @@
     </None>
     <None Include="QLBHDataSet.xss">
       <DependentUpon>QLBHDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QLBHDataSet1.xsc">
+      <DependentUpon>QLBHDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLBHDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBHDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBHDataSet1.xss">
+      <DependentUpon>QLBHDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Resources\Exit.jpg" />
   </ItemGroup>

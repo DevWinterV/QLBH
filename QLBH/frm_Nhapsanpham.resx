@@ -265,4 +265,11 @@
   <metadata name="colXoa.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="label13.Text" xml:space="preserve">
+    <value>* Mỗi phiếu nhập kho là của riêng 1 nhà cung cấp
+* Double click vào sản phẩm trong danh sách để cập nhật
+* Có thể cập nhật đơn giá bán khi đơn giá nhập thay đổi
+* Có thể chỉnh lại đơn giá nhập của sản phẩm và sau khi 
+lưu phiếu nhập đơn giá của sản phẩm sẽ tự động thay đổi</value>
+  </data>
 </root>

@@ -13,11 +13,11 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(NhanVien sp)
         {
-            db.ExecuteNonQuery("insert into nhanvien values('NV' + cast (next value for  MANV_TU_TANG as varchar(5)),N'" + sp.Hoten + "','" + sp.Sodt + "','" + sp.Ngaysinh + "','" + sp.Diachi + "','" + sp.Phai+ "', N'"+sp.Tinhtrang+"')");
+            db.ExecuteNonQuery("insert into nhanvien values('NV' + cast (next value for  MANV_TU_TANG as varchar(5)),N'" + sp.Hoten + "','" + sp.Sodt + "','" + sp.Ngaysinh + "','" + sp.Diachi + "','" + sp.Phai+ "', N'"+sp.Tinhtrang+"',"+sp.Luong+")");
         }
         public void Update(NhanVien sp)
         {
-            db.ExecuteNonQuery("update nhanvien set  manv = '" + sp.Manv + "',hoten =N'" + sp.Hoten + "',Sodt = '" + sp.Sodt + "', dchi  =N'"+sp.Diachi+ "',gioitinh = N'"+sp.Phai+"',TINHTRANG =N'"+sp.Tinhtrang+"' where manv = '" + sp.Manv + "'");
+            db.ExecuteNonQuery("update nhanvien set  manv = '" + sp.Manv + "',ngaysinh ='"+sp.Ngaysinh+"',hoten =N'" + sp.Hoten + "',Sodt = '" + sp.Sodt + "', dchi  =N'"+sp.Diachi+ "',gioitinh = N'"+sp.Phai+"',TINHTRANG =N'"+sp.Tinhtrang+"', LUONG= "+sp.Luong+" where manv = '" + sp.Manv + "'");
         }
         public void Delete(NhanVien sp)
         {

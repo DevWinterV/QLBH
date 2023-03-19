@@ -20,13 +20,21 @@ namespace QLBH
             InitializeComponent();
 
         }
-        private string tennhanvien, manv;
+        private string tennhanvien, manv,phanquyen;
         public frmHOADON(string tennv, string manv)
         {
             InitializeComponent();
             this.tennhanvien = tennv;
             this.manv = manv;
         }
+        public frmHOADON(string tennv, string manv,string phanquyen)
+        {
+            InitializeComponent();
+            this.tennhanvien = tennv;
+            this.manv = manv;
+            this.phanquyen = phanquyen;
+        }
+
         BUS_HoaDon hd = new BUS_HoaDon();
         BUS_CTHD cthd = new BUS_CTHD();
         BUS_PHIEUNHAP phieunhap = new BUS_PHIEUNHAP();
@@ -184,11 +192,23 @@ namespace QLBH
 
         private void frmHOADON_Load(object sender, EventArgs e)
         {
-            LOad_DSHD();
-            LOad_DSPN();
-            cbb_chontimkiem.SelectedIndex = 0;
-            Enable_DSHD();
-            Enable_DSPN();
+            if (phanquyen == "3")
+            {
+                tabPage1.Enabled = false;
+                LOad_DSHD();
+                LOad_DSPN();
+                cbb_chontimkiem.SelectedIndex = 0;
+                Enable_DSHD();
+                Enable_DSPN();
+            }
+            else
+            {
+                LOad_DSHD();
+                LOad_DSPN();
+                cbb_chontimkiem.SelectedIndex = 0;
+                Enable_DSHD();
+                Enable_DSPN();
+            }    
         }
 
         private void dgv_DSHD_Click(object sender, EventArgs e)
@@ -255,7 +275,7 @@ namespace QLBH
                     hd.Masp = dgv_ChiTietHD.Rows[i].Cells[3].Value.ToString();
                     hd.Tenloai = dgv_ChiTietHD.Rows[i].Cells[1].Value.ToString();
                     hd.Soluuong = int.Parse(dgv_ChiTietHD.Rows[i].Cells[4].Value.ToString());
-                    hd.Dongia = float.Parse(dgv_ChiTietHD.Rows[i].Cells[5].Value.ToString());
+                    hd.Dongia_hd = float.Parse(dgv_ChiTietHD.Rows[i].Cells[5].Value.ToString());
                     hd.Thanhtien1 = float.Parse(dgv_ChiTietHD.Rows[i].Cells[6].Value.ToString());
                     dem++;
                     cthd1.Add(hd);

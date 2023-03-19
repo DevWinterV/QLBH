@@ -42,11 +42,11 @@ namespace QLBH
         }
         private void Load_DSHD_NGAY()
         {
-            DSHD_trongngay.DataSource = hd.GetData("select cthd.maHD, hd.ngaygd, sum(soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv =hd.manv and hd.maKH =kh.maKH and  HD.ngayGD BETWEEN '" + dateTime_ngaychon.Text + " 00:00:00' AND '" + dateTime_ngaychon.Text + " 23:59:59' group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien");
+            DSHD_trongngay.DataSource = hd.GetData("select cthd.maHD, hd.ngaygd, sum(CTHD.soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien,hd.trangthai from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv =hd.manv and hd.maKH =kh.maKH and  HD.ngayGD BETWEEN '" + dateTime_ngaychon.Text + " 00:00:00' AND '" + dateTime_ngaychon.Text + " 23:59:59' group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien,HD.TRANGTHAI");
         }
         private void Load_DS_thang()
         {
-            DSHD_thang.DataSource = hd.GetData("select cthd.maHD, hd.ngaygd, sum(soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv = hd.manv and hd.maKH = kh.maKH and MONTH(hd.ngayGD) = " + datetime_thang.Text + " AND YEAR(hd.ngayGD) = " + date_nam.Text + " group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien");
+            DSHD_thang.DataSource = hd.GetData("select cthd.maHD, hd.ngaygd, sum(CTHD.soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien, hd.trangthai from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv = hd.manv and hd.maKH = kh.maKH and MONTH(hd.ngayGD) = " + datetime_thang.Text + " AND YEAR(hd.ngayGD) = " + date_nam.Text + " group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien, HD.TRANGTHAI");
         }
 
         private  bool Check_maSP(string ID)

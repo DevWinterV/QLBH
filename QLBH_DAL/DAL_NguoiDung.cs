@@ -16,7 +16,7 @@ namespace QLBH_DAL
         }
         public void Update(NguoiDung sp)
         {
-            db.ExecuteNonQuery("update nguoidung set  manv = '" + sp.Manv + "', username ='" + sp.Username + "', pass = '" + sp.Pass + "', phanquyen  = N'" + sp.Phanquyen + "' where username = '" + sp.Username + "'");
+            db.ExecuteNonQuery("update nguoidung set  manv = '" + sp.Manv + "', username ='" + sp.Username + "', pass = '" + sp.Pass + "', ma_quyen  = '" + sp.Phanquyen + "' where username = '" + sp.Username + "'");
         }
         public void Delete(NguoiDung sp)
         {
@@ -24,7 +24,7 @@ namespace QLBH_DAL
         }
         public DataTable LoadDuLieu(string dieukien)
         {
-            return db.GetDataTable("select nv.hoten, ng.* from nguoidung ng, nhanvien nv where nv.manv = ng.manv "+dieukien);
+            return db.GetDataTable("select nv.hoten, ng.manv, ng.username, ng.pass, q.tenquyen from quyen q, nguoidung ng, nhanvien nv where nv.manv = ng.manv and ng.ma_quyen= q.ma_quyen "+dieukien);
         }
         public DataTable LoadDuLieu_Nguoidung()
         {

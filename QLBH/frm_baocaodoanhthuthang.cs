@@ -57,7 +57,7 @@ namespace QLBH
         {
             ds.Clear();
             SqlConnection cn = new SqlConnection(@"Data Source=RANGDONG\DONGCHAU;Initial Catalog=QLBH;User ID=dong;Password=09032002");
-            string query = "select cthd.maHD, hd.ngaygd, sum(soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv =hd.manv and hd.maKH =kh.maKH and MONTH(hd.ngayGD) = '"+dateTimePicker1.Text.Trim()+"' AND YEAR(hd.ngayGD) = '"+dateTimePicker2.Text.Trim()+"' group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien ";
+            string query = "select cthd.maHD, hd.ngaygd, sum(soluong) as soluong, nv.hoten as tennv, kh.hoten as tenkh, hd.thanhtien,hd.trangthai from chitietHD cthd , hoadon hd, nhanvien nv, KHACHHANG kh where cthd.maHD = hd.maHD and nv.manv =hd.manv and hd.maKH =kh.maKH and MONTH(hd.ngayGD) = '"+dateTimePicker1.Text.Trim()+"' AND YEAR(hd.ngayGD) = '"+dateTimePicker2.Text.Trim()+"' group by cthd.maHD, nv.hoten, kh.hoten, hd.ngayGD, hd.thanhtien, HD.TRANGTHAI ";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(ds);
             reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);

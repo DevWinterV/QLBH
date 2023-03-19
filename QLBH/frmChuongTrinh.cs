@@ -13,6 +13,8 @@ using DevExpress.Pdf.Native.BouncyCastle.Security.Certificates;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars.Forms;
 using frm_BanHang;
+using QLBH_BUS;
+
 namespace QLBH
 {
     public partial class frmChuongTrinh : Form
@@ -31,10 +33,10 @@ namespace QLBH
             InitializeComponent();
         } 
 
-            string phanquyen;
+        string phanquyen;
         public string  tennv, manv;
         bool isMouseDown;
-
+        BUS_QUYEN quyen = new BUS_QUYEN();
         int xLast;
         int yLast;
         private Form currentFomchild ;
@@ -164,14 +166,40 @@ namespace QLBH
             panel_menu.BringToFront();
             lb_tenfrm.Text = "HOME";
             lb_name_nv.Text = tennv.ToString();
-            lb_quyen.Text = phanquyen.ToUpper();
-            if(phanquyen =="NHÂN VIÊN")
+            if (phanquyen != "ADMIN")
+            {
+                lb_quyen.Text = quyen.GetValue("select tenquyen from quyen where ma_quyen ='" + phanquyen + "'");
+            }
+            else
+                lb_quyen.Text = phanquyen;
+            if (phanquyen =="1")
             {
                 btn_NV.Visible = false;
                 pictureBox_NHANVIEN_menu.Visible = false;
                 btn_NhapHang.Visible = false;
                 pictureBox_NhapHang.Visible = false;
-            }    
+            }
+            if (phanquyen == "3")
+            {
+                btn_TK.Visible = false;
+                pictureBox_TK_menu.Visible = false;
+                btn_Home.Visible = false;
+                pictureBox_HOME.Visible = false;
+                btn_HD.Visible = false;
+                pictureBox_HD_menu.Visible=false;
+                btn_KHang.Visible = false;
+                pictureBox_KHANG_menu.Visible = false;
+                btn_BHang.Visible = false;
+                pictureBox_BHANG_menu.Visible=false;
+                btn_DMSP.Visible = false;
+                pictureBox_DMSP_Menu.Visible=false;
+                btn_NV.Visible = false;
+                btn_congno.Visible = false;
+                pictureBox_conno.Visible = false;
+                pictureBox_NHANVIEN_menu.Visible = false;
+                btn_NhapHang.Visible = false;
+                pictureBox_NhapHang.Visible = false;
+            }
 
         }
         private void btnAn_Click(object sender, EventArgs e)
@@ -332,6 +360,18 @@ namespace QLBH
         private void pictureBox_conno_Click(object sender, EventArgs e)
         {
             btn_congno_Click(sender, e);
+        }
+
+
+
+        private void pictureBox_giaodichquyennhaphang_Click(object sender, EventArgs e)
+        {
+            Openformchild(new frmHOADON(tennv, manv, phanquyen));
+        }
+
+        private void btn_giadichjquyenhaphang_Click(object sender, EventArgs e)
+        {
+            Openformchild(new frmHOADON(tennv, manv,phanquyen));
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

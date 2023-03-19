@@ -41,11 +41,15 @@
           <DataField>THANHTIEN</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="TRANGTHAI">
+          <DataField>TRANGTHAI</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>D:\VEI\VYDANG\QLBH\QLBH\DataSet1.xsd</rd:SchemaPath>
-        <rd:TableName>TB_DOANHTHUNGAY</rd:TableName>
+        <rd:SchemaPath>D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\DataSet1.xsd</rd:SchemaPath>
+        <rd:TableName>TB_DTNGAY</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -78,7 +82,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>0.125in</Top>
-            <Left>1.71528in</Left>
+            <Left>1.46528in</Left>
             <Height>0.32638in</Height>
             <Width>3.31944in</Width>
             <Style>
@@ -112,7 +116,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>0.55902in</Top>
-            <Left>1.95139in</Left>
+            <Left>1.70139in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -147,7 +151,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>0.54513in</Top>
-            <Left>2.99306in</Left>
+            <Left>2.74306in</Left>
             <Height>0.25in</Height>
             <Width>1.77778in</Width>
             <ZIndex>2</ZIndex>
@@ -183,7 +187,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>0.8993in</Top>
-            <Left>1.81945in</Left>
+            <Left>1.56945in</Left>
             <Height>0.25in</Height>
             <Width>3.00694in</Width>
             <ZIndex>3</ZIndex>
@@ -204,22 +208,25 @@
                   <Width>0.34721in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.69444in</Width>
+                  <Width>0.63889in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>1in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>0.48612in</Width>
+                  <Width>0.36112in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.13194in</Width>
+                  <Width>0.69444in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.18055in</Width>
+                  <Width>0.68751in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.40973in</Width>
+                  <Width>0.79167in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.93749in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -428,6 +435,42 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightBlue</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>TRANGTHAI</Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -687,6 +730,39 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
+                        <Textbox Name="TRANGTHAI">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!TRANGTHAI.Value</Value>
+                                  <Style>
+                                    <FontFamily>Times New Roman</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>TRANGTHAI</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
                         <Textbox Name="THANHTIEN">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -733,6 +809,7 @@
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
+                <TablixMember />
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
@@ -749,7 +826,7 @@
             <Top>1.1493in</Top>
             <Left>0.125in</Left>
             <Height>0.5in</Height>
-            <Width>6.24999in</Width>
+            <Width>5.45833in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -778,8 +855,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.13889in</Top>
-            <Left>4.07638in</Left>
+            <Top>2.125in</Top>
+            <Left>3.20138in</Left>
             <Height>0.25in</Height>
             <Width>1.64583in</Width>
             <ZIndex>5</ZIndex>
@@ -815,7 +892,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>2.40278in</Top>
-            <Left>4.07638in</Left>
+            <Left>3.20138in</Left>
             <Height>0.25in</Height>
             <Width>1.64583in</Width>
             <ZIndex>6</ZIndex>
@@ -850,7 +927,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
             <Top>1.65972in</Top>
-            <Left>3.78472in</Left>
+            <Left>3.40972in</Left>
             <Height>0.25in</Height>
             <Width>1.18055in</Width>
             <ZIndex>7</ZIndex>
@@ -886,9 +963,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox57</rd:DefaultName>
             <Top>1.65972in</Top>
-            <Left>4.96527in</Left>
+            <Left>4.64584in</Left>
             <Height>0.25in</Height>
-            <Width>1.40973in</Width>
+            <Width>0.93749in</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -905,7 +982,7 @@
         <Height>2.90278in</Height>
         <Style />
       </Body>
-      <Width>6.74306in</Width>
+      <Width>5.73957in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>

@@ -12,7 +12,7 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(CTHD sp)
         {
-            db.ExecuteNonQuery("insert into chitietHD values('"+sp.MaHD+"','" + sp.Masp + "','" + sp.Soluuong + "')");
+            db.ExecuteNonQuery("insert into chitietHD values('"+sp.MaHD+"','" + sp.Masp + "','" + sp.Soluuong + "','"+sp.Dongia+"')");
         }
         public void Update(CTHD sp)
         {
@@ -32,7 +32,7 @@ namespace QLBH_DAL
         }
         public DataTable LoadData_From_IDSanPham(string ID)
         {
-            return db.GetDataTable("select cthd.maHD,loai.tenloai,cthd.masp ,sp.tensp, cthd.soluong, sp.dongia , sp.dongia *cthd.soluong as thanhtien from chitietHD cthd , LoaiSPDGD loai , sanphamDGD sp where cthd.masp = sp.masp and loai.maloai = sp.maloai and cthd.maHD = '"+ID+"'");
+            return db.GetDataTable("select cthd.maHD,loai.tenloai,cthd.masp ,sp.tensp, cthd.soluong,cthd.dongia , cthd.dongia *cthd.soluong as thanhtien from chitietHD cthd , LoaiSPDGD loai , sanphamDGD sp where cthd.masp = sp.masp and loai.maloai = sp.maloai and cthd.maHD = '"+ID+"'");
         }
 
     }
