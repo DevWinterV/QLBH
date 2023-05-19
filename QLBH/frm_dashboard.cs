@@ -147,5 +147,10 @@ namespace QLBH
         {
             lb_ngaygiohientai.Text = DateTime.Now.ToLongTimeString();
         }
+
+        private void chart_topsanphambanchay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

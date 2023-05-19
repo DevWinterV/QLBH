@@ -44,5 +44,15 @@ namespace QLBH.Properties {
                 return ((string)(this["QLBH"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=rangdong\\dongchau;Initial Catalog=QLBH;Integrated Security=True")]
+        public string QLBHConnectionString1 {
+            get {
+                return ((string)(this["QLBHConnectionString1"]));
+            }
+        }
     }
 }

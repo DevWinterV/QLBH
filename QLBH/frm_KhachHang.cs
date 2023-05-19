@@ -254,5 +254,7 @@ namespace frm_BanHang
             frm_baocaokhachhang bckh = new frm_baocaokhachhang();
             bckh.ShowDialog();
         }
+
+
     }
 }

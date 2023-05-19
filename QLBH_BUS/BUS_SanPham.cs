@@ -60,5 +60,22 @@ namespace QLBH_BUS
         {
             return (string)dal.GetDuLieu(DieuKien);
         }
+        public DataTable GetData_SP_LSP()
+        {
+            return dal.GetData_SP_LSP();
+        }
+        public DataTable GetData_SP_LSP(string id)
+        {
+            return dal.GetData_SP_LSP( id);
+        }
+
+        public DataTable GetData_SP_NCC(string id)
+        {
+            return dal.GetData_SP_NCC(id);
+        }
+        public DataTable GetData_SP_DVT(string id)
+        {
+            return dal.GetData_SP_DVT(id);
+        }
     }
 }

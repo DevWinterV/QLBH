@@ -23,6 +23,10 @@
         </Field>
         <Field Name="Dongia">
           <DataField>Dongia</DataField>
+          <rd:TypeName>System.Data.SqlTypes.SqlMoney</rd:TypeName>
+        </Field>
+        <Field Name="Dongia_hd">
+          <DataField>Dongia_hd</DataField>
           <rd:TypeName>System.Single</rd:TypeName>
         </Field>
         <Field Name="Dvt">
@@ -84,7 +88,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>CỬA HÀNG ĐIỆN NƯỚC  </Value>
+                    <Value>BÁCH HÓA THIÊN NHIÊN</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -718,7 +722,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value> Áp Tân Thạnh, Tân Trung, Phú Tân, An Giang</Value>
+                    <Value>Long Xuyên, An Giang</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -733,24 +737,16 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value xml:space="preserve">           </Value>
+                    <Value>Điện thoại: 0766837068</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>7pt</FontSize>
                     </Style>
                   </TextRun>
-                  <TextRun>
-                    <Value>Điện thoại: 0384611104</Value>
-                    <Style>
-                      <FontStyle>Italic</FontStyle>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>7pt</FontSize>
-                    </Style>
-                  </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1121,7 +1117,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(Fields!Dongia.Value,1)</Value>
+                                  <Value>=FormatNumber(Fields!Dongia_hd.Value,1)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1463,8 +1459,8 @@
         <InteractiveWidth>5.23in</InteractiveWidth>
         <LeftMargin>0.1in</LeftMargin>
         <RightMargin>0.1in</RightMargin>
-        <TopMargin>0.1in</TopMargin>
-        <BottomMargin>0.1in</BottomMargin>
+        <TopMargin>0.5in</TopMargin>
+        <BottomMargin>0.5in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLBH_BUS", "QLBH_BUS\QLBH_B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTL", "XTL\XTL.csproj", "{6FC04DA4-98B6-478B-8DD0-C64652C38890}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "QLBH_SETUP", "QLBH_SETUP\QLBH_SETUP.vdproj", "{E74F2754-60DE-44D7-965C-1EEE4E657E91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{6FC04DA4-98B6-478B-8DD0-C64652C38890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC04DA4-98B6-478B-8DD0-C64652C38890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC04DA4-98B6-478B-8DD0-C64652C38890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E74F2754-60DE-44D7-965C-1EEE4E657E91}.Debug|Any CPU.ActiveCfg = Debug
+		{E74F2754-60DE-44D7-965C-1EEE4E657E91}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

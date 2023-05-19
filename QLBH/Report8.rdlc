@@ -88,7 +88,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>CỬA HÀNG ĐIỆN NƯỚC  BA TA </Value>
+                    <Value>BÁCH HÓA THIÊN NHIÊN</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -737,7 +737,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value> Áp Tân Thạnh, Tân Trung, Phú Tân, An Giang</Value>
+                    <Value> Long Xuyên, An Giang</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -752,14 +752,6 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value xml:space="preserve">           </Value>
-                    <Style>
-                      <FontStyle>Italic</FontStyle>
-                      <FontFamily>times New Roman</FontFamily>
-                      <FontSize>7pt</FontSize>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
                     <Value>Điện thoại: 0766837068</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
@@ -769,7 +761,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -1140,7 +1132,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(Fields!Dongia.Value,1)</Value>
+                                  <Value>=FormatNumber(Fields!Dongia_hd.Value,1)</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1370,20 +1362,6 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Image Name="Image1">
-            <Source>Embedded</Source>
-            <Value>zaloanh</Value>
-            <Sizing>FitProportional</Sizing>
-            <Left>4.0062in</Left>
-            <Height>0.92708in</Height>
-            <Width>0.96055in</Width>
-            <ZIndex>24</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Image>
           <Textbox Name="Textbox31">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -1422,7 +1400,7 @@
             <Left>0.38244in</Left>
             <Height>0.30208in</Height>
             <Width>4.34251in</Width>
-            <ZIndex>25</ZIndex>
+            <ZIndex>24</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1457,7 +1435,7 @@
             <Left>3.73882in</Left>
             <Height>0.20139in</Height>
             <Width>0.97916in</Width>
-            <ZIndex>26</ZIndex>
+            <ZIndex>25</ZIndex>
             <Style>
               <Border />
               <PaddingLeft>2pt</PaddingLeft>
@@ -1491,7 +1469,7 @@
             <Left>2.67978in</Left>
             <Height>0.16667in</Height>
             <Width>1.03572in</Width>
-            <ZIndex>27</ZIndex>
+            <ZIndex>26</ZIndex>
             <Style>
               <Border />
               <PaddingLeft>2pt</PaddingLeft>
@@ -1524,7 +1502,7 @@
             <Left>3.73757in</Left>
             <Height>0.16667in</Height>
             <Width>0.97792in</Width>
-            <ZIndex>28</ZIndex>
+            <ZIndex>27</ZIndex>
             <Style>
               <Border />
               <PaddingLeft>2pt</PaddingLeft>
@@ -1534,15 +1512,17 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>4.34598in</Height>
+        <Height>3.67931in</Height>
         <Style />
       </Body>
-      <Width>4.98958in</Width>
+      <Width>4.97098in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <PageHeight>6.27in</PageHeight>
+        <PageWidth>5.23in</PageWidth>
+        <LeftMargin>0.1in</LeftMargin>
+        <RightMargin>0.1in</RightMargin>
+        <TopMargin>0.5in</TopMargin>
+        <BottomMargin>0.5in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>

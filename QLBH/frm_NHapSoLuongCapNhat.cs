@@ -1,9 +1,11 @@
-﻿using QLBH_BUS;
+﻿using DevExpress.XtraDiagram.Base;
+using QLBH_BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,18 @@ namespace QLBH
             InitializeComponent();
         }
         BUS_SanPham sp = new BUS_SanPham();
+        private string id_sp;
+        private bool barcode_mode = false;
+        frm_hoadonbanhang hdbh;
+        public DataGridView Dgv { get; set; }
+
+        public frm_NHapSoLuongCapNhat(string idSp, bool barcode_mode, frm_hoadonbanhang bh)
+        {
+            InitializeComponent();
+            this.Id_sp = idSp;
+            this.barcode_mode = barcode_mode;
+            this.hdbh = bh;
+        }
         public frm_NHapSoLuongCapNhat(string dongia, string tenloai, string tensp, int soluong, int soluongcon)
         {
             InitializeComponent();
@@ -58,6 +72,7 @@ namespace QLBH
         {
             try
             {
+
                     if (Check_Soluong(int.Parse(txtsldacos.Value.ToString())) == false)
                     {
                         //int soluong = int.Parse(sp.GetDulieu("select sluong from sanphamdgd where masp = '" + Get_IDHD(tensp).ToString() + "'")) - int.Parse(txtsldacos.Text);
@@ -66,27 +81,39 @@ namespace QLBH
                     }
                     else
                     {
-                    if (txtsldacos.Text == "")
-                    {
-                        errorProvider1.SetError(txtsldacos, "Số lượng không được trống!");
-                        txtsldacos.Focus();
-                    }
-                    else
-                    {
-                        if (txtsldacos.Value > 0)
+                        if (txtsldacos.Text == "")
                         {
-
-                            Chapnhan = 1;
-                            Soluongtru = int.Parse(txtsldacos.Value.ToString()) - Soluong;
-                            SoluongcapNHat = int.Parse(txtsldacos.Value.ToString());
-                            this.Close();
+                            errorProvider1.SetError(txtsldacos, "Số lượng không được trống!");
+                            txtsldacos.Focus();
                         }
                         else
                         {
-                            errorProvider1.SetError(txtsldacos, "Số lượng không được âm!");
-                            txtsldacos.Focus();
+                            if (txtsldacos.Value > 0)
+                            {
+                                if (barcode_mode == false)
+                                {
+                                    Chapnhan = 1;
+                                    Soluongtru = int.Parse(txtsldacos.Value.ToString()) - Soluong;
+                                    SoluongcapNHat = int.Parse(txtsldacos.Value.ToString());
+                                    this.Close();
+                                }
+                                else
+                            {
+                                hdbh.CapjNhat_SoLuong(Id_sp, int.Parse(txtsldacos.Value.ToString() )-hdbh.SoLuongCo_TrongHD(id_sp));// Cập nhật lại số lượng danh sách sản phẩm
+                                hdbh.Update_Data_Barcode(Id_sp, txtsldacos.Value.ToString());// cập nhật lại số lượng sản phẩm trong danh sách mua hàng
+                                    hdbh.Enable_DGVCTHD();
+                                    hdbh.lb_tongtien.Text = hdbh.TongTien_ModeBarcode().ToString("c", new CultureInfo("vi-VN"));
+                                    this.Close();
+                                }
+                            }
+                            else
+                            {
+                                errorProvider1.SetError(txtsldacos, "Số lượng không được âm!");
+                                txtsldacos.Focus();
+                            }
                         }
-                    }
+                    
+                   
                     }
             }
             catch (Exception ex)
@@ -97,12 +124,29 @@ namespace QLBH
 
         private void frm_NHapSoLuongCapNhat_Load(object sender, EventArgs e)
         {
-            txtsldacos.Focus();
-            lb_dongia.Text = dongia;
-            lb_tenloai.Text = tenloai;
-            lb_tensp.Text = tensp;
-            txtsldacos.Value = Soluong;
-            lbsoluongconn.Text = Soluongcon.ToString();
+            if (barcode_mode == false)
+            {
+                txtsldacos.Focus();
+                lb_dongia.Text = dongia;
+                lb_tenloai.Text = tenloai;
+                lb_tensp.Text = tensp;
+                txtsldacos.Value = Soluong;
+                lbsoluongconn.Text = Soluongcon.ToString();
+            }
+            else
+            {
+                if (Id_sp != "")
+                {
+                    lb_dongia.Text = sp.GetDulieu("select dongia from sanphamdgd where masp = '" + Id_sp + "'");
+                    dongia = lb_dongia.Text;
+                    txtsldacos.Focus();
+                    txtsldacos.Value = hdbh.SoLuongCo_TrongHD(Id_sp);
+                    string idloai = sp.GetDulieu("select maloai from sanphamdgd where masp = '" + Id_sp + "'");
+                    lb_tenloai.Text = sp.GetDulieu("select tenloai from loaispdgd where maloai = '" + idloai + "'");
+                    lb_tensp.Text = sp.GetDulieu("select tensp from sanphamdgd where masp = '" + Id_sp + "'");
+                    lbsoluongconn.Text = hdbh.SoLuongCon(Id_sp).ToString();
+                }
+            }    
         }
 
         private void txtsoluongthem_TextChanged(object sender, EventArgs e)
@@ -162,5 +206,6 @@ namespace QLBH
         public int SoluongcapNHat { get => _SoluongcapNHat; set => _SoluongcapNHat = int.Parse(txtsldacos.Text); }
         public int Soluongtru { get => _soluongtru; set => _soluongtru = value; }
         public int Soluongcon { get => _soluongcon; set => _soluongcon = value; }
+        public string Id_sp { get => id_sp; set => id_sp = value; }
     }
 }

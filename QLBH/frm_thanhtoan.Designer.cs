@@ -89,7 +89,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frm_thanhtoan";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "XÁC NHẬN THANH TOÁN";
             this.Load += new System.EventHandler(this.frm_thanhtoan_Load);
             this.ResumeLayout(false);

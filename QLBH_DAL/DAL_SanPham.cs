@@ -58,9 +58,26 @@ namespace QLBH_DAL
         {
             return db.GetDataTable(query);
         }
+        public DataTable GetData_SP_LSP()
+        {
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT");
+        }
+        public DataTable GetData_SP_LSP(string id)
+        {
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maloai ='"+id+"'");
+        }
         public string GetDuLieu(string dieukien)
         {
             return (string)db.GetValue(dieukien);
+        }
+
+        public DataTable GetData_SP_NCC(string id)
+        {
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.mancc ='" + id + "'");
+        }
+        public DataTable GetData_SP_DVT(string id)
+        {
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maDVT ='" + id + "'");
         }
     }
 }

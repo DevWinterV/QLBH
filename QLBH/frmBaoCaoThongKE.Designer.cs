@@ -42,6 +42,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,7 +52,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,6 +76,13 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.DSHD_trongngay = new System.Windows.Forms.DataGridView();
+            this.colmahd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgayGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSLL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTennv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTriGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnload = new System.Windows.Forms.Button();
@@ -145,13 +152,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txt_DgiaN = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.colmahd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNgayGD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSLL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTennv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTriGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGhichu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -591,6 +591,64 @@
             this.DSHD_trongngay.Size = new System.Drawing.Size(692, 256);
             this.DSHD_trongngay.TabIndex = 3;
             // 
+            // colmahd
+            // 
+            this.colmahd.DataPropertyName = "mahd";
+            this.colmahd.HeaderText = "Mã Hóa Đơn";
+            this.colmahd.MinimumWidth = 8;
+            this.colmahd.Name = "colmahd";
+            this.colmahd.ReadOnly = true;
+            // 
+            // colNgayGD
+            // 
+            this.colNgayGD.DataPropertyName = "ngaygd";
+            this.colNgayGD.HeaderText = "Ngày Lập";
+            this.colNgayGD.MinimumWidth = 8;
+            this.colNgayGD.Name = "colNgayGD";
+            this.colNgayGD.ReadOnly = true;
+            // 
+            // colSLL
+            // 
+            this.colSLL.DataPropertyName = "soluong";
+            this.colSLL.HeaderText = "SL Sản Phẩm";
+            this.colSLL.MinimumWidth = 8;
+            this.colSLL.Name = "colSLL";
+            this.colSLL.ReadOnly = true;
+            // 
+            // colTennv
+            // 
+            this.colTennv.DataPropertyName = "tennv";
+            this.colTennv.HeaderText = "Tên Nhân Viên";
+            this.colTennv.MinimumWidth = 8;
+            this.colTennv.Name = "colTennv";
+            this.colTennv.ReadOnly = true;
+            // 
+            // colTenKH
+            // 
+            this.colTenKH.DataPropertyName = "tenkh";
+            this.colTenKH.HeaderText = "Tên Khách Hàng";
+            this.colTenKH.MinimumWidth = 8;
+            this.colTenKH.Name = "colTenKH";
+            this.colTenKH.ReadOnly = true;
+            // 
+            // colTriGia
+            // 
+            this.colTriGia.DataPropertyName = "thanhtien";
+            dataGridViewCellStyle13.Format = "N0";
+            dataGridViewCellStyle13.NullValue = null;
+            this.colTriGia.DefaultCellStyle = dataGridViewCellStyle13;
+            this.colTriGia.HeaderText = "Tổng Cộng";
+            this.colTriGia.MinimumWidth = 8;
+            this.colTriGia.Name = "colTriGia";
+            this.colTriGia.ReadOnly = true;
+            // 
+            // colGhichu
+            // 
+            this.colGhichu.DataPropertyName = "trangthai";
+            this.colGhichu.HeaderText = "Ghi chú";
+            this.colGhichu.Name = "colGhichu";
+            this.colGhichu.ReadOnly = true;
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -624,7 +682,7 @@
             // 
             // btnload
             // 
-            this.btnload.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnload.BackColor = System.Drawing.Color.Silver;
             this.btnload.ForeColor = System.Drawing.Color.Black;
             this.btnload.Location = new System.Drawing.Point(189, 44);
             this.btnload.Margin = new System.Windows.Forms.Padding(2);
@@ -1094,7 +1152,7 @@
             // 
             // dgv_Nhap
             // 
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgv_Nhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_Nhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -1122,7 +1180,7 @@
             dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle24.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Nhap.DefaultCellStyle = dataGridViewCellStyle24;
@@ -1537,64 +1595,6 @@
             this.label6.Size = new System.Drawing.Size(362, 21);
             this.label6.TabIndex = 0;
             this.label6.Text = "LẬP DANH SÁCH SẢN PHẨM CẦN NHẬP HÀNG";
-            // 
-            // colmahd
-            // 
-            this.colmahd.DataPropertyName = "mahd";
-            this.colmahd.HeaderText = "Mã Hóa Đơn";
-            this.colmahd.MinimumWidth = 8;
-            this.colmahd.Name = "colmahd";
-            this.colmahd.ReadOnly = true;
-            // 
-            // colNgayGD
-            // 
-            this.colNgayGD.DataPropertyName = "ngaygd";
-            this.colNgayGD.HeaderText = "Ngày Lập";
-            this.colNgayGD.MinimumWidth = 8;
-            this.colNgayGD.Name = "colNgayGD";
-            this.colNgayGD.ReadOnly = true;
-            // 
-            // colSLL
-            // 
-            this.colSLL.DataPropertyName = "soluong";
-            this.colSLL.HeaderText = "SL Sản Phẩm";
-            this.colSLL.MinimumWidth = 8;
-            this.colSLL.Name = "colSLL";
-            this.colSLL.ReadOnly = true;
-            // 
-            // colTennv
-            // 
-            this.colTennv.DataPropertyName = "tennv";
-            this.colTennv.HeaderText = "Tên Nhân Viên";
-            this.colTennv.MinimumWidth = 8;
-            this.colTennv.Name = "colTennv";
-            this.colTennv.ReadOnly = true;
-            // 
-            // colTenKH
-            // 
-            this.colTenKH.DataPropertyName = "tenkh";
-            this.colTenKH.HeaderText = "Tên Khách Hàng";
-            this.colTenKH.MinimumWidth = 8;
-            this.colTenKH.Name = "colTenKH";
-            this.colTenKH.ReadOnly = true;
-            // 
-            // colTriGia
-            // 
-            this.colTriGia.DataPropertyName = "thanhtien";
-            dataGridViewCellStyle13.Format = "N0";
-            dataGridViewCellStyle13.NullValue = null;
-            this.colTriGia.DefaultCellStyle = dataGridViewCellStyle13;
-            this.colTriGia.HeaderText = "Tổng Cộng";
-            this.colTriGia.MinimumWidth = 8;
-            this.colTriGia.Name = "colTriGia";
-            this.colTriGia.ReadOnly = true;
-            // 
-            // colGhichu
-            // 
-            this.colGhichu.DataPropertyName = "trangthai";
-            this.colGhichu.HeaderText = "Ghi chú";
-            this.colGhichu.Name = "colGhichu";
-            this.colGhichu.ReadOnly = true;
             // 
             // frmBaoCaoThongKE
             // 

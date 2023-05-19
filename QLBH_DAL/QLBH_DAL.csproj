@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ADMIN.cs" />
+    <Compile Include="CSDL_DAL.cs" />
     <Compile Include="DAL_CTHD.cs" />
     <Compile Include="DAL_DONVITINH.cs" />
     <Compile Include="DAL_HoaDon.cs" />

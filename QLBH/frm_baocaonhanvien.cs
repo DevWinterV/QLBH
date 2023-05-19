@@ -23,7 +23,7 @@ namespace QLBH
         private void frm_baocaonhanvien_Load(object sender, EventArgs e)
         {
             ds.Clear();
-            SqlConnection cn = new SqlConnection(@"Data Source=RANGDONG\DONGCHAU;Initial Catalog=QLBH;User ID=dong;Password=09032002");
+            SqlConnection cn = new SqlConnection(@"Data Source=rangdong\dongchau;Initial Catalog=QLBH;Integrated Security=True");
             string query = "select * from nhanvien where tinhtrang =N'CÒN LÀM'";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(ds);

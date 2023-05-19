@@ -81,7 +81,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Left>1.47458in</Left>
+            <Left>1.34958in</Left>
             <Height>0.32638in</Height>
             <Width>3.47916in</Width>
             <Style>
@@ -115,7 +115,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
             <Top>0.44444in</Top>
-            <Left>1.8218in</Left>
+            <Left>1.6968in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -150,7 +150,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>0.44444in</Top>
-            <Left>2.89124in</Left>
+            <Left>2.76624in</Left>
             <Height>0.25in</Height>
             <Width>1.77778in</Width>
             <ZIndex>2</ZIndex>
@@ -185,7 +185,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.05556in</Top>
+            <Top>2.59723in</Top>
             <Left>3.2593in</Left>
             <Height>0.25in</Height>
             <Width>1.64583in</Width>
@@ -222,7 +222,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox15</rd:DefaultName>
             <Top>0.79861in</Top>
-            <Left>1.70375in</Left>
+            <Left>1.57875in</Left>
             <Height>0.25in</Height>
             <Width>3.00694in</Width>
             <ZIndex>4</ZIndex>
@@ -257,7 +257,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>2.31945in</Top>
+            <Top>2.86112in</Top>
             <Left>3.2593in</Left>
             <Height>0.25in</Height>
             <Width>1.64583in</Width>
@@ -308,7 +308,7 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
-          <Textbox Name="Textbox58">
+          <Textbox Name="txt_tongtien">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
@@ -318,6 +318,7 @@
                     <Value>=FormatNumber(Sum(Fields!THANHTIEN.Value),2)</Value>
                     <Style>
                       <FontFamily>Times New Roman</FontFamily>
+                      <Format>0.00;(0.00)</Format>
                       <Color>Red</Color>
                     </Style>
                   </TextRun>
@@ -327,7 +328,6 @@
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox57</rd:DefaultName>
             <Top>1.55083in</Top>
             <Left>4.5718in</Left>
             <Height>0.25in</Height>
@@ -888,7 +888,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Double.Parse(Fields!THANHTIEN.Value).ToString()</Value>
+                                  <Value>=FormatNumber((Fields!THANHTIEN.Value),2)</Value>
                                   <Style>
                                     <FontFamily>Times New Roman</FontFamily>
                                   </Style>
@@ -951,8 +951,154 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox57">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>THỰC THU:</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox55</rd:DefaultName>
+            <Top>2.20361in</Top>
+            <Left>3.42366in</Left>
+            <Height>0.25in</Height>
+            <Width>1.09953in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox59">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=FormatNumber(Parameters!p_tongno.Value,2)</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <Format>0.00;(0.00)</Format>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox57</rd:DefaultName>
+            <Top>1.87027in</Top>
+            <Left>4.57874in</Left>
+            <Height>0.25in</Height>
+            <Width>0.97223in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Yellow</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox60">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>TỔNG NỢ:</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox55</rd:DefaultName>
+            <Top>1.87027in</Top>
+            <Left>3.42366in</Left>
+            <Height>0.25in</Height>
+            <Width>1.09953in</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>White</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox61">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>= FormatNumber((Sum(Fields!THANHTIEN.Value)) - Parameters!p_tongno.Value,2)</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <Format>0.00;(0.00)</Format>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox57</rd:DefaultName>
+            <Top>2.20361in</Top>
+            <Left>4.57874in</Left>
+            <Height>0.25in</Height>
+            <Width>0.97223in</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <BackgroundColor>Yellow</BackgroundColor>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.58681in</Height>
+        <Height>3.27431in</Height>
         <Style />
       </Body>
       <Width>5.97112in</Width>
@@ -970,6 +1116,11 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="p_tongno">
+      <DataType>Float</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -980,6 +1131,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>p_ngaybaocao</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>p_tongno</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

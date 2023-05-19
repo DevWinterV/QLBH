@@ -23,7 +23,7 @@ namespace QLBH
 
         private void frm_BaoCaoKhoSanPham_Load(object sender, EventArgs e)
         {
-            SqlConnection cn = new SqlConnection(@"Data Source=RANGDONG\DONGCHAU;Initial Catalog=QLBH;User ID=dong;Password=09032002");
+            SqlConnection cn = new SqlConnection(@"Data Source=rangdong\dongchau;Initial Catalog=QLBH;Integrated Security=True");
             string query = "Select loai.tenloai, sp.tensp, sp.sluong, sp.dongia, sp.dongia * sp.sluong as thanhtien from sanphamdgd sp, loaiSPDGD loai where loai.maloai = sp.maloai and sp.sluong >0";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(ds);

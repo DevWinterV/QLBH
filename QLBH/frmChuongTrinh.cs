@@ -374,6 +374,12 @@ namespace QLBH
             Openformchild(new frmHOADON(tennv, manv,phanquyen));
         }
 
+        private void btn_hethong_Click(object sender, EventArgs e)
+        {
+            frm_hethong ht = new frm_hethong();
+            ht.ShowDialog();
+        }
+
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             frmThongTinNhanVien ttnv = new frmThongTinNhanVien(manv,tennv,phanquyen);

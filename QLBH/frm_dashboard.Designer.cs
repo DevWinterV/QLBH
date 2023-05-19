@@ -84,7 +84,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.lb_ngaygiohientai);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -102,7 +101,7 @@
             this.lb_ngaygiohientai.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_ngaygiohientai.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ngaygiohientai.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lb_ngaygiohientai.Location = new System.Drawing.Point(531, 10);
+            this.lb_ngaygiohientai.Location = new System.Drawing.Point(535, 10);
             this.lb_ngaygiohientai.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_ngaygiohientai.Name = "lb_ngaygiohientai";
             this.lb_ngaygiohientai.Size = new System.Drawing.Size(69, 21);
@@ -115,7 +114,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label1.Location = new System.Drawing.Point(260, 8);
+            this.label1.Location = new System.Drawing.Point(262, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 26);
@@ -125,7 +124,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel8);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
@@ -145,10 +144,10 @@
             this.panel8.BackColor = System.Drawing.Color.White;
             this.panel8.Controls.Add(this.chart_topsanphambanchay);
             this.panel8.Controls.Add(this.panel10);
-            this.panel8.Location = new System.Drawing.Point(318, 77);
+            this.panel8.Location = new System.Drawing.Point(320, 77);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(331, 252);
+            this.panel8.Size = new System.Drawing.Size(331, 254);
             this.panel8.TabIndex = 2;
             // 
             // chart_topsanphambanchay
@@ -169,12 +168,13 @@
             series1.Legend = "Legend1";
             series1.Name = "TONGSOLUONG";
             this.chart_topsanphambanchay.Series.Add(series1);
-            this.chart_topsanphambanchay.Size = new System.Drawing.Size(331, 225);
+            this.chart_topsanphambanchay.Size = new System.Drawing.Size(331, 227);
             this.chart_topsanphambanchay.TabIndex = 1;
             this.chart_topsanphambanchay.Text = "chart1";
             title1.Name = "Title1";
             title1.Text = "BIỂU ĐỒ TOP 10 SẢN PHẨM BÁN CHẠY";
             this.chart_topsanphambanchay.Titles.Add(title1);
+            this.chart_topsanphambanchay.Click += new System.EventHandler(this.chart_topsanphambanchay_Click);
             // 
             // panel10
             // 
@@ -223,7 +223,7 @@
             this.panel7.Location = new System.Drawing.Point(8, 77);
             this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(306, 252);
+            this.panel7.Size = new System.Drawing.Size(308, 254);
             this.panel7.TabIndex = 2;
             // 
             // chart_doanhthu
@@ -243,7 +243,7 @@
             series2.Legend = "Legend1";
             series2.Name = "TONGDOANHTHU";
             this.chart_doanhthu.Series.Add(series2);
-            this.chart_doanhthu.Size = new System.Drawing.Size(306, 225);
+            this.chart_doanhthu.Size = new System.Drawing.Size(308, 227);
             this.chart_doanhthu.TabIndex = 1;
             this.chart_doanhthu.Text = "chart1";
             title2.Name = "BIỂU ĐỒ TỔNG DOANH THU";
@@ -260,12 +260,13 @@
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(306, 27);
+            this.panel9.Size = new System.Drawing.Size(308, 27);
             this.panel9.TabIndex = 0;
             // 
             // cbb_chonxem
             // 
             this.cbb_chonxem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbb_chonxem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_chonxem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbb_chonxem.FormattingEnabled = true;
             this.cbb_chonxem.Items.AddRange(new object[] {
@@ -274,7 +275,7 @@
             "Tháng này",
             "Năm này",
             "Tất cả"});
-            this.cbb_chonxem.Location = new System.Drawing.Point(177, 1);
+            this.cbb_chonxem.Location = new System.Drawing.Point(179, 1);
             this.cbb_chonxem.Margin = new System.Windows.Forms.Padding(2);
             this.cbb_chonxem.Name = "cbb_chonxem";
             this.cbb_chonxem.Size = new System.Drawing.Size(127, 25);
@@ -312,7 +313,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(639, 68);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(641, 68);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel3
@@ -327,7 +328,7 @@
             this.panel3.Location = new System.Drawing.Point(2, 2);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(155, 64);
+            this.panel3.Size = new System.Drawing.Size(156, 64);
             this.panel3.TabIndex = 0;
             // 
             // lb_tongdoanhthu
@@ -363,10 +364,10 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel4.Controls.Add(this.lb_tonghoadon);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(161, 2);
+            this.panel4.Location = new System.Drawing.Point(162, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(155, 64);
+            this.panel4.Size = new System.Drawing.Size(156, 64);
             this.panel4.TabIndex = 0;
             // 
             // lb_tonghoadon
@@ -402,10 +403,10 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.lb_tongkhachhang);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(320, 2);
+            this.panel5.Location = new System.Drawing.Point(322, 2);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(155, 64);
+            this.panel5.Size = new System.Drawing.Size(156, 64);
             this.panel5.TabIndex = 0;
             // 
             // lb_tongkhachhang
@@ -441,10 +442,10 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.lb_tongnhanvien);
             this.panel6.Controls.Add(this.label5);
-            this.panel6.Location = new System.Drawing.Point(479, 2);
+            this.panel6.Location = new System.Drawing.Point(482, 2);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(158, 64);
+            this.panel6.Size = new System.Drawing.Size(157, 64);
             this.panel6.TabIndex = 0;
             // 
             // lb_tongnhanvien

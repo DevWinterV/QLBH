@@ -151,6 +151,8 @@ namespace QLBH
                             tennv = nv.GetValue("select nv.hoten from nhanvien nv, NguoiDung ng where ng.pass = '" + txtpass.Text.Trim() + "' and ng.username = '" + txtTaikhoan.Text.Trim() + "' and nv.manv = ng.manv");
                             phanquyen = nv.GetValue("select MA_QUYEN from nguoidung where username ='" + txtTaikhoan.Text + "' and pass = '" + txtpass.Text + "'");
                             manv = nv.GetValue("select manv from NguoiDung where pass = '" + txtpass.Text.Trim() + "' and username = '" + txtTaikhoan.Text.Trim() + "'");
+                            string tenquyen = nv.GetValue("select tenquyen from quyen where ma_quyen ='" + phanquyen + "'");
+                            MessageBox.Show("Đăng nhập vào hệ thống!(Quyền: "+tenquyen.ToUpper() + ")", "THÔNG BÁO");
                             frmChuongTrinh bh = new frmChuongTrinh(phanquyen, tennv, manv);
                             this.Hide();
                             bh.Show();
@@ -175,6 +177,7 @@ namespace QLBH
                             tennv = "ADMIN";
                             phanquyen = admin.GetValue("select phanquyen from adminn where username ='" + txtTaikhoan.Text + "' and pass = '" + txtpass.Text + "'");
                             manv = tennv;
+                            MessageBox.Show("Đăng nhập vào hệ thống!(Quyền: ADMIN)", "THÔNG BÁO");
                             frmChuongTrinh bh = new frmChuongTrinh(phanquyen, tennv, manv);
                             this.Hide();
                             bh.Show();

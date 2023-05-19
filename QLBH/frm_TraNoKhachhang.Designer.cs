@@ -221,7 +221,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frm_TraNoKhachhang";
-            this.Text = "frm_TraNoKhachhang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "THANH TOÁN NỢ KHÁCH HÀNG";
             this.Load += new System.EventHandler(this.frm_TraNoKhachhang_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

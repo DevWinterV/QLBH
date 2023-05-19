@@ -38,7 +38,7 @@ namespace QLBH
             InitializeComponent();
         }
         private Rectangle dragBoxFromMouseDown;
-        private int rowIndexFromMouseDown;
+        public int rowIndexFromMouseDown;
 
         public void Load_DSSP()// load dữ liệu bảng sản phẩm
         {
@@ -83,6 +83,7 @@ namespace QLBH
             DS_SP_SP.Enabled = t;
             dgv_CTHD.Enabled = t;
             check_tienmat.Enabled = t;
+            btn_scanbarcode.Enabled = t;
         }
         private void btnthemhd_Click(object sender, EventArgs e)
         {
@@ -161,7 +162,7 @@ namespace QLBH
             toolTip1.SetToolTip(btnhuyhd, "Hủy danh sách các sản phẩm đang được lập hóa đơn.");
 
         }
-        private bool check_masp(string id)
+        public bool check_masp(string id)
         {
             if (dgv_CTHD.Rows.Count -1 > 0)
             {
@@ -169,7 +170,7 @@ namespace QLBH
                 {
                     for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
                     {
-                        if (id == (string)dgv_CTHD.Rows[i].Cells[1].Value)
+                        if (dgv_CTHD.Rows[i].Cells[1].Value != null && id == (string)dgv_CTHD.Rows[i].Cells[1].Value)
                         {
                             vitri = i;
                             return false;
@@ -200,7 +201,35 @@ namespace QLBH
                 MessageBox.Show("Chọn vào dòng sản phẩm cần cập nhật!", "Lỗi", MessageBoxButtons.OK);
             }
         }
-        private void Enable_DGVCTHD()
+
+        public void Update_Data_Barcode(string id, string Soluong)
+        {
+            if (dgv_CTHD.Rows.Count - 1 > 0)
+            {
+                try
+                {
+                    for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
+                    {
+                        if (dgv_CTHD.Rows[i].Cells[1].Value != null && id == (string)dgv_CTHD.Rows[i].Cells[1].Value)
+                        {
+
+                            dgv_CTHD.Rows[i].Cells[0].Value = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
+                            dgv_CTHD.Rows[i].Cells[1].Value = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
+                            dgv_CTHD.Rows[i].Cells[2].Value = dgv_CTHD.Rows[i].Cells[2].Value.ToString();
+                            dgv_CTHD.Rows[i].Cells[4].Value = Soluong;
+                            dgv_CTHD.Rows[i].Cells[3].Value = dgv_CTHD.Rows[i].Cells[3].Value.ToString();
+                            dgv_CTHD.Rows[i].Cells[5].Value = ThanhTien(double.Parse(Soluong), double.Parse(dgv_CTHD.Rows[i].Cells[3].Value.ToString()));
+                        }
+                    }
+                    dgv_CTHD.Update();
+
+                }
+
+                catch (Exception ex)
+                { MessageBox.Show(ex.Message); }
+            }
+        }
+        public void Enable_DGVCTHD()
         {
             if (dgv_CTHD.Rows.Count -1 ==0)
             {
@@ -266,15 +295,73 @@ namespace QLBH
                 MessageBox.Show("Thao quá nhanh. Vui lòng thử lại." + ex.Message, "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             }
         }
-                                        
+        public DataGridViewRow rowToMove;
+
+        public bool Check_SL_SP(string ID)
+        {
+            foreach(DataGridViewRow rowSp in DS_SP_SP.Rows)
+            {
+                if (ID == rowSp.Cells[1].Value.ToString() && rowSp.Cells[1].Value.ToString() != null)
+                {
+                    if (int.Parse(rowSp.Cells[4].Value.ToString()) ==0)
+                    {
+                        return false;
+                    }    
+                }    
+            }
+            return true;
+        }
+        public void CapjNhat_SoLuong(string ID, int Soluongmua)
+        {
+            foreach (DataGridViewRow rowSp in DS_SP_SP.Rows)
+            {
+                if (ID == rowSp.Cells[1].Value.ToString() && rowSp.Cells[1].Value.ToString() != null)
+                {
+                    rowSp.Cells[4].Value = (int.Parse(rowSp.Cells[4].Value.ToString()) - Soluongmua).ToString();
+                }
+            }
+        }
+        public int SoLuongCon(string ID)
+        {
+            int soluongcon = 0;
+            foreach (DataGridViewRow rowSp in DS_SP_SP.Rows)
+            {
+                if (ID == rowSp.Cells[1].Value.ToString() && rowSp.Cells[1].Value.ToString() != null)
+                {
+                    soluongcon = int.Parse(rowSp.Cells[4].Value.ToString());
+                }
+            }
+            return soluongcon;
+        }
+        public int SoLuongCo_TrongHD(string id)
+        {
+            int soluongco = 0;
+            if (dgv_CTHD.Rows.Count - 1 > 0)
+            {
+                try
+                {
+                    for (int i = 0; i < dgv_CTHD.RowCount - 1; i++)
+                    {
+                        if (dgv_CTHD.Rows[i].Cells[1].Value != null && id == (string)dgv_CTHD.Rows[i].Cells[1].Value)
+                        {
+                            soluongco = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
+                        }
+                    }
+                }
+                catch (Exception ex)
+                { MessageBox.Show(ex.Message); }
+            }
+            return soluongco;
+        }
+
         private void dgv_CTHD_DragDrop(object sender, DragEventArgs e)
         {
             try
             {
-                DataGridViewRow rowToMove = (DataGridViewRow)e.Data.GetData(typeof(DataGridViewRow)); // Lấy dữ liệu dòng dssp
+                 rowToMove = (DataGridViewRow)e.Data.GetData(typeof(DataGridViewRow)); // Lấy dữ liệu dòng dssp
                 if ((string)rowToMove.Cells[1].Value != null && (string)rowToMove.Cells[2].Value != null && (string)rowToMove.Cells[0].Value != null && rowToMove.Cells[3].Value != null && rowToMove.Cells[4].Value != null)// nếu tất cả các cell khác null
                 {
-                    frm_NhapSoLuong nsl = new frm_NhapSoLuong(rowToMove.Cells[3].Value.ToString(), rowToMove.Cells[0].Value.ToString(), rowToMove.Cells[2].Value.ToString(), int.Parse(rowToMove.Cells[4].Value.ToString()));// truyền tham số vào form nhập số lượng
+                    frm_NhapSoLuong nsl = new frm_NhapSoLuong(rowToMove.Cells[3].Value.ToString(), rowToMove.Cells[0].Value.ToString(), rowToMove.Cells[2].Value.ToString(), int.Parse(rowToMove.Cells[4].Value.ToString()), this);// truyền tham số vào form nhập số lượng
                     if (check_masp((string)rowToMove.Cells[1].Value))// kiểm tra Id sản phẩm có tồn tại trong ds mua hàng hay không.
                     {
                         if (int.Parse(rowToMove.Cells[4].Value.ToString()) > 0)// kiểm tra số lượng còn đủ bán hay không
@@ -331,7 +418,7 @@ namespace QLBH
                 MessageBox.Show("Thao quá nhanh. Vui lòng thử lại." + ex.Message, "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             }
         }
-        private double ThanhTien(double soluong, double dongia)// tính thành tiền của mỗi sản phẩm
+        public double ThanhTien(double soluong, double dongia)// tính thành tiền của mỗi sản phẩm
         {
             return soluong * dongia;
         }
@@ -364,7 +451,7 @@ namespace QLBH
                                 chitiethd.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
                                 chitiethd.Tenloai = dgv_CTHD.Rows[i].Cells[0].Value.ToString();
                                 chitiethd.Soluuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
-                                chitiethd.Dongia = SqlMoney.Parse( dgv_CTHD.Rows[i].Cells[5].Value.ToString());                               
+                                chitiethd.Dongia = SqlMoney.Parse( dgv_CTHD.Rows[i].Cells[3].Value.ToString());                               
                                 sanPham.Masp = dgv_CTHD.Rows[i].Cells[1].Value.ToString();
                                 sanPham.SLuong = int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString());
                                 cthd.Add(chitiethd);
@@ -509,7 +596,7 @@ namespace QLBH
                 }
             }    
         }
-        private double TongTien()// tính tổng tiền tự động của hóa đơn
+        public double TongTien()// tính tổng tiền tự động của hóa đơn
         {
             double tongtien = 0;
             double chietkhau = 0;
@@ -532,6 +619,39 @@ namespace QLBH
                     {
                         return tongtien;
                     }    
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+                tongtien = 0;
+            return tongtien;
+        }
+        public double TongTien_ModeBarcode()// tính tổng tiền tự động của hóa đơn
+        {
+            double tongtien = 0;
+            double chietkhau = 0;
+            if (dgv_CTHD.Rows.Count > 0)
+            {
+                try
+                {
+                    for (int i = 0; i < dgv_CTHD.RowCount; i++)
+                    {
+                        {
+                            tongtien += Convert.ToDouble(dgv_CTHD.Rows[i].Cells[5].Value);
+                        }
+                    }
+                    if (txt_chietkhau.Text.Length > 0)
+                    {
+                        chietkhau = tongtien * (double.Parse(txt_chietkhau.Text) / 100);
+                        tongtien -= chietkhau;
+                    }
+                    else
+                    {
+                        return tongtien;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -987,6 +1107,19 @@ namespace QLBH
             {
                 this.errorProvider1.Clear();
             }
+        }
+
+        private void btn_huongdan_Click(object sender, EventArgs e)
+        {
+            frm_huongdanbanhang hdbh = new frm_huongdanbanhang();
+            hdbh.Show();
+        }
+
+        private void btn_scanbarcode_Click(object sender, EventArgs e)
+        {
+            from_scanBarCode scan = new from_scanBarCode(this);
+            scan.Dgv = this.dgv_CTHD;
+            scan.Show();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

@@ -48,6 +48,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -118,6 +127,12 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="zxing, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.9.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.9\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataSet1.cs">
@@ -230,6 +245,18 @@
     <Compile Include="frm_Doimatkhau.Designer.cs">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_hethong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_hethong.Designer.cs">
+      <DependentUpon>frm_hethong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_huongdanbanhang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_huongdanbanhang.Designer.cs">
+      <DependentUpon>frm_huongdanbanhang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_inHD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +323,12 @@
     <Compile Include="frm_PhieuYeuCauNHapKho.Designer.cs">
       <DependentUpon>frm_PhieuYeuCauNHapKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_report_SP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_report_SP.Designer.cs">
+      <DependentUpon>frm_report_SP.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_thanhtoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +353,12 @@
     <Compile Include="from_quyen.Designer.cs">
       <DependentUpon>from_quyen.cs</DependentUpon>
     </Compile>
+    <Compile Include="from_scanBarCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="from_scanBarCode.Designer.cs">
+      <DependentUpon>from_scanBarCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QLBHDataSet.Designer.cs">
@@ -331,6 +370,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBHDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLBHDataSet_SP.cs">
+      <DependentUpon>QLBHDataSet_SP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QLBHDataSet_SP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLBHDataSet_SP.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report.cs">
       <SubType>Component</SubType>
@@ -390,6 +437,12 @@
     <EmbeddedResource Include="frm_Doimatkhau.resx">
       <DependentUpon>frm_Doimatkhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_hethong.resx">
+      <DependentUpon>frm_hethong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_huongdanbanhang.resx">
+      <DependentUpon>frm_huongdanbanhang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_inHD.resx">
       <DependentUpon>frm_inHD.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +476,9 @@
     <EmbeddedResource Include="frm_PhieuYeuCauNHapKho.resx">
       <DependentUpon>frm_PhieuYeuCauNHapKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_report_SP.resx">
+      <DependentUpon>frm_report_SP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_thanhtoan.resx">
       <DependentUpon>frm_thanhtoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -434,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="from_quyen.resx">
       <DependentUpon>from_quyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="from_scanBarCode.resx">
+      <DependentUpon>from_scanBarCode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HoaDon.rdlc" />
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -458,6 +517,7 @@
     <EmbeddedResource Include="Report6.rdlc" />
     <EmbeddedResource Include="Report7.rdlc" />
     <EmbeddedResource Include="Report8.rdlc" />
+    <EmbeddedResource Include="Report9.rdlc" />
     <EmbeddedResource Include="Report_DOANHTHUTHANG.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -511,6 +571,17 @@
     </None>
     <None Include="QLBHDataSet1.xss">
       <DependentUpon>QLBHDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QLBHDataSet_SP.xsc">
+      <DependentUpon>QLBHDataSet_SP.xsd</DependentUpon>
+    </None>
+    <None Include="QLBHDataSet_SP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLBHDataSet_SP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QLBHDataSet_SP.xss">
+      <DependentUpon>QLBHDataSet_SP.xsd</DependentUpon>
     </None>
     <None Include="Resources\Exit.jpg" />
   </ItemGroup>
@@ -650,6 +721,7 @@
     <None Include="Resources\low-price.png" />
     <None Include="Resources\congno.png" />
     <None Include="Resources\profits.png" />
+    <None Include="Resources\barcode.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

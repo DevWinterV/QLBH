@@ -35,6 +35,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_dsquyen = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_them = new System.Windows.Forms.Button();
             this.btn_sua = new System.Windows.Forms.Button();
             this.txt_id = new System.Windows.Forms.TextBox();
@@ -42,8 +44,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dsquyen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_dsquyen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_dsquyen.BackgroundColor = System.Drawing.Color.SlateBlue;
+            this.dgv_dsquyen.BackgroundColor = System.Drawing.Color.LightSlateGray;
             this.dgv_dsquyen.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_dsquyen.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -83,7 +83,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_dsquyen.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_dsquyen.EnableHeadersVisualStyles = false;
-            this.dgv_dsquyen.GridColor = System.Drawing.Color.SlateBlue;
+            this.dgv_dsquyen.GridColor = System.Drawing.Color.GhostWhite;
             this.dgv_dsquyen.Location = new System.Drawing.Point(10, 76);
             this.dgv_dsquyen.MultiSelect = false;
             this.dgv_dsquyen.Name = "dgv_dsquyen";
@@ -98,6 +98,24 @@
             this.dgv_dsquyen.Size = new System.Drawing.Size(322, 165);
             this.dgv_dsquyen.TabIndex = 0;
             this.dgv_dsquyen.Click += new System.EventHandler(this.dgv_dsquyen_Click);
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ma_quyen";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            // 
+            // colTen
+            // 
+            this.colTen.DataPropertyName = "tenquyen";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTen.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colTen.HeaderText = "Tên quyền";
+            this.colTen.Name = "colTen";
+            this.colTen.ReadOnly = true;
             // 
             // btn_them
             // 
@@ -173,24 +191,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "ID:";
             // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ma_quyen";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            // 
-            // colTen
-            // 
-            this.colTen.DataPropertyName = "tenquyen";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTen.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colTen.HeaderText = "Tên quyền";
-            this.colTen.Name = "colTen";
-            this.colTen.ReadOnly = true;
-            // 
             // from_quyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,8 +204,9 @@
             this.Controls.Add(this.btn_sua);
             this.Controls.Add(this.btn_them);
             this.Controls.Add(this.dgv_dsquyen);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "from_quyen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "QUẢN LÝ QUYỀN";
             this.Load += new System.EventHandler(this.from_quyen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dsquyen)).EndInit();

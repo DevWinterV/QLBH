@@ -29,7 +29,7 @@ namespace QLBH
         private void bt_load_Click(object sender, EventArgs e)
         {
             ds.Clear();
-            SqlConnection cn = new SqlConnection(@"Data Source=RANGDONG\DONGCHAU;Initial Catalog=QLBH;User ID=dong;Password=09032002");
+            SqlConnection cn = new SqlConnection(@"Data Source=rangdong\dongchau;Initial Catalog=QLBH;Integrated Security=True");
             string query = "Select MONTH(ngayGD) as 'THANG', Sum(thanhtien) as 'TONGDOANHTHU' From HOADON WHERE YEAR(ngayGD) = "+dateTimePicker2.Text+" Group by MONTH(ngayGD)";
             SqlDataAdapter da = new SqlDataAdapter(query, cn);
             da.Fill(ds);

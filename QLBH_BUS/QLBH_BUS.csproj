@@ -61,6 +61,7 @@
     <Compile Include="BUS_PHIEUNO_CT.cs" />
     <Compile Include="BUS_QUYEN.cs" />
     <Compile Include="BUS_SanPham.cs" />
+    <Compile Include="CSDL_BUS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

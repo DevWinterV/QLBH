@@ -13,7 +13,7 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(NhanVien sp)
         {
-            db.ExecuteNonQuery("insert into nhanvien values('NV' + cast (next value for  MANV_TU_TANG as varchar(5)),N'" + sp.Hoten + "','" + sp.Sodt + "','" + sp.Ngaysinh + "','" + sp.Diachi + "','" + sp.Phai+ "', N'"+sp.Tinhtrang+"',"+sp.Luong+")");
+            db.ExecuteNonQuery("insert into nhanvien values('NV' + cast (next value for  MANV_TU_TANG as varchar(5)),N'" + sp.Hoten + "','" + sp.Sodt + "','" + sp.Ngaysinh + "',N'" + sp.Diachi + "',N'" + sp.Phai+ "', N'"+sp.Tinhtrang+"',"+sp.Luong+")");
         }
         public void Update(NhanVien sp)
         {

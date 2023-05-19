@@ -80,7 +80,7 @@ namespace QLBH
                     }
                     try
                     {
-                        muatrongky = double.Parse(pn.GetValue("select SUM(hd.thanhtien) \r\nfrom HOADON hd \r\nWHERE hd.maKH = '" + makh + "' and hd.ngayGD between '" + dateTime_tungay.Text + " 00:00:00' and '" + dateTime_denngay.Text + " 23:59:59'"));
+                        muatrongky = double.Parse(pn.GetValue("select SUM(hd.thanhtien) from HOADON hd WHERE hd.maKH = '" + makh + "' and hd.ngayGD between '" + dateTime_tungay.Text + " 00:00:00' and '" + dateTime_denngay.Text + " 23:59:59'"));
                     }
                     catch
                     {
@@ -90,16 +90,20 @@ namespace QLBH
                     {
                         if (muatrongky > 0)
                         {
-                           // double tienno = double.Parse(pn.GetValue("select SUM(pnct.TIENTRA) \r\nfrom PHIEUNO_CT pnct , PHIEUNO pn, HOADON hd\r\nWHERE pnct.maPN = pn.maPN and hd.maKH='" + makh + "'and hd.maHD = pn.mahd and pnct.ngayTRA between '" + dateTime_tungay.Text + " 00:00:00' and '" + dateTime_denngay.Text + " 23:59:59'"));
-                            double tienno = double.Parse(pn.GetValue("select SUM(PN.TIENNO) from PHIEUNO PN , HOADON HD WHERE PN.ngayNO between '" + dateTime_tungay.Text + " 00:00:00' and '"+dateTime_denngay.Text+" 23:59:59' and PN.maHD = HD.maHD AND HD.maKH ='" + makh + "'"));
-                             tratrongky = muatrongky - tienno;
+                            double tienno = double.Parse(pn.GetValue("select SUM(PN.TIENNO) from PHIEUNO PN , HOADON HD WHERE PN.ngayNO between '" + dateTime_tungay.Text + " 00:00:00' and '" + dateTime_denngay.Text + " 23:59:59' and PN.maHD = HD.maHD AND HD.maKH ='" + makh + "'"));
+                            tratrongky = muatrongky - tienno;
                         }
+                        else
+                        { 
+                        tratrongky = 0; 
+                        }
+
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        tratrongky = 0;
+                    tratrongky = muatrongky;
                     }
-                    try
+                try
                     {
                         nocuoi = (nodau + muatrongky) - tratrongky;
                     }

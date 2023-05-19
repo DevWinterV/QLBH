@@ -14,7 +14,7 @@ namespace QLBH_DAL
         public static SqlConnection connection;
         public void MoKetNoi()
         {
-            connection = new SqlConnection(@"Data Source=RANGDONG\DONGCHAU;Initial Catalog=QLBH;User ID=dong;Password=09032002");
+            connection = new SqlConnection(@"Data Source=rangdong\dongchau;Initial Catalog=QLBH;Integrated Security=True");
             if (connection.State == ConnectionState.Closed)
             {
                 connection.Open();
@@ -32,7 +32,7 @@ namespace QLBH_DAL
                 }
             }    
         }
-        public void ExecuteNonQuery(string query)
+        public  void ExecuteNonQuery(string query)
         {
             try
             {
@@ -40,7 +40,6 @@ namespace QLBH_DAL
                 SqlCommand cm = new SqlCommand(query, connection);
                 cm.ExecuteNonQuery();
                 DongKetNoi();
-
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -72,16 +71,24 @@ namespace QLBH_DAL
         }
         public string GetValue(string query)
         {
+            try
+            {
                 MoKetNoi();
                 string temp = null;
                 SqlCommand cm = new SqlCommand(query, connection);
                 SqlDataReader dr = cm.ExecuteReader();
-                while(dr.Read())
+                while (dr.Read())
                 {
                     temp = dr[0].ToString();
                 }
                 DongKetNoi();
-                return temp; 
+                return temp;
+            }
+            catch(Exception ex)
+            {
+                return "";
+                MessageBox.Show(ex.Message, "Error");   
+            }
         }
         public int Check_LogIn(string query)
         {

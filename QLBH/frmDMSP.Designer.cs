@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDMSP));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,6 +46,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDMSP));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tab_DMSP = new System.Windows.Forms.TabControl();
             this.tabp_DMSP = new System.Windows.Forms.TabPage();
@@ -173,6 +173,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dxErrorProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
+            this.btn_print = new DevExpress.XtraEditors.SimpleButton();
             this.tab_DMSP.SuspendLayout();
             this.tabp_DMSP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
@@ -252,7 +253,8 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel2.Controls.Add(this.btn_print);
             this.panel2.Controls.Add(this.btnlammoi);
             this.panel2.Controls.Add(this.btn_luu_sp);
             this.panel2.Controls.Add(this.btn_quaylai_sp);
@@ -265,6 +267,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(712, 32);
             this.panel2.TabIndex = 32;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnlammoi
             // 
@@ -274,7 +277,7 @@
             this.btnlammoi.Appearance.Options.UseFont = true;
             this.btnlammoi.Appearance.Options.UseForeColor = true;
             this.btnlammoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnlammoi.ImageOptions.Image")));
-            this.btnlammoi.Location = new System.Drawing.Point(478, 1);
+            this.btnlammoi.Location = new System.Drawing.Point(512, 1);
             this.btnlammoi.Name = "btnlammoi";
             this.btnlammoi.Size = new System.Drawing.Size(112, 29);
             this.btnlammoi.TabIndex = 12;
@@ -290,7 +293,7 @@
             this.btn_luu_sp.Appearance.Options.UseForeColor = true;
             this.btn_luu_sp.Enabled = false;
             this.btn_luu_sp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_luu_sp.ImageOptions.Image")));
-            this.btn_luu_sp.Location = new System.Drawing.Point(279, 1);
+            this.btn_luu_sp.Location = new System.Drawing.Point(210, 1);
             this.btn_luu_sp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_luu_sp.Name = "btn_luu_sp";
             this.btn_luu_sp.Size = new System.Drawing.Size(74, 29);
@@ -307,7 +310,7 @@
             this.btn_quaylai_sp.Appearance.Options.UseForeColor = true;
             this.btn_quaylai_sp.Enabled = false;
             this.btn_quaylai_sp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_quaylai_sp.ImageOptions.Image")));
-            this.btn_quaylai_sp.Location = new System.Drawing.Point(372, 1);
+            this.btn_quaylai_sp.Location = new System.Drawing.Point(295, 1);
             this.btn_quaylai_sp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_quaylai_sp.Name = "btn_quaylai_sp";
             this.btn_quaylai_sp.Size = new System.Drawing.Size(88, 29);
@@ -323,12 +326,12 @@
             this.btn_them_sp.Appearance.Options.UseFont = true;
             this.btn_them_sp.Appearance.Options.UseForeColor = true;
             this.btn_them_sp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_them_sp.ImageOptions.Image")));
-            this.btn_them_sp.Location = new System.Drawing.Point(36, 1);
+            this.btn_them_sp.Location = new System.Drawing.Point(7, 1);
             this.btn_them_sp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_them_sp.Name = "btn_them_sp";
-            this.btn_them_sp.Size = new System.Drawing.Size(105, 29);
+            this.btn_them_sp.Size = new System.Drawing.Size(84, 29);
             this.btn_them_sp.TabIndex = 1;
-            this.btn_them_sp.Text = "Thêm Mới";
+            this.btn_them_sp.Text = "Thêm";
             this.btn_them_sp.Click += new System.EventHandler(this.btn_them_sp_Click_1);
             // 
             // btn_exit_sp
@@ -339,7 +342,7 @@
             this.btn_exit_sp.Appearance.Options.UseFont = true;
             this.btn_exit_sp.Appearance.Options.UseForeColor = true;
             this.btn_exit_sp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_exit_sp.ImageOptions.Image")));
-            this.btn_exit_sp.Location = new System.Drawing.Point(610, 1);
+            this.btn_exit_sp.Location = new System.Drawing.Point(634, 1);
             this.btn_exit_sp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_exit_sp.Name = "btn_exit_sp";
             this.btn_exit_sp.Size = new System.Drawing.Size(71, 29);
@@ -355,7 +358,7 @@
             this.btn_sua_sp.Appearance.Options.UseFont = true;
             this.btn_sua_sp.Appearance.Options.UseForeColor = true;
             this.btn_sua_sp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_sua_sp.ImageOptions.Image")));
-            this.btn_sua_sp.Location = new System.Drawing.Point(159, 1);
+            this.btn_sua_sp.Location = new System.Drawing.Point(100, 1);
             this.btn_sua_sp.Margin = new System.Windows.Forms.Padding(2);
             this.btn_sua_sp.Name = "btn_sua_sp";
             this.btn_sua_sp.Size = new System.Drawing.Size(102, 29);
@@ -2022,6 +2025,17 @@
             // 
             this.dxErrorProvider1.ContainerControl = this;
             // 
+            // btn_print
+            // 
+            this.btn_print.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_print.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btn_print.Location = new System.Drawing.Point(393, 0);
+            this.btn_print.Name = "btn_print";
+            this.btn_print.Size = new System.Drawing.Size(109, 30);
+            this.btn_print.TabIndex = 17;
+            this.btn_print.Text = "XUẤT FILE";
+            this.btn_print.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // frmDMSP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -2207,5 +2221,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private DevExpress.XtraEditors.SimpleButton btnlammoi;
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider1;
+        private DevExpress.XtraEditors.SimpleButton btn_print;
     }
 }

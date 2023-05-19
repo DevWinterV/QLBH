@@ -47,6 +47,12 @@ namespace QLBH
         public string Tenkh { get => _tenkh; set => _tenkh = value; }
         public string Sdtkh { get => _sdtkh; set => _sdtkh = value; }
         public string Tienchu { get => _tienchu; set => _tienchu = value; }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         public string Tienkhachtra { get => _tienkhachtra; set => _tienkhachtra = value; }
         public string Tienthoilai { get => _tienthoilai; set => _tienthoilai = value; }
         public DateTime Ngaylap { get => _ngaylap; set => _ngaylap = value; }
@@ -75,7 +81,8 @@ namespace QLBH
             rpdts.Name = "DataSet1";
             rpdts.Value = DS_cthd1;
             reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.ReportPath = "HoaDon.rdlc";
+            reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\HoaDon.rdlc";
+            // reportViewer1.LocalReport.ReportPath = "HoaDon.rdlc";
             this.reportViewer1.LocalReport.SetParameters(reports);
             reportViewer1.LocalReport.DataSources.Add(rpdts);
             this.reportViewer1.RefreshReport();

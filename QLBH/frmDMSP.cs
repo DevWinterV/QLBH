@@ -1224,6 +1224,16 @@ namespace QLBH
             Load_DSSP();
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            frm_report_SP rp = new frm_report_SP();
+            rp.ShowDialog();
+        }
     }
 
 }

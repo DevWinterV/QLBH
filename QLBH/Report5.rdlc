@@ -64,7 +64,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>CỬA HÀNG ĐIỆN NƯỚC </Value>
+                    <Value>BÁCH HÓA THIÊN NHIÊN</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
@@ -97,7 +97,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Địa chỉ: Ấp Tân Thạnh, Tân Trung, Phú Tân, An Giang.</Value>
+                    <Value>Địa chỉ: Long Xuyên, An Giang.</Value>
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
@@ -297,7 +297,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>1.00695in</Top>
-            <Left>2.58555in</Left>
+            <Left>2.46055in</Left>
             <Height>0.25in</Height>
             <Width>0.49084in</Width>
             <ZIndex>6</ZIndex>
@@ -329,7 +329,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox8</rd:DefaultName>
             <Top>1.00695in</Top>
-            <Left>3.07639in</Left>
+            <Left>2.95139in</Left>
             <Height>0.25in</Height>
             <Width>1.625in</Width>
             <ZIndex>7</ZIndex>

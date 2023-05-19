@@ -77,7 +77,7 @@ namespace QLBH
             rpdts.Value = DS_cthd1;
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.ReportPath = @"D:\HK1 - Nam 3\Lap trinh_NET\DO AN QLBH .NET\QLBH\QLBH\Report8.rdlc";
-            reportViewer1.LocalReport.ReportPath = "Report8.rdlc";
+           // reportViewer1.LocalReport.ReportPath = "Report8.rdlc";
             this.reportViewer1.LocalReport.SetParameters(reports);
             reportViewer1.LocalReport.DataSources.Add(rpdts);
             this.reportViewer1.RefreshReport();
