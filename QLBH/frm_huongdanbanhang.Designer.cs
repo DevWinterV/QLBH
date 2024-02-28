@@ -35,13 +35,14 @@
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.LightGreen;
+            this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(534, 262);
             this.label1.TabIndex = 1;
             this.label1.Text = resources.GetString("label1.Text");
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // simpleButton2
             // 
@@ -50,7 +51,7 @@
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(94, 28);
             this.simpleButton2.TabIndex = 0;
-            this.simpleButton2.Text = "DONE";
+            this.simpleButton2.Text = "Ok";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // frm_huongdanbanhang
@@ -63,7 +64,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frm_huongdanbanhang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HƯỚNG DẪN FORM BÁN HÀNG";
+            this.Text = "Hướng dẫn bán hàng";
             this.Load += new System.EventHandler(this.frm_huongdanbanhang_Load);
             this.ResumeLayout(false);
 

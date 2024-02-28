@@ -49,7 +49,7 @@
             this.panel1.Location = new System.Drawing.Point(8, 8);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 48);
+            this.panel1.Size = new System.Drawing.Size(750, 46);
             this.panel1.TabIndex = 4;
             // 
             // date_ngaychon
@@ -57,22 +57,22 @@
             this.date_ngaychon.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.date_ngaychon.CustomFormat = "dd/MM/yyyy";
             this.date_ngaychon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date_ngaychon.Location = new System.Drawing.Point(338, 15);
+            this.date_ngaychon.Location = new System.Drawing.Point(302, 12);
             this.date_ngaychon.Margin = new System.Windows.Forms.Padding(2);
             this.date_ngaychon.Name = "date_ngaychon";
-            this.date_ngaychon.Size = new System.Drawing.Size(135, 20);
+            this.date_ngaychon.Size = new System.Drawing.Size(156, 20);
             this.date_ngaychon.TabIndex = 1;
             // 
             // bt_load
             // 
             this.bt_load.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bt_load.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_load.ImageOptions.Image")));
-            this.bt_load.Location = new System.Drawing.Point(482, 8);
+            this.bt_load.Location = new System.Drawing.Point(476, 5);
             this.bt_load.Margin = new System.Windows.Forms.Padding(2);
             this.bt_load.Name = "bt_load";
-            this.bt_load.Size = new System.Drawing.Size(103, 31);
+            this.bt_load.Size = new System.Drawing.Size(185, 31);
             this.bt_load.TabIndex = 2;
-            this.bt_load.Text = "LOAD";
+            this.bt_load.Text = "Xem báo cáo doanh thu ngày";
             this.bt_load.Click += new System.EventHandler(this.bt_load_Click);
             // 
             // label1
@@ -80,13 +80,13 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(150, 16);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(102, 13);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 17);
+            this.label1.Size = new System.Drawing.Size(196, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chọn ngày (Tháng/Ngày/Năm) :";
+            this.label1.Text = "Chọn ngày (tháng/ngày/năm) :";
             // 
             // reportViewer1
             // 
@@ -97,7 +97,7 @@
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(749, 319);
+            this.reportViewer1.Size = new System.Drawing.Size(750, 325);
             this.reportViewer1.TabIndex = 5;
             // 
             // frmbaocaodoanhthungay
@@ -112,7 +112,7 @@
             this.Name = "frmbaocaodoanhthungay";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "BÁO CÁO DOANH THU NGÀY";
+            this.Text = "Báo cáo doanh thu ngày";
             this.Load += new System.EventHandler(this.frmbaocao_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

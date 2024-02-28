@@ -14,6 +14,7 @@ namespace QLBH_DAL
         public static SqlConnection connection;
         public void MoKetNoi()
         {
+
             connection = new SqlConnection(@"Data Source=rangdong\dongchau;Initial Catalog=QLBH;Integrated Security=True");
             if (connection.State == ConnectionState.Closed)
             {

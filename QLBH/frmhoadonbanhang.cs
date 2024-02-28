@@ -43,7 +43,7 @@ namespace QLBH
         public void Load_DSSP()// load dữ liệu bảng sản phẩm
         {
             try {
-                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select  loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong, ncc.tenncc from loaispdgd loai, sanphamDGD sp,NCC ncc where sp.tinhtrang = N'CÒN BÁN' and sp.maloai = loai.maloai and sp.mancc = ncc.mancc");
+                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select  loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from loaispdgd loai, sanphamDGD sp where sp.tinhtrang = N'Còn bán' and sp.maloai = loai.maloai");
             }
             catch { }
         }
@@ -155,7 +155,7 @@ namespace QLBH
             toolTip1.IsBalloon = true;
             toolTip1.ToolTipIcon = ToolTipIcon.Info;
             toolTip1.SetToolTip(btn_lammoi, "Cập nhật lại danh sách hàng hóa sau khi nhập kho.");
-            toolTip1.SetToolTip(DS_SP_SP, "Kéo thả sản phẩm vào CHI TIẾT HÓA ĐƠN để thêm SP vào hóa đơn.");
+            toolTip1.SetToolTip(DS_SP_SP, "Kéo thả sản phẩm vào danh sách sản phẩm để thêm sản phẩm vào hóa đơn.");
             toolTip1.SetToolTip(btnghino, "Khách hàng có thể ghi nợ và có thể trả trước số tiền");
             toolTip1.SetToolTip(simpleButton1, "Thêm mới khách hàng vào hệ thống");
             toolTip1.SetToolTip(btntaomoi, "Tạo mới hóa đơn.");
@@ -385,7 +385,7 @@ namespace QLBH
                     {
                         if (int.Parse(rowToMove.Cells[4].Value.ToString()) > 0) //nếu số lượng còn >0
                         {
-                            if (MessageBox.Show("Sản phẩm đã tồn tại trong hóa đơn! Bạn có muốn thay đổi số lượng không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                            if (MessageBox.Show("Sản phẩm đã tồn tại trong danh sách đã chọn! Bạn có muốn thay đổi số lượng không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                             {
                                 if (rowToMove.Cells[2].Value != null && (string)rowToMove.Cells[1].Value != null && rowToMove.Cells[3].Value != null && (string)rowToMove.Cells[0].Value != null && dgv_CTHD.Rows[dgv_CTHD.CurrentRow.Index].Cells[4].Value != null)
                                 {
@@ -773,7 +773,7 @@ namespace QLBH
         {
             if (txt_timkiem.Text != "Tìm kiếm tên sản phẩm")
             {
-                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong, ncc.tenncc from NCC ncc, sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.mancc= ncc.mancc and sp.tinhtrang =N'CÒN BÁN'");
+                DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'Còn bán'");
                 CapNhatSauKhiLoad_DS_SP();
             }
             
@@ -806,7 +806,7 @@ namespace QLBH
                 {
                     if (txt_timkiem.Text != "Tìm kiếm tên sản phẩm")
                     {
-                        DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong, ncc.tenncc from NCC ncc, sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and sp.mancc = ncc.mancc and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'CÒN BÁN'");
+                        DS_SP_SP.DataSource = sp.LoadDuLieu_CTHD("select loai.tenloai, sp.masp, sp.tensp, sp.dongia, sp.sluong from sanphamDGD sp, loaispdgd loai where loai.maloai = sp.maloai and  sp.tensp like N'%" + txt_timkiem.Text.Trim() + "%' and sp.tinhtrang =N'Còn bán'");
                         CapNhatSauKhiLoad_DS_SP();
                     }
                 }
@@ -1049,7 +1049,7 @@ namespace QLBH
             {
                 if (cbb_tenkhachhang.Items.Count > 0)
                 {
-                    if (MessageBox.Show("Bạn có muốn áp dụng ghi nợ cho khách hàng không ?", "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Bạn có muốn áp dụng ghi nợ hóa đơn cho khách hàng không ?", "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         frm_XacNhanGhiNo frm_XacNhanGhiNo = new frm_XacNhanGhiNo(cbb_tenkhachhang.SelectedValue.ToString(), cbb_tenkhachhang.Text, txt_sdt.Text, txt_diachi.Text, TongTien(), double.Parse(txt_tienkhachtra.Text));
                         frm_XacNhanGhiNo.ShowDialog();
@@ -1081,7 +1081,7 @@ namespace QLBH
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập số tiền khách trả trước!(Có thể là 0)", "Thông báo");
+                MessageBox.Show("Vui lòng nhập số tiền khách trả trước! (Có thể là 0 đ)", "Thông báo");
                 txt_tienkhachtra.Focus();
             }    
         }
@@ -1120,6 +1120,11 @@ namespace QLBH
             from_scanBarCode scan = new from_scanBarCode(this);
             scan.Dgv = this.dgv_CTHD;
             scan.Show();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

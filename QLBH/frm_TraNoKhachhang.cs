@@ -110,6 +110,17 @@ namespace QLBH
         }
 
         public string Tienkhachtra { get => _tienkhachtra; set => _tienkhachtra = value; }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public string Ghichu { get => _ghichu; set => _ghichu = value; }
     }
 }

@@ -161,27 +161,44 @@ namespace QLBH
         PHIEUNHAP_CHITIET pnchitiet = new PHIEUNHAP_CHITIET();
         BUS_PHIEUNHAPCHITIET phieunhap_CT = new BUS_PHIEUNHAPCHITIET();
         BUS_PHIEUNHAP phieunhap = new BUS_PHIEUNHAP();
-       
-
         public string TenNv { get => _tenNv; set => _tenNv = value; }
 
         private void Load_NCC()
         {
             try
             {
-                cb_NCC.DataSource = ncc.LoadDuLieu("where tinhtrang =1");
+                cb_NCC.DataSource = ncc.LoadDuLieu("where tinhtrang = 1");
                 cb_NCC.DisplayMember = "tenncc";
                 cb_NCC.ValueMember = "mancc";
             }
             catch {; }
         }
+        private void InitializeCustomAutoComplete()
+        {
+            AutoCompleteStringCollection autoCompleteSource = new AutoCompleteStringCollection();
+
+            // Fetch data from database
+            var dataTable = sp.GetData("select * from sanphamdgd where tinhtrang =N'Còn bán'");
+
+            // Populate the AutoCompleteStringCollection with data from the database
+            foreach (DataRow row in dataTable.Rows)
+            {
+                autoCompleteSource.Add(row["tensp"].ToString());
+            }
+
+            // Set up autocomplete for the ComboBox
+            cb_tenSP.AutoCompleteCustomSource = autoCompleteSource;
+            cb_tenSP.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_tenSP.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
         private void Load_SP()
         {
             try
             {
                 if (cb_NCC.Items.Count > 0)
                 {
-                    cb_tenSP.DataSource = sp.GetData("select * from sanphamdgd where tinhtrang = N'CÒN BÁN' AND mancc ='" + cb_NCC.SelectedValue.ToString() + "'");
+                    cb_tenSP.DataSource = sp.GetData("select * from sanphamdgd where tinhtrang = N'Còn bán'");
                     cb_tenSP.DisplayMember = "tensp";
                     cb_tenSP.ValueMember = "masp";
                 }
@@ -204,6 +221,7 @@ namespace QLBH
                 Load_DS_thang();
                 TongDoanhThuNgay();
                 Load_NCC();
+                InitializeCustomAutoComplete();
                 Load_SP();
                 Enabel_DSPHIEUNHAP();
             }
@@ -533,6 +551,11 @@ namespace QLBH
             txt_SL.Value = 1;
             lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
             Enabel_DSPHIEUNHAP();
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

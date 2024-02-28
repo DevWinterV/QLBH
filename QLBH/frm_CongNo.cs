@@ -189,17 +189,17 @@ namespace QLBH
         {
             if (cbbChon.SelectedIndex == 0)
             {
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("where makh like '%" + txttiemkiemkh.Text.Trim() + "%' and maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("and KHACHHANG.makh like '%" + txttiemkiemkh.Text.Trim() + "%' and KHACHHANG.maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
             }
             else if (cbbChon.SelectedIndex == 1)
             {
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("where hoten like N'%" + txttiemkiemkh.Text.Trim() + "%' and maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("and KHACHHANG.hoten like N'%" + txttiemkiemkh.Text.Trim() + "%' and KHACHHANG.maKH in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
             }
             else
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("where sodt like '%" + txttiemkiemkh.Text.Trim() + "%' and maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("and KHACHHANG.sodt like '%" + txttiemkiemkh.Text.Trim() + "%' and KHACHHANG.maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh)");
             if (txttiemkiemkh.TextLength == 0)
             {
-                dgv_DSKHno.DataSource = kh.LoadDuLieu("WHERE maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh )");
+                dgv_DSKHno.DataSource = kh.LoadDuLieu("and KHACHHANG.maKH  in(select kh.makh from PHIEUNO pn, HOADON hd, KHACHHANG kh where pn.maHD = hd.maHD and hd.maKH = kh.makh )");
             }
           
                 
@@ -215,5 +215,10 @@ namespace QLBH
             this.Close();       
         }
 
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

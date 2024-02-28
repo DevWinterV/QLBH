@@ -45,11 +45,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.reportViewer1.Location = new System.Drawing.Point(8, 67);
+            this.reportViewer1.Location = new System.Drawing.Point(8, 48);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(708, 277);
+            this.reportViewer1.Size = new System.Drawing.Size(708, 296);
             this.reportViewer1.TabIndex = 1;
             // 
             // panel1
@@ -66,7 +66,7 @@
             this.panel1.Location = new System.Drawing.Point(8, 8);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(708, 55);
+            this.panel1.Size = new System.Drawing.Size(708, 36);
             this.panel1.TabIndex = 2;
             // 
             // bt_load
@@ -75,12 +75,12 @@
             this.bt_load.Appearance.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_load.Appearance.Options.UseFont = true;
             this.bt_load.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bt_load.ImageOptions.Image")));
-            this.bt_load.Location = new System.Drawing.Point(462, 15);
+            this.bt_load.Location = new System.Drawing.Point(446, 1);
             this.bt_load.Margin = new System.Windows.Forms.Padding(2);
             this.bt_load.Name = "bt_load";
-            this.bt_load.Size = new System.Drawing.Size(86, 31);
+            this.bt_load.Size = new System.Drawing.Size(161, 32);
             this.bt_load.TabIndex = 3;
-            this.bt_load.Text = "LOAD";
+            this.bt_load.Text = "Xem doanh thu tháng";
             this.bt_load.Click += new System.EventHandler(this.bt_load_Click);
             // 
             // dateTimePicker2
@@ -89,7 +89,7 @@
             this.dateTimePicker2.CustomFormat = "yyyy";
             this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(364, 20);
+            this.dateTimePicker2.Location = new System.Drawing.Point(348, 6);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(79, 23);
@@ -102,7 +102,7 @@
             this.dateTimePicker1.CustomFormat = "MM";
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(208, 20);
+            this.dateTimePicker1.Location = new System.Drawing.Point(200, 6);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(70, 23);
@@ -114,26 +114,26 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(284, 23);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(272, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Chọn năm :";
+            this.label2.Text = "Chọn năm:";
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(119, 23);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(116, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 17);
+            this.label1.Size = new System.Drawing.Size(85, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chọn tháng :";
+            this.label1.Text = "Chọn tháng:";
             // 
             // frm_baocaodoanhthuthang
             // 

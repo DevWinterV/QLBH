@@ -63,9 +63,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ẩn {
+        internal static System.Drawing.Bitmap customer_review {
             get {
-                object obj = ResourceManager.GetObject("ẩn", resourceCulture);
+                object obj = ResourceManager.GetObject("customer-review", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ảnh_nền {
+        internal static System.Drawing.Bitmap dashboard {
             get {
-                object obj = ResourceManager.GetObject("ảnh nền", resourceCulture);
+                object obj = ResourceManager.GetObject("dashboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ảnh_nền1 {
+        internal static System.Drawing.Bitmap debt {
             get {
-                object obj = ResourceManager.GetObject("ảnh nền1", resourceCulture);
+                object obj = ResourceManager.GetObject("debt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,69 +93,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bán_hàng {
+        internal static System.Drawing.Bitmap documentation {
             get {
-                object obj = ResourceManager.GetObject("bán hàng", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap barcode {
-            get {
-                object obj = ResourceManager.GetObject("barcode", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap công_nghệ {
-            get {
-                object obj = ResourceManager.GetObject("công nghệ", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap congno {
-            get {
-                object obj = ResourceManager.GetObject("congno", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cute {
-            get {
-                object obj = ResourceManager.GetObject("cute", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap đăng_xuất {
-            get {
-                object obj = ResourceManager.GetObject("đăng xuất", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap đăng_xuất1 {
-            get {
-                object obj = ResourceManager.GetObject("đăng xuất1", resourceCulture);
+                object obj = ResourceManager.GetObject("documentation", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,16 +113,6 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Exit1 {
-            get {
-                object obj = ResourceManager.GetObject("Exit1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Exit2 {
             get {
                 object obj = ResourceManager.GetObject("Exit2", resourceCulture);
@@ -193,9 +123,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hmmm {
+        internal static System.Drawing.Bitmap icons8_full_screen_50 {
             get {
-                object obj = ResourceManager.GetObject("hmmm", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-full-screen-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +133,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hóa_đơn__2_ {
+        internal static System.Drawing.Bitmap icons8_hide_password_50 {
             get {
-                object obj = ResourceManager.GetObject("hóa đơn (2)", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-hide-password-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +143,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hóa_đơn_1_ {
+        internal static System.Drawing.Bitmap icons8_menu_24 {
             get {
-                object obj = ResourceManager.GetObject("hóa đơn(1)", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-menu-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +153,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Khách_hàng {
+        internal static System.Drawing.Bitmap icons8_minimize_50 {
             get {
-                object obj = ResourceManager.GetObject("Khách hàng", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-minimize-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +163,19 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap khóa {
+        internal static System.Drawing.Bitmap icons8_show_password_30 {
             get {
-                object obj = ResourceManager.GetObject("khóa", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-show-password-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap increasing {
+            get {
+                object obj = ResourceManager.GetObject("increasing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +193,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mắt_mở {
+        internal static System.Drawing.Bitmap maximumicon {
             get {
-                object obj = ResourceManager.GetObject("Mắt mở", resourceCulture);
+                object obj = ResourceManager.GetObject("maximumicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,49 +203,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mắt_nhắm {
+        internal static System.Drawing.Bitmap minimize_icon {
             get {
-                object obj = ResourceManager.GetObject("Mắt nhắm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap màu {
-            get {
-                object obj = ResourceManager.GetObject("màu", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap màu1 {
-            get {
-                object obj = ResourceManager.GetObject("màu1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ngôi_nhà {
-            get {
-                object obj = ResourceManager.GetObject("ngôi nhà", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap nhân_viên {
-            get {
-                object obj = ResourceManager.GetObject("nhân viên", resourceCulture);
+                object obj = ResourceManager.GetObject("minimize-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,19 +233,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap nhập_kho {
+        internal static System.Drawing.Bitmap options {
             get {
-                object obj = ResourceManager.GetObject("nhập kho", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap phóng_to {
-            get {
-                object obj = ResourceManager.GetObject("phóng to", resourceCulture);
+                object obj = ResourceManager.GetObject("options", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,19 +253,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap SP {
+        internal static System.Drawing.Bitmap shopping_bag {
             get {
-                object obj = ResourceManager.GetObject("SP", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sửa {
-            get {
-                object obj = ResourceManager.GetObject("sửa", resourceCulture);
+                object obj = ResourceManager.GetObject("shopping-bag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -393,9 +273,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Thêm {
+        internal static System.Drawing.Bitmap teamwork {
             get {
-                object obj = ResourceManager.GetObject("Thêm", resourceCulture);
+                object obj = ResourceManager.GetObject("teamwork", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -403,9 +283,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap thiennhien {
+        internal static System.Drawing.Bitmap teamwork1 {
             get {
-                object obj = ResourceManager.GetObject("thiennhien", resourceCulture);
+                object obj = ResourceManager.GetObject("teamwork1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,9 +293,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap thống_kê {
+        internal static System.Drawing.Bitmap user__1_ {
             get {
-                object obj = ResourceManager.GetObject("thống kê", resourceCulture);
+                object obj = ResourceManager.GetObject("user (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,69 +303,9 @@ namespace QLBH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap thống_kê_1_ {
+        internal static System.Drawing.Bitmap warehouse {
             get {
-                object obj = ResourceManager.GetObject("thống kê(1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap thống_kê_1_1 {
-            get {
-                object obj = ResourceManager.GetObject("thống kê(1)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap thống_kê_3_ {
-            get {
-                object obj = ResourceManager.GetObject("thống kê(3)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Thống_Kê_4_ {
-            get {
-                object obj = ResourceManager.GetObject("Thống Kê(4)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap thunho {
-            get {
-                object obj = ResourceManager.GetObject("thunho", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap tìm_kiếm {
-            get {
-                object obj = ResourceManager.GetObject("tìm kiếm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap xóa {
-            get {
-                object obj = ResourceManager.GetObject("xóa", resourceCulture);
+                object obj = ResourceManager.GetObject("warehouse", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

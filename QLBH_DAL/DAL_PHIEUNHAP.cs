@@ -26,7 +26,7 @@ namespace QLBH_DAL
         }
         public DataTable LoadDuLieu()
         {
-            return db.GetDataTable("select nk.sophieuN, nk.ngaynhap, nc.tenncc ,nv.hoten, nk.tongcong ,nk.ghichu from nhapkho nk, nhanvien nv, NCC nc where nv.manv = nk.manv and nc.mancc = nk.mancc\r\n");
+            return db.GetDataTable("select nk.sophieuN, nk.ngaynhap, nc.tenncc ,nv.hoten, nk.tongcong ,nk.ghichu from nhapkho nk, nhanvien nv, NCC nc where nv.manv = nk.manv and nc.mancc = nk.mancc");
         }
         public string GetDulieu(string dieukien)
         {

@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(489, 402);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frm_inHoaDonghiNo";
-            this.Text = "HÓA ĐƠN GHI NỢ";
+            this.Text = "In hóa đơn ghi nợ";
             this.Load += new System.EventHandler(this.frm_inHoaDonghiNo_Load);
             this.ResumeLayout(false);
 

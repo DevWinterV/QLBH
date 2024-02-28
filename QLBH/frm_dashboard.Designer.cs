@@ -208,9 +208,9 @@
             this.label7.Location = new System.Drawing.Point(3, 6);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 15);
+            this.label7.Size = new System.Drawing.Size(140, 15);
             this.label7.TabIndex = 0;
-            this.label7.Text = "TOP 10 SẢN PHẨM BÁN CHẠY";
+            this.label7.Text = "Top 10 sản phẩm bán chạy ";
             // 
             // panel7
             // 
@@ -290,9 +290,9 @@
             this.label6.Location = new System.Drawing.Point(2, 6);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 15);
+            this.label6.Size = new System.Drawing.Size(95, 15);
             this.label6.TabIndex = 0;
-            this.label6.Text = "BIỂU ĐỒ TỔNG DOANH THU";
+            this.label6.Text = "Biểu đồ doanh thu";
             // 
             // tableLayoutPanel1
             // 
@@ -485,7 +485,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_dashboard";
-            this.Text = "DASHBOARD ";
+            this.Text = "HOME";
             this.Load += new System.EventHandler(this.frm_dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

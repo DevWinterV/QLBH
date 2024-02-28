@@ -60,19 +60,39 @@ namespace QLBH
         {
             try
             {
-                cb_NCC.DataSource = ncc.LoadDuLieu("where tinhtrang =1");
+                cb_NCC.DataSource = ncc.LoadDuLieu("where tinhtrang = 1");
                 cb_NCC.DisplayMember = "tenncc";
                 cb_NCC.ValueMember = "mancc";
             }
             catch {; }
         }
+        private void InitializeCustomAutoComplete()
+        {
+            AutoCompleteStringCollection autoCompleteSource = new AutoCompleteStringCollection();
+
+            // Fetch data from database
+            var dataTable = sp.GetData("select * from sanphamdgd where tinhtrang =N'Còn bán'");
+
+            // Populate the AutoCompleteStringCollection with data from the database
+            foreach (DataRow row in dataTable.Rows)
+            {
+                autoCompleteSource.Add(row["tensp"].ToString() );
+            }
+
+            // Set up autocomplete for the ComboBox
+            cb_tenSP.AutoCompleteCustomSource = autoCompleteSource;
+            cb_tenSP.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cb_tenSP.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
         private void Load_SP()
         {
             try
             {
                 if (cb_NCC.Items.Count > 0)
                 {
-                    cb_tenSP.DataSource = sp.GetData("select * from sanphamdgd where mancc ='" + cb_NCC.SelectedValue.ToString() + "'");
+
+                    cb_tenSP.DataSource = sp.GetData("select * from sanphamdgd where tinhtrang =N'Còn bán'");
                     cb_tenSP.DisplayMember = "tensp";
                     cb_tenSP.ValueMember = "masp";
                 }
@@ -81,10 +101,12 @@ namespace QLBH
         }
         private void frm_Nhapsanpham_Load(object sender, EventArgs e)
         {
-            try {
+            try 
+            {
                 Enabel_DSPHIEUNHAP();
                 Load_NCC();
                 Load_SP();
+                InitializeCustomAutoComplete();
                 lb_thongtien.Text = ThanhTien().ToString("c", new CultureInfo("vi-Vn"));
                 txt_tennhanvien.Text = TenNhanvien;
                 txt_SoPN.Text = "PN" + phieunhap.GetValue("SELECT current_value FROM sys.sequences WHERE name = 'MAPN_TU_TANG'");
@@ -431,6 +453,16 @@ namespace QLBH
                 txt_dongiaban.Enabled = true;
             else if(txt_DgiaN.Text.Length < 2)
                 txt_dongiaban.Enabled = false;
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
 
         }
     }

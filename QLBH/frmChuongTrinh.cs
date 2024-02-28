@@ -162,7 +162,7 @@ namespace QLBH
            // MessageBox.Show("XIN CHÀO " + phanquyen + " " + tennv.Trim().ToUpper() + ". CHÚC BẠN MỘT NGÀY TỐT LÀNH!", "ĐĂNG NHẬP THÀNH CÔNG", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Openformchild_DASHBOARD(new frm_dashboard());
             btnThuNho_Click_1(sender, e);
-            btnPhongTo_Click_1(sender, e);
+            btnPhongTo1_Click(sender, e);
             panel_menu.BringToFront();
             lb_tenfrm.Text = "HOME";
             lb_name_nv.Text = tennv.ToString();
@@ -245,20 +245,14 @@ namespace QLBH
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnPhongTo_Click_1(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                btnThuNho.BringToFront();
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
+
+
 
         private void btnThuNho_Click_1(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
             {
-                btnPhongTo.BringToFront();
+                btnPhongTo1.BringToFront();
                 this.WindowState = FormWindowState.Normal;
             }
         }
@@ -313,7 +307,7 @@ namespace QLBH
             else
             {
                 this.WindowState = FormWindowState.Normal;
-                btnPhongTo.BringToFront();
+                btnPhongTo1.BringToFront();
             }
         }
 
@@ -378,6 +372,15 @@ namespace QLBH
         {
             frm_hethong ht = new frm_hethong();
             ht.ShowDialog();
+        }
+
+        private void btnPhongTo1_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                btnThuNho.BringToFront();
+                this.WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

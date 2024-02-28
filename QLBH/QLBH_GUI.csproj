@@ -57,6 +57,9 @@
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -95,6 +98,9 @@
     <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraVerticalGrid.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -114,9 +120,37 @@
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.5.0.2\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -220,6 +254,12 @@
     </Compile>
     <Compile Include="frm_ChinhSuaSoluongNhap.Designer.cs">
       <DependentUpon>frm_ChinhSuaSoluongNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_chonxcuatbarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_chonxcuatbarcode.Designer.cs">
+      <DependentUpon>frm_chonxcuatbarcode.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_CongNo.cs">
       <SubType>Form</SubType>
@@ -347,6 +387,12 @@
     <Compile Include="frm_XacNhanGhiNo.Designer.cs">
       <DependentUpon>frm_XacNhanGhiNo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_xuatbarcodesanpham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_xuatbarcodesanpham.Designer.cs">
+      <DependentUpon>frm_xuatbarcodesanpham.cs</DependentUpon>
+    </Compile>
     <Compile Include="from_quyen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +407,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QLBHDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -425,6 +476,9 @@
     <EmbeddedResource Include="frm_ChinhSuaSoluongNhap.resx">
       <DependentUpon>frm_ChinhSuaSoluongNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_chonxcuatbarcode.resx">
+      <DependentUpon>frm_chonxcuatbarcode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_CongNo.resx">
       <DependentUpon>frm_CongNo.cs</DependentUpon>
     </EmbeddedResource>
@@ -488,6 +542,9 @@
     <EmbeddedResource Include="frm_XacNhanGhiNo.resx">
       <DependentUpon>frm_XacNhanGhiNo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm_xuatbarcodesanpham.resx">
+      <DependentUpon>frm_xuatbarcodesanpham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="from_quyen.resx">
       <DependentUpon>from_quyen.cs</DependentUpon>
     </EmbeddedResource>
@@ -498,18 +555,14 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report10.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
@@ -586,67 +639,13 @@
     <None Include="Resources\Exit.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Mắt mở.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Mắt nhắm.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\màu.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\phóng to.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ẩn.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\thunho.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cute.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ngôi nhà.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\thống kê%283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hóa đơn%281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SP.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Thống Kê%284%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Khách hàng.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\màu1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nhân viên.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bán hàng.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\đăng xuất.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\nhanvien.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Thêm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\xóa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tìm kiếm.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QLBH_BUS\QLBH_BUS.csproj">
@@ -675,53 +674,40 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\công nghệ.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ảnh nền.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\thống kê%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\thiennhien.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hmmm.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\khóa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\thống kê.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ảnh nền1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\thống kê%281%291.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hóa đơn %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Exit1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sửa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\đăng xuất1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nhanvienn.png" />
     <None Include="Resources\systemacount.jpg" />
     <None Include="Resources\Exit2.jpg" />
-    <None Include="Resources\nhập kho.jpg" />
     <None Include="Resources\low-price.png" />
-    <None Include="Resources\congno.png" />
     <None Include="Resources\profits.png" />
-    <None Include="Resources\barcode.png" />
+    <Content Include="Resources\customer-review.png" />
+    <None Include="Resources\customer-review1.png" />
+    <Content Include="Resources\dashboard.png" />
+    <None Include="Resources\dashboard1.png" />
+    <None Include="Resources\debt.png" />
+    <Content Include="Resources\documentation.png" />
+    <None Include="Resources\documentation1.png" />
+    <None Include="Resources\icons8-full-screen-50.png" />
+    <None Include="Resources\icons8-minimize-50.png" />
+    <None Include="Resources\icons8-menu-24.png" />
+    <None Include="Resources\icons8-hide-password-50.png" />
+    <None Include="Resources\icons8-show-password-30.png" />
+    <Content Include="Resources\icons_cloes.png" />
+    <Content Include="Resources\increasing.png" />
+    <None Include="Resources\increasing1.png" />
+    <None Include="Resources\minimize-icon.png" />
+    <None Include="Resources\maximumicon.png" />
+    <Content Include="Resources\options.png" />
+    <None Include="Resources\options1.png" />
+    <None Include="Resources\shopping-bag.png" />
+    <Content Include="Resources\teamwork.png" />
+    <None Include="Resources\teamwork1.png" />
+    <None Include="Resources\teamwork2.png" />
+    <None Include="Resources\user %281%29.png" />
+    <Content Include="Resources\warehouse.png" />
+    <None Include="Resources\warehouse1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

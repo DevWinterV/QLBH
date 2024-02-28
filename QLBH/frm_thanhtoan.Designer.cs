@@ -41,40 +41,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 9);
+            this.label1.Location = new System.Drawing.Point(59, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 15);
+            this.label1.Size = new System.Drawing.Size(280, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "BẠN HÃY XÁC NHẬN THANH TOÁN HAY IN HÓA ĐƠN ";
+            this.label1.Text = "Bạn có muốn xác nhận thanh toán không ?";
             // 
             // btnTT
             // 
             this.btnTT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTT.ImageOptions.Image")));
-            this.btnTT.Location = new System.Drawing.Point(12, 38);
+            this.btnTT.Location = new System.Drawing.Point(12, 33);
             this.btnTT.Name = "btnTT";
-            this.btnTT.Size = new System.Drawing.Size(109, 29);
+            this.btnTT.Size = new System.Drawing.Size(95, 29);
             this.btnTT.TabIndex = 1;
-            this.btnTT.Text = "THANH TOÁN";
+            this.btnTT.Text = "Thanh toán";
             this.btnTT.Click += new System.EventHandler(this.btnTT_Click);
             // 
             // btnInHD
             // 
             this.btnInHD.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInHD.ImageOptions.Image")));
-            this.btnInHD.Location = new System.Drawing.Point(146, 38);
+            this.btnInHD.Location = new System.Drawing.Point(113, 33);
             this.btnInHD.Name = "btnInHD";
-            this.btnInHD.Size = new System.Drawing.Size(121, 29);
+            this.btnInHD.Size = new System.Drawing.Size(170, 29);
             this.btnInHD.TabIndex = 2;
-            this.btnInHD.Text = "IN HÓA ĐƠN";
+            this.btnInHD.Text = "Thanh toán và in hóa đơn";
             this.btnInHD.Click += new System.EventHandler(this.btnInHD_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCancel.ImageOptions.SvgImage")));
-            this.btnCancel.Location = new System.Drawing.Point(289, 38);
+            this.btnCancel.Location = new System.Drawing.Point(289, 33);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(90, 29);
             this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.Text = "Hủy bỏ";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frm_thanhtoan
@@ -90,7 +90,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frm_thanhtoan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "XÁC NHẬN THANH TOÁN";
+            this.Text = "Xác nhận thanh toán";
             this.Load += new System.EventHandler(this.frm_thanhtoan_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

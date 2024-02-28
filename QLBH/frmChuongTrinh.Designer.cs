@@ -58,14 +58,15 @@
             this.btn_fontLon = new System.Windows.Forms.Button();
             this.btn_giadichjquyenhaphang = new System.Windows.Forms.Button();
             this.panel_home = new System.Windows.Forms.Panel();
+            this.btnPhongTo = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_TD = new System.Windows.Forms.Panel();
+            this.btnPhongTo1 = new System.Windows.Forms.Button();
             this.btn_hethong = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPhongTo = new System.Windows.Forms.Button();
             this.lb_tenfrm = new System.Windows.Forms.Label();
             this.btnAn = new System.Windows.Forms.Button();
-            this.btnThuNho = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnThuNho = new System.Windows.Forms.Button();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.panel_menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_HOME)).BeginInit();
@@ -79,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_NHANVIEN_menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DMSP_Menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_BHANG_menu)).BeginInit();
+            this.panel_home.SuspendLayout();
             this.panel_TD.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,12 +126,13 @@
             // pictureBox_HOME
             // 
             this.pictureBox_HOME.BackColor = System.Drawing.Color.White;
-            this.pictureBox_HOME.BackgroundImage = global::QLBH.Properties.Resources.ngôi_nhà;
             this.pictureBox_HOME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_HOME.Image = global::QLBH.Properties.Resources.dashboard;
             this.pictureBox_HOME.Location = new System.Drawing.Point(3, 120);
             this.pictureBox_HOME.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_HOME.Name = "pictureBox_HOME";
             this.pictureBox_HOME.Size = new System.Drawing.Size(37, 31);
+            this.pictureBox_HOME.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_HOME.TabIndex = 31;
             this.pictureBox_HOME.TabStop = false;
             this.pictureBox_HOME.Click += new System.EventHandler(this.pictureBox_HOME_Click);
@@ -137,12 +140,13 @@
             // pictureBox_KHANG_menu
             // 
             this.pictureBox_KHANG_menu.BackColor = System.Drawing.Color.White;
-            this.pictureBox_KHANG_menu.BackgroundImage = global::QLBH.Properties.Resources.Khách_hàng;
             this.pictureBox_KHANG_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_KHANG_menu.Location = new System.Drawing.Point(3, 169);
+            this.pictureBox_KHANG_menu.Image = global::QLBH.Properties.Resources.customer_review;
+            this.pictureBox_KHANG_menu.Location = new System.Drawing.Point(3, 168);
             this.pictureBox_KHANG_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_KHANG_menu.Name = "pictureBox_KHANG_menu";
             this.pictureBox_KHANG_menu.Size = new System.Drawing.Size(33, 32);
+            this.pictureBox_KHANG_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_KHANG_menu.TabIndex = 33;
             this.pictureBox_KHANG_menu.TabStop = false;
             this.pictureBox_KHANG_menu.Click += new System.EventHandler(this.pictureBox_KHANG_menu_Click);
@@ -162,7 +166,6 @@
             // pictureBox_giaodichquyennhaphang
             // 
             this.pictureBox_giaodichquyennhaphang.BackColor = System.Drawing.Color.White;
-            this.pictureBox_giaodichquyennhaphang.BackgroundImage = global::QLBH.Properties.Resources.hóa_đơn_1_;
             this.pictureBox_giaodichquyennhaphang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox_giaodichquyennhaphang.Location = new System.Drawing.Point(4, 122);
             this.pictureBox_giaodichquyennhaphang.Margin = new System.Windows.Forms.Padding(2);
@@ -175,11 +178,12 @@
             // pictureBox_conno
             // 
             this.pictureBox_conno.BackColor = System.Drawing.Color.White;
-            this.pictureBox_conno.BackgroundImage = global::QLBH.Properties.Resources.profits;
             this.pictureBox_conno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_conno.Image = global::QLBH.Properties.Resources.debt;
             this.pictureBox_conno.Location = new System.Drawing.Point(3, 415);
             this.pictureBox_conno.Name = "pictureBox_conno";
             this.pictureBox_conno.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox_conno.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_conno.TabIndex = 55;
             this.pictureBox_conno.TabStop = false;
             this.pictureBox_conno.Click += new System.EventHandler(this.pictureBox_conno_Click);
@@ -210,12 +214,13 @@
             // pictureBox_NhapHang
             // 
             this.pictureBox_NhapHang.BackColor = System.Drawing.Color.White;
-            this.pictureBox_NhapHang.BackgroundImage = global::QLBH.Properties.Resources.nhập_kho;
             this.pictureBox_NhapHang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_NhapHang.Location = new System.Drawing.Point(2, 513);
+            this.pictureBox_NhapHang.Image = global::QLBH.Properties.Resources.warehouse;
+            this.pictureBox_NhapHang.Location = new System.Drawing.Point(2, 512);
             this.pictureBox_NhapHang.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_NhapHang.Name = "pictureBox_NhapHang";
             this.pictureBox_NhapHang.Size = new System.Drawing.Size(35, 31);
+            this.pictureBox_NhapHang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_NhapHang.TabIndex = 53;
             this.pictureBox_NhapHang.TabStop = false;
             this.pictureBox_NhapHang.Click += new System.EventHandler(this.pictureBox_NhapHang_Click);
@@ -247,12 +252,13 @@
             // 
             // pic_anhnen
             // 
-            this.pic_anhnen.BackgroundImage = global::QLBH.Properties.Resources.nhanvien;
             this.pic_anhnen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_anhnen.Location = new System.Drawing.Point(9, 51);
+            this.pic_anhnen.Image = global::QLBH.Properties.Resources.user__1_;
+            this.pic_anhnen.Location = new System.Drawing.Point(2, 51);
             this.pic_anhnen.Margin = new System.Windows.Forms.Padding(2);
             this.pic_anhnen.Name = "pic_anhnen";
             this.pic_anhnen.Size = new System.Drawing.Size(51, 51);
+            this.pic_anhnen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_anhnen.TabIndex = 47;
             this.pic_anhnen.TabStop = false;
             this.pic_anhnen.Click += new System.EventHandler(this.pictureBox3_Click);
@@ -260,34 +266,34 @@
             // lb_quyen
             // 
             this.lb_quyen.AutoSize = true;
-            this.lb_quyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_quyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_quyen.ForeColor = System.Drawing.Color.White;
-            this.lb_quyen.Location = new System.Drawing.Point(66, 69);
+            this.lb_quyen.Location = new System.Drawing.Point(59, 69);
             this.lb_quyen.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_quyen.Name = "lb_quyen";
-            this.lb_quyen.Size = new System.Drawing.Size(32, 9);
+            this.lb_quyen.Size = new System.Drawing.Size(37, 12);
             this.lb_quyen.TabIndex = 46;
             this.lb_quyen.Text = "Quyền";
             // 
             // lb_name_nv
             // 
             this.lb_name_nv.AutoSize = true;
-            this.lb_name_nv.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_name_nv.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_name_nv.ForeColor = System.Drawing.Color.White;
-            this.lb_name_nv.Location = new System.Drawing.Point(65, 53);
+            this.lb_name_nv.Location = new System.Drawing.Point(58, 53);
             this.lb_name_nv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_name_nv.Name = "lb_name_nv";
-            this.lb_name_nv.Size = new System.Drawing.Size(68, 9);
+            this.lb_name_nv.Size = new System.Drawing.Size(78, 12);
             this.lb_name_nv.TabIndex = 46;
             this.lb_name_nv.Text = "Tên Nhân Viên";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(65, 84);
+            this.button1.Location = new System.Drawing.Point(58, 84);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 18);
+            this.button1.Size = new System.Drawing.Size(57, 18);
             this.button1.TabIndex = 1;
             this.button1.Text = "ĐĂNG XUẤT";
             this.button1.UseVisualStyleBackColor = true;
@@ -296,12 +302,13 @@
             // pictureBox_TK_menu
             // 
             this.pictureBox_TK_menu.BackColor = System.Drawing.Color.White;
-            this.pictureBox_TK_menu.BackgroundImage = global::QLBH.Properties.Resources.Thống_Kê_4_;
             this.pictureBox_TK_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_TK_menu.Image = global::QLBH.Properties.Resources.increasing;
             this.pictureBox_TK_menu.Location = new System.Drawing.Point(3, 366);
             this.pictureBox_TK_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_TK_menu.Name = "pictureBox_TK_menu";
             this.pictureBox_TK_menu.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox_TK_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_TK_menu.TabIndex = 43;
             this.pictureBox_TK_menu.TabStop = false;
             this.pictureBox_TK_menu.Click += new System.EventHandler(this.pictureBox_TK_menu_Click);
@@ -321,12 +328,13 @@
             // pictureBox_HD_menu
             // 
             this.pictureBox_HD_menu.BackColor = System.Drawing.Color.White;
-            this.pictureBox_HD_menu.BackgroundImage = global::QLBH.Properties.Resources.hóa_đơn_1_;
             this.pictureBox_HD_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_HD_menu.Image = global::QLBH.Properties.Resources.documentation;
             this.pictureBox_HD_menu.Location = new System.Drawing.Point(2, 318);
             this.pictureBox_HD_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_HD_menu.Name = "pictureBox_HD_menu";
             this.pictureBox_HD_menu.Size = new System.Drawing.Size(33, 29);
+            this.pictureBox_HD_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_HD_menu.TabIndex = 41;
             this.pictureBox_HD_menu.TabStop = false;
             this.pictureBox_HD_menu.Click += new System.EventHandler(this.pictureBox_HD_menu_Click);
@@ -339,19 +347,20 @@
             this.btn_HD.Name = "btn_HD";
             this.btn_HD.Size = new System.Drawing.Size(167, 37);
             this.btn_HD.TabIndex = 6;
-            this.btn_HD.Text = "GIAO DỊCH";
+            this.btn_HD.Text = "CHỨNG TỪ";
             this.btn_HD.UseVisualStyleBackColor = true;
             this.btn_HD.Click += new System.EventHandler(this.btn_HD_Click);
             // 
             // pictureBox_NHANVIEN_menu
             // 
             this.pictureBox_NHANVIEN_menu.BackColor = System.Drawing.Color.White;
-            this.pictureBox_NHANVIEN_menu.BackgroundImage = global::QLBH.Properties.Resources.nhân_viên;
             this.pictureBox_NHANVIEN_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_NHANVIEN_menu.Location = new System.Drawing.Point(3, 465);
+            this.pictureBox_NHANVIEN_menu.Image = global::QLBH.Properties.Resources.teamwork1;
+            this.pictureBox_NHANVIEN_menu.Location = new System.Drawing.Point(3, 464);
             this.pictureBox_NHANVIEN_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_NHANVIEN_menu.Name = "pictureBox_NHANVIEN_menu";
             this.pictureBox_NHANVIEN_menu.Size = new System.Drawing.Size(35, 31);
+            this.pictureBox_NHANVIEN_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_NHANVIEN_menu.TabIndex = 39;
             this.pictureBox_NHANVIEN_menu.TabStop = false;
             this.pictureBox_NHANVIEN_menu.Click += new System.EventHandler(this.pictureBox_NHANVIEN_menu_Click);
@@ -359,12 +368,13 @@
             // pictureBox_DMSP_Menu
             // 
             this.pictureBox_DMSP_Menu.BackColor = System.Drawing.Color.White;
-            this.pictureBox_DMSP_Menu.BackgroundImage = global::QLBH.Properties.Resources.SP;
             this.pictureBox_DMSP_Menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_DMSP_Menu.Image = global::QLBH.Properties.Resources.options;
             this.pictureBox_DMSP_Menu.Location = new System.Drawing.Point(2, 270);
             this.pictureBox_DMSP_Menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_DMSP_Menu.Name = "pictureBox_DMSP_Menu";
             this.pictureBox_DMSP_Menu.Size = new System.Drawing.Size(35, 26);
+            this.pictureBox_DMSP_Menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_DMSP_Menu.TabIndex = 38;
             this.pictureBox_DMSP_Menu.TabStop = false;
             this.pictureBox_DMSP_Menu.Click += new System.EventHandler(this.pictureBox_DMSP_Menu_Click);
@@ -396,12 +406,13 @@
             // pictureBox_BHANG_menu
             // 
             this.pictureBox_BHANG_menu.BackColor = System.Drawing.Color.White;
-            this.pictureBox_BHANG_menu.BackgroundImage = global::QLBH.Properties.Resources.bán_hàng;
             this.pictureBox_BHANG_menu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_BHANG_menu.Image = global::QLBH.Properties.Resources.shopping_bag;
             this.pictureBox_BHANG_menu.Location = new System.Drawing.Point(1, 220);
             this.pictureBox_BHANG_menu.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox_BHANG_menu.Name = "pictureBox_BHANG_menu";
             this.pictureBox_BHANG_menu.Size = new System.Drawing.Size(35, 30);
+            this.pictureBox_BHANG_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_BHANG_menu.TabIndex = 35;
             this.pictureBox_BHANG_menu.TabStop = false;
             this.pictureBox_BHANG_menu.Click += new System.EventHandler(this.pictureBox_BHANG_menu_Click);
@@ -420,8 +431,8 @@
             // 
             // btn_Font
             // 
-            this.btn_Font.BackgroundImage = global::QLBH.Properties.Resources.màu1;
-            this.btn_Font.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Font.BackgroundImage = global::QLBH.Properties.Resources.icons8_menu_24;
+            this.btn_Font.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_Font.Location = new System.Drawing.Point(2, 2);
             this.btn_Font.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Font.Name = "btn_Font";
@@ -432,7 +443,7 @@
             // 
             // btn_fontLon
             // 
-            this.btn_fontLon.BackgroundImage = global::QLBH.Properties.Resources.màu1;
+            this.btn_fontLon.BackgroundImage = global::QLBH.Properties.Resources.icons8_menu_24;
             this.btn_fontLon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_fontLon.Location = new System.Drawing.Point(1, 1);
             this.btn_fontLon.Margin = new System.Windows.Forms.Padding(2);
@@ -460,6 +471,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_home.BackColor = System.Drawing.Color.Transparent;
+            this.panel_home.Controls.Add(this.btnPhongTo);
             this.panel_home.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel_home.Location = new System.Drawing.Point(169, 32);
             this.panel_home.Margin = new System.Windows.Forms.Padding(2);
@@ -468,31 +480,44 @@
             this.panel_home.TabIndex = 2;
             this.panel_home.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panel_home_ControlRemoved);
             // 
+            // btnPhongTo
+            // 
+            this.btnPhongTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPhongTo.BackgroundImage = global::QLBH.Properties.Resources.icons8_full_screen_50;
+            this.btnPhongTo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPhongTo.Location = new System.Drawing.Point(683, -27);
+            this.btnPhongTo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPhongTo.Name = "btnPhongTo";
+            this.btnPhongTo.Size = new System.Drawing.Size(34, 28);
+            this.btnPhongTo.TabIndex = 11;
+            this.btnPhongTo.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MintCream;
             this.label1.Location = new System.Drawing.Point(349, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(229, 25);
+            this.label1.Size = new System.Drawing.Size(222, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "QUẢN LÝ BÁN HÀNG";
+            this.label1.Visible = false;
             // 
             // panel_TD
             // 
             this.panel_TD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_TD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.panel_TD.Controls.Add(this.btnPhongTo1);
             this.panel_TD.Controls.Add(this.btn_hethong);
-            this.panel_TD.Controls.Add(this.btnPhongTo);
             this.panel_TD.Controls.Add(this.lb_tenfrm);
             this.panel_TD.Controls.Add(this.btnAn);
-            this.panel_TD.Controls.Add(this.btnThuNho);
             this.panel_TD.Controls.Add(this.label1);
             this.panel_TD.Controls.Add(this.btnThoat);
+            this.panel_TD.Controls.Add(this.btnThuNho);
             this.panel_TD.Location = new System.Drawing.Point(41, 0);
             this.panel_TD.Margin = new System.Windows.Forms.Padding(2);
             this.panel_TD.Name = "panel_TD";
@@ -503,28 +528,28 @@
             this.panel_TD.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_TD_MouseMove_1);
             this.panel_TD.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel_TD_MouseUp_1);
             // 
+            // btnPhongTo1
+            // 
+            this.btnPhongTo1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPhongTo1.BackgroundImage = global::QLBH.Properties.Resources.maximumicon;
+            this.btnPhongTo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPhongTo1.Location = new System.Drawing.Point(811, 2);
+            this.btnPhongTo1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPhongTo1.Name = "btnPhongTo1";
+            this.btnPhongTo1.Size = new System.Drawing.Size(34, 28);
+            this.btnPhongTo1.TabIndex = 15;
+            this.btnPhongTo1.UseVisualStyleBackColor = true;
+            this.btnPhongTo1.Click += new System.EventHandler(this.btnPhongTo1_Click);
+            // 
             // btn_hethong
             // 
             this.btn_hethong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_hethong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_hethong.ImageOptions.Image")));
-            this.btn_hethong.Location = new System.Drawing.Point(734, -1);
+            this.btn_hethong.Location = new System.Drawing.Point(737, 0);
             this.btn_hethong.Name = "btn_hethong";
-            this.btn_hethong.Size = new System.Drawing.Size(38, 33);
+            this.btn_hethong.Size = new System.Drawing.Size(37, 33);
             this.btn_hethong.TabIndex = 14;
             this.btn_hethong.Click += new System.EventHandler(this.btn_hethong_Click);
-            // 
-            // btnPhongTo
-            // 
-            this.btnPhongTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPhongTo.BackgroundImage = global::QLBH.Properties.Resources.thunho;
-            this.btnPhongTo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPhongTo.Location = new System.Drawing.Point(811, 1);
-            this.btnPhongTo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPhongTo.Name = "btnPhongTo";
-            this.btnPhongTo.Size = new System.Drawing.Size(34, 28);
-            this.btnPhongTo.TabIndex = 11;
-            this.btnPhongTo.UseVisualStyleBackColor = true;
-            this.btnPhongTo.Click += new System.EventHandler(this.btnPhongTo_Click_1);
             // 
             // lb_tenfrm
             // 
@@ -540,9 +565,9 @@
             // btnAn
             // 
             this.btnAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAn.BackgroundImage = global::QLBH.Properties.Resources.ẩn;
+            this.btnAn.BackgroundImage = global::QLBH.Properties.Resources.icons8_minimize_50;
             this.btnAn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAn.Location = new System.Drawing.Point(776, 1);
+            this.btnAn.Location = new System.Drawing.Point(776, 2);
             this.btnAn.Margin = new System.Windows.Forms.Padding(2);
             this.btnAn.Name = "btnAn";
             this.btnAn.Size = new System.Drawing.Size(34, 28);
@@ -550,32 +575,32 @@
             this.btnAn.UseVisualStyleBackColor = true;
             this.btnAn.Click += new System.EventHandler(this.btnAn_Click_1);
             // 
-            // btnThuNho
-            // 
-            this.btnThuNho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThuNho.BackgroundImage = global::QLBH.Properties.Resources.phóng_to;
-            this.btnThuNho.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnThuNho.Location = new System.Drawing.Point(811, 0);
-            this.btnThuNho.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThuNho.Name = "btnThuNho";
-            this.btnThuNho.Size = new System.Drawing.Size(34, 28);
-            this.btnThuNho.TabIndex = 3;
-            this.btnThuNho.UseVisualStyleBackColor = true;
-            this.btnThuNho.Click += new System.EventHandler(this.btnThuNho_Click_1);
-            // 
             // btnThoat
             // 
             this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThoat.BackColor = System.Drawing.Color.Red;
             this.btnThoat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnThoat.BackgroundImage")));
             this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnThoat.Location = new System.Drawing.Point(846, 0);
+            this.btnThoat.Location = new System.Drawing.Point(845, 2);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(34, 28);
             this.btnThoat.TabIndex = 13;
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click_1);
+            // 
+            // btnThuNho
+            // 
+            this.btnThuNho.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThuNho.BackgroundImage = global::QLBH.Properties.Resources.minimize_icon;
+            this.btnThuNho.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnThuNho.Location = new System.Drawing.Point(811, 2);
+            this.btnThuNho.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThuNho.Name = "btnThuNho";
+            this.btnThuNho.Size = new System.Drawing.Size(34, 28);
+            this.btnThuNho.TabIndex = 3;
+            this.btnThuNho.UseVisualStyleBackColor = true;
+            this.btnThuNho.Click += new System.EventHandler(this.btnThuNho_Click_1);
             // 
             // xtraTabPage1
             // 
@@ -600,6 +625,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmChuongTrinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "QUẢN LÝ BÁN HÀNG";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmChuongTrinh_Load);
             this.panel_menu.ResumeLayout(false);
@@ -615,6 +641,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_NHANVIEN_menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_DMSP_Menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_BHANG_menu)).EndInit();
+            this.panel_home.ResumeLayout(false);
             this.panel_TD.ResumeLayout(false);
             this.panel_TD.PerformLayout();
             this.ResumeLayout(false);
@@ -660,5 +687,6 @@
         private System.Windows.Forms.Button btn_giadichjquyenhaphang;
         private System.Windows.Forms.PictureBox pictureBox_giaodichquyennhaphang;
         private DevExpress.XtraEditors.SimpleButton btn_hethong;
+        private System.Windows.Forms.Button btnPhongTo1;
     }
 }

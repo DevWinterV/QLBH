@@ -15,11 +15,11 @@ namespace QLBH_DAL
         KetNoi db = new KetNoi();
         public void Add(SanPham sp)
         {
-            db.ExecuteNonQuery("insert into sanphamDGD values('" + sp.Maloai + "','SP' + cast (next value for  MASP_TU_TANG as varchar(7)) ,N'" + sp.Tensp + "','" + sp.Dongia1 + "', 0 ,'"+sp.Mancc.ToUpper().Trim()+"','"+sp.Tinhtrang+"','"+sp.NgayUpdate1+"','"+sp.DongiaNhap+"','"+sp.Stringdonvitinh+"')");
+            db.ExecuteNonQuery("insert into sanphamDGD values('" + sp.Maloai + "','SP' + cast (next value for  MASP_TU_TANG as varchar(7)) ,N'" + sp.Tensp + "','" + sp.Dongia1 + "', 0 ,'"+sp.Tinhtrang+"','"+sp.NgayUpdate1+"','"+sp.DongiaNhap+"','"+sp.Stringdonvitinh+"','"+sp.Hsd+"')");
         }
         public void Update(SanPham sp)
         {
-            db.ExecuteNonQuery("update sanphamDGD set madvt = '"+sp.Stringdonvitinh+"' ,maloai = '" + sp.Maloai + "',masp ='" + sp.Masp.Trim().ToUpper() + "',tensp = N'" + sp.Tensp + "',dongia ='" + sp.Dongia1 + "',Sluong = "+sp.SLuong+", mancc ='"+sp.Mancc.ToUpper().Trim()+"' , tinhtrang= N'"+sp.Tinhtrang+ "', DONGIANHAP= N'"+sp.DongiaNhap+"', NGAY_UPDATE= N'"+sp.NgayUpdate1+"' where masp = '" + sp.Masp + "'");
+            db.ExecuteNonQuery("update sanphamDGD set madvt = '"+sp.Stringdonvitinh+"' ,maloai = '" + sp.Maloai + "',masp ='" + sp.Masp.Trim().ToUpper() + "',tensp = N'" + sp.Tensp + "',dongia ='" + sp.Dongia1 + "',Sluong = "+sp.SLuong+", tinhtrang= N'"+sp.Tinhtrang+ "', DONGIANHAP= N'"+sp.DongiaNhap+"', NGAY_UPDATE= N'"+sp.NgayUpdate1+"', hsd='"+sp.Hsd+"' where masp = '" + sp.Masp + "'");
         }
         public void Update_SauKhiMua(SanPham sp)
         {
@@ -44,11 +44,11 @@ namespace QLBH_DAL
         }
         public DataTable LoadDuLieu()
         {
-            return db.GetDataTable("select loai.tenloai, nc.tenncc, sp.masp, sp.tensp, DV.TENDVT, sp.dongia,sp.dongianhap, sp.sluong, sp.tinhtrang ,sp.ngay_update from DVT DV,ncc nc, sanphamDGD sp , loaispdgd loai where sp.maloai = loai.maloai and sp.mancc = nc.mancc AND DV.MADVT = SP.MADVT");
+            return db.GetDataTable("select loai.tenloai, sp.hsd, sp.masp, sp.tensp, DV.TENDVT, sp.dongia,sp.dongianhap, sp.sluong, sp.tinhtrang ,sp.ngay_update from DVT DV, sanphamDGD sp , loaispdgd loai where sp.maloai = loai.maloai AND DV.MADVT = SP.MADVT");
         }
         public DataTable LoadDuLieu_DieuKien(string DieuKien)
         {
-            return db.GetDataTable("select loai.tenloai, nc.tenncc, sp.masp, sp.tensp, dv.tendvt, sp.dongia, sp.dongianhap,sp.sluong, sp.tinhtrang,sp.ngay_update from dvt dv, ncc nc, sanphamDGD sp , loaispdgd loai where sp.maloai = loai.maloai and sp.mancc = nc.mancc AND DV.MADVT = SP.MADVT and " + DieuKien);
+            return db.GetDataTable("select loai.tenloai, sp.hsd, sp.masp, sp.tensp, dv.tendvt, sp.dongia, sp.dongianhap,sp.sluong, sp.tinhtrang,sp.ngay_update from dvt dv, ncc nc, sanphamDGD sp , loaispdgd loai where sp.maloai = loai.maloai AND DV.MADVT = SP.MADVT and " + DieuKien);
         }
         public DataTable LoadDuLieu_CTHD(string query)
         {
@@ -60,11 +60,11 @@ namespace QLBH_DAL
         }
         public DataTable GetData_SP_LSP()
         {
-            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT");
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.hsd, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT");
         }
         public DataTable GetData_SP_LSP(string id)
         {
-            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maloai ='"+id+"'");
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.hsd, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maloai ='" + id+"'");
         }
         public string GetDuLieu(string dieukien)
         {
@@ -73,11 +73,11 @@ namespace QLBH_DAL
 
         public DataTable GetData_SP_NCC(string id)
         {
-            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.mancc ='" + id + "'");
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.hsd, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.mancc ='" + id + "'");
         }
         public DataTable GetData_SP_DVT(string id)
         {
-            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN NCC ON SANPHAMDGD.mancc = NCC.mancc INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maDVT ='" + id + "'");
+            return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.hsd, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maDVT ='" + id + "'");
         }
     }
 }

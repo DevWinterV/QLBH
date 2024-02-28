@@ -37,6 +37,10 @@ namespace frm_BanHang
             txthoten.Enabled = t;
             txt_diachi.Enabled = t;
             txt_sdt.Enabled = t;
+            txt_latitude.Enabled = t;   
+            txt_longitude.Enabled = t;
+            txt_bietdanh.Enabled = t;
+            cbb_nhomkh.Enabled = t;
         }
         private void ClearText()
         {
@@ -44,11 +48,44 @@ namespace frm_BanHang
             txt_diachi.Text = "";
             txt_sdt.Text ="";
             txtMakh.Text = "";
+            txt_latitude.Text = "";
+            txt_longitude.Text = "";
+            txt_bietdanh.Text = "";
+            cbb_nhomkh.Text = "";
         }
         private void frm_KhachHang_Load(object sender, EventArgs e)
         {
             Load_DSKH();
             LoadSoKh();
+            Load_CbbNKH();
+
+        }
+        private void InitializeCustomAutoComplete()
+        {
+            cbb_nhomkh.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbb_nhomkh.AutoCompleteMode = AutoCompleteMode.None;
+            AutoCompleteStringCollection autoCompleteSource = new AutoCompleteStringCollection();
+
+            // Fetch data from database
+            var dataTable = kh.LoadDulieuNhomKh("select * from nhomkhachang");
+
+            // Populate the AutoCompleteStringCollection with data from the database
+            foreach (DataRow row in dataTable.Rows)
+            {
+                autoCompleteSource.Add(row["tenloai"].ToString());
+            }
+
+            // Set up autocomplete for the ComboBox
+            cbb_nhomkh.AutoCompleteCustomSource = autoCompleteSource;
+            cbb_nhomkh.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbb_nhomkh.AutoCompleteMode = AutoCompleteMode.None;
+            cbb_nhomkh.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+        public void Load_CbbNKH()
+        {
+            cbb_nhomkh.DataSource = kh.LoadDulieuNhomKh("select * from nhomkhachang");
+            cbb_nhomkh.DisplayMember = "ten_nhomkh";
+            cbb_nhomkh.ValueMember = "ma_nhomkh";
         }
         private void dgv_DSKH_Click(object sender, EventArgs e)
         {
@@ -61,6 +98,10 @@ namespace frm_BanHang
                     txthoten.Text = dr.Cells[1].Value.ToString();
                     txt_diachi.Text = dr.Cells[2].Value.ToString();
                     txt_sdt.Text = dr.Cells[3].Value.ToString();
+                    txt_latitude.Text = dr.Cells[4].Value.ToString();
+                    txt_longitude.Text = dr.Cells[5].Value.ToString();
+                    txt_bietdanh.Text = dr.Cells[7].Value.ToString();
+                    cbb_nhomkh.Text = dr.Cells[6].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -122,15 +163,17 @@ namespace frm_BanHang
         {
             if(txthoten.Text == "") { MessageBox.Show("Nhập họ tên", "Thông báo");txthoten.Focus();  return false; }
             if (txt_sdt.Text == "") { MessageBox.Show("Nhập số điện thoại", "Thông báo"); txt_sdt.Focus();  return false; }
-            if(txt_sdt.Text.Length >10 || txt_sdt.Text.Length < 10) { MessageBox.Show("Độ dài số điện thoại", "Thông báo"); txt_sdt.Focus(); return false; }
+            if (txt_sdt.Text.Length >10 || txt_sdt.Text.Length < 10) { MessageBox.Show("Độ dài số điện thoại", "Thông báo"); txt_sdt.Focus(); return false; }
             if(Check_NumberPhone() == 1) { MessageBox.Show("Số điện thoại đã tồn tại trên hệ thống. Vui lòng kiểm tra lại số điện thoại", "Thông báo"); txt_sdt.Focus(); return false; }
+            if (txt_sdt.Text == "") { MessageBox.Show("Nhập số điện thoại", "Thông báo"); txt_sdt.Focus(); return false; }
+            if (cbb_nhomkh.Text == "") { MessageBox.Show("Vui lòng chọn nhóm khách hàng", "Thông báo"); cbb_nhomkh.Focus(); return false; }
             return true;
         }
         private bool Check_Infor_CapNhat()
         {
             if (txthoten.Text == "") { MessageBox.Show("Nhập họ tên", "Thông báo"); txthoten.Focus(); return false; }
             if (txt_sdt.Text == "") { MessageBox.Show("Nhập số điện thoại", "Thông báo"); txt_sdt.Focus(); return false; }
-            if (txt_sdt.Text.Length > 10 || txt_sdt.Text.Length < 10) { MessageBox.Show("Độ dài số điện thoại", "Thông báo"); txt_sdt.Focus(); return false; }
+            if (txt_sdt.Text.Length > 11 || txt_sdt.Text.Length < 10) { MessageBox.Show("Độ dài số điện thoại phải là 10 đến 11", "Thông báo"); txt_sdt.Focus(); return false; }
             return true;
         }
             private void btnluu_Click_1(object sender, EventArgs e)
@@ -141,12 +184,22 @@ namespace frm_BanHang
                 {
                     if (Check_Infor())
                     {
-                        if (MessageBox.Show("Bạn có muốn lưu không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("Bạn có muốn lưu thông tin khách hàng không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             khachhang.MaKH = txtMakh.Text;
                             khachhang.Hoten = Replace_whitepace_FirstWord(txthoten.Text);
                             khachhang.Sodt = txt_sdt.Text;
                             khachhang.Dchi = Replace_whitepace_FirstWord(txt_diachi.Text);
+                            khachhang.Tenbietdanh = Replace_whitepace_FirstWord(txt_bietdanh.Text);
+                            if (txt_latitude.Text != "")
+                                khachhang.Latidue = float.Parse(txt_latitude.Text);
+                            else
+                                khachhang.Latidue = 0;
+                            if (txt_longitude.Text != "")
+                                khachhang.Longitude = float.Parse(txt_longitude.Text);
+                            else
+                                khachhang.Longitude = 0;
+                            khachhang.ManhomKh = int.Parse(cbb_nhomkh.SelectedValue.ToString());
                             kh.Add(khachhang);
                             Load_DSKH();
                             LoadSoKh();
@@ -160,12 +213,22 @@ namespace frm_BanHang
                 {
                     if ((string)dgv_DSKH.CurrentRow.Cells[3].Value == txt_sdt.Text)
                     {
-                        if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("Bạn có muốn cập nhật thông tin không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             khachhang.MaKH = txtMakh.Text;
                             khachhang.Hoten = txthoten.Text;
                             khachhang.Sodt = txt_sdt.Text;
                             khachhang.Dchi = txt_diachi.Text;
+                            khachhang.Tenbietdanh = Replace_whitepace_FirstWord(txt_bietdanh.Text);
+                            if (txt_latitude.Text != "")
+                                khachhang.Latidue = float.Parse(txt_latitude.Text);
+                            else
+                                khachhang.Latidue = 0;
+                            if (txt_longitude.Text != "")
+                                khachhang.Longitude = float.Parse(txt_longitude.Text);
+                            else
+                                khachhang.Longitude = 0;
+                            khachhang.ManhomKh = int.Parse(cbb_nhomkh.SelectedValue.ToString());
                             kh.Update(khachhang);
                             Load_DSKH();
                             LoadSoKh();
@@ -179,12 +242,22 @@ namespace frm_BanHang
                         {
                             if (Check_NumberPhone() == 0)
                             {
-                                if (MessageBox.Show("Bạn có muốn sửa không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                if (MessageBox.Show("Bạn có muốn cập nhật thông tin không ?", " Thông báo ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                 {
                                     khachhang.MaKH = txtMakh.Text;
                                     khachhang.Hoten = txthoten.Text;
                                     khachhang.Sodt = txt_sdt.Text;
                                     khachhang.Dchi = txt_diachi.Text;
+                                    khachhang.Tenbietdanh = Replace_whitepace_FirstWord(txt_bietdanh.Text);
+                                    if (txt_latitude.Text != "")
+                                        khachhang.Latidue = float.Parse(txt_latitude.Text);
+                                    else
+                                        khachhang.Latidue = null;
+                                    if (txt_longitude.Text != "")
+                                        khachhang.Longitude = float.Parse(txt_longitude.Text);
+                                    else
+                                        khachhang.Longitude = null;
+                                    khachhang.ManhomKh = int.Parse(cbb_nhomkh.SelectedValue.ToString());
                                     kh.Update(khachhang);
                                     Load_DSKH();
                                     LoadSoKh();
@@ -229,14 +302,14 @@ namespace frm_BanHang
 
             if (cbbChon.SelectedIndex == 1)
             {
-                dgv_DSKH.DataSource = kh.LoadDuLieu("where makh like '%" + txttimkiem.Text.Trim() + "%'");
+                dgv_DSKH.DataSource = kh.LoadDuLieu("and KHACHHANG.makh like '%" + txttimkiem.Text.Trim() + "%'");
             }
             else if (cbbChon.SelectedIndex == 0)
             {
-                dgv_DSKH.DataSource = kh.LoadDuLieu("where hoten like N'%"+ txttimkiem.Text.Trim() +"%'");
+                dgv_DSKH.DataSource = kh.LoadDuLieu("and KHACHHANG.hoten like N'%" + txttimkiem.Text.Trim() +"%'");
             }
             else
-                dgv_DSKH.DataSource = kh.LoadDuLieu("where sodt like '%" + txttimkiem.Text.Trim() + "%'");
+                dgv_DSKH.DataSource = kh.LoadDuLieu("and KHACHHANG.sodt like '%" + txttimkiem.Text.Trim() + "%'");
             if (txttimkiem.TextLength == 0)
             {
                 dgv_DSKH.DataSource = kh.LoadDuLieu("");

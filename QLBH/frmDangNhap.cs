@@ -212,10 +212,11 @@ namespace QLBH
 
         }
 
-        private void btnExit_Click_1(object sender, EventArgs e)
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
