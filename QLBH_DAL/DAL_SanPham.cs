@@ -66,6 +66,11 @@ namespace QLBH_DAL
         {
             return db.GetDataTable("SELECT SANPHAMDGD.masp, SANPHAMDGD.hsd, SANPHAMDGD.tensp, SANPHAMDGD.dongianhap, SANPHAMDGD.dongia, SANPHAMDGD.SLuong, SANPHAMDGD.tinhtrang, SANPHAMDGD.ngay_update, NCC.tenncc, DVT.tenDVT, LOAISPDGD.tenloai FROM  SANPHAMDGD INNER JOIN LOAISPDGD ON SANPHAMDGD.maloai = LOAISPDGD.maloai INNER JOIN DVT ON SANPHAMDGD.maDVT = DVT.maDVT WHERE SANPHAMDGD.maloai ='" + id+"'");
         }
+        
+        public int GetSoluongTonKho(string Id_sanpham)
+        {
+            return int.Parse(db.GetValue("SELECT sluong FROM SANPHAMDGD WHERE masp ='" + Id_sanpham+"'"));
+        }
         public string GetDuLieu(string dieukien)
         {
             return (string)db.GetValue(dieukien);

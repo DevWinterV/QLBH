@@ -262,6 +262,8 @@ namespace QLBH
                             for (int i = 0; i < dgv_Nhap.RowCount ; i++)
                             {
                                 {
+                                    int soluongton = sp.GetSoluongTonKho(dgv_Nhap.Rows[i].Cells[0].Value.ToString());
+                                    double DGN_Cu = double.Parse( sp.GetDulieu("select dongiaNHAP from sanphamDGD where masp = '" + dgv_Nhap.Rows[i].Cells[0].Value.ToString() + "'"));
                                     pnchitiet.SoPN = soPN;
                                     pnchitiet.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
                                     pnchitiet.Soluong = int.Parse(dgv_Nhap.Rows[i].Cells[2].Value.ToString());
@@ -270,8 +272,12 @@ namespace QLBH
                                     sanpham.SLuong = float.Parse(dgv_Nhap.Rows[i].Cells[2].Value.ToString());
                                     sanpham.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
                                     sp.Update_SaukhiNhapKho(sanpham);// Cập nhật lại số lượng sản phẩm sau khi nhập kho thành công
-                                    sanppham1.DongiaNhap = SqlMoney.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString());
-                                    sanppham1.Masp = dgv_Nhap.Rows[i].Cells[0].Value.ToString();
+
+                                    if (DGN_Cu == double.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString()))
+                                        sanppham1.DongiaNhap = SqlMoney.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString());
+                                    else
+                                        sanppham1.DongiaNhap = SqlMoney.Parse(TinhTrungBinhDonGiaNhap(soluongton, pnchitiet.Soluong, DGN_Cu, double.Parse(dgv_Nhap.Rows[i].Cells[3].Value.ToString())).ToString());
+                                    sanppham1.Masp = pnchitiet.Masp;
                                     sp.Update_DonGiaNhap(sanppham1);
                                     
 
@@ -281,7 +287,7 @@ namespace QLBH
                             groupBox1.Enabled = false;
                             dgv_Nhap.Rows.Clear();
                             Enabel_DSPHIEUNHAP();
-                            MessageBox.Show("Lưu phiếu nhập thành công! Bạn có thể xem lại phiếu nhập trong Danh mục phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Lưu phiếu nhập thành công! Bạn có thể xem lại phiếu nhập trong chứng từ, danh mục phiếu nhập kho hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -295,6 +301,13 @@ namespace QLBH
                 }
             }
         }
+
+        private double TinhTrungBinhDonGiaNhap(int soluongTon, int soLuongMoi, double giaCu, double giaMoi)
+        {
+            double trungBinhDonGiaNhap = ((soluongTon * giaCu) + (soLuongMoi * giaMoi)) / (soluongTon + soLuongMoi);
+            return Math.Round(trungBinhDonGiaNhap); // Làm tròn để bỏ phần thập phân
+        }
+
         private bool CheckThongTin()
         {
             if (cb_NCC.Text == "") { MessageBox.Show("Chọn nhà cung cấp!", "Thông báo"); cb_NCC.Focus(); return false; }

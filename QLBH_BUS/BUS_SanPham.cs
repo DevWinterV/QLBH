@@ -27,6 +27,10 @@ namespace QLBH_BUS
         {
             dal.Update_DongiaNhap(lh);
         }
+        public int GetSoluongTonKho(string Id_sanpham)
+        {
+            return dal.GetSoluongTonKho(Id_sanpham);
+        }
         public void Update_DonGiaBan(SanPham lh)
         {
             dal.Update_DongiaBan(lh);
